@@ -1,0 +1,8 @@
+-cp src
+-D analyzer-optimize
+-main Main
+-lib hxClipper
+-lib random
+-lib hxDelaunay
+-lib tink_core
+-js www/geom.js
