@@ -1,3 +1,4 @@
+package app;
 import postite.geom.CoolPoint;
 using tink.CoreApi;
 class Hit{
@@ -11,6 +12,7 @@ var el:js.html.Element;
 var inited:Bool=false;
  static var _inst:Hit;
 public static var instance(get,never):Hit;
+
  static function get_instance():Hit{
     if (_inst==null)_inst= new Hit();
     return _inst;

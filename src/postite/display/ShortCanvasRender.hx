@@ -1,3 +1,4 @@
+package postite.display;
 import js.html.CanvasRenderingContext2D;
 
 
@@ -39,7 +40,4 @@ public var dims:{width:Int,height:Int};
 	public var ctx:js.html.CanvasRenderingContext2D;
 }
 
-interface IRenderable {
-	public var enabled:Bool;
-	public function render(ctx:CanvasRender):Void;
-}
+

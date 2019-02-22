@@ -1,7 +1,9 @@
+package postite.dro;
 import js.html.CanvasRenderingContext2D;
 import postite.geom.CoolPoint;
 import hxClipper.Clipper;
 import postite.geom.Segment;
+import postite.dro.Box;
 import com.nodename.geom.*;
 class Dro{
 
@@ -11,13 +13,26 @@ class Dro{
   }
 
 
-  public static function droPoint(ctx:CanvasRenderingContext2D,_point:PressPoint,col:CoolColor=ocre,?opacity:Float=1.0){
-       
+
+   public static function droPoint(ctx:CanvasRenderingContext2D,_point:PressPoint,?col:Couleur,?opacity:Float=1.0){
+      
         ctx.beginPath();
         ctx.arc(_point.x,_point.y, _point.press/2, 0, 2 * Math.PI, true);
-        ctx.fillStyle = 'rgba($col, ${Std.string(opacity)})';
+		ctx.fillStyle=col.toHex();
+       
         ctx.fill();
 
+  }
+
+  public static function droBox(ctx:CanvasRenderingContext2D,?box:Box):Box{
+	   box= (box != null)? box : Box.create();  
+	  ctx.beginPath();
+		ctx.rect(box.x,box.y,box.width,box.height);
+		
+
+		ctx.fillStyle=box.color.toHex();
+        ctx.fill();
+		return box;
   }
 
   public static function drawPoly(ctx:js.html.CanvasRenderingContext2D,poly:Array<Point>,?col:String="#000"):Void
@@ -32,6 +47,23 @@ class Dro{
 			ctx.lineTo(p.x / scale, p.y / scale);
 		}
 		ctx.lineTo(p0.x / scale, p0.y / scale);	// close path
+        ctx.stroke();
+		ctx.lineWidth = 1;
+  		ctx.strokeStyle = '#000';
+	}
+
+	public static function drawPath(ctx:js.html.CanvasRenderingContext2D,poly:Array<Point>,?col:String="#000"):Void
+	{
+        var scale=1;
+		var p0 = poly[0];
+        ctx.strokeStyle=col;
+		
+		ctx.moveTo(p0.x / scale, p0.y / scale);
+		for (i in 1...poly.length) {
+			var p = poly[i];
+			ctx.lineTo(p.x / scale, p.y / scale);
+		}
+		//ctx.lineTo(p0.x / scale, p0.y / scale);	// close path
         ctx.stroke();
 		ctx.lineWidth = 1;
   		ctx.strokeStyle = '#000';

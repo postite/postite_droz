@@ -1,8 +1,10 @@
+package tests;
+
 import utest.Assert;
-import Coords.Coords;
+import postite.dro.Coords.Coords;
 import postite.geom.CoolPoint;
 import postite.geom.Geste;
-using TestResample;
+using tests.TestResample;
 class TestResample extends utest.Test{
     static var path:Points;
     static var p1:Point={x:100,y:200};

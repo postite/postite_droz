@@ -1,17 +1,17 @@
 
-
+package tests;
 
 import js.Browser.document as doc;
-import CanvasRender;
+import app.CanvasRender;
 import js.html.CanvasRenderingContext2D;
 
 import postite.geom.CoolPoint;
 import postite.geom.GeomFilters;
 import postite.geom.PolyGon;
 import postite.geom.Simplify;
-import CanvasRender;
-import postite.geom.Calc;
-using Dro;
+import app.CanvasRender;
+import postite.math.Matools;
+using postite.dro.Dro;
 import postite.geom.Segment;
 
 

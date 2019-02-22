@@ -1,8 +1,13 @@
 -cp src
 -D analyzer-optimize
--main Main
+-main app.App
+
 -lib hxClipper
 -lib random
+
+-debug
 -lib hxDelaunay
 -lib tink_core
 -js www/geom.js
+-D source-maps
+#-x app.App

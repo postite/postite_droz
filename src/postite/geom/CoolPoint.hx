@@ -40,9 +40,12 @@ abstract Point(_Point) from _Point to _Point{
 	public function new(?x:Float=0,?y:Float=0){
 		//if( x!=null && y!=null)
 		this= {x:x, y:y};
-		
-		
 	}
+
+	public inline function add( p : Point ):Point {
+		return new Point(this.x + p.x, this.y + p.y);
+	}
+	
 @:from
 	public static function fromAnonInt(a:{x:Int,y:Int}):Point {
 		return new Point(a.x*1.0, a.y*1.0);

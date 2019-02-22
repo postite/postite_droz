@@ -1,9 +1,10 @@
+package tests;
 import utest.Assert;
-import Coords.Coords;
+import postite.dro.Coords.Coords;
 import postite.geom.CoolPoint;
 import postite.geom.Geste;
 
-using TestGesteStatics;
+using tests.TestGesteStatics;
 using Lambda;
 
 class TestGesteStatics extends utest.Test {

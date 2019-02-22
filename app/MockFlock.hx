@@ -1,13 +1,18 @@
+package app;
+
+
 import postite.geom.CoolPoint;
 import postite.geom.GeomFilters;
 import postite.geom.PolyGon;
 import postite.geom.Simplify;
-import CanvasRender;
-import postite.geom.Calc;
+import postite.display.canvas.CanvasRender;
+import postite.math.Matools;
 import postite.geom.Geste;
-using Dro;
+using postite.dro.Dro;
+import postite.dro.Coords;
+import postite.dro.*;
 
-class MockFlock implements IRenderable {
+class MockFlock implements postite.display.canvas.CanvasDisplay.IRenderCan {
 	static var offseting:Bool = false;
 	static var bounding:Bool = false;
 
@@ -54,8 +59,8 @@ class MockFlock implements IRenderable {
 
 	public function update() {
 		coolPoints = coolPoints.map(cp -> {
-			x: cp.x + Calc.getRandomInt(-5, 5),
-			y: cp.y + Calc.getRandomInt(-5, 5),
+			x: cp.x + Matools.getRandomInt(-5, 5),
+			y: cp.y + Matools.getRandomInt(-5, 5),
 			press: cp.press
 		});
 
@@ -126,7 +131,7 @@ class MockFlock implements IRenderable {
 		var centro= Geste.Centroid(con);
 		_render.ctx.droPoint(centro);
 
-		_render.ctx.droPoint({x:400,y:200,press:10},brique);
+		_render.ctx.droPoint({x:400,y:200,press:10},Couleur.Rouge);
 
 		//update();
 	}

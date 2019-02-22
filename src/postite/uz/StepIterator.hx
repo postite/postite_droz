@@ -1,4 +1,4 @@
-package postite;
+package postite.uz;
 
 class StepIterator {
   var end:Int;

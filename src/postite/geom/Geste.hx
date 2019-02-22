@@ -211,7 +211,7 @@ public static function OptimalCosineDistance(v1:Array<Float>, v2:Array<Float>):F
 	var a:Float = 0.0;
 	var b:Float = 0.0;
     //trace(v1.length +"-"+v2.length);
-    for ( i in new postite.StepIterator(0,v1.length,2)){
+    for ( i in new postite.uz.StepIterator(0,v1.length,2)){
        // trace(i);
         try{
          //   trace("i+1="+v1[i+1]);

@@ -1,5 +1,8 @@
+package tests;
+
 import utest.Assert;
 import postite.geom.Geste;
+import postite.dro.Coords;
 import postite.geom.CoolPoint;
 class TestGeste extends utest.Test{
     var geste:Geste;
