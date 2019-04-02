@@ -16,6 +16,8 @@ package postite.dro;
     public var Jaune:Couleur=0xFFDE75;
     public var Ocre:Couleur=0xDFAF2C;
     public var Vert:Couleur=0x689D71;
+	public var Prusse:Couleur=0x004567;
+	public var Olive:Couleur=0x808000;
 
     public var Noir:Couleur=0x000000;
     public var Blanc:Couleur=0xFFFFFF;

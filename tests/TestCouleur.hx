@@ -1,12 +1,13 @@
 package tests;
 import utest.Assert;
 import postite.dro.Couleur;
-class TestCouleur{
+class TestCouleur extends utest.Test{
+    
         var pureRed:Couleur=0xFF0000;
         var pureGreen:Couleur=0x00FF00;
         var pureBlue:Couleur=0x0000FF;
         var pureYellow=0xFFFF00;
-    public function new(){}
+   
     public function testNoir(){
         Assert.equals(0xCC3300,Rouge);
         Assert.equals("#CC3300",Rouge.toHex());

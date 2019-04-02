@@ -384,8 +384,11 @@
 	/Users/ut/Documents/LAB/Geom/import.hx
 	/Users/ut/Documents/LAB/Geom/src/postite/uz/Debug.hx
 	/Users/ut/haxe/versions/4.0.0-rc.1/std/StringTools.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.0/haxelib/src/utest/TestData.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.0/haxelib/src/utest/Async.hx
 	/Users/ut/haxe/versions/4.0.0-rc.1/std/Math.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.0/haxelib/src/utest/Assert.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.0/haxelib/src/utest/Test.hx
 	/Users/ut/Documents/LAB/Geom/src/postite/dro/Couleur.hx
 /Users/ut/Documents/LAB/Geom/tests/TestGeste.hx:
 	/Users/ut/haxe/versions/4.0.0-rc.1/std/StdTypes.hx

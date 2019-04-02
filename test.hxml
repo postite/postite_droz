@@ -11,5 +11,6 @@
 #-lib hxDelaunay
 -lib tink_core
 #-js www/test.js
-#--interp
--x tests.TestAll
+-main tests.TestAll
+--interp
+#-x tests.TestAll

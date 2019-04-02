@@ -1,10 +1,8 @@
 -cp src
 -D analyzer-optimize
 -main app.App
-
 -lib hxClipper
--lib random
-
+#-lib random
 -debug
 -lib hxDelaunay
 -lib tink_core

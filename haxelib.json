@@ -1,0 +1,16 @@
+{
+    "name": "postite_droz",
+    "url" : "",
+    "license": "MIT",
+    "tags": ["drawing","geom","utils"],
+    "description": "",
+    "version": "0.0.1",
+    "classPath": "src/",
+    "releasenote": "init",
+    "contributors": ["postite"],
+    "dependencies": {
+        "hxDelaunay":"",
+        "tink_core":"",
+        "hxClipper":""
+    }
+}
