@@ -16,6 +16,7 @@ class TestAll {
    runner.addCase(new TestResample());
     runner.addCase(new TestGeste());
     runner.addCase(new TestCouleur());
+    runner.addCase(new TestDisplay());
     //runner.addCase(new TestCase2());
     Report.create(runner);
     runner.run();

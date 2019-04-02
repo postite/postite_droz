@@ -9,7 +9,7 @@ typedef IRenderCan = IRenderable<CanvasRender>;
 class CanvasDisplay {
 	var _can:CanvasElement;
 	var raf:(Float->Void)->Int;
-
+	var paused:Bool=false;
 	public var canvas(get, never):CanvasElement;
 
 	public function get_canvas():CanvasElement {
@@ -50,12 +50,15 @@ class CanvasDisplay {
 				// Get ready for next frame by setting then=now, but...
 				// Also, adjust for fpsInterval not being multiple of 16.67
 				then = Date.fromTime(now.getTime() - (elapsed % fpsInterval));
-
 				display.render();
 			}
 		}
-
+		if(!paused)
 		raf(animate);
+	}
+
+	public function togPause(){
+		paused=!paused;
 	}
 
 	// composition
