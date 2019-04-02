@@ -4523,6 +4523,7 @@ postite_display_Display.prototype = {
 var postite_display_IRender = function() { };
 postite_display_IRender.__name__ = true;
 var postite_display_canvas_CanvasDisplay = function() {
+	this.paused = false;
 	this.display = new postite_display_Display(new postite_display_canvas_CanvasRender(this.createCanvas()));
 };
 postite_display_canvas_CanvasDisplay.__name__ = true;
@@ -4556,7 +4557,13 @@ postite_display_canvas_CanvasDisplay.prototype = {
 				_gthis.display.render();
 			}
 		};
-		this.raf(animate);
+		if(!this.paused) {
+			this.raf(animate);
+		}
+	}
+	,togPause: function() {
+		console.log("src/postite/display/canvas/CanvasDisplay.hx:61:","paused=" + Std.string(this.paused));
+		this.paused = !this.paused;
 	}
 	,clearRenderables: function() {
 		this.display.clearRenderables();
@@ -4571,7 +4578,7 @@ postite_display_canvas_CanvasDisplay.prototype = {
 		this.display.render();
 	}
 	,createCanvas: function() {
-		console.log("src/postite/display/canvas/CanvasDisplay.hx:76:","create canvas");
+		console.log("src/postite/display/canvas/CanvasDisplay.hx:80:","create canvas");
 		this._can = window.document.createElement("canvas");
 		this._can.width = window.innerWidth;
 		this._can.height = window.innerHeight;

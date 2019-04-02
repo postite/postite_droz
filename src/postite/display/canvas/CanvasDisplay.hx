@@ -42,6 +42,7 @@ class CanvasDisplay {
 			if (stop) {
 				return;
 			}
+			if(!paused)
 			raf(animate);
 			now = Date.now();
 			elapsed = now.getTime() - then.getTime();
@@ -53,7 +54,7 @@ class CanvasDisplay {
 				display.render();
 			}
 		}
-		if(!paused)
+		
 		raf(animate);
 	}
 
