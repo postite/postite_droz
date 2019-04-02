@@ -9,8 +9,8 @@
     "releasenote": "init",
     "contributors": ["postite"],
     "dependencies": {
-        "hxDelaunay":"",
+        "hxDelaunay":"https://github.com/azrafe7/hxDelaunay.git",
         "tink_core":"",
-        "hxClipper":""
+        "hxClipper":"https://github.com/azrafe7/hxClipper"
     }
 }
