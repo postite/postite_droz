@@ -39,10 +39,9 @@ class CanvasDisplay {
 		var stop = false;
 
 		function animate(?timestamp:Float) {
-			if (stop) {
+			if (paused) {
 				return;
 			}
-			if(!paused)
 			raf(animate);
 			now = Date.now();
 			elapsed = now.getTime() - then.getTime();

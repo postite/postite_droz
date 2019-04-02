@@ -4543,10 +4543,9 @@ postite_display_canvas_CanvasDisplay.prototype = {
 		var startTime = then;
 		console.log("src/postite/display/canvas/CanvasDisplay.hx:35:",startTime);
 		this.raf = ($_=window,$bind($_,$_.requestAnimationFrame));
-		var stop = false;
 		var animate = null;
 		animate = function(timestamp) {
-			if(stop) {
+			if(_gthis.paused) {
 				return;
 			}
 			_gthis.raf(animate);
@@ -4557,9 +4556,7 @@ postite_display_canvas_CanvasDisplay.prototype = {
 				_gthis.display.render();
 			}
 		};
-		if(!this.paused) {
-			this.raf(animate);
-		}
+		this.raf(animate);
 	}
 	,togPause: function() {
 		console.log("src/postite/display/canvas/CanvasDisplay.hx:61:","paused=" + Std.string(this.paused));
