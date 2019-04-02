@@ -58,6 +58,7 @@ class CanvasDisplay {
 	}
 
 	public function togPause(){
+		trace( "paused="+paused);
 		paused=!paused;
 	}
 

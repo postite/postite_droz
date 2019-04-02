@@ -7,9 +7,7 @@ class TestDisplay extends utest.Test{
         Opp= new CanvasDisplay();
         display.addRenderable(new tests.IRenderMock());
 		display.enterframe(12);
-        
     }
-
     public function testigTested(){
         
     }
