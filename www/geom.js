@@ -223,7 +223,7 @@ app_MockFlock.prototype = {
 	,render: function(_render) {
 		if(app_MockFlock.offseting) {
 			var offset = postite_geom_GeomFilters.clipOff(this.hullPol,30);
-			postite_dro_Dro.droPaths(_render.ctx,offset,postite_dro__$Couleur_Couleur_$Impl_$.toHex(13382400));
+			postite_dro_Dro.droPaths(_render.ctx,offset,"#cc3300");
 		}
 		if(app_MockFlock.bounding) {
 			postite_dro_Dro.droRect(_render.ctx,this.rect);
@@ -4725,6 +4725,9 @@ postite_dro__$Couleur_Couleur_$Impl_$.mix = function(this1,color,strength) {
 	output = value3 << 24 | (output & 16711680) >>> 16 << 16 | (output & 65280) >>> 8 << 8 | output & 255;
 	return output;
 };
+postite_dro__$Couleur_Couleur_$Impl_$.add = function(this1,color) {
+	return this1 + color;
+};
 postite_dro__$Couleur_Couleur_$Impl_$.darken = function(this1,strength) {
 	return postite_dro__$Couleur_Couleur_$Impl_$.mix(this1,0,strength);
 };
@@ -5239,8 +5242,7 @@ postite_geom_Geste.prototype = {
 			}
 		}
 		var t1 = new Date();
-		var t = -t0.getTime();
-		var newdate = new Date(t1.getTime() + t);
+		var newdate = new Date(t1.getTime() + -t0.getTime());
 		if(u == -1) {
 			return new postite_geom_Result("No match.",0.0,newdate);
 		} else {
@@ -7678,6 +7680,7 @@ postite_dro__$Couleur_Couleur_$Impl_$.Ocre = 14659372;
 postite_dro__$Couleur_Couleur_$Impl_$.Vert = 6856049;
 postite_dro__$Couleur_Couleur_$Impl_$.Noir = 0;
 postite_dro__$Couleur_Couleur_$Impl_$.Blanc = 16777215;
+postite_dro__$Couleur_Couleur_$Impl_$.Gris = 8355711;
 postite_dro_Dro.fill = "#ooaaff";
 postite_geom_Geste.NumPoints = 64;
 postite_geom_Geste.SquareSize = 250.0;

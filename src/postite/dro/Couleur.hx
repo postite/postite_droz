@@ -19,6 +19,7 @@ package postite.dro;
 
     public var Noir:Couleur=0x000000;
     public var Blanc:Couleur=0xFFFFFF;
+    public var Gris:Couleur=0x7F7F7F;
 
     public static var allColors(get,never):Array<Couleur>;
 
@@ -117,6 +118,17 @@ package postite.dro;
 		output.blue = Math.floor((blue * (1 - strength)) + (color.blue * strength));
 		output.alpha = Math.floor((alpha * (1 - strength)) + (color.alpha * strength));
 		return output;
+	}
+
+    public function add(color:Couleur):Couleur
+	{
+        return this+color;
+		// var output:Couleur = new Couleur(0);
+		// output.red = Math.floor((red * (1 - strength)) + (color.red * strength));
+		// output.green = Math.floor((green * (1 - strength)) + (color.green * strength));
+		// output.blue = Math.floor((blue * (1 - strength)) + (color.blue * strength));
+		// output.alpha = Math.floor((alpha * (1 - strength)) + (color.alpha * strength));
+		// return output;
 	}
 
     public function darken(strength:Float):Couleur{

@@ -1,5 +1,29 @@
 /Users/ut/Documents/LAB/Geom/import.hx:
-/Users/ut/Documents/LAB/Geom/import.hx:
+/Users/ut/Documents/LAB/Geom/src/import.hx:
+/Users/ut/Documents/LAB/Geom/src/postite/dro/import.hx:
+/Users/ut/Documents/LAB/Geom/src/postite/geom/import.hx:
+/Users/ut/Documents/LAB/Geom/src/postite/import.hx:
+/Users/ut/Documents/LAB/Geom/src/postite/uz/import.hx:
+/Users/ut/Documents/LAB/Geom/tests/import.hx:
+/Users/ut/haxe/haxe_libraries/utest/1.9.0/haxelib/src/import.hx:
+/Users/ut/haxe/haxe_libraries/utest/1.9.0/haxelib/src/utest/import.hx:
+/Users/ut/haxe/haxe_libraries/utest/1.9.0/haxelib/src/utest/ui/common/import.hx:
+/Users/ut/haxe/haxe_libraries/utest/1.9.0/haxelib/src/utest/ui/import.hx:
+/Users/ut/haxe/haxe_libraries/utest/1.9.0/haxelib/src/utest/ui/text/import.hx:
+/Users/ut/haxe/haxe_libraries/utest/1.9.0/haxelib/src/utest/utils/import.hx:
+/Users/ut/haxe/versions/4.0.0-rc.1/std/eval/_std/haxe/import.hx:
+/Users/ut/haxe/versions/4.0.0-rc.1/std/eval/_std/haxe/io/import.hx:
+/Users/ut/haxe/versions/4.0.0-rc.1/std/eval/_std/import.hx:
+/Users/ut/haxe/versions/4.0.0-rc.1/std/eval/_std/sys/import.hx:
+/Users/ut/haxe/versions/4.0.0-rc.1/std/eval/_std/sys/io/import.hx:
+/Users/ut/haxe/versions/4.0.0-rc.1/std/haxe/ds/import.hx:
+/Users/ut/haxe/versions/4.0.0-rc.1/std/haxe/import.hx:
+/Users/ut/haxe/versions/4.0.0-rc.1/std/haxe/io/import.hx:
+/Users/ut/haxe/versions/4.0.0-rc.1/std/haxe/iterators/import.hx:
+/Users/ut/haxe/versions/4.0.0-rc.1/std/haxe/rtti/import.hx:
+/Users/ut/haxe/versions/4.0.0-rc.1/std/import.hx:
+/Users/ut/haxe/versions/4.0.0-rc.1/std/sys/import.hx:
+/Users/ut/haxe/versions/4.0.0-rc.1/std/sys/io/import.hx:
 /Users/ut/haxe/versions/4.0.0-rc.1/std/Array.hx:
 	/Users/ut/haxe/versions/4.0.0-rc.1/std/StdTypes.hx
 	/Users/ut/haxe/versions/4.0.0-rc.1/std/String.hx
@@ -91,6 +115,10 @@
 	/Users/ut/haxe/versions/4.0.0-rc.1/std/EnumValue.hx
 	/Users/ut/haxe/versions/4.0.0-rc.1/std/Class.hx
 	/Users/ut/haxe/versions/4.0.0-rc.1/std/Enum.hx
+/Users/ut/haxe/versions/4.0.0-rc.1/std/UInt.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.1/std/StdTypes.hx
+	/Users/ut/haxe/versions/4.0.0-rc.1/std/String.hx
+	/Users/ut/haxe/versions/4.0.0-rc.1/std/Std.hx
 /Users/ut/haxe/versions/4.0.0-rc.1/std/haxe/CallStack.hx:
 	/Users/ut/haxe/versions/4.0.0-rc.1/std/StdTypes.hx
 	/Users/ut/haxe/versions/4.0.0-rc.1/std/String.hx
@@ -279,6 +307,14 @@
 	/Users/ut/haxe/versions/4.0.0-rc.1/std/Array.hx
 	/Users/ut/haxe/versions/4.0.0-rc.1/std/Math.hx
 	/Users/ut/Documents/LAB/Geom/src/postite/geom/CoolPoint.hx
+/Users/ut/Documents/LAB/Geom/src/postite/dro/Couleur.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.1/std/StdTypes.hx
+	/Users/ut/haxe/versions/4.0.0-rc.1/std/String.hx
+	/Users/ut/haxe/versions/4.0.0-rc.1/std/Array.hx
+	/Users/ut/haxe/versions/4.0.0-rc.1/std/Std.hx
+	/Users/ut/haxe/versions/4.0.0-rc.1/std/StringTools.hx
+	/Users/ut/haxe/versions/4.0.0-rc.1/std/Math.hx
+	/Users/ut/haxe/versions/4.0.0-rc.1/std/UInt.hx
 /Users/ut/Documents/LAB/Geom/src/postite/geom/CoolPoint.hx:
 	/Users/ut/haxe/versions/4.0.0-rc.1/std/StdTypes.hx
 	/Users/ut/haxe/versions/4.0.0-rc.1/std/String.hx
@@ -332,15 +368,25 @@
 /Users/ut/Documents/LAB/Geom/tests/TestAll.hx:
 	/Users/ut/haxe/versions/4.0.0-rc.1/std/StdTypes.hx
 	/Users/ut/haxe/versions/4.0.0-rc.1/std/String.hx
+	/Users/ut/Documents/LAB/Geom/import.hx
 	/Users/ut/Documents/LAB/Geom/src/postite/uz/Debug.hx
 	/Users/ut/haxe/versions/4.0.0-rc.1/std/StringTools.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.0/haxelib/src/utest/Runner.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.0/haxelib/src/utest/ui/Report.hx
 	/Users/ut/haxe/versions/4.0.0-rc.1/std/haxe/Log.hx
 	/Users/ut/Documents/LAB/Geom/tests/TestGesteStatics.hx
-	/Users/ut/Documents/LAB/Geom/tests/TestGeste.hx
-	/Users/ut/Documents/LAB/Geom/import.hx
 	/Users/ut/Documents/LAB/Geom/tests/TestResample.hx
+	/Users/ut/Documents/LAB/Geom/tests/TestGeste.hx
+	/Users/ut/Documents/LAB/Geom/tests/TestCouleur.hx
+/Users/ut/Documents/LAB/Geom/tests/TestCouleur.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.1/std/StdTypes.hx
+	/Users/ut/haxe/versions/4.0.0-rc.1/std/String.hx
+	/Users/ut/Documents/LAB/Geom/import.hx
+	/Users/ut/Documents/LAB/Geom/src/postite/uz/Debug.hx
+	/Users/ut/haxe/versions/4.0.0-rc.1/std/StringTools.hx
+	/Users/ut/haxe/versions/4.0.0-rc.1/std/Math.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.0/haxelib/src/utest/Assert.hx
+	/Users/ut/Documents/LAB/Geom/src/postite/dro/Couleur.hx
 /Users/ut/Documents/LAB/Geom/tests/TestGeste.hx:
 	/Users/ut/haxe/versions/4.0.0-rc.1/std/StdTypes.hx
 	/Users/ut/haxe/versions/4.0.0-rc.1/std/String.hx
