@@ -8,8 +8,9 @@ typedef IRenderCan = IRenderable<CanvasRender>;
 
 class CanvasDisplay {
 	var _can:CanvasElement;
-	var raf:(Float->Void)->Int;
+	var raf:(Float->Void)->Void;
 	var paused:Bool=false;
+	public var onFrame:Int->Void;
 	public var canvas(get, never):CanvasElement;
 
 	public function get_canvas():CanvasElement {
@@ -33,7 +34,7 @@ class CanvasDisplay {
 		var now;
 		var startTime = then;
 		trace(startTime);
-
+	var frame:Int=0;
 		var frameCount = 0;
 		raf = js.Browser.window.requestAnimationFrame;
 		var stop = false;
@@ -42,7 +43,9 @@ class CanvasDisplay {
 			if (paused) {
 				return;
 			}
+			
 			raf(animate);
+
 			now = Date.now();
 			elapsed = now.getTime() - then.getTime();
 
@@ -50,17 +53,26 @@ class CanvasDisplay {
 				// Get ready for next frame by setting then=now, but...
 				// Also, adjust for fpsInterval not being multiple of 16.67
 				then = Date.fromTime(now.getTime() - (elapsed % fpsInterval));
+				onFrame(Std.int(++frame));
 				display.render();
 			}
 		}
-		
+		onFrame=function(f){
+			
+		}
 		raf(animate);
 	}
 
 	public function togPause(){
 		trace( "paused="+paused);
 		paused=!paused;
+		if( !paused )
+		raf(null);
+
+		
 	}
+
+
 
 	// composition
 	public function clearRenderables()
@@ -83,5 +95,9 @@ class CanvasDisplay {
 		_can.height = js.Browser.window.innerHeight;
 		doc.body.appendChild(_can);
 		return _can;
+	}
+	public function remove(){
+		_can.remove();
+		_can=null;
 	}
 }

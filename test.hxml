@@ -10,7 +10,7 @@
 -D dump-dependencies
 #-lib hxDelaunay
 -lib tink_core
-#-js www/test.js
+-js www/test.js
 -main tests.TestAll
---interp
+#--interp
 #-x tests.TestAll

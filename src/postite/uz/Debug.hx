@@ -49,7 +49,10 @@ abstract LogLevel(Int) from Int to Int
 }
 class Debug{
     public static function log<T>(msg:T,level:LogLevel = LogLevel.Info, ?pos:haxe.PosInfos):T{
-        
+        #if noDebug
+		 trace(msg);
+		 return msg;
+		#end
 
         #if neko
 			var p:haxe.PosInfos = {fileName: "", lineNumber: 0, customParams: null, methodName: "", className: ""};
