@@ -252,6 +252,28 @@ app_MockFlock.prototype = {
 		postite_dro_Dro.droPoint(_render.ctx,{ x : 400, y : 200, press : 10},13382400);
 	}
 };
+var app_OBB = function() {
+	this.enabled = true;
+};
+app_OBB.__name__ = true;
+app_OBB.prototype = {
+	drawBox: function() {
+	}
+	,render: function(can) {
+		postite_dro_Dro.drawPath(can.ctx,this.points);
+	}
+};
+var app_PocOBBApp = function() {
+	console.log("app/PocOBBApp.hx:20:","new Appli");
+	var disp = new postite_display_canvas_CanvasDisplay();
+	disp.enterframe(12);
+	var obb = new app_OBB();
+	disp.addRenderable(obb);
+};
+app_PocOBBApp.__name__ = true;
+app_PocOBBApp.main = function() {
+	new app_App();
+};
 var haxe_StackItem = $hxEnums["haxe.StackItem"] = { __ename__ : true, __constructs__ : ["CFunction","Module","FilePos","Method","LocalFunction"]
 	,CFunction: {_hx_index:0,__enum__:"haxe.StackItem",toString:$estr}
 	,Module: ($_=function(m) { return {_hx_index:1,m:m,__enum__:"haxe.StackItem",toString:$estr}; },$_.__params__ = ["m"],$_)
@@ -4526,12 +4548,14 @@ postite_display_canvas_CanvasDisplay.prototype = {
 	}
 	,enterframe: function(fps) {
 		var _gthis = this;
+		this.fps = fps;
 		var elapsed;
 		var fpsInterval = 1000 / fps;
 		var then = new Date();
 		var now;
 		var startTime = then;
-		console.log("src/postite/display/canvas/CanvasDisplay.hx:36:",startTime);
+		console.log("src/postite/display/canvas/CanvasDisplay.hx:38:",startTime);
+		var frame = 0;
 		this.raf = ($_=window,$bind($_,$_.requestAnimationFrame));
 		var animate = null;
 		animate = function(timestamp) {
@@ -4543,15 +4567,21 @@ postite_display_canvas_CanvasDisplay.prototype = {
 			elapsed = now.getTime() - then.getTime();
 			if(elapsed > fpsInterval) {
 				then = new Date(now.getTime() - elapsed % fpsInterval);
-				_gthis.onFrame(elapsed | 0);
+				var x = frame += 1;
+				_gthis.onFrame(x | 0);
 				_gthis.display.render();
 			}
+		};
+		this.onFrame = function(f) {
 		};
 		this.raf(animate);
 	}
 	,togPause: function() {
-		console.log("src/postite/display/canvas/CanvasDisplay.hx:64:","paused=" + Std.string(this.paused));
+		console.log("src/postite/display/canvas/CanvasDisplay.hx:69:","paused=" + Std.string(this.paused));
 		this.paused = !this.paused;
+		if(!this.paused) {
+			this.enterframe(this.fps);
+		}
 	}
 	,clearRenderables: function() {
 		this.display.clearRenderables();
@@ -4566,12 +4596,16 @@ postite_display_canvas_CanvasDisplay.prototype = {
 		this.display.render();
 	}
 	,createCanvas: function() {
-		console.log("src/postite/display/canvas/CanvasDisplay.hx:86:","create canvas");
+		console.log("src/postite/display/canvas/CanvasDisplay.hx:94:","create canvas");
 		this._can = window.document.createElement("canvas");
 		this._can.width = window.innerWidth;
 		this._can.height = window.innerHeight;
 		window.document.body.appendChild(this._can);
 		return this._can;
+	}
+	,remove: function() {
+		this._can.remove();
+		this._can = null;
 	}
 };
 var postite_display_canvas_CanvasRender = function(canvas) {
@@ -7806,7 +7840,7 @@ tink_core__$Promise_Promise_$Impl_$.NEVER = (function($this) {
 	$r = ret.gather();
 	return $r;
 }(this));
-app_App.main();
+app_PocOBBApp.main();
 })();
 
 //# sourceMappingURL=geom.js.map

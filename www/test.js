@@ -79,19 +79,28 @@ Lambda.__name__ = "Lambda";
 Lambda.array = function(it) {
 	var a = [];
 	var i = $getIterator(it);
-	while(i.hasNext()) a.push(i.next());
+	while(i.hasNext()) {
+		var i1 = i.next();
+		a.push(i1);
+	}
 	return a;
 };
 Lambda.has = function(it,elt) {
 	var x = $getIterator(it);
-	while(x.hasNext()) if(x.next() == elt) {
-		return true;
+	while(x.hasNext()) {
+		var x1 = x.next();
+		if(x1 == elt) {
+			return true;
+		}
 	}
 	return false;
 };
 Lambda.fold = function(it,f,first) {
 	var x = $getIterator(it);
-	while(x.hasNext()) first = f(x.next(),first);
+	while(x.hasNext()) {
+		var x1 = x.next();
+		first = f(x1,first);
+	}
 	return first;
 };
 Math.__name__ = "Math";
@@ -401,6 +410,351 @@ _$UInt_UInt_$Impl_$.toFloat = function(this1) {
 		return this1 + 0.0;
 	}
 };
+var geom__$Vector2d_Vector2d_$Impl_$ = {};
+geom__$Vector2d_Vector2d_$Impl_$.__name__ = "geom._Vector2d.Vector2d_Impl_";
+geom__$Vector2d_Vector2d_$Impl_$.__properties__ = {set_magnitude:"set_magnitude",get_magnitude:"get_magnitude",set_length:"set_length",get_length:"get_length",get_self:"get_self"};
+geom__$Vector2d_Vector2d_$Impl_$._new = function(x,y) {
+	if(y == null) {
+		y = 0.0;
+	}
+	if(x == null) {
+		x = 0.0;
+	}
+	var this1 = { x : x, y : y};
+	return this1;
+};
+geom__$Vector2d_Vector2d_$Impl_$.get_self = function(this1) {
+	return this1;
+};
+geom__$Vector2d_Vector2d_$Impl_$.set = function(this1,x,y) {
+	this1.x = x;
+	this1.y = y == null ? x : y;
+	return this1;
+};
+geom__$Vector2d_Vector2d_$Impl_$.clone = function(this1) {
+	var this2 = { x : this1.x, y : this1.y};
+	return this2;
+};
+geom__$Vector2d_Vector2d_$Impl_$.copy = function(this1,target) {
+	this1.x = target.x;
+	this1.y = target.y;
+	return this1;
+};
+geom__$Vector2d_Vector2d_$Impl_$.round = function(this1) {
+	this1.x = Math.round(this1.x);
+	this1.y = Math.round(this1.y);
+	return this1;
+};
+geom__$Vector2d_Vector2d_$Impl_$.floor = function(this1) {
+	this1.x = Math.floor(this1.x);
+	this1.y = Math.floor(this1.y);
+	return this1;
+};
+geom__$Vector2d_Vector2d_$Impl_$.ceil = function(this1) {
+	this1.x = Math.ceil(this1.x);
+	this1.y = Math.ceil(this1.y);
+	return this1;
+};
+geom__$Vector2d_Vector2d_$Impl_$.abs = function(this1) {
+	this1.x = Math.abs(this1.x);
+	this1.y = Math.abs(this1.y);
+	return this1;
+};
+geom__$Vector2d_Vector2d_$Impl_$.get_length = function(this1) {
+	return this1.x * this1.x + this1.y * this1.y;
+};
+geom__$Vector2d_Vector2d_$Impl_$.set_length = function(this1,value) {
+	var length = this1.x * this1.x + this1.y * this1.y;
+	if(length == 0) {
+		return 0;
+	}
+	var l = value / length;
+	this1.x *= l;
+	this1.y *= l;
+	return value;
+};
+geom__$Vector2d_Vector2d_$Impl_$.inRange = function(this1,vector,range) {
+	var x = this1.x;
+	var y = this1.y;
+	var this_x = x;
+	var this_y = y;
+	this_x = x - vector.x;
+	this_y = y - vector.y;
+	return this_x * this_x + this_y * this_y < range * range;
+};
+geom__$Vector2d_Vector2d_$Impl_$.distanceTo = function(this1,vector) {
+	var x = this1.x;
+	var y = this1.y;
+	var this_x = x;
+	var this_y = y;
+	this_x = x - vector.x;
+	this_y = y - vector.y;
+	return Math.sqrt(this_x * this_x + this_y * this_y);
+};
+geom__$Vector2d_Vector2d_$Impl_$.distanceOf = function(a,b) {
+	return geom__$Vector2d_Vector2d_$Impl_$.distanceTo(a,b);
+};
+geom__$Vector2d_Vector2d_$Impl_$.dot = function(this1,vector) {
+	var x = this1.x;
+	var y = this1.y;
+	var component_x = x;
+	var component_y = y;
+	component_x = x * vector.x;
+	component_y = y * vector.y;
+	return component_x + component_y;
+};
+geom__$Vector2d_Vector2d_$Impl_$.vector = function(this1,vector) {
+	return this1.x * vector.y - this1.y * vector.x;
+};
+geom__$Vector2d_Vector2d_$Impl_$.normalize = function(this1) {
+	var value = Math.sqrt(this1.x * this1.x + this1.y * this1.y);
+	var this2 = { x : this1.x, y : this1.y};
+	this2.x /= value;
+	this2.y /= value;
+	return this2;
+};
+geom__$Vector2d_Vector2d_$Impl_$.projection = function(this1,to) {
+	var this2 = to;
+	var value = Math.sqrt(to.x * to.x + to.y * to.y);
+	var x = this2.x;
+	var y = this2.y;
+	var vector_x = x;
+	var vector_y = y;
+	vector_x = x / value;
+	vector_y = y / value;
+	var x1 = this1.x;
+	var y1 = this1.y;
+	var component_x = x1;
+	var component_y = y1;
+	component_x = x1 * vector_x;
+	component_y = y1 * vector_y;
+	return component_x + component_y;
+};
+geom__$Vector2d_Vector2d_$Impl_$.angle = function(this1) {
+	return Math.atan2(this1.y,this1.x);
+};
+geom__$Vector2d_Vector2d_$Impl_$.angleTo = function(this1,to) {
+	var value = Math.sqrt(this1.x * this1.x + this1.y * this1.y);
+	var x = this1.x;
+	var y = this1.y;
+	var this_x = x;
+	var this_y = y;
+	this_x = x / value;
+	this_y = y / value;
+	var this2 = to;
+	var value1 = Math.sqrt(to.x * to.x + to.y * to.y);
+	var x1 = this2.x;
+	var y1 = this2.y;
+	var norm2_x = x1;
+	var norm2_y = y1;
+	norm2_x = x1 / value1;
+	norm2_y = y1 / value1;
+	var x2 = this_x;
+	var y2 = this_y;
+	var component_x = x2;
+	var component_y = y2;
+	component_x = x2 * norm2_x;
+	component_y = y2 * norm2_y;
+	var product = component_x + component_y;
+	product = Math.min(1,product);
+	var angle = Math.acos(product);
+	if(this1.x * to.y - this1.y * to.x < 0) {
+		angle *= -1;
+	}
+	return angle;
+};
+geom__$Vector2d_Vector2d_$Impl_$.rotateAroundAngle = function(this1,angle) {
+	var x = this1.x;
+	var y = this1.y;
+	this1.x = x * Math.cos(angle) - y * Math.sin(angle);
+	this1.y = y * Math.cos(angle) + x * Math.sin(angle);
+	return this1;
+};
+geom__$Vector2d_Vector2d_$Impl_$.moveTo = function(this1,angle,distance) {
+	this1.x += Math.cos(angle) * distance;
+	this1.y += Math.sin(angle) * distance;
+	return this1;
+};
+geom__$Vector2d_Vector2d_$Impl_$.minOf = function(a,b) {
+	var this1 = { x : a.x, y : a.y};
+	return geom__$Vector2d_Vector2d_$Impl_$.min(this1,b);
+};
+geom__$Vector2d_Vector2d_$Impl_$.maxOf = function(a,b) {
+	var this1 = { x : a.x, y : a.y};
+	return geom__$Vector2d_Vector2d_$Impl_$.max(this1,b);
+};
+geom__$Vector2d_Vector2d_$Impl_$.min = function(this1,v) {
+	this1.x = Math.min(this1.x,v.x);
+	this1.y = Math.min(this1.y,v.y);
+	return this1;
+};
+geom__$Vector2d_Vector2d_$Impl_$.max = function(this1,v) {
+	this1.x = Math.max(this1.x,v.x);
+	this1.y = Math.max(this1.y,v.y);
+	return this1;
+};
+geom__$Vector2d_Vector2d_$Impl_$.polar = function(this1,magnitude,angle) {
+	this1.x = magnitude * Math.cos(angle);
+	this1.y = magnitude * Math.sin(angle);
+};
+geom__$Vector2d_Vector2d_$Impl_$.get_magnitude = function(this1) {
+	return Math.sqrt(this1.x * this1.x + this1.y * this1.y);
+};
+geom__$Vector2d_Vector2d_$Impl_$.set_magnitude = function(this1,magnitude) {
+	var angle = geom__$Vector2d_Vector2d_$Impl_$.angle(this1);
+	this1.x = magnitude * Math.cos(angle);
+	this1.y = magnitude * Math.sin(angle);
+	return magnitude;
+};
+geom__$Vector2d_Vector2d_$Impl_$.invertX = function(this1) {
+	this1.x *= -1;
+};
+geom__$Vector2d_Vector2d_$Impl_$.invertY = function(this1) {
+	this1.y *= -1;
+};
+geom__$Vector2d_Vector2d_$Impl_$.invertAssign = function(this1) {
+	this1.x *= -1;
+	this1.y *= -1;
+	return this1;
+};
+geom__$Vector2d_Vector2d_$Impl_$.invert = function(this1) {
+	var this2 = { x : this1.x, y : this1.y};
+	this2.x *= -1;
+	this2.y *= -1;
+	return this2;
+};
+geom__$Vector2d_Vector2d_$Impl_$.addAssign = function(this1,by) {
+	this1.x += by.x;
+	this1.y += by.y;
+	return this1;
+};
+geom__$Vector2d_Vector2d_$Impl_$.substractAssign = function(this1,by) {
+	this1.x -= by.x;
+	this1.y -= by.y;
+	return this1;
+};
+geom__$Vector2d_Vector2d_$Impl_$.multiplyAssign = function(this1,by) {
+	this1.x *= by.x;
+	this1.y *= by.y;
+	return this1;
+};
+geom__$Vector2d_Vector2d_$Impl_$.divideAssign = function(this1,by) {
+	this1.x /= by.x;
+	this1.y /= by.y;
+	return this1;
+};
+geom__$Vector2d_Vector2d_$Impl_$.moduloAssign = function(this1,by) {
+	this1.x %= by.x;
+	this1.y %= by.y;
+	return this1;
+};
+geom__$Vector2d_Vector2d_$Impl_$.add = function(this1,vector) {
+	var this2 = { x : this1.x, y : this1.y};
+	this2.x += vector.x;
+	this2.y += vector.y;
+	return this2;
+};
+geom__$Vector2d_Vector2d_$Impl_$.substract = function(this1,vector) {
+	var this2 = { x : this1.x, y : this1.y};
+	this2.x -= vector.x;
+	this2.y -= vector.y;
+	return this2;
+};
+geom__$Vector2d_Vector2d_$Impl_$.multiply = function(this1,vector) {
+	var this2 = { x : this1.x, y : this1.y};
+	this2.x *= vector.x;
+	this2.y *= vector.y;
+	return this2;
+};
+geom__$Vector2d_Vector2d_$Impl_$.devide = function(this1,vector) {
+	var this2 = { x : this1.x, y : this1.y};
+	this2.x /= vector.x;
+	this2.y /= vector.y;
+	return this2;
+};
+geom__$Vector2d_Vector2d_$Impl_$.modulo = function(this1,vector) {
+	var this2 = { x : this1.x, y : this1.y};
+	this2.x %= vector.x;
+	this2.y %= vector.y;
+	return this2;
+};
+geom__$Vector2d_Vector2d_$Impl_$.addFloatAssign = function(this1,v) {
+	this1.x += v;
+	this1.y += v;
+	return this1;
+};
+geom__$Vector2d_Vector2d_$Impl_$.substractFloatAssign = function(this1,v) {
+	this1.x -= v;
+	this1.y -= v;
+	return this1;
+};
+geom__$Vector2d_Vector2d_$Impl_$.multiplyFloatAssign = function(this1,v) {
+	this1.x *= v;
+	this1.y *= v;
+	return this1;
+};
+geom__$Vector2d_Vector2d_$Impl_$.devideFloatAssign = function(this1,v) {
+	this1.x /= v;
+	this1.y /= v;
+	return this1;
+};
+geom__$Vector2d_Vector2d_$Impl_$.moduloFloatAssign = function(this1,v) {
+	this1.x %= v;
+	this1.y %= v;
+	return this1;
+};
+geom__$Vector2d_Vector2d_$Impl_$.addFloat = function(this1,value) {
+	var this2 = { x : this1.x, y : this1.y};
+	this2.x += value;
+	this2.y += value;
+	return this2;
+};
+geom__$Vector2d_Vector2d_$Impl_$.substractFloat = function(this1,value) {
+	var this2 = { x : this1.x, y : this1.y};
+	this2.x -= value;
+	this2.y -= value;
+	return this2;
+};
+geom__$Vector2d_Vector2d_$Impl_$.multiplyFloat = function(this1,value) {
+	var this2 = { x : this1.x, y : this1.y};
+	this2.x *= value;
+	this2.y *= value;
+	return this2;
+};
+geom__$Vector2d_Vector2d_$Impl_$.devideFloat = function(this1,value) {
+	var this2 = { x : this1.x, y : this1.y};
+	this2.x /= value;
+	this2.y /= value;
+	return this2;
+};
+geom__$Vector2d_Vector2d_$Impl_$.moduloFloat = function(this1,value) {
+	var this2 = { x : this1.x, y : this1.y};
+	this2.x %= value;
+	this2.y %= value;
+	return this2;
+};
+geom__$Vector2d_Vector2d_$Impl_$.equals = function(this1,v) {
+	if(this1.x == v.x) {
+		return this1.y == v.y;
+	} else {
+		return false;
+	}
+};
+geom__$Vector2d_Vector2d_$Impl_$.notEquals = function(this1,v) {
+	return !(this1.x == v.x && this1.y == v.y);
+};
+geom__$Vector2d_Vector2d_$Impl_$.toArray = function(this1) {
+	return [this1.x,this1.y];
+};
+geom__$Vector2d_Vector2d_$Impl_$.isNil = function(this1) {
+	return this1 == null;
+};
+geom__$Vector2d_Vector2d_$Impl_$.nil = function() {
+	return null;
+};
+geom__$Vector2d_Vector2d_$Impl_$.toString = function(this1,prefix) {
+	return (prefix != null ? "" + prefix + "=" : "") + ("{x:" + this1.x + ", y:" + this1.y + "}");
+};
 var haxe_StackItem = $hxEnums["haxe.StackItem"] = { __ename__ : "haxe.StackItem", __constructs__ : ["CFunction","Module","FilePos","Method","LocalFunction"]
 	,CFunction: {_hx_index:0,__enum__:"haxe.StackItem",toString:$estr}
 	,Module: ($_=function(m) { return {_hx_index:1,m:m,__enum__:"haxe.StackItem",toString:$estr}; },$_.__params__ = ["m"],$_)
@@ -464,7 +818,8 @@ haxe_CallStack.toString = function(stack) {
 	var b = new StringBuf();
 	var _g = 0;
 	while(_g < stack.length) {
-		var s = stack[_g++];
+		var s = stack[_g];
+		++_g;
 		b.b += "\nCalled from ";
 		haxe_CallStack.itemToString(b,s);
 	}
@@ -557,7 +912,11 @@ haxe_Log.formatOutput = function(v,infos) {
 	if(infos != null && infos.customParams != null) {
 		var _g = 0;
 		var _g1 = infos.customParams;
-		while(_g < _g1.length) str += ", " + Std.string(_g1[_g++]);
+		while(_g < _g1.length) {
+			var v1 = _g1[_g];
+			++_g;
+			str += ", " + Std.string(v1);
+		}
 	}
 	return pstr + ": " + str;
 };
@@ -594,6 +953,133 @@ haxe_Timer.prototype = {
 	,run: function() {
 	}
 	,__class__: haxe_Timer
+};
+var haxe_ds_ArraySort = function() { };
+haxe_ds_ArraySort.__name__ = "haxe.ds.ArraySort";
+haxe_ds_ArraySort.sort = function(a,cmp) {
+	haxe_ds_ArraySort.rec(a,cmp,0,a.length);
+};
+haxe_ds_ArraySort.rec = function(a,cmp,from,to) {
+	var middle = from + to >> 1;
+	if(to - from < 12) {
+		if(to <= from) {
+			return;
+		}
+		var _g = from + 1;
+		while(_g < to) {
+			var i = _g++;
+			var j = i;
+			while(j > from) {
+				if(cmp(a[j],a[j - 1]) < 0) {
+					haxe_ds_ArraySort.swap(a,j - 1,j);
+				} else {
+					break;
+				}
+				--j;
+			}
+		}
+		return;
+	}
+	haxe_ds_ArraySort.rec(a,cmp,from,middle);
+	haxe_ds_ArraySort.rec(a,cmp,middle,to);
+	haxe_ds_ArraySort.doMerge(a,cmp,from,middle,to,middle - from,to - middle);
+};
+haxe_ds_ArraySort.doMerge = function(a,cmp,from,pivot,to,len1,len2) {
+	var first_cut;
+	var second_cut;
+	var len11;
+	var len22;
+	if(len1 == 0 || len2 == 0) {
+		return;
+	}
+	if(len1 + len2 == 2) {
+		if(cmp(a[pivot],a[from]) < 0) {
+			haxe_ds_ArraySort.swap(a,pivot,from);
+		}
+		return;
+	}
+	if(len1 > len2) {
+		len11 = len1 >> 1;
+		first_cut = from + len11;
+		second_cut = haxe_ds_ArraySort.lower(a,cmp,pivot,to,first_cut);
+		len22 = second_cut - pivot;
+	} else {
+		len22 = len2 >> 1;
+		second_cut = pivot + len22;
+		first_cut = haxe_ds_ArraySort.upper(a,cmp,from,pivot,second_cut);
+		len11 = first_cut - from;
+	}
+	haxe_ds_ArraySort.rotate(a,cmp,first_cut,pivot,second_cut);
+	var new_mid = first_cut + len22;
+	haxe_ds_ArraySort.doMerge(a,cmp,from,first_cut,new_mid,len11,len22);
+	haxe_ds_ArraySort.doMerge(a,cmp,new_mid,second_cut,to,len1 - len11,len2 - len22);
+};
+haxe_ds_ArraySort.rotate = function(a,cmp,from,mid,to) {
+	if(from == mid || mid == to) {
+		return;
+	}
+	var n = haxe_ds_ArraySort.gcd(to - from,mid - from);
+	while(n-- != 0) {
+		var val = a[from + n];
+		var shift = mid - from;
+		var p1 = from + n;
+		var p2 = from + n + shift;
+		while(p2 != from + n) {
+			a[p1] = a[p2];
+			p1 = p2;
+			if(to - p2 > shift) {
+				p2 += shift;
+			} else {
+				p2 = from + (shift - (to - p2));
+			}
+		}
+		a[p1] = val;
+	}
+};
+haxe_ds_ArraySort.gcd = function(m,n) {
+	while(n != 0) {
+		var t = m % n;
+		m = n;
+		n = t;
+	}
+	return m;
+};
+haxe_ds_ArraySort.upper = function(a,cmp,from,to,val) {
+	var len = to - from;
+	var half;
+	var mid;
+	while(len > 0) {
+		half = len >> 1;
+		mid = from + half;
+		if(cmp(a[val],a[mid]) < 0) {
+			len = half;
+		} else {
+			from = mid + 1;
+			len = len - half - 1;
+		}
+	}
+	return from;
+};
+haxe_ds_ArraySort.lower = function(a,cmp,from,to,val) {
+	var len = to - from;
+	var half;
+	var mid;
+	while(len > 0) {
+		half = len >> 1;
+		mid = from + half;
+		if(cmp(a[mid],a[val]) < 0) {
+			from = mid + 1;
+			len = len - half - 1;
+		} else {
+			len = half;
+		}
+	}
+	return from;
+};
+haxe_ds_ArraySort.swap = function(a,i,j) {
+	var tmp = a[i];
+	a[i] = a[j];
+	a[j] = tmp;
 };
 var haxe_ds_List = function() {
 	this.length = 0;
@@ -780,6 +1266,4025 @@ haxe_rtti_Meta.getFields = function(t) {
 		return meta.fields;
 	}
 };
+var hxClipper_DoublePoint = function(x,y) {
+	if(y == null) {
+		y = 0;
+	}
+	if(x == null) {
+		x = 0;
+	}
+	this.x = x;
+	this.y = y;
+};
+hxClipper_DoublePoint.__name__ = "hxClipper.DoublePoint";
+hxClipper_DoublePoint.fromDoublePoint = function(dp) {
+	return dp.clone();
+};
+hxClipper_DoublePoint.fromIntPoint = function(ip) {
+	return new hxClipper_DoublePoint(ip.x,ip.y);
+};
+hxClipper_DoublePoint.prototype = {
+	x: null
+	,y: null
+	,clone: function() {
+		return new hxClipper_DoublePoint(this.x,this.y);
+	}
+	,toString: function() {
+		return "(x:" + this.x + ", y:" + this.y + ")";
+	}
+	,__class__: hxClipper_DoublePoint
+};
+var hxClipper_PolyNode = function() {
+	this.mChildren = [];
+	this.mPolygon = [];
+};
+hxClipper_PolyNode.__name__ = "hxClipper.PolyNode";
+hxClipper_PolyNode.prototype = {
+	mParent: null
+	,mPolygon: null
+	,mIndex: null
+	,mJoinType: null
+	,mEndtype: null
+	,mChildren: null
+	,isHoleNode: function() {
+		var result = true;
+		var node = this.mParent;
+		while(node != null) {
+			result = !result;
+			node = node.mParent;
+		}
+		return result;
+	}
+	,get_numChildren: function() {
+		return this.mChildren.length;
+	}
+	,get_contour: function() {
+		return this.mPolygon;
+	}
+	,addChild: function(child) {
+		var cnt = this.mChildren.length;
+		this.mChildren.push(child);
+		child.mParent = this;
+		child.mIndex = cnt;
+	}
+	,getNext: function() {
+		if(this.mChildren.length > 0) {
+			return this.mChildren[0];
+		} else {
+			return this.getNextSiblingUp();
+		}
+	}
+	,getNextSiblingUp: function() {
+		if(this.mParent == null) {
+			return null;
+		} else if(this.mIndex == this.mParent.mChildren.length - 1) {
+			return this.mParent.getNextSiblingUp();
+		} else {
+			return this.mParent.mChildren[this.mIndex + 1];
+		}
+	}
+	,get_children: function() {
+		return this.mChildren;
+	}
+	,parent: null
+	,get_parent: function() {
+		return this.mParent;
+	}
+	,get_isHole: function() {
+		return this.isHoleNode();
+	}
+	,isOpen: null
+	,__class__: hxClipper_PolyNode
+	,__properties__: {get_isHole:"get_isHole",get_parent:"get_parent",get_children:"get_children",get_contour:"get_contour",get_numChildren:"get_numChildren"}
+};
+var hxClipper_PolyTree = function() {
+	this.mAllPolys = [];
+	hxClipper_PolyNode.call(this);
+};
+hxClipper_PolyTree.__name__ = "hxClipper.PolyTree";
+hxClipper_PolyTree.__super__ = hxClipper_PolyNode;
+hxClipper_PolyTree.prototype = $extend(hxClipper_PolyNode.prototype,{
+	mAllPolys: null
+	,clear: function() {
+		var _g = 0;
+		var _g1 = this.mAllPolys.length;
+		while(_g < _g1) {
+			var i = _g++;
+			this.mAllPolys[i] = null;
+		}
+		this.mAllPolys.length = 0;
+		this.mChildren.length = 0;
+	}
+	,getFirst: function() {
+		if(this.mChildren.length > 0) {
+			return this.mChildren[0];
+		} else {
+			return null;
+		}
+	}
+	,get_total: function() {
+		var result = this.mAllPolys.length;
+		if(result > 0 && this.mChildren[0] != this.mAllPolys[0]) {
+			--result;
+		}
+		return result;
+	}
+	,__class__: hxClipper_PolyTree
+	,__properties__: $extend(hxClipper_PolyNode.prototype.__properties__,{get_total:"get_total"})
+});
+var hxClipper_IntPoint = function(x,y) {
+	if(y == null) {
+		y = 0;
+	}
+	if(x == null) {
+		x = 0;
+	}
+	this.x = x;
+	this.y = y;
+};
+hxClipper_IntPoint.__name__ = "hxClipper.IntPoint";
+hxClipper_IntPoint.fromFloats = function(x,y) {
+	return new hxClipper_IntPoint(x | 0,y | 0);
+};
+hxClipper_IntPoint.fromDoublePoint = function(dp) {
+	return hxClipper_IntPoint.fromFloats(dp.x,dp.y);
+};
+hxClipper_IntPoint.fromIntPoint = function(pt) {
+	return pt.clone();
+};
+hxClipper_IntPoint.prototype = {
+	x: null
+	,y: null
+	,clone: function() {
+		return new hxClipper_IntPoint(this.x,this.y);
+	}
+	,toString: function() {
+		return "(x:" + this.x + ", y:" + this.y + ")";
+	}
+	,copyFrom: function(ip) {
+		this.x = ip.x;
+		this.y = ip.y;
+	}
+	,equals: function(ip) {
+		if(this.x == ip.x) {
+			return this.y == ip.y;
+		} else {
+			return false;
+		}
+	}
+	,__class__: hxClipper_IntPoint
+};
+var hxClipper_IntRect = function(l,t,r,b) {
+	this.left = l;
+	this.top = t;
+	this.right = r;
+	this.bottom = b;
+};
+hxClipper_IntRect.__name__ = "hxClipper.IntRect";
+hxClipper_IntRect.prototype = {
+	left: null
+	,top: null
+	,right: null
+	,bottom: null
+	,clone: function(ir) {
+		return new hxClipper_IntRect(this.left,this.top,this.right,this.bottom);
+	}
+	,__class__: hxClipper_IntRect
+};
+var hxClipper_ClipType = $hxEnums["hxClipper.ClipType"] = { __ename__ : "hxClipper.ClipType", __constructs__ : ["CT_INTERSECTION","CT_UNION","CT_DIFFERENCE","CT_XOR"]
+	,CT_INTERSECTION: {_hx_index:0,__enum__:"hxClipper.ClipType",toString:$estr}
+	,CT_UNION: {_hx_index:1,__enum__:"hxClipper.ClipType",toString:$estr}
+	,CT_DIFFERENCE: {_hx_index:2,__enum__:"hxClipper.ClipType",toString:$estr}
+	,CT_XOR: {_hx_index:3,__enum__:"hxClipper.ClipType",toString:$estr}
+};
+var hxClipper_PolyType = $hxEnums["hxClipper.PolyType"] = { __ename__ : "hxClipper.PolyType", __constructs__ : ["PT_SUBJECT","PT_CLIP"]
+	,PT_SUBJECT: {_hx_index:0,__enum__:"hxClipper.PolyType",toString:$estr}
+	,PT_CLIP: {_hx_index:1,__enum__:"hxClipper.PolyType",toString:$estr}
+};
+var hxClipper_PolyFillType = $hxEnums["hxClipper.PolyFillType"] = { __ename__ : "hxClipper.PolyFillType", __constructs__ : ["PFT_EVEN_ODD","PFT_NON_ZERO","PFT_POSITIVE","PFT_NEGATIVE"]
+	,PFT_EVEN_ODD: {_hx_index:0,__enum__:"hxClipper.PolyFillType",toString:$estr}
+	,PFT_NON_ZERO: {_hx_index:1,__enum__:"hxClipper.PolyFillType",toString:$estr}
+	,PFT_POSITIVE: {_hx_index:2,__enum__:"hxClipper.PolyFillType",toString:$estr}
+	,PFT_NEGATIVE: {_hx_index:3,__enum__:"hxClipper.PolyFillType",toString:$estr}
+};
+var hxClipper_JoinType = $hxEnums["hxClipper.JoinType"] = { __ename__ : "hxClipper.JoinType", __constructs__ : ["JT_SQUARE","JT_ROUND","JT_MITER"]
+	,JT_SQUARE: {_hx_index:0,__enum__:"hxClipper.JoinType",toString:$estr}
+	,JT_ROUND: {_hx_index:1,__enum__:"hxClipper.JoinType",toString:$estr}
+	,JT_MITER: {_hx_index:2,__enum__:"hxClipper.JoinType",toString:$estr}
+};
+var hxClipper_EndType = $hxEnums["hxClipper.EndType"] = { __ename__ : "hxClipper.EndType", __constructs__ : ["ET_CLOSED_POLYGON","ET_CLOSED_LINE","ET_OPEN_BUTT","ET_OPEN_SQUARE","ET_OPEN_ROUND"]
+	,ET_CLOSED_POLYGON: {_hx_index:0,__enum__:"hxClipper.EndType",toString:$estr}
+	,ET_CLOSED_LINE: {_hx_index:1,__enum__:"hxClipper.EndType",toString:$estr}
+	,ET_OPEN_BUTT: {_hx_index:2,__enum__:"hxClipper.EndType",toString:$estr}
+	,ET_OPEN_SQUARE: {_hx_index:3,__enum__:"hxClipper.EndType",toString:$estr}
+	,ET_OPEN_ROUND: {_hx_index:4,__enum__:"hxClipper.EndType",toString:$estr}
+};
+var hxClipper__$Clipper_EdgeSide = $hxEnums["hxClipper._Clipper.EdgeSide"] = { __ename__ : "hxClipper._Clipper.EdgeSide", __constructs__ : ["ES_LEFT","ES_RIGHT"]
+	,ES_LEFT: {_hx_index:0,__enum__:"hxClipper._Clipper.EdgeSide",toString:$estr}
+	,ES_RIGHT: {_hx_index:1,__enum__:"hxClipper._Clipper.EdgeSide",toString:$estr}
+};
+var hxClipper__$Clipper_Direction = $hxEnums["hxClipper._Clipper.Direction"] = { __ename__ : "hxClipper._Clipper.Direction", __constructs__ : ["D_RIGHT_TO_LEFT","D_LEFT_TO_RIGHT"]
+	,D_RIGHT_TO_LEFT: {_hx_index:0,__enum__:"hxClipper._Clipper.Direction",toString:$estr}
+	,D_LEFT_TO_RIGHT: {_hx_index:1,__enum__:"hxClipper._Clipper.Direction",toString:$estr}
+};
+var hxClipper__$Clipper_NodeType = $hxEnums["hxClipper._Clipper.NodeType"] = { __ename__ : "hxClipper._Clipper.NodeType", __constructs__ : ["NT_ANY","NT_OPEN","NT_CLOSED"]
+	,NT_ANY: {_hx_index:0,__enum__:"hxClipper._Clipper.NodeType",toString:$estr}
+	,NT_OPEN: {_hx_index:1,__enum__:"hxClipper._Clipper.NodeType",toString:$estr}
+	,NT_CLOSED: {_hx_index:2,__enum__:"hxClipper._Clipper.NodeType",toString:$estr}
+};
+var hxClipper__$Clipper_TEdge = function() {
+	this.delta = new hxClipper_IntPoint();
+	this.top = new hxClipper_IntPoint();
+	this.curr = new hxClipper_IntPoint();
+	this.bot = new hxClipper_IntPoint();
+};
+hxClipper__$Clipper_TEdge.__name__ = "hxClipper._Clipper.TEdge";
+hxClipper__$Clipper_TEdge.prototype = {
+	bot: null
+	,curr: null
+	,top: null
+	,delta: null
+	,dx: null
+	,polyType: null
+	,side: null
+	,windDelta: null
+	,windCnt: null
+	,windCnt2: null
+	,outIdx: null
+	,next: null
+	,prev: null
+	,nextInLML: null
+	,nextInAEL: null
+	,prevInAEL: null
+	,nextInSEL: null
+	,prevInSEL: null
+	,toString: function() {
+		return "TE(curr:" + this.curr.toString() + ", bot:" + this.bot.toString() + ", top:" + this.top.toString() + ", dx:" + this.dx + ")";
+	}
+	,__class__: hxClipper__$Clipper_TEdge
+};
+var hxClipper_IntersectNode = function() {
+	this.pt = new hxClipper_IntPoint();
+};
+hxClipper_IntersectNode.__name__ = "hxClipper.IntersectNode";
+hxClipper_IntersectNode.prototype = {
+	edge1: null
+	,edge2: null
+	,pt: null
+	,__class__: hxClipper_IntersectNode
+};
+var hxClipper__$Clipper_LocalMinima = function() {
+};
+hxClipper__$Clipper_LocalMinima.__name__ = "hxClipper._Clipper.LocalMinima";
+hxClipper__$Clipper_LocalMinima.prototype = {
+	y: null
+	,leftBound: null
+	,rightBound: null
+	,next: null
+	,__class__: hxClipper__$Clipper_LocalMinima
+};
+var hxClipper__$Clipper_Scanbeam = function() {
+};
+hxClipper__$Clipper_Scanbeam.__name__ = "hxClipper._Clipper.Scanbeam";
+hxClipper__$Clipper_Scanbeam.prototype = {
+	y: null
+	,next: null
+	,__class__: hxClipper__$Clipper_Scanbeam
+};
+var hxClipper__$Clipper_Maxima = function() {
+};
+hxClipper__$Clipper_Maxima.__name__ = "hxClipper._Clipper.Maxima";
+hxClipper__$Clipper_Maxima.prototype = {
+	x: null
+	,next: null
+	,prev: null
+	,__class__: hxClipper__$Clipper_Maxima
+};
+var hxClipper__$Clipper_OutRec = function() {
+};
+hxClipper__$Clipper_OutRec.__name__ = "hxClipper._Clipper.OutRec";
+hxClipper__$Clipper_OutRec.prototype = {
+	idx: null
+	,isHole: null
+	,isOpen: null
+	,firstLeft: null
+	,pts: null
+	,bottomPt: null
+	,polyNode: null
+	,__class__: hxClipper__$Clipper_OutRec
+};
+var hxClipper__$Clipper_OutPt = function() {
+	this.pt = new hxClipper_IntPoint();
+};
+hxClipper__$Clipper_OutPt.__name__ = "hxClipper._Clipper.OutPt";
+hxClipper__$Clipper_OutPt.prototype = {
+	idx: null
+	,pt: null
+	,next: null
+	,prev: null
+	,__class__: hxClipper__$Clipper_OutPt
+};
+var hxClipper__$Clipper_Join = function() {
+	this.offPt = new hxClipper_IntPoint();
+};
+hxClipper__$Clipper_Join.__name__ = "hxClipper._Clipper.Join";
+hxClipper__$Clipper_Join.prototype = {
+	outPt1: null
+	,outPt2: null
+	,offPt: null
+	,__class__: hxClipper__$Clipper_Join
+};
+var hxClipper_ClipperBase = function() {
+	this.mEdges = [];
+	this.mMinimaList = null;
+	this.mCurrentLM = null;
+	this.mUseFullRange = false;
+	this.mHasOpenPaths = false;
+};
+hxClipper_ClipperBase.__name__ = "hxClipper.ClipperBase";
+hxClipper_ClipperBase.nearZero = function(val) {
+	if(val > -1e-20) {
+		return val < 1.0E-20;
+	} else {
+		return false;
+	}
+};
+hxClipper_ClipperBase.isHorizontal = function(e) {
+	return e.delta.y == 0;
+};
+hxClipper_ClipperBase.slopesEqual = function(e1,e2,useFullRange) {
+	return e1.delta.y * e2.delta.x == e1.delta.x * e2.delta.y;
+};
+hxClipper_ClipperBase.slopesEqual3 = function(pt1,pt2,pt3,useFullRange) {
+	return (pt1.y - pt2.y) * (pt2.x - pt3.x) - (pt1.x - pt2.x) * (pt2.y - pt3.y) == 0;
+};
+hxClipper_ClipperBase.slopesEqual4 = function(pt1,pt2,pt3,pt4,useFullRange) {
+	return (pt1.y - pt2.y) * (pt3.x - pt4.x) - (pt1.x - pt2.x) * (pt3.y - pt4.y) == 0;
+};
+hxClipper_ClipperBase.getBounds = function(paths) {
+	var i = 0;
+	var cnt = paths.length;
+	while(i < cnt && paths[i].length == 0) ++i;
+	if(i == cnt) {
+		return new hxClipper_IntRect(0,0,0,0);
+	}
+	var result = new hxClipper_IntRect(0,0,0,0);
+	result.left = paths[i][0].x;
+	result.right = result.left;
+	result.top = paths[i][0].y;
+	result.bottom = result.top;
+	while(i < cnt) {
+		var _g = 0;
+		var _g1 = paths[i].length;
+		while(_g < _g1) {
+			var j = _g++;
+			if(paths[i][j].x < result.left) {
+				result.left = paths[i][j].x;
+			} else if(paths[i][j].x > result.right) {
+				result.right = paths[i][j].x;
+			}
+			if(paths[i][j].y < result.top) {
+				result.top = paths[i][j].y;
+			} else if(paths[i][j].y > result.bottom) {
+				result.bottom = paths[i][j].y;
+			}
+		}
+		++i;
+	}
+	return result;
+};
+hxClipper_ClipperBase.prototype = {
+	mMinimaList: null
+	,mCurrentLM: null
+	,mEdges: null
+	,mScanbeam: null
+	,mPolyOuts: null
+	,mActiveEdges: null
+	,mUseFullRange: null
+	,mHasOpenPaths: null
+	,preserveCollinear: null
+	,pointIsVertex: function(pt,pp) {
+		var pp2 = pp;
+		while(true) {
+			if(pp2.pt.equals(pt)) {
+				return true;
+			}
+			pp2 = pp2.next;
+			if(!(pp2 != pp)) {
+				break;
+			}
+		}
+		return false;
+	}
+	,pointOnLineSegment: function(pt,linePt1,linePt2,useFullRange) {
+		if(!(pt.x == linePt1.x && pt.y == linePt1.y || pt.x == linePt2.x && pt.y == linePt2.y)) {
+			if(pt.x > linePt1.x == pt.x < linePt2.x && pt.y > linePt1.y == pt.y < linePt2.y) {
+				return (pt.x - linePt1.x) * (linePt2.y - linePt1.y) == (linePt2.x - linePt1.x) * (pt.y - linePt1.y);
+			} else {
+				return false;
+			}
+		} else {
+			return true;
+		}
+	}
+	,pointOnPolygon: function(pt,pp,useFullRange) {
+		var pp2 = pp;
+		while(true) {
+			if(this.pointOnLineSegment(pt,pp2.pt,pp2.next.pt,useFullRange)) {
+				return true;
+			}
+			pp2 = pp2.next;
+			if(pp2 == pp) {
+				break;
+			}
+		}
+		return false;
+	}
+	,clear: function() {
+		this.disposeLocalMinimaList();
+		var _g = 0;
+		var _g1 = this.mEdges.length;
+		while(_g < _g1) {
+			var i = _g++;
+			var _g2 = 0;
+			var _g11 = this.mEdges[i].length;
+			while(_g2 < _g11) {
+				var j = _g2++;
+				this.mEdges[i][j] = null;
+			}
+			this.mEdges[i].length = 0;
+		}
+		this.mEdges.length = 0;
+		this.mUseFullRange = false;
+		this.mHasOpenPaths = false;
+	}
+	,disposeLocalMinimaList: function() {
+		while(this.mMinimaList != null) {
+			var tmpLm = this.mMinimaList.next;
+			this.mMinimaList = null;
+			this.mMinimaList = tmpLm;
+		}
+		this.mCurrentLM = null;
+	}
+	,rangeTest: function(pt,useFullRange) {
+		if(useFullRange) {
+			if(pt.x > 32767 || pt.y > 32767 || -pt.x > 32767 || -pt.y > 32767) {
+				throw new js__$Boot_HaxeError(new hxClipper_ClipperException("Coordinate outside allowed range"));
+			}
+		} else if(pt.x > 32767 || pt.y > 32767 || -pt.x > 32767 || -pt.y > 32767) {
+			useFullRange = true;
+			this.rangeTest(pt,true);
+		}
+		return useFullRange;
+	}
+	,initEdge: function(e,eNext,ePrev,pt) {
+		e.next = eNext;
+		e.prev = ePrev;
+		e.curr.copyFrom(pt);
+		e.outIdx = -1;
+	}
+	,initEdge2: function(e,polyType) {
+		if(e.curr.y >= e.next.curr.y) {
+			e.bot.copyFrom(e.curr);
+			e.top.copyFrom(e.next.curr);
+		} else {
+			e.top.copyFrom(e.curr);
+			e.bot.copyFrom(e.next.curr);
+		}
+		this.setDx(e);
+		e.polyType = polyType;
+	}
+	,findNextLocMin: function(e) {
+		var e2;
+		while(true) {
+			while(!e.bot.equals(e.prev.bot) || e.curr.equals(e.top)) e = e.next;
+			if(e.dx != -3.4E+38 && e.prev.dx != -3.4E+38) {
+				break;
+			}
+			while(e.prev.dx == -3.4E+38) e = e.prev;
+			e2 = e;
+			while(e.dx == -3.4E+38) e = e.next;
+			if(e.top.y == e.prev.bot.y) {
+				continue;
+			}
+			if(e2.prev.bot.x < e.bot.x) {
+				e = e2;
+			}
+			break;
+		}
+		return e;
+	}
+	,processBound: function(e,leftBoundIsForward) {
+		var eStart;
+		var result = e;
+		var horz;
+		if(result.outIdx == -2) {
+			e = result;
+			if(leftBoundIsForward) {
+				while(e.top.y == e.next.bot.y) e = e.next;
+				while(e != result && e.dx == -3.4E+38) e = e.prev;
+			} else {
+				while(e.top.y == e.prev.bot.y) e = e.prev;
+				while(e != result && e.dx == -3.4E+38) e = e.next;
+			}
+			if(e == result) {
+				if(leftBoundIsForward) {
+					result = e.next;
+				} else {
+					result = e.prev;
+				}
+			} else {
+				if(leftBoundIsForward) {
+					e = result.next;
+				} else {
+					e = result.prev;
+				}
+				var locMin = new hxClipper__$Clipper_LocalMinima();
+				locMin.next = null;
+				locMin.y = e.bot.y;
+				locMin.leftBound = null;
+				locMin.rightBound = e;
+				e.windDelta = 0;
+				result = this.processBound(e,leftBoundIsForward);
+				this.insertLocalMinima(locMin);
+			}
+			return result;
+		}
+		if(e.dx == -3.4E+38) {
+			if(leftBoundIsForward) {
+				eStart = e.prev;
+			} else {
+				eStart = e.next;
+			}
+			if(eStart.dx == -3.4E+38) {
+				if(eStart.bot.x != e.bot.x && eStart.top.x != e.bot.x) {
+					this.reverseHorizontal(e);
+				}
+			} else if(eStart.bot.x != e.bot.x) {
+				this.reverseHorizontal(e);
+			}
+		}
+		eStart = e;
+		if(leftBoundIsForward) {
+			while(result.top.y == result.next.bot.y && result.next.outIdx != -2) result = result.next;
+			if(result.dx == -3.4E+38 && result.next.outIdx != -2) {
+				horz = result;
+				while(horz.prev.dx == -3.4E+38) horz = horz.prev;
+				if(horz.prev.top.x > result.next.top.x) {
+					result = horz.prev;
+				}
+			}
+			while(e != result) {
+				e.nextInLML = e.next;
+				if(e.dx == -3.4E+38 && e != eStart && e.bot.x != e.prev.top.x) {
+					this.reverseHorizontal(e);
+				}
+				e = e.next;
+			}
+			if(e.dx == -3.4E+38 && e != eStart && e.bot.x != e.prev.top.x) {
+				this.reverseHorizontal(e);
+			}
+			result = result.next;
+		} else {
+			while(result.top.y == result.prev.bot.y && result.prev.outIdx != -2) result = result.prev;
+			if(result.dx == -3.4E+38 && result.prev.outIdx != -2) {
+				horz = result;
+				while(horz.next.dx == -3.4E+38) horz = horz.next;
+				if(horz.next.top.x == result.prev.top.x || horz.next.top.x > result.prev.top.x) {
+					result = horz.next;
+				}
+			}
+			while(e != result) {
+				e.nextInLML = e.prev;
+				if(e.dx == -3.4E+38 && e != eStart && e.bot.x != e.next.top.x) {
+					this.reverseHorizontal(e);
+				}
+				e = e.prev;
+			}
+			if(e.dx == -3.4E+38 && e != eStart && e.bot.x != e.next.top.x) {
+				this.reverseHorizontal(e);
+			}
+			result = result.prev;
+		}
+		return result;
+	}
+	,addPath: function(path,polyType,closed) {
+		if(!closed) {
+			throw new js__$Boot_HaxeError(new hxClipper_ClipperException("AddPath: Open paths have been disabled (define USE_LINES to enable them)."));
+		}
+		var highI = path.length - 1;
+		if(closed) {
+			while(highI > 0 && path[highI].equals(path[0])) --highI;
+		}
+		while(highI > 0 && path[highI].equals(path[highI - 1])) --highI;
+		if(closed && highI < 2 || !closed && highI < 1) {
+			return false;
+		}
+		var edges = [];
+		var _g = 0;
+		var _g1 = highI + 1;
+		while(_g < _g1) {
+			++_g;
+			edges.push(new hxClipper__$Clipper_TEdge());
+		}
+		var isFlat = true;
+		edges[1].curr.copyFrom(path[1]);
+		this.mUseFullRange = this.rangeTest(path[0],this.mUseFullRange);
+		this.mUseFullRange = this.rangeTest(path[highI],this.mUseFullRange);
+		this.initEdge(edges[0],edges[1],edges[highI],path[0]);
+		this.initEdge(edges[highI],edges[0],edges[highI - 1],path[highI]);
+		var i = highI - 1;
+		while(i >= 1) {
+			this.mUseFullRange = this.rangeTest(path[i],this.mUseFullRange);
+			this.initEdge(edges[i],edges[i + 1],edges[i - 1],path[i]);
+			--i;
+		}
+		var eStart = edges[0];
+		var e = eStart;
+		var eLoopStop = eStart;
+		while(true) {
+			if(e.curr.equals(e.next.curr) && (closed || e.next != eStart)) {
+				if(e == e.next) {
+					break;
+				}
+				if(e == eStart) {
+					eStart = e.next;
+				}
+				e = this.removeEdge(e);
+				eLoopStop = e;
+				continue;
+			}
+			if(e.prev == e.next) {
+				break;
+			} else if(closed && hxClipper_ClipperBase.slopesEqual3(e.prev.curr,e.curr,e.next.curr,this.mUseFullRange) && (!this.preserveCollinear || !this.pt2IsBetweenPt1AndPt3(e.prev.curr,e.curr,e.next.curr))) {
+				if(e == eStart) {
+					eStart = e.next;
+				}
+				e = this.removeEdge(e);
+				e = e.prev;
+				eLoopStop = e;
+				continue;
+			}
+			e = e.next;
+			if(e == eLoopStop || !closed && e.next == eStart) {
+				break;
+			}
+		}
+		if(!closed && e == e.next || closed && e.prev == e.next) {
+			return false;
+		}
+		if(!closed) {
+			this.mHasOpenPaths = true;
+			eStart.prev.outIdx = -2;
+		}
+		e = eStart;
+		while(true) {
+			this.initEdge2(e,polyType);
+			e = e.next;
+			if(isFlat && e.curr.y != eStart.curr.y) {
+				isFlat = false;
+			}
+			if(!(e != eStart)) {
+				break;
+			}
+		}
+		if(isFlat) {
+			if(closed) {
+				return false;
+			}
+			e.prev.outIdx = -2;
+			var locMin = new hxClipper__$Clipper_LocalMinima();
+			locMin.next = null;
+			locMin.y = e.bot.y;
+			locMin.leftBound = null;
+			locMin.rightBound = e;
+			locMin.rightBound.side = hxClipper__$Clipper_EdgeSide.ES_RIGHT;
+			locMin.rightBound.windDelta = 0;
+			while(true) {
+				if(e.bot.x != e.prev.top.x) {
+					this.reverseHorizontal(e);
+				}
+				if(e.next.outIdx == -2) {
+					break;
+				}
+				e.nextInLML = e.next;
+				e = e.next;
+			}
+			this.insertLocalMinima(locMin);
+			this.mEdges.push(edges);
+			return true;
+		}
+		this.mEdges.push(edges);
+		var leftBoundIsForward;
+		var eMin = null;
+		if(e.prev.bot.equals(e.prev.top)) {
+			e = e.next;
+		}
+		while(true) {
+			e = this.findNextLocMin(e);
+			if(e == eMin) {
+				break;
+			} else if(eMin == null) {
+				eMin = e;
+			}
+			var locMin1 = new hxClipper__$Clipper_LocalMinima();
+			locMin1.next = null;
+			locMin1.y = e.bot.y;
+			if(e.dx < e.prev.dx) {
+				locMin1.leftBound = e.prev;
+				locMin1.rightBound = e;
+				leftBoundIsForward = false;
+			} else {
+				locMin1.leftBound = e;
+				locMin1.rightBound = e.prev;
+				leftBoundIsForward = true;
+			}
+			locMin1.leftBound.side = hxClipper__$Clipper_EdgeSide.ES_LEFT;
+			locMin1.rightBound.side = hxClipper__$Clipper_EdgeSide.ES_RIGHT;
+			if(!closed) {
+				locMin1.leftBound.windDelta = 0;
+			} else if(locMin1.leftBound.next == locMin1.rightBound) {
+				locMin1.leftBound.windDelta = -1;
+			} else {
+				locMin1.leftBound.windDelta = 1;
+			}
+			locMin1.rightBound.windDelta = -locMin1.leftBound.windDelta;
+			e = this.processBound(locMin1.leftBound,leftBoundIsForward);
+			if(e.outIdx == -2) {
+				e = this.processBound(e,leftBoundIsForward);
+			}
+			var E2 = this.processBound(locMin1.rightBound,!leftBoundIsForward);
+			if(E2.outIdx == -2) {
+				E2 = this.processBound(E2,!leftBoundIsForward);
+			}
+			if(locMin1.leftBound.outIdx == -2) {
+				locMin1.leftBound = null;
+			} else if(locMin1.rightBound.outIdx == -2) {
+				locMin1.rightBound = null;
+			}
+			this.insertLocalMinima(locMin1);
+			if(!leftBoundIsForward) {
+				e = E2;
+			}
+		}
+		return true;
+	}
+	,addPaths: function(paths,polyType,closed) {
+		var result = false;
+		var _g = 0;
+		var _g1 = paths.length;
+		while(_g < _g1) {
+			var i = _g++;
+			if(this.addPath(paths[i],polyType,closed)) {
+				result = true;
+			}
+		}
+		return result;
+	}
+	,pt2IsBetweenPt1AndPt3: function(pt1,pt2,pt3) {
+		if(pt1.equals(pt3) || pt1.equals(pt2) || pt3.equals(pt2)) {
+			return false;
+		} else if(pt1.x != pt3.x) {
+			return pt2.x > pt1.x == pt2.x < pt3.x;
+		} else {
+			return pt2.y > pt1.y == pt2.y < pt3.y;
+		}
+	}
+	,removeEdge: function(e) {
+		e.prev.next = e.next;
+		e.next.prev = e.prev;
+		var result = e.next;
+		e.prev = null;
+		return result;
+	}
+	,setDx: function(e) {
+		e.delta.x = e.top.x - e.bot.x;
+		e.delta.y = e.top.y - e.bot.y;
+		if(e.delta.y == 0) {
+			e.dx = -3.4E+38;
+		} else {
+			var deltaX = e.delta.x;
+			e.dx = deltaX / e.delta.y;
+		}
+	}
+	,insertLocalMinima: function(newLm) {
+		if(this.mMinimaList == null) {
+			this.mMinimaList = newLm;
+		} else if(newLm.y >= this.mMinimaList.y) {
+			newLm.next = this.mMinimaList;
+			this.mMinimaList = newLm;
+		} else {
+			var tmpLm = this.mMinimaList;
+			while(tmpLm.next != null && newLm.y < tmpLm.next.y) tmpLm = tmpLm.next;
+			newLm.next = tmpLm.next;
+			tmpLm.next = newLm;
+		}
+	}
+	,popLocalMinima: function(y,current) {
+		current.lm = this.mCurrentLM;
+		if(this.mCurrentLM != null && this.mCurrentLM.y == y) {
+			this.mCurrentLM = this.mCurrentLM.next;
+			return true;
+		}
+		return false;
+	}
+	,reverseHorizontal: function(e) {
+		var tmp = e.top.x;
+		e.top.x = e.bot.x;
+		e.bot.x = tmp;
+	}
+	,reset: function() {
+		this.mCurrentLM = this.mMinimaList;
+		if(this.mCurrentLM == null) {
+			return;
+		}
+		this.mScanbeam = null;
+		var lm = this.mMinimaList;
+		while(lm != null) {
+			this.insertScanbeam(lm.y);
+			var e = lm.leftBound;
+			if(e != null) {
+				e.curr.copyFrom(e.bot);
+				e.outIdx = -1;
+			}
+			e = lm.rightBound;
+			if(e != null) {
+				e.curr.copyFrom(e.bot);
+				e.outIdx = -1;
+			}
+			lm = lm.next;
+		}
+		this.mActiveEdges = null;
+	}
+	,insertScanbeam: function(y) {
+		if(this.mScanbeam == null) {
+			this.mScanbeam = new hxClipper__$Clipper_Scanbeam();
+			this.mScanbeam.next = null;
+			this.mScanbeam.y = y;
+		} else if(y > this.mScanbeam.y) {
+			var newSb = new hxClipper__$Clipper_Scanbeam();
+			newSb.y = y;
+			newSb.next = this.mScanbeam;
+			this.mScanbeam = newSb;
+		} else {
+			var sb2 = this.mScanbeam;
+			while(sb2.next != null && y <= sb2.next.y) sb2 = sb2.next;
+			if(y == sb2.y) {
+				return;
+			}
+			var newSb1 = new hxClipper__$Clipper_Scanbeam();
+			newSb1.y = y;
+			newSb1.next = sb2.next;
+			sb2.next = newSb1;
+		}
+	}
+	,popScanbeam: function() {
+		var res = { y : 0, popped : false};
+		if(this.mScanbeam == null) {
+			return res;
+		}
+		res.y = this.mScanbeam.y;
+		this.mScanbeam = this.mScanbeam.next;
+		res.popped = true;
+		return res;
+	}
+	,localMinimaPending: function() {
+		return this.mCurrentLM != null;
+	}
+	,createOutRec: function() {
+		var result = new hxClipper__$Clipper_OutRec();
+		result.idx = -1;
+		result.isHole = false;
+		result.isOpen = false;
+		result.firstLeft = null;
+		result.pts = null;
+		result.bottomPt = null;
+		result.polyNode = null;
+		this.mPolyOuts.push(result);
+		result.idx = this.mPolyOuts.length - 1;
+		return result;
+	}
+	,disposeOutRec: function(index) {
+		var outRec = this.mPolyOuts[index];
+		outRec.pts = null;
+		outRec = null;
+		this.mPolyOuts[index] = null;
+	}
+	,updateEdgeIntoAEL: function(e) {
+		if(e.nextInLML == null) {
+			throw new js__$Boot_HaxeError(new hxClipper_ClipperException("UpdateEdgeIntoAEL: invalid call"));
+		}
+		var aelPrev = e.prevInAEL;
+		var aelNext = e.nextInAEL;
+		e.nextInLML.outIdx = e.outIdx;
+		if(aelPrev != null) {
+			aelPrev.nextInAEL = e.nextInLML;
+		} else {
+			this.mActiveEdges = e.nextInLML;
+		}
+		if(aelNext != null) {
+			aelNext.prevInAEL = e.nextInLML;
+		}
+		e.nextInLML.side = e.side;
+		e.nextInLML.windDelta = e.windDelta;
+		e.nextInLML.windCnt = e.windCnt;
+		e.nextInLML.windCnt2 = e.windCnt2;
+		e = e.nextInLML;
+		e.curr.copyFrom(e.bot);
+		e.prevInAEL = aelPrev;
+		e.nextInAEL = aelNext;
+		if(!hxClipper_ClipperBase.isHorizontal(e)) {
+			this.insertScanbeam(e.top.y);
+		}
+		return e;
+	}
+	,swapPositionsInAEL: function(edge1,edge2) {
+		if(edge1.nextInAEL == edge1.prevInAEL || edge2.nextInAEL == edge2.prevInAEL) {
+			return;
+		}
+		if(edge1.nextInAEL == edge2) {
+			var next = edge2.nextInAEL;
+			if(next != null) {
+				next.prevInAEL = edge1;
+			}
+			var prev = edge1.prevInAEL;
+			if(prev != null) {
+				prev.nextInAEL = edge2;
+			}
+			edge2.prevInAEL = prev;
+			edge2.nextInAEL = edge1;
+			edge1.prevInAEL = edge2;
+			edge1.nextInAEL = next;
+		} else if(edge2.nextInAEL == edge1) {
+			var next1 = edge1.nextInAEL;
+			if(next1 != null) {
+				next1.prevInAEL = edge2;
+			}
+			var prev1 = edge2.prevInAEL;
+			if(prev1 != null) {
+				prev1.nextInAEL = edge1;
+			}
+			edge1.prevInAEL = prev1;
+			edge1.nextInAEL = edge2;
+			edge2.prevInAEL = edge1;
+			edge2.nextInAEL = next1;
+		} else {
+			var next2 = edge1.nextInAEL;
+			var prev2 = edge1.prevInAEL;
+			edge1.nextInAEL = edge2.nextInAEL;
+			if(edge1.nextInAEL != null) {
+				edge1.nextInAEL.prevInAEL = edge1;
+			}
+			edge1.prevInAEL = edge2.prevInAEL;
+			if(edge1.prevInAEL != null) {
+				edge1.prevInAEL.nextInAEL = edge1;
+			}
+			edge2.nextInAEL = next2;
+			if(edge2.nextInAEL != null) {
+				edge2.nextInAEL.prevInAEL = edge2;
+			}
+			edge2.prevInAEL = prev2;
+			if(edge2.prevInAEL != null) {
+				edge2.prevInAEL.nextInAEL = edge2;
+			}
+		}
+		if(edge1.prevInAEL == null) {
+			this.mActiveEdges = edge1;
+		} else if(edge2.prevInAEL == null) {
+			this.mActiveEdges = edge2;
+		}
+	}
+	,deleteFromAEL: function(e) {
+		var aelPrev = e.prevInAEL;
+		var aelNext = e.nextInAEL;
+		if(aelPrev == null && aelNext == null && e != this.mActiveEdges) {
+			return;
+		}
+		if(aelPrev != null) {
+			aelPrev.nextInAEL = aelNext;
+		} else {
+			this.mActiveEdges = aelNext;
+		}
+		if(aelNext != null) {
+			aelNext.prevInAEL = aelPrev;
+		}
+		e.nextInAEL = null;
+		e.prevInAEL = null;
+	}
+	,__class__: hxClipper_ClipperBase
+};
+var hxClipper_Clipper = function(initOptions) {
+	if(initOptions == null) {
+		initOptions = 0;
+	}
+	hxClipper_ClipperBase.call(this);
+	this.mScanbeam = null;
+	this.mMaxima = null;
+	this.mActiveEdges = null;
+	this.mSortedEdges = null;
+	this.mIntersectList = [];
+	this.mIntersectNodeComparer = hxClipper_Clipper.compare;
+	this.mExecuteLocked = false;
+	this.mUsingPolyTree = false;
+	this.mPolyOuts = [];
+	this.mJoins = [];
+	this.mGhostJoins = [];
+	this.reverseSolution = (1 & initOptions) != 0;
+	this.strictlySimple = (2 & initOptions) != 0;
+	this.preserveCollinear = (4 & initOptions) != 0;
+};
+hxClipper_Clipper.__name__ = "hxClipper.Clipper";
+hxClipper_Clipper.compare = function(node1,node2) {
+	var i = node2.pt.y - node1.pt.y;
+	if(i > 0) {
+		return 1;
+	} else if(i < 0) {
+		return -1;
+	} else {
+		return 0;
+	}
+};
+hxClipper_Clipper.swapSides = function(edge1,edge2) {
+	var side = edge1.side;
+	edge1.side = edge2.side;
+	edge2.side = side;
+};
+hxClipper_Clipper.swapPolyIndexes = function(edge1,edge2) {
+	var outIdx = edge1.outIdx;
+	edge1.outIdx = edge2.outIdx;
+	edge2.outIdx = outIdx;
+};
+hxClipper_Clipper.intersectNodeSort = function(node1,node2) {
+	return node2.pt.y - node1.pt.y | 0;
+};
+hxClipper_Clipper.round = function(value) {
+	if(value < 0) {
+		return value - 0.5 | 0;
+	} else {
+		return value + 0.5 | 0;
+	}
+};
+hxClipper_Clipper.topX = function(edge,currentY) {
+	if(currentY == edge.top.y) {
+		return edge.top.x;
+	}
+	return edge.bot.x + hxClipper_Clipper.round(edge.dx * (currentY - edge.bot.y));
+};
+hxClipper_Clipper.reversePaths = function(polys) {
+	var _g = 0;
+	while(_g < polys.length) {
+		var poly = polys[_g];
+		++_g;
+		poly.reverse();
+	}
+};
+hxClipper_Clipper.orientation = function(poly) {
+	return hxClipper_Clipper.area(poly) >= 0;
+};
+hxClipper_Clipper.pointInPolygon = function(pt,path) {
+	var result = 0;
+	var cnt = path.length;
+	if(cnt < 3) {
+		return 0;
+	}
+	var ip = path[0].clone();
+	var ipNext = new hxClipper_IntPoint();
+	var _g = 1;
+	var _g1 = cnt + 1;
+	while(_g < _g1) {
+		var i = _g++;
+		ipNext.copyFrom(i == cnt ? path[0] : path[i]);
+		if(ipNext.y == pt.y) {
+			if(ipNext.x == pt.x || ip.y == pt.y && ipNext.x > pt.x == ip.x < pt.x) {
+				return -1;
+			}
+		}
+		if(ip.y < pt.y != ipNext.y < pt.y) {
+			if(ip.x >= pt.x) {
+				if(ipNext.x > pt.x) {
+					result = 1 - result;
+				} else {
+					var dx = ip.x - pt.x;
+					var dy = ip.y - pt.y;
+					var d = dx * (ipNext.y - pt.y) - (ipNext.x - pt.x) * dy;
+					if(d == 0) {
+						return -1;
+					} else if(d > 0 == ipNext.y > ip.y) {
+						result = 1 - result;
+					}
+				}
+			} else if(ipNext.x > pt.x) {
+				var dx1 = ip.x - pt.x;
+				var dy1 = ip.y - pt.y;
+				var d1 = dx1 * (ipNext.y - pt.y) - (ipNext.x - pt.x) * dy1;
+				if(d1 == 0) {
+					return -1;
+				} else if(d1 > 0 == ipNext.y > ip.y) {
+					result = 1 - result;
+				}
+			}
+		}
+		ip.copyFrom(ipNext);
+	}
+	return result;
+};
+hxClipper_Clipper.pointInOutPt = function(pt,op) {
+	var result = 0;
+	var startOp = op;
+	var ptx = pt.x;
+	var pty = pt.y;
+	var poly0x = op.pt.x;
+	var poly0y = op.pt.y;
+	while(true) {
+		op = op.next;
+		var poly1x = op.pt.x;
+		var poly1y = op.pt.y;
+		if(poly1y == pty) {
+			if(poly1x == ptx || poly0y == pty && poly1x > ptx == poly0x < ptx) {
+				return -1;
+			}
+		}
+		if(poly0y < pty != poly1y < pty) {
+			if(poly0x >= ptx) {
+				if(poly1x > ptx) {
+					result = 1 - result;
+				} else {
+					var dx = poly0x - ptx;
+					var dy = poly0y - pty;
+					var d = dx * (poly1y - pty) - (poly1x - ptx) * dy;
+					if(d == 0) {
+						return -1;
+					}
+					if(d > 0 == poly1y > poly0y) {
+						result = 1 - result;
+					}
+				}
+			} else if(poly1x > ptx) {
+				var dx1 = poly0x - ptx;
+				var dy1 = poly0y - pty;
+				var d1 = dx1 * (poly1y - pty) - (poly1x - ptx) * dy1;
+				if(d1 == 0) {
+					return -1;
+				}
+				if(d1 > 0 == poly1y > poly0y) {
+					result = 1 - result;
+				}
+			}
+		}
+		poly0x = poly1x;
+		poly0y = poly1y;
+		if(!(startOp != op)) {
+			break;
+		}
+	}
+	return result;
+};
+hxClipper_Clipper.poly2ContainsPoly1 = function(outPt1,outPt2) {
+	var op = outPt1;
+	while(true) {
+		var res = hxClipper_Clipper.pointInOutPt(op.pt,outPt2);
+		if(res >= 0) {
+			return res > 0;
+		}
+		op = op.next;
+		if(!(op != outPt1)) {
+			break;
+		}
+	}
+	return true;
+};
+hxClipper_Clipper.parseFirstLeft = function(firstLeft) {
+	while(firstLeft != null && firstLeft.pts == null) firstLeft = firstLeft.firstLeft;
+	return firstLeft;
+};
+hxClipper_Clipper.area = function(poly) {
+	if(poly == null || poly.length < 3) {
+		return 0;
+	}
+	var cnt = poly.length;
+	var a = 0;
+	var j = cnt - 1;
+	var _g = 0;
+	while(_g < cnt) {
+		var i = _g++;
+		var dx = poly[j].x + poly[i].x;
+		var dy = poly[j].y - poly[i].y;
+		a += dx * dy;
+		j = i;
+	}
+	return -a * 0.5;
+};
+hxClipper_Clipper.simplifyPolygon = function(poly,fillType) {
+	if(fillType == null) {
+		fillType = hxClipper_PolyFillType.PFT_EVEN_ODD;
+	}
+	var result = [];
+	var c = new hxClipper_Clipper();
+	c.strictlySimple = true;
+	c.addPath(poly,hxClipper_PolyType.PT_SUBJECT,true);
+	c.executePaths(hxClipper_ClipType.CT_UNION,result,fillType,fillType);
+	return result;
+};
+hxClipper_Clipper.simplifyPolygons = function(polys,fillType) {
+	if(fillType == null) {
+		fillType = hxClipper_PolyFillType.PFT_EVEN_ODD;
+	}
+	var result = [];
+	var c = new hxClipper_Clipper();
+	c.strictlySimple = true;
+	c.addPaths(polys,hxClipper_PolyType.PT_SUBJECT,true);
+	c.executePaths(hxClipper_ClipType.CT_UNION,result,fillType,fillType);
+	return result;
+};
+hxClipper_Clipper.distanceSqrd = function(pt1,pt2) {
+	var dx = pt1.x - pt2.x;
+	var dy = pt1.y - pt2.y;
+	return dx * dx + dy * dy;
+};
+hxClipper_Clipper.distanceFromLineSqrd = function(pt,ln1,ln2) {
+	var A = ln1.y - ln2.y;
+	var B = ln2.x - ln1.x;
+	var C = A * ln1.x + B * ln1.y;
+	C = A * pt.x + B * pt.y - C;
+	return C * C / (A * A + B * B);
+};
+hxClipper_Clipper.slopesNearCollinear = function(pt1,pt2,pt3,distSqrd) {
+	if(Math.abs(pt1.x - pt2.x) > Math.abs(pt1.y - pt2.y)) {
+		if(pt1.x > pt2.x == pt1.x < pt3.x) {
+			return hxClipper_Clipper.distanceFromLineSqrd(pt1,pt2,pt3) < distSqrd;
+		} else if(pt2.x > pt1.x == pt2.x < pt3.x) {
+			return hxClipper_Clipper.distanceFromLineSqrd(pt2,pt1,pt3) < distSqrd;
+		} else {
+			return hxClipper_Clipper.distanceFromLineSqrd(pt3,pt1,pt2) < distSqrd;
+		}
+	} else if(pt1.y > pt2.y == pt1.y < pt3.y) {
+		return hxClipper_Clipper.distanceFromLineSqrd(pt1,pt2,pt3) < distSqrd;
+	} else if(pt2.y > pt1.y == pt2.y < pt3.y) {
+		return hxClipper_Clipper.distanceFromLineSqrd(pt2,pt1,pt3) < distSqrd;
+	} else {
+		return hxClipper_Clipper.distanceFromLineSqrd(pt3,pt1,pt2) < distSqrd;
+	}
+};
+hxClipper_Clipper.pointsAreClose = function(pt1,pt2,distSqrd) {
+	var dx = pt1.x - pt2.x;
+	var dy = pt1.y - pt2.y;
+	return dx * dx + dy * dy <= distSqrd;
+};
+hxClipper_Clipper.excludeOp = function(op) {
+	var result = op.prev;
+	result.next = op.next;
+	op.next.prev = result;
+	result.idx = 0;
+	return result;
+};
+hxClipper_Clipper.cleanPolygon = function(path,distance) {
+	if(distance == null) {
+		distance = 1.415;
+	}
+	var cnt = path.length;
+	if(cnt == 0) {
+		return [];
+	}
+	var _g = [];
+	var _g1 = 0;
+	var _g2 = cnt;
+	while(_g1 < _g2) {
+		++_g1;
+		_g.push(new hxClipper__$Clipper_OutPt());
+	}
+	var _g3 = 0;
+	var _g4 = cnt;
+	while(_g3 < _g4) {
+		var i = _g3++;
+		_g[i].pt.copyFrom(path[i]);
+		_g[i].next = _g[(i + 1) % cnt];
+		_g[i].next.prev = _g[i];
+		_g[i].idx = 0;
+	}
+	var distSqrd = distance * distance;
+	var op = _g[0];
+	while(op.idx == 0 && op.next != op.prev) if(hxClipper_Clipper.pointsAreClose(op.pt,op.prev.pt,distSqrd)) {
+		op = hxClipper_Clipper.excludeOp(op);
+		--cnt;
+	} else if(hxClipper_Clipper.pointsAreClose(op.prev.pt,op.next.pt,distSqrd)) {
+		hxClipper_Clipper.excludeOp(op.next);
+		op = hxClipper_Clipper.excludeOp(op);
+		cnt -= 2;
+	} else if(hxClipper_Clipper.slopesNearCollinear(op.prev.pt,op.pt,op.next.pt,distSqrd)) {
+		op = hxClipper_Clipper.excludeOp(op);
+		--cnt;
+	} else {
+		op.idx = 1;
+		op = op.next;
+	}
+	if(cnt < 3) {
+		cnt = 0;
+	}
+	var result = [];
+	var _g5 = 0;
+	var _g6 = cnt;
+	while(_g5 < _g6) {
+		++_g5;
+		result.push(op.pt);
+		op = op.next;
+	}
+	return result;
+};
+hxClipper_Clipper.cleanPolygons = function(polys,distance) {
+	if(distance == null) {
+		distance = 1.415;
+	}
+	var result = [];
+	var _g = 0;
+	var _g1 = polys.length;
+	while(_g < _g1) {
+		var i = _g++;
+		result.push(hxClipper_Clipper.cleanPolygon(polys[i],distance));
+	}
+	return result;
+};
+hxClipper_Clipper.minkowski = function(pattern,path,isSum,isClosed) {
+	var delta = isClosed ? 1 : 0;
+	var polyCnt = pattern.length;
+	var pathCnt = path.length;
+	var result = [];
+	if(isSum) {
+		var _g = 0;
+		while(_g < pathCnt) {
+			var i = _g++;
+			var p = [];
+			var _g1 = 0;
+			while(_g1 < pattern.length) {
+				var ip = pattern[_g1];
+				++_g1;
+				p.push(new hxClipper_IntPoint(path[i].x + ip.x,path[i].y + ip.y));
+			}
+			result.push(p);
+		}
+	} else {
+		var _g2 = 0;
+		while(_g2 < pathCnt) {
+			var i1 = _g2++;
+			var p1 = [];
+			var _g3 = 0;
+			while(_g3 < pattern.length) {
+				var ip1 = pattern[_g3];
+				++_g3;
+				p1.push(new hxClipper_IntPoint(path[i1].x - ip1.x,path[i1].y - ip1.y));
+			}
+			result.push(p1);
+		}
+	}
+	var quads = [];
+	var _g4 = 0;
+	var _g11 = pathCnt - 1 + delta;
+	while(_g4 < _g11) {
+		var i2 = _g4++;
+		var _g5 = 0;
+		while(_g5 < polyCnt) {
+			var j = _g5++;
+			var quad = [];
+			quad.push(result[i2 % pathCnt][j % polyCnt]);
+			quad.push(result[(i2 + 1) % pathCnt][j % polyCnt]);
+			quad.push(result[(i2 + 1) % pathCnt][(j + 1) % polyCnt]);
+			quad.push(result[i2 % pathCnt][(j + 1) % polyCnt]);
+			if(!hxClipper_Clipper.orientation(quad)) {
+				quad.reverse();
+			}
+			quads.push(quad);
+		}
+	}
+	return quads;
+};
+hxClipper_Clipper.minkowskiSum = function(pattern,path,pathIsClosed) {
+	var paths = hxClipper_Clipper.minkowski(pattern,path,true,pathIsClosed);
+	var c = new hxClipper_Clipper();
+	c.addPaths(paths,hxClipper_PolyType.PT_SUBJECT,true);
+	c.executePaths(hxClipper_ClipType.CT_UNION,paths,hxClipper_PolyFillType.PFT_NON_ZERO,hxClipper_PolyFillType.PFT_NON_ZERO);
+	return paths;
+};
+hxClipper_Clipper.translatePath = function(path,delta) {
+	var outPath = [];
+	var _g = 0;
+	var _g1 = path.length;
+	while(_g < _g1) {
+		var i = _g++;
+		outPath.push(new hxClipper_IntPoint(path[i].x + delta.x,path[i].y + delta.y));
+	}
+	return outPath;
+};
+hxClipper_Clipper.minkowskiSumPaths = function(pattern,paths,pathIsClosed) {
+	var solution = [];
+	var c = new hxClipper_Clipper();
+	var _g = 0;
+	var _g1 = paths.length;
+	while(_g < _g1) {
+		var i = _g++;
+		var tmp = hxClipper_Clipper.minkowski(pattern,paths[i],true,pathIsClosed);
+		c.addPaths(tmp,hxClipper_PolyType.PT_SUBJECT,true);
+		if(pathIsClosed) {
+			var path = hxClipper_Clipper.translatePath(paths[i],pattern[0]);
+			c.addPath(path,hxClipper_PolyType.PT_CLIP,true);
+		}
+	}
+	c.executePaths(hxClipper_ClipType.CT_UNION,solution,hxClipper_PolyFillType.PFT_NON_ZERO,hxClipper_PolyFillType.PFT_NON_ZERO);
+	return solution;
+};
+hxClipper_Clipper.minkowskiDiff = function(poly1,poly2) {
+	var paths = hxClipper_Clipper.minkowski(poly1,poly2,false,true);
+	var c = new hxClipper_Clipper();
+	c.addPaths(paths,hxClipper_PolyType.PT_SUBJECT,true);
+	c.executePaths(hxClipper_ClipType.CT_UNION,paths,hxClipper_PolyFillType.PFT_NON_ZERO,hxClipper_PolyFillType.PFT_NON_ZERO);
+	return paths;
+};
+hxClipper_Clipper.polyTreeToPaths = function(polytree) {
+	var result = [];
+	hxClipper_Clipper.addPolyNodeToPaths(polytree,hxClipper__$Clipper_NodeType.NT_ANY,result);
+	return result;
+};
+hxClipper_Clipper.addPolyNodeToPaths = function(polynode,nt,paths) {
+	var match = true;
+	switch(nt._hx_index) {
+	case 1:
+		return;
+	case 2:
+		match = !polynode.isOpen;
+		break;
+	default:
+	}
+	if(polynode.mPolygon.length > 0 && match) {
+		paths.push(polynode.mPolygon);
+	}
+	var _g = 0;
+	var _g1 = polynode.get_children();
+	while(_g < _g1.length) {
+		var pn = _g1[_g];
+		++_g;
+		hxClipper_Clipper.addPolyNodeToPaths(pn,nt,paths);
+	}
+};
+hxClipper_Clipper.openPathsFromPolyTree = function(polytree) {
+	var result = [];
+	var _g = 0;
+	var _g1 = polytree.get_numChildren();
+	while(_g < _g1) {
+		var i = _g++;
+		if(polytree.get_children()[i].isOpen) {
+			result.push(polytree.get_children()[i].mPolygon);
+		}
+	}
+	return result;
+};
+hxClipper_Clipper.closedPathsFromPolyTree = function(polytree) {
+	var result = [];
+	hxClipper_Clipper.addPolyNodeToPaths(polytree,hxClipper__$Clipper_NodeType.NT_CLOSED,result);
+	return result;
+};
+hxClipper_Clipper.__super__ = hxClipper_ClipperBase;
+hxClipper_Clipper.prototype = $extend(hxClipper_ClipperBase.prototype,{
+	mClipType: null
+	,mMaxima: null
+	,mSortedEdges: null
+	,mIntersectList: null
+	,mIntersectNodeComparer: null
+	,mExecuteLocked: null
+	,mClipFillType: null
+	,mSubjFillType: null
+	,mJoins: null
+	,mGhostJoins: null
+	,mUsingPolyTree: null
+	,insertMaxima: function(x) {
+		var newMax = new hxClipper__$Clipper_Maxima();
+		newMax.x = x;
+		if(this.mMaxima == null) {
+			this.mMaxima = newMax;
+			this.mMaxima.next = null;
+			this.mMaxima.prev = null;
+		} else if(x < this.mMaxima.x) {
+			newMax.next = this.mMaxima;
+			newMax.prev = null;
+			this.mMaxima = newMax;
+		} else {
+			var m = this.mMaxima;
+			while(m.next != null && x >= m.next.x) m = m.next;
+			if(x == m.x) {
+				return;
+			}
+			newMax.next = m.next;
+			newMax.prev = m;
+			if(m.next != null) {
+				m.next.prev = newMax;
+			}
+			m.next = newMax;
+		}
+	}
+	,reverseSolution: null
+	,strictlySimple: null
+	,executePaths: function(clipType,solution,subjFillType,clipFillType) {
+		if(this.mExecuteLocked) {
+			return false;
+		}
+		if(this.mHasOpenPaths) {
+			throw new js__$Boot_HaxeError(new hxClipper_ClipperException("Error: PolyTree struct is needed for open path clipping."));
+		}
+		this.mExecuteLocked = true;
+		solution.length = 0;
+		this.mSubjFillType = subjFillType;
+		this.mClipFillType = clipFillType;
+		this.mClipType = clipType;
+		this.mUsingPolyTree = false;
+		var succeeded = false;
+		succeeded = this.executeInternal();
+		if(succeeded) {
+			this.buildResult(solution);
+		}
+		this.disposeAllPolyPts();
+		this.mExecuteLocked = false;
+		this.mJoins.length = 0;
+		this.mGhostJoins.length = 0;
+		return succeeded;
+	}
+	,executePolyTree: function(clipType,polytree,subjFillType,clipFillType) {
+		if(this.mExecuteLocked) {
+			return false;
+		}
+		this.mExecuteLocked = true;
+		this.mSubjFillType = subjFillType;
+		this.mClipFillType = clipFillType;
+		this.mClipType = clipType;
+		this.mUsingPolyTree = true;
+		var succeeded = false;
+		succeeded = this.executeInternal();
+		if(succeeded) {
+			this.buildResult2(polytree);
+		}
+		this.disposeAllPolyPts();
+		this.mExecuteLocked = false;
+		this.mJoins.length = 0;
+		this.mGhostJoins.length = 0;
+		return succeeded;
+	}
+	,execute: function(clipType,solution) {
+		if(((solution) instanceof Array) && solution.__enum__ == null) {
+			return this.executePaths(clipType,solution,hxClipper_PolyFillType.PFT_EVEN_ODD,hxClipper_PolyFillType.PFT_EVEN_ODD);
+		} else if(((solution) instanceof hxClipper_PolyTree)) {
+			return this.executePolyTree(clipType,solution,hxClipper_PolyFillType.PFT_EVEN_ODD,hxClipper_PolyFillType.PFT_EVEN_ODD);
+		} else {
+			throw new js__$Boot_HaxeError(new hxClipper_ClipperException("`solution` must be either a Paths or a PolyTree"));
+		}
+	}
+	,fixHoleLinkage: function(outRec) {
+		if(outRec.firstLeft == null || outRec.isHole != outRec.firstLeft.isHole && outRec.firstLeft.pts != null) {
+			return;
+		}
+		var orfl = outRec.firstLeft;
+		while(orfl != null && (orfl.isHole == outRec.isHole || orfl.pts == null)) orfl = orfl.firstLeft;
+		outRec.firstLeft = orfl;
+	}
+	,executeInternal: function() {
+		this.reset();
+		this.mSortedEdges = null;
+		this.mMaxima = null;
+		var topY;
+		var popRes = this.popScanbeam();
+		var botY = popRes.y;
+		if(!popRes.popped) {
+			return false;
+		}
+		this.insertLocalMinimaIntoAEL(botY);
+		while(true) {
+			popRes = this.popScanbeam();
+			topY = popRes.y;
+			if(popRes.popped || this.localMinimaPending()) {
+				this.processHorizontals();
+				this.mGhostJoins.length = 0;
+				if(!this.processIntersections(topY)) {
+					return false;
+				}
+				this.processEdgesAtTopOfScanbeam(topY);
+				botY = topY;
+				this.insertLocalMinimaIntoAEL(topY);
+			} else {
+				break;
+			}
+		}
+		var _g = 0;
+		var _g1 = this.mPolyOuts.length;
+		while(_g < _g1) {
+			var i = _g++;
+			var outRec = this.mPolyOuts[i];
+			if(outRec.pts == null || outRec.isOpen) {
+				continue;
+			}
+			var a = outRec.isHole;
+			var b = this.reverseSolution;
+			if((a && !b || b && !a) == this.areaOfOutRec(outRec) > 0) {
+				this.reversePolyPtLinks(outRec.pts);
+			}
+		}
+		this.joinCommonEdges();
+		var _g2 = 0;
+		var _g3 = this.mPolyOuts.length;
+		while(_g2 < _g3) {
+			var i1 = _g2++;
+			var outRec1 = this.mPolyOuts[i1];
+			if(outRec1.pts == null) {
+				continue;
+			} else if(outRec1.isOpen) {
+				this.fixupOutPolyLine(outRec1);
+			} else {
+				this.fixupOutPolygon(outRec1);
+			}
+		}
+		if(this.strictlySimple) {
+			this.doSimplePolygons();
+		}
+		return true;
+	}
+	,disposeAllPolyPts: function() {
+		var _g = 0;
+		var _g1 = this.mPolyOuts.length;
+		while(_g < _g1) {
+			var i = _g++;
+			this.disposeOutRec(i);
+		}
+		this.mPolyOuts.length = 0;
+	}
+	,addJoin: function(op1,op2,offPt) {
+		var j = new hxClipper__$Clipper_Join();
+		j.outPt1 = op1;
+		j.outPt2 = op2;
+		j.offPt.copyFrom(offPt);
+		this.mJoins.push(j);
+	}
+	,addGhostJoin: function(op,offPt) {
+		var j = new hxClipper__$Clipper_Join();
+		j.outPt1 = op;
+		j.offPt.copyFrom(offPt);
+		this.mGhostJoins.push(j);
+	}
+	,insertLocalMinimaIntoAEL: function(botY) {
+		var current = { lm : null};
+		while(this.popLocalMinima(botY,current)) {
+			var lm = current.lm;
+			var lb = lm.leftBound;
+			var rb = lm.rightBound;
+			var op1 = null;
+			if(lb == null) {
+				this.insertEdgeIntoAEL(rb,null);
+				this.setWindingCount(rb);
+				if(this.isContributing(rb)) {
+					op1 = this.addOutPt(rb,rb.bot);
+				}
+			} else if(rb == null) {
+				this.insertEdgeIntoAEL(lb,null);
+				this.setWindingCount(lb);
+				if(this.isContributing(lb)) {
+					op1 = this.addOutPt(lb,lb.bot);
+				}
+				this.insertScanbeam(lb.top.y);
+			} else {
+				this.insertEdgeIntoAEL(lb,null);
+				this.insertEdgeIntoAEL(rb,lb);
+				this.setWindingCount(lb);
+				rb.windCnt = lb.windCnt;
+				rb.windCnt2 = lb.windCnt2;
+				if(this.isContributing(lb)) {
+					op1 = this.addLocalMinPoly(lb,rb,lb.bot);
+				}
+				this.insertScanbeam(lb.top.y);
+			}
+			if(rb != null) {
+				if(hxClipper_ClipperBase.isHorizontal(rb)) {
+					if(rb.nextInLML != null) {
+						this.insertScanbeam(rb.nextInLML.top.y);
+					}
+					this.addEdgeToSEL(rb);
+				} else {
+					this.insertScanbeam(rb.top.y);
+				}
+			}
+			if(lb == null || rb == null) {
+				continue;
+			}
+			if(op1 != null && hxClipper_ClipperBase.isHorizontal(rb) && this.mGhostJoins.length > 0 && rb.windDelta != 0) {
+				var _g = 0;
+				var _g1 = this.mGhostJoins.length;
+				while(_g < _g1) {
+					var i = _g++;
+					var j = this.mGhostJoins[i];
+					if(this.horzSegmentsOverlap(j.outPt1.pt.x,j.offPt.x,rb.bot.x,rb.top.x)) {
+						this.addJoin(j.outPt1,op1,j.offPt);
+					}
+				}
+			}
+			if(lb.outIdx >= 0 && lb.prevInAEL != null && lb.prevInAEL.curr.x == lb.bot.x && lb.prevInAEL.outIdx >= 0 && hxClipper_ClipperBase.slopesEqual4(lb.prevInAEL.curr,lb.prevInAEL.top,lb.curr,lb.top,this.mUseFullRange) && lb.windDelta != 0 && lb.prevInAEL.windDelta != 0) {
+				var op2 = this.addOutPt(lb.prevInAEL,lb.bot);
+				this.addJoin(op1,op2,lb.top);
+			}
+			if(lb.nextInAEL != rb) {
+				if(rb.outIdx >= 0 && rb.prevInAEL.outIdx >= 0 && hxClipper_ClipperBase.slopesEqual4(rb.prevInAEL.curr,rb.prevInAEL.top,rb.curr,rb.top,this.mUseFullRange) && rb.windDelta != 0 && rb.prevInAEL.windDelta != 0) {
+					var op21 = this.addOutPt(rb.prevInAEL,rb.bot);
+					this.addJoin(op1,op21,rb.top);
+				}
+				var e = lb.nextInAEL;
+				if(e != null) {
+					while(e != rb) {
+						this.intersectEdges(rb,e,lb.curr);
+						e = e.nextInAEL;
+					}
+				}
+			}
+		}
+	}
+	,insertEdgeIntoAEL: function(edge,startEdge) {
+		if(this.mActiveEdges == null) {
+			edge.prevInAEL = null;
+			edge.nextInAEL = null;
+			this.mActiveEdges = edge;
+		} else if(startEdge == null && this.e2InsertsBeforeE1(this.mActiveEdges,edge)) {
+			edge.prevInAEL = null;
+			edge.nextInAEL = this.mActiveEdges;
+			this.mActiveEdges.prevInAEL = edge;
+			this.mActiveEdges = edge;
+		} else {
+			if(startEdge == null) {
+				startEdge = this.mActiveEdges;
+			}
+			while(startEdge.nextInAEL != null && !this.e2InsertsBeforeE1(startEdge.nextInAEL,edge)) startEdge = startEdge.nextInAEL;
+			edge.nextInAEL = startEdge.nextInAEL;
+			if(startEdge.nextInAEL != null) {
+				startEdge.nextInAEL.prevInAEL = edge;
+			}
+			edge.prevInAEL = startEdge;
+			startEdge.nextInAEL = edge;
+		}
+	}
+	,e2InsertsBeforeE1: function(e1,e2) {
+		if(e2.curr.x == e1.curr.x) {
+			if(e2.top.y > e1.top.y) {
+				return e2.top.x < hxClipper_Clipper.topX(e1,e2.top.y);
+			} else {
+				return e1.top.x > hxClipper_Clipper.topX(e2,e1.top.y);
+			}
+		} else {
+			return e2.curr.x < e1.curr.x;
+		}
+	}
+	,isEvenOddFillType: function(edge) {
+		if(edge.polyType == hxClipper_PolyType.PT_SUBJECT) {
+			return this.mSubjFillType == hxClipper_PolyFillType.PFT_EVEN_ODD;
+		} else {
+			return this.mClipFillType == hxClipper_PolyFillType.PFT_EVEN_ODD;
+		}
+	}
+	,isEvenOddAltFillType: function(edge) {
+		if(edge.polyType == hxClipper_PolyType.PT_SUBJECT) {
+			return this.mClipFillType == hxClipper_PolyFillType.PFT_EVEN_ODD;
+		} else {
+			return this.mSubjFillType == hxClipper_PolyFillType.PFT_EVEN_ODD;
+		}
+	}
+	,isContributing: function(edge) {
+		var pft;
+		var pft2;
+		if(edge.polyType == hxClipper_PolyType.PT_SUBJECT) {
+			pft = this.mSubjFillType;
+			pft2 = this.mClipFillType;
+		} else {
+			pft = this.mClipFillType;
+			pft2 = this.mSubjFillType;
+		}
+		switch(pft._hx_index) {
+		case 0:
+			if(edge.windDelta == 0 && edge.windCnt != 1) {
+				return false;
+			}
+			break;
+		case 1:
+			if(Math.abs(edge.windCnt) != 1) {
+				return false;
+			}
+			break;
+		case 2:
+			if(edge.windCnt != 1) {
+				return false;
+			}
+			break;
+		default:
+			if(edge.windCnt != -1) {
+				return false;
+			}
+		}
+		switch(this.mClipType._hx_index) {
+		case 0:
+			switch(pft2._hx_index) {
+			case 0:case 1:
+				return edge.windCnt2 != 0;
+			case 2:
+				return edge.windCnt2 > 0;
+			default:
+				return edge.windCnt2 < 0;
+			}
+			break;
+		case 1:
+			switch(pft2._hx_index) {
+			case 0:case 1:
+				return edge.windCnt2 == 0;
+			case 2:
+				return edge.windCnt2 <= 0;
+			default:
+				return edge.windCnt2 >= 0;
+			}
+			break;
+		case 2:
+			if(edge.polyType == hxClipper_PolyType.PT_SUBJECT) {
+				switch(pft2._hx_index) {
+				case 0:case 1:
+					return edge.windCnt2 == 0;
+				case 2:
+					return edge.windCnt2 <= 0;
+				default:
+					return edge.windCnt2 >= 0;
+				}
+			} else {
+				switch(pft2._hx_index) {
+				case 0:case 1:
+					return edge.windCnt2 != 0;
+				case 2:
+					return edge.windCnt2 > 0;
+				default:
+					return edge.windCnt2 < 0;
+				}
+			}
+			break;
+		case 3:
+			if(edge.windDelta == 0) {
+				switch(pft2._hx_index) {
+				case 0:case 1:
+					return edge.windCnt2 == 0;
+				case 2:
+					return edge.windCnt2 <= 0;
+				default:
+					return edge.windCnt2 >= 0;
+				}
+			} else {
+				return true;
+			}
+			break;
+		}
+	}
+	,setWindingCount: function(edge) {
+		var e = edge.prevInAEL;
+		while(e != null && (e.polyType != edge.polyType || e.windDelta == 0)) e = e.prevInAEL;
+		if(e == null) {
+			var pft = edge.polyType == hxClipper_PolyType.PT_SUBJECT ? this.mSubjFillType : this.mClipFillType;
+			if(edge.windDelta == 0) {
+				edge.windCnt = pft == hxClipper_PolyFillType.PFT_NEGATIVE ? -1 : 1;
+			} else {
+				edge.windCnt = edge.windDelta;
+			}
+			edge.windCnt2 = 0;
+			e = this.mActiveEdges;
+		} else if(edge.windDelta == 0 && this.mClipType != hxClipper_ClipType.CT_UNION) {
+			edge.windCnt = 1;
+			edge.windCnt2 = e.windCnt2;
+			e = e.nextInAEL;
+		} else if(this.isEvenOddFillType(edge)) {
+			if(edge.windDelta == 0) {
+				var inside = true;
+				var e2 = e.prevInAEL;
+				while(e2 != null) {
+					if(e2.polyType == e.polyType && e2.windDelta != 0) {
+						inside = !inside;
+					}
+					e2 = e2.prevInAEL;
+				}
+				edge.windCnt = inside ? 0 : 1;
+			} else {
+				edge.windCnt = edge.windDelta;
+			}
+			edge.windCnt2 = e.windCnt2;
+			e = e.nextInAEL;
+		} else {
+			if(e.windCnt * e.windDelta < 0) {
+				if(Math.abs(e.windCnt) > 1) {
+					if(e.windDelta * edge.windDelta < 0) {
+						edge.windCnt = e.windCnt;
+					} else {
+						edge.windCnt = e.windCnt + edge.windDelta;
+					}
+				} else {
+					edge.windCnt = edge.windDelta == 0 ? 1 : edge.windDelta;
+				}
+			} else if(edge.windDelta == 0) {
+				edge.windCnt = e.windCnt < 0 ? e.windCnt - 1 : e.windCnt + 1;
+			} else if(e.windDelta * edge.windDelta < 0) {
+				edge.windCnt = e.windCnt;
+			} else {
+				edge.windCnt = e.windCnt + edge.windDelta;
+			}
+			edge.windCnt2 = e.windCnt2;
+			e = e.nextInAEL;
+		}
+		if(this.isEvenOddAltFillType(edge)) {
+			while(e != edge) {
+				if(e.windDelta != 0) {
+					edge.windCnt2 = edge.windCnt2 == 0 ? 1 : 0;
+				}
+				e = e.nextInAEL;
+			}
+		} else {
+			while(e != edge) {
+				edge.windCnt2 += e.windDelta;
+				e = e.nextInAEL;
+			}
+		}
+	}
+	,addEdgeToSEL: function(edge) {
+		if(this.mSortedEdges == null) {
+			this.mSortedEdges = edge;
+			edge.prevInSEL = null;
+			edge.nextInSEL = null;
+		} else {
+			edge.nextInSEL = this.mSortedEdges;
+			edge.prevInSEL = null;
+			this.mSortedEdges.prevInSEL = edge;
+			this.mSortedEdges = edge;
+		}
+	}
+	,popEdgeFromSEL: function() {
+		var res = { popped : false, edge : null};
+		res.edge = this.mSortedEdges;
+		if(res.edge == null) {
+			return res;
+		}
+		var oldE = res.edge;
+		this.mSortedEdges = res.edge.nextInSEL;
+		if(this.mSortedEdges != null) {
+			this.mSortedEdges.prevInSEL = null;
+		}
+		oldE.nextInSEL = null;
+		oldE.prevInSEL = null;
+		res.popped = true;
+		return res;
+	}
+	,copyAELToSEL: function() {
+		var e = this.mActiveEdges;
+		this.mSortedEdges = e;
+		while(e != null) {
+			e.prevInSEL = e.prevInAEL;
+			e.nextInSEL = e.nextInAEL;
+			e = e.nextInAEL;
+		}
+	}
+	,swapPositionsInSEL: function(edge1,edge2) {
+		if(edge1.nextInSEL == null && edge1.prevInSEL == null) {
+			return;
+		}
+		if(edge2.nextInSEL == null && edge2.prevInSEL == null) {
+			return;
+		}
+		if(edge1.nextInSEL == edge2) {
+			var next = edge2.nextInSEL;
+			if(next != null) {
+				next.prevInSEL = edge1;
+			}
+			var prev = edge1.prevInSEL;
+			if(prev != null) {
+				prev.nextInSEL = edge2;
+			}
+			edge2.prevInSEL = prev;
+			edge2.nextInSEL = edge1;
+			edge1.prevInSEL = edge2;
+			edge1.nextInSEL = next;
+		} else if(edge2.nextInSEL == edge1) {
+			var next1 = edge1.nextInSEL;
+			if(next1 != null) {
+				next1.prevInSEL = edge2;
+			}
+			var prev1 = edge2.prevInSEL;
+			if(prev1 != null) {
+				prev1.nextInSEL = edge1;
+			}
+			edge1.prevInSEL = prev1;
+			edge1.nextInSEL = edge2;
+			edge2.prevInSEL = edge1;
+			edge2.nextInSEL = next1;
+		} else {
+			var next2 = edge1.nextInSEL;
+			var prev2 = edge1.prevInSEL;
+			edge1.nextInSEL = edge2.nextInSEL;
+			if(edge1.nextInSEL != null) {
+				edge1.nextInSEL.prevInSEL = edge1;
+			}
+			edge1.prevInSEL = edge2.prevInSEL;
+			if(edge1.prevInSEL != null) {
+				edge1.prevInSEL.nextInSEL = edge1;
+			}
+			edge2.nextInSEL = next2;
+			if(edge2.nextInSEL != null) {
+				edge2.nextInSEL.prevInSEL = edge2;
+			}
+			edge2.prevInSEL = prev2;
+			if(edge2.prevInSEL != null) {
+				edge2.prevInSEL.nextInSEL = edge2;
+			}
+		}
+		if(edge1.prevInSEL == null) {
+			this.mSortedEdges = edge1;
+		} else if(edge2.prevInSEL == null) {
+			this.mSortedEdges = edge2;
+		}
+	}
+	,addLocalMaxPoly: function(e1,e2,pt) {
+		this.addOutPt(e1,pt);
+		if(e2.windDelta == 0) {
+			this.addOutPt(e2,pt);
+		}
+		if(e1.outIdx == e2.outIdx) {
+			e1.outIdx = -1;
+			e2.outIdx = -1;
+		} else if(e1.outIdx < e2.outIdx) {
+			this.appendPolygon(e1,e2);
+		} else {
+			this.appendPolygon(e2,e1);
+		}
+	}
+	,addLocalMinPoly: function(e1,e2,pt) {
+		var result = null;
+		var e;
+		var prevE;
+		if(hxClipper_ClipperBase.isHorizontal(e2) || e1.dx > e2.dx) {
+			result = this.addOutPt(e1,pt);
+			e2.outIdx = e1.outIdx;
+			e1.side = hxClipper__$Clipper_EdgeSide.ES_LEFT;
+			e2.side = hxClipper__$Clipper_EdgeSide.ES_RIGHT;
+			e = e1;
+			if(e1.prevInAEL == e2) {
+				prevE = e2.prevInAEL;
+			} else {
+				prevE = e1.prevInAEL;
+			}
+		} else {
+			result = this.addOutPt(e2,pt);
+			e1.outIdx = e2.outIdx;
+			e1.side = hxClipper__$Clipper_EdgeSide.ES_RIGHT;
+			e2.side = hxClipper__$Clipper_EdgeSide.ES_LEFT;
+			e = e2;
+			if(e2.prevInAEL == e1) {
+				prevE = e1.prevInAEL;
+			} else {
+				prevE = e2.prevInAEL;
+			}
+		}
+		if(prevE != null && prevE.outIdx >= 0) {
+			var xPrev = hxClipper_Clipper.topX(prevE,pt.y);
+			var xE = hxClipper_Clipper.topX(e,pt.y);
+			if(xPrev == xE && e.windDelta != 0 && prevE.windDelta != 0 && hxClipper_ClipperBase.slopesEqual4(new hxClipper_IntPoint(xPrev,pt.y),prevE.top,new hxClipper_IntPoint(xE,pt.y),e.top,this.mUseFullRange)) {
+				var outPt = this.addOutPt(prevE,pt);
+				this.addJoin(result,outPt,e.top);
+			}
+		}
+		return result;
+	}
+	,addOutPt: function(e,pt) {
+		if(e.outIdx < 0) {
+			var outRec = this.createOutRec();
+			outRec.isOpen = e.windDelta == 0;
+			var newOp = new hxClipper__$Clipper_OutPt();
+			outRec.pts = newOp;
+			newOp.idx = outRec.idx;
+			newOp.pt.copyFrom(pt);
+			newOp.next = newOp;
+			newOp.prev = newOp;
+			if(!outRec.isOpen) {
+				this.setHoleState(e,outRec);
+			}
+			e.outIdx = outRec.idx;
+			return newOp;
+		} else {
+			var outRec1 = this.mPolyOuts[e.outIdx];
+			var op = outRec1.pts;
+			var toFront = e.side == hxClipper__$Clipper_EdgeSide.ES_LEFT;
+			if(toFront && pt.equals(op.pt)) {
+				return op;
+			} else if(!toFront && pt.equals(op.prev.pt)) {
+				return op.prev;
+			}
+			var newOp1 = new hxClipper__$Clipper_OutPt();
+			newOp1.idx = outRec1.idx;
+			newOp1.pt.copyFrom(pt);
+			newOp1.next = op;
+			newOp1.prev = op.prev;
+			newOp1.prev.next = newOp1;
+			op.prev = newOp1;
+			if(toFront) {
+				outRec1.pts = newOp1;
+			}
+			return newOp1;
+		}
+	}
+	,getLastOutPt: function(e) {
+		var outRec = this.mPolyOuts[e.outIdx];
+		if(e.side == hxClipper__$Clipper_EdgeSide.ES_LEFT) {
+			return outRec.pts;
+		} else {
+			return outRec.pts.prev;
+		}
+	}
+	,swapPoints: function(pt1,pt2) {
+		var tmp = pt1.clone();
+		pt1.copyFrom(pt2);
+		pt2.copyFrom(tmp);
+	}
+	,horzSegmentsOverlap: function(seg1a,seg1b,seg2a,seg2b) {
+		if(seg1a > seg1b) {
+			var tmp = seg1a;
+			seg1a = seg1b;
+			seg1b = tmp;
+		}
+		if(seg2a > seg2b) {
+			var tmp1 = seg2a;
+			seg2a = seg2b;
+			seg2b = tmp1;
+		}
+		if(seg1a < seg2b) {
+			return seg2a < seg1b;
+		} else {
+			return false;
+		}
+	}
+	,setHoleState: function(e,outRec) {
+		var e2 = e.prevInAEL;
+		var eTmp = null;
+		while(e2 != null) {
+			if(e2.outIdx >= 0 && e2.windDelta != 0) {
+				if(eTmp == null) {
+					eTmp = e2;
+				} else if(eTmp.outIdx == e2.outIdx) {
+					eTmp = null;
+				}
+			}
+			e2 = e2.prevInAEL;
+		}
+		if(eTmp == null) {
+			outRec.firstLeft = null;
+			outRec.isHole = false;
+		} else {
+			outRec.firstLeft = this.mPolyOuts[eTmp.outIdx];
+			outRec.isHole = !outRec.firstLeft.isHole;
+		}
+	}
+	,getDx: function(pt1,pt2) {
+		if(pt1.y == pt2.y) {
+			return -3.4E+38;
+		} else {
+			var dx = pt2.x - pt1.x;
+			var dy = pt2.y - pt1.y;
+			return dx / dy;
+		}
+	}
+	,firstIsBottomPt: function(btmPt1,btmPt2) {
+		var p = btmPt1.prev;
+		while(p.pt.equals(btmPt1.pt) && p != btmPt1) p = p.prev;
+		var dx1p = Math.abs(this.getDx(btmPt1.pt,p.pt));
+		p = btmPt1.next;
+		while(p.pt.equals(btmPt1.pt) && p != btmPt1) p = p.next;
+		var dx1n = Math.abs(this.getDx(btmPt1.pt,p.pt));
+		p = btmPt2.prev;
+		while(p.pt.equals(btmPt2.pt) && p != btmPt2) p = p.prev;
+		var dx2p = Math.abs(this.getDx(btmPt2.pt,p.pt));
+		p = btmPt2.next;
+		while(p.pt.equals(btmPt2.pt) && p != btmPt2) p = p.next;
+		var dx2n = Math.abs(this.getDx(btmPt2.pt,p.pt));
+		if(Math.max(dx1p,dx1n) == Math.max(dx2p,dx2n) && Math.min(dx1p,dx1n) == Math.min(dx2p,dx2n)) {
+			return this.areaOfOutPt(btmPt1) > 0;
+		} else if(!(dx1p >= dx2p && dx1p >= dx2n)) {
+			if(dx1n >= dx2p) {
+				return dx1n >= dx2n;
+			} else {
+				return false;
+			}
+		} else {
+			return true;
+		}
+	}
+	,getBottomPt: function(pp) {
+		var dups = null;
+		var p = pp.next;
+		while(p != pp) {
+			if(p.pt.y > pp.pt.y) {
+				pp = p;
+				dups = null;
+			} else if(p.pt.y == pp.pt.y && p.pt.x <= pp.pt.x) {
+				if(p.pt.x < pp.pt.x) {
+					dups = null;
+					pp = p;
+				} else if(p.next != pp && p.prev != pp) {
+					dups = p;
+				}
+			}
+			p = p.next;
+		}
+		if(dups != null) {
+			while(dups != p) {
+				if(!this.firstIsBottomPt(p,dups)) {
+					pp = dups;
+				}
+				dups = dups.next;
+				while(!dups.pt.equals(pp.pt)) dups = dups.next;
+			}
+		}
+		return pp;
+	}
+	,getLowermostRec: function(outRec1,outRec2) {
+		if(outRec1.bottomPt == null) {
+			outRec1.bottomPt = this.getBottomPt(outRec1.pts);
+		}
+		if(outRec2.bottomPt == null) {
+			outRec2.bottomPt = this.getBottomPt(outRec2.pts);
+		}
+		var bPt1 = outRec1.bottomPt;
+		var bPt2 = outRec2.bottomPt;
+		if(bPt1.pt.y > bPt2.pt.y) {
+			return outRec1;
+		} else if(bPt1.pt.y < bPt2.pt.y) {
+			return outRec2;
+		} else if(bPt1.pt.x < bPt2.pt.x) {
+			return outRec1;
+		} else if(bPt1.pt.x > bPt2.pt.x) {
+			return outRec2;
+		} else if(bPt1.next == bPt1) {
+			return outRec2;
+		} else if(bPt2.next == bPt2) {
+			return outRec1;
+		} else if(this.firstIsBottomPt(bPt1,bPt2)) {
+			return outRec1;
+		} else {
+			return outRec2;
+		}
+	}
+	,outRec1RightOfOutRec2: function(outRec1,outRec2) {
+		while(true) {
+			outRec1 = outRec1.firstLeft;
+			if(outRec1 == outRec2) {
+				return true;
+			}
+			if(!(outRec1 != null)) {
+				break;
+			}
+		}
+		return false;
+	}
+	,getOutRec: function(idx) {
+		var outrec = this.mPolyOuts[idx];
+		while(outrec != this.mPolyOuts[outrec.idx]) outrec = this.mPolyOuts[outrec.idx];
+		return outrec;
+	}
+	,appendPolygon: function(e1,e2) {
+		var outRec1 = this.mPolyOuts[e1.outIdx];
+		var outRec2 = this.mPolyOuts[e2.outIdx];
+		var holeStateRec;
+		if(this.outRec1RightOfOutRec2(outRec1,outRec2)) {
+			holeStateRec = outRec2;
+		} else if(this.outRec1RightOfOutRec2(outRec2,outRec1)) {
+			holeStateRec = outRec1;
+		} else {
+			holeStateRec = this.getLowermostRec(outRec1,outRec2);
+		}
+		var p1_lft = outRec1.pts;
+		var p1_rt = p1_lft.prev;
+		var p2_lft = outRec2.pts;
+		var p2_rt = p2_lft.prev;
+		if(e1.side == hxClipper__$Clipper_EdgeSide.ES_LEFT) {
+			if(e2.side == hxClipper__$Clipper_EdgeSide.ES_LEFT) {
+				this.reversePolyPtLinks(p2_lft);
+				p2_lft.next = p1_lft;
+				p1_lft.prev = p2_lft;
+				p1_rt.next = p2_rt;
+				p2_rt.prev = p1_rt;
+				outRec1.pts = p2_rt;
+			} else {
+				p2_rt.next = p1_lft;
+				p1_lft.prev = p2_rt;
+				p2_lft.prev = p1_rt;
+				p1_rt.next = p2_lft;
+				outRec1.pts = p2_lft;
+			}
+		} else if(e2.side == hxClipper__$Clipper_EdgeSide.ES_RIGHT) {
+			this.reversePolyPtLinks(p2_lft);
+			p1_rt.next = p2_rt;
+			p2_rt.prev = p1_rt;
+			p2_lft.next = p1_lft;
+			p1_lft.prev = p2_lft;
+		} else {
+			p1_rt.next = p2_lft;
+			p2_lft.prev = p1_rt;
+			p1_lft.prev = p2_rt;
+			p2_rt.next = p1_lft;
+		}
+		outRec1.bottomPt = null;
+		if(holeStateRec == outRec2) {
+			if(outRec2.firstLeft != outRec1) {
+				outRec1.firstLeft = outRec2.firstLeft;
+			}
+			outRec1.isHole = outRec2.isHole;
+		}
+		outRec2.pts = null;
+		outRec2.bottomPt = null;
+		outRec2.firstLeft = outRec1;
+		var OKIdx = e1.outIdx;
+		var ObsoleteIdx = e2.outIdx;
+		e1.outIdx = -1;
+		e2.outIdx = -1;
+		var e = this.mActiveEdges;
+		while(e != null) {
+			if(e.outIdx == ObsoleteIdx) {
+				e.outIdx = OKIdx;
+				e.side = e1.side;
+				break;
+			}
+			e = e.nextInAEL;
+		}
+		outRec2.idx = outRec1.idx;
+	}
+	,reversePolyPtLinks: function(pp) {
+		if(pp == null) {
+			return;
+		}
+		var pp2;
+		var pp1 = pp;
+		while(true) {
+			pp2 = pp1.next;
+			pp1.next = pp1.prev;
+			pp1.prev = pp2;
+			pp1 = pp2;
+			if(!(pp2 != pp)) {
+				break;
+			}
+		}
+	}
+	,intersectEdges: function(e1,e2,pt) {
+		var e1Contributing = e1.outIdx >= 0;
+		var e2Contributing = e2.outIdx >= 0;
+		if(e1.polyType == e2.polyType) {
+			if(this.isEvenOddFillType(e1)) {
+				var oldE1WindCnt = e1.windCnt;
+				e1.windCnt = e2.windCnt;
+				e2.windCnt = oldE1WindCnt;
+			} else {
+				if(e1.windCnt + e2.windDelta == 0) {
+					e1.windCnt = -e1.windCnt;
+				} else {
+					e1.windCnt += e2.windDelta;
+				}
+				if(e2.windCnt - e1.windDelta == 0) {
+					e2.windCnt = -e2.windCnt;
+				} else {
+					e2.windCnt -= e1.windDelta;
+				}
+			}
+		} else {
+			if(!this.isEvenOddFillType(e2)) {
+				e1.windCnt2 += e2.windDelta;
+			} else {
+				e1.windCnt2 = e1.windCnt2 == 0 ? 1 : 0;
+			}
+			if(!this.isEvenOddFillType(e1)) {
+				e2.windCnt2 -= e1.windDelta;
+			} else {
+				e2.windCnt2 = e2.windCnt2 == 0 ? 1 : 0;
+			}
+		}
+		var e1FillType;
+		var e2FillType;
+		var e1FillType2;
+		var e2FillType2;
+		if(e1.polyType == hxClipper_PolyType.PT_SUBJECT) {
+			e1FillType = this.mSubjFillType;
+			e1FillType2 = this.mClipFillType;
+		} else {
+			e1FillType = this.mClipFillType;
+			e1FillType2 = this.mSubjFillType;
+		}
+		if(e2.polyType == hxClipper_PolyType.PT_SUBJECT) {
+			e2FillType = this.mSubjFillType;
+			e2FillType2 = this.mClipFillType;
+		} else {
+			e2FillType = this.mClipFillType;
+			e2FillType2 = this.mSubjFillType;
+		}
+		var e1Wc;
+		var e2Wc;
+		switch(e1FillType._hx_index) {
+		case 2:
+			e1Wc = e1.windCnt;
+			break;
+		case 3:
+			e1Wc = -e1.windCnt;
+			break;
+		default:
+			e1Wc = Math.abs(e1.windCnt) | 0;
+		}
+		switch(e2FillType._hx_index) {
+		case 2:
+			e2Wc = e2.windCnt;
+			break;
+		case 3:
+			e2Wc = -e2.windCnt;
+			break;
+		default:
+			e2Wc = Math.abs(e2.windCnt) | 0;
+		}
+		if(e1Contributing && e2Contributing) {
+			if(e1Wc != 0 && e1Wc != 1 || e2Wc != 0 && e2Wc != 1 || e1.polyType != e2.polyType && this.mClipType != hxClipper_ClipType.CT_XOR) {
+				this.addLocalMaxPoly(e1,e2,pt);
+			} else {
+				this.addOutPt(e1,pt);
+				this.addOutPt(e2,pt);
+				hxClipper_Clipper.swapSides(e1,e2);
+				hxClipper_Clipper.swapPolyIndexes(e1,e2);
+			}
+		} else if(e1Contributing) {
+			if(e2Wc == 0 || e2Wc == 1) {
+				this.addOutPt(e1,pt);
+				hxClipper_Clipper.swapSides(e1,e2);
+				hxClipper_Clipper.swapPolyIndexes(e1,e2);
+			}
+		} else if(e2Contributing) {
+			if(e1Wc == 0 || e1Wc == 1) {
+				this.addOutPt(e2,pt);
+				hxClipper_Clipper.swapSides(e1,e2);
+				hxClipper_Clipper.swapPolyIndexes(e1,e2);
+			}
+		} else if((e1Wc == 0 || e1Wc == 1) && (e2Wc == 0 || e2Wc == 1)) {
+			var e1Wc2;
+			var e2Wc2;
+			switch(e1FillType2._hx_index) {
+			case 2:
+				e1Wc2 = e1.windCnt2;
+				break;
+			case 3:
+				e1Wc2 = -e1.windCnt2;
+				break;
+			default:
+				e1Wc2 = Math.abs(e1.windCnt2) | 0;
+			}
+			switch(e2FillType2._hx_index) {
+			case 2:
+				e2Wc2 = e2.windCnt2;
+				break;
+			case 3:
+				e2Wc2 = -e2.windCnt2;
+				break;
+			default:
+				e2Wc2 = Math.abs(e2.windCnt2) | 0;
+			}
+			if(e1.polyType != e2.polyType) {
+				this.addLocalMinPoly(e1,e2,pt);
+			} else if(e1Wc == 1 && e2Wc == 1) {
+				switch(this.mClipType._hx_index) {
+				case 0:
+					if(e1Wc2 > 0 && e2Wc2 > 0) {
+						this.addLocalMinPoly(e1,e2,pt);
+					}
+					break;
+				case 1:
+					if(e1Wc2 <= 0 && e2Wc2 <= 0) {
+						this.addLocalMinPoly(e1,e2,pt);
+					}
+					break;
+				case 2:
+					if(e1.polyType == hxClipper_PolyType.PT_CLIP && e1Wc2 > 0 && e2Wc2 > 0 || e1.polyType == hxClipper_PolyType.PT_SUBJECT && e1Wc2 <= 0 && e2Wc2 <= 0) {
+						this.addLocalMinPoly(e1,e2,pt);
+					}
+					break;
+				case 3:
+					this.addLocalMinPoly(e1,e2,pt);
+					break;
+				}
+			} else {
+				hxClipper_Clipper.swapSides(e1,e2);
+			}
+		}
+	}
+	,deleteFromSEL: function(e) {
+		var selPrev = e.prevInSEL;
+		var selNext = e.nextInSEL;
+		if(selPrev == null && selNext == null && e != this.mSortedEdges) {
+			return;
+		}
+		if(selPrev != null) {
+			selPrev.nextInSEL = selNext;
+		} else {
+			this.mSortedEdges = selNext;
+		}
+		if(selNext != null) {
+			selNext.prevInSEL = selPrev;
+		}
+		e.nextInSEL = null;
+		e.prevInSEL = null;
+	}
+	,processHorizontals: function() {
+		var horzEdge = null;
+		while(true) {
+			var popRes = this.popEdgeFromSEL();
+			horzEdge = popRes.edge;
+			if(popRes.popped) {
+				this.processHorizontal(horzEdge);
+			} else {
+				break;
+			}
+		}
+	}
+	,getHorzDirection: function(horzEdge,outParams) {
+		if(horzEdge.bot.x < horzEdge.top.x) {
+			outParams.left = horzEdge.bot.x;
+			outParams.right = horzEdge.top.x;
+			outParams.dir = hxClipper__$Clipper_Direction.D_LEFT_TO_RIGHT;
+		} else {
+			outParams.left = horzEdge.top.x;
+			outParams.right = horzEdge.bot.x;
+			outParams.dir = hxClipper__$Clipper_Direction.D_RIGHT_TO_LEFT;
+		}
+	}
+	,processHorizontal: function(horzEdge) {
+		var dir = null;
+		var horzLeft = 0;
+		var horzRight = 0;
+		var isOpen = horzEdge.windDelta == 0;
+		var outParams = { dir : dir, left : 0, right : 0};
+		this.getHorzDirection(horzEdge,outParams);
+		dir = outParams.dir;
+		horzLeft = outParams.left;
+		horzRight = outParams.right;
+		var eLastHorz = horzEdge;
+		var eMaxPair = null;
+		while(eLastHorz.nextInLML != null && hxClipper_ClipperBase.isHorizontal(eLastHorz.nextInLML)) eLastHorz = eLastHorz.nextInLML;
+		if(eLastHorz.nextInLML == null) {
+			eMaxPair = this.getMaximaPair(eLastHorz);
+		}
+		var currMax = this.mMaxima;
+		if(currMax != null) {
+			if(dir == hxClipper__$Clipper_Direction.D_LEFT_TO_RIGHT) {
+				while(currMax != null && currMax.x <= horzEdge.bot.x) currMax = currMax.next;
+				if(currMax != null && currMax.x >= eLastHorz.top.x) {
+					currMax = null;
+				}
+			} else {
+				while(currMax.next != null && currMax.next.x < horzEdge.bot.x) currMax = currMax.next;
+				if(currMax.x <= eLastHorz.top.x) {
+					currMax = null;
+				}
+			}
+		}
+		var op1 = null;
+		while(true) {
+			var isLastHorz = horzEdge == eLastHorz;
+			var e = this.getNextInAEL(horzEdge,dir);
+			while(e != null) {
+				if(currMax != null) {
+					if(dir == hxClipper__$Clipper_Direction.D_LEFT_TO_RIGHT) {
+						while(currMax != null && currMax.x < e.curr.x) {
+							if(horzEdge.outIdx >= 0 && !isOpen) {
+								this.addOutPt(horzEdge,new hxClipper_IntPoint(currMax.x,horzEdge.bot.y));
+							}
+							currMax = currMax.next;
+						}
+					} else {
+						while(currMax != null && currMax.x > e.curr.x) {
+							if(horzEdge.outIdx >= 0 && !isOpen) {
+								this.addOutPt(horzEdge,new hxClipper_IntPoint(currMax.x,horzEdge.bot.y));
+							}
+							currMax = currMax.prev;
+						}
+					}
+				}
+				if(dir == hxClipper__$Clipper_Direction.D_LEFT_TO_RIGHT && e.curr.x > horzRight || dir == hxClipper__$Clipper_Direction.D_RIGHT_TO_LEFT && e.curr.x < horzLeft) {
+					break;
+				}
+				if(e.curr.x == horzEdge.top.x && horzEdge.nextInLML != null && e.dx < horzEdge.nextInLML.dx) {
+					break;
+				}
+				if(horzEdge.outIdx >= 0 && !isOpen) {
+					op1 = this.addOutPt(horzEdge,e.curr);
+					var eNextHorz = this.mSortedEdges;
+					while(eNextHorz != null) {
+						if(eNextHorz.outIdx >= 0 && this.horzSegmentsOverlap(horzEdge.bot.x,horzEdge.top.x,eNextHorz.bot.x,eNextHorz.top.x)) {
+							var op2 = this.getLastOutPt(eNextHorz);
+							this.addJoin(op2,op1,eNextHorz.top);
+						}
+						eNextHorz = eNextHorz.nextInSEL;
+					}
+					this.addGhostJoin(op1,horzEdge.bot);
+				}
+				if(e == eMaxPair && isLastHorz) {
+					if(horzEdge.outIdx >= 0) {
+						this.addLocalMaxPoly(horzEdge,eMaxPair,horzEdge.top);
+					}
+					this.deleteFromAEL(horzEdge);
+					this.deleteFromAEL(eMaxPair);
+					return;
+				}
+				if(dir == hxClipper__$Clipper_Direction.D_LEFT_TO_RIGHT) {
+					var pt = new hxClipper_IntPoint(e.curr.x,horzEdge.curr.y);
+					this.intersectEdges(horzEdge,e,pt);
+				} else {
+					var pt1 = new hxClipper_IntPoint(e.curr.x,horzEdge.curr.y);
+					this.intersectEdges(e,horzEdge,pt1);
+				}
+				var eNext = this.getNextInAEL(e,dir);
+				this.swapPositionsInAEL(horzEdge,e);
+				e = eNext;
+			}
+			if(horzEdge.nextInLML == null || !hxClipper_ClipperBase.isHorizontal(horzEdge.nextInLML)) {
+				break;
+			}
+			horzEdge = this.updateEdgeIntoAEL(horzEdge);
+			if(horzEdge.outIdx >= 0) {
+				this.addOutPt(horzEdge,horzEdge.bot);
+			}
+			this.getHorzDirection(horzEdge,outParams);
+			dir = outParams.dir;
+			horzLeft = outParams.left;
+			horzRight = outParams.right;
+		}
+		if(horzEdge.outIdx >= 0 && op1 == null) {
+			op1 = this.getLastOutPt(horzEdge);
+			var eNextHorz1 = this.mSortedEdges;
+			while(eNextHorz1 != null) {
+				if(eNextHorz1.outIdx >= 0 && this.horzSegmentsOverlap(horzEdge.bot.x,horzEdge.top.x,eNextHorz1.bot.x,eNextHorz1.top.x)) {
+					var op21 = this.getLastOutPt(eNextHorz1);
+					this.addJoin(op21,op1,eNextHorz1.top);
+				}
+				eNextHorz1 = eNextHorz1.nextInSEL;
+			}
+			this.addGhostJoin(op1,horzEdge.top);
+		}
+		if(horzEdge.nextInLML != null) {
+			if(horzEdge.outIdx >= 0) {
+				var op11 = this.addOutPt(horzEdge,horzEdge.top);
+				horzEdge = this.updateEdgeIntoAEL(horzEdge);
+				if(horzEdge.windDelta == 0) {
+					return;
+				}
+				var ePrev = horzEdge.prevInAEL;
+				var eNext1 = horzEdge.nextInAEL;
+				if(ePrev != null && ePrev.curr.x == horzEdge.bot.x && ePrev.curr.y == horzEdge.bot.y && ePrev.windDelta != 0 && (ePrev.outIdx >= 0 && ePrev.curr.y > ePrev.top.y && hxClipper_ClipperBase.slopesEqual(horzEdge,ePrev,this.mUseFullRange))) {
+					var op22 = this.addOutPt(ePrev,horzEdge.bot);
+					this.addJoin(op11,op22,horzEdge.top);
+				} else if(eNext1 != null && eNext1.curr.x == horzEdge.bot.x && eNext1.curr.y == horzEdge.bot.y && eNext1.windDelta != 0 && eNext1.outIdx >= 0 && eNext1.curr.y > eNext1.top.y && hxClipper_ClipperBase.slopesEqual(horzEdge,eNext1,this.mUseFullRange)) {
+					var op23 = this.addOutPt(eNext1,horzEdge.bot);
+					this.addJoin(op11,op23,horzEdge.top);
+				}
+			} else {
+				horzEdge = this.updateEdgeIntoAEL(horzEdge);
+			}
+		} else {
+			if(horzEdge.outIdx >= 0) {
+				this.addOutPt(horzEdge,horzEdge.top);
+			}
+			this.deleteFromAEL(horzEdge);
+		}
+	}
+	,getNextInAEL: function(e,direction) {
+		if(direction == hxClipper__$Clipper_Direction.D_LEFT_TO_RIGHT) {
+			return e.nextInAEL;
+		} else {
+			return e.prevInAEL;
+		}
+	}
+	,isMinima: function(e) {
+		if(e != null && e.prev.nextInLML != e) {
+			return e.next.nextInLML != e;
+		} else {
+			return false;
+		}
+	}
+	,isMaxima: function(e,y) {
+		if(e != null && e.top.y == y) {
+			return e.nextInLML == null;
+		} else {
+			return false;
+		}
+	}
+	,isIntermediate: function(e,y) {
+		if(e.top.y == y) {
+			return e.nextInLML != null;
+		} else {
+			return false;
+		}
+	}
+	,getMaximaPair: function(e) {
+		if(e.next.top.equals(e.top) && e.next.nextInLML == null) {
+			return e.next;
+		} else if(e.prev.top.equals(e.top) && e.prev.nextInLML == null) {
+			return e.prev;
+		} else {
+			return null;
+		}
+	}
+	,getMaximaPairEx: function(e) {
+		var result = this.getMaximaPair(e);
+		if(result == null || result.outIdx == -2 || result.nextInAEL == result.prevInAEL && !hxClipper_ClipperBase.isHorizontal(result)) {
+			return null;
+		}
+		return result;
+	}
+	,processIntersections: function(topY) {
+		if(this.mActiveEdges == null) {
+			return true;
+		}
+		try {
+			this.buildIntersectList(topY);
+			if(this.mIntersectList.length == 0) {
+				return true;
+			}
+			if(this.mIntersectList.length == 1 || this.fixupIntersectionOrder()) {
+				this.processIntersectList();
+			} else {
+				return false;
+			}
+		} catch( e ) {
+			haxe_CallStack.lastException = e;
+			this.mSortedEdges = null;
+			this.mIntersectList.length = 0;
+			throw new js__$Boot_HaxeError(new hxClipper_ClipperException("ProcessIntersections error"));
+		}
+		this.mSortedEdges = null;
+		return true;
+	}
+	,buildIntersectList: function(topY) {
+		if(this.mActiveEdges == null) {
+			return;
+		}
+		var e = this.mActiveEdges;
+		this.mSortedEdges = e;
+		while(e != null) {
+			e.prevInSEL = e.prevInAEL;
+			e.nextInSEL = e.nextInAEL;
+			e.curr.x = hxClipper_Clipper.topX(e,topY);
+			e = e.nextInAEL;
+		}
+		var isModified = true;
+		while(isModified && this.mSortedEdges != null) {
+			isModified = false;
+			e = this.mSortedEdges;
+			while(e.nextInSEL != null) {
+				var eNext = e.nextInSEL;
+				var pt = new hxClipper_IntPoint();
+				if(e.curr.x > eNext.curr.x) {
+					this.intersectPoint(e,eNext,pt);
+					if(pt.y < topY) {
+						pt = new hxClipper_IntPoint(hxClipper_Clipper.topX(e,topY),topY);
+					}
+					var newNode = new hxClipper_IntersectNode();
+					newNode.edge1 = e;
+					newNode.edge2 = eNext;
+					newNode.pt.copyFrom(pt);
+					this.mIntersectList.push(newNode);
+					this.swapPositionsInSEL(e,eNext);
+					isModified = true;
+				} else {
+					e = eNext;
+				}
+			}
+			if(e.prevInSEL != null) {
+				e.prevInSEL.nextInSEL = null;
+			} else {
+				break;
+			}
+		}
+		this.mSortedEdges = null;
+	}
+	,edgesAdjacent: function(inode) {
+		if(inode.edge1.nextInSEL != inode.edge2) {
+			return inode.edge1.prevInSEL == inode.edge2;
+		} else {
+			return true;
+		}
+	}
+	,fixupIntersectionOrder: function() {
+		haxe_ds_ArraySort.sort(this.mIntersectList,this.mIntersectNodeComparer);
+		this.copyAELToSEL();
+		var cnt = this.mIntersectList.length;
+		var _g = 0;
+		while(_g < cnt) {
+			var i = _g++;
+			if(!this.edgesAdjacent(this.mIntersectList[i])) {
+				var j = i + 1;
+				while(j < cnt && !this.edgesAdjacent(this.mIntersectList[j])) ++j;
+				if(j == cnt) {
+					return false;
+				}
+				var tmp = this.mIntersectList[i];
+				this.mIntersectList[i] = this.mIntersectList[j];
+				this.mIntersectList[j] = tmp;
+			}
+			this.swapPositionsInSEL(this.mIntersectList[i].edge1,this.mIntersectList[i].edge2);
+		}
+		return true;
+	}
+	,processIntersectList: function() {
+		var _g = 0;
+		var _g1 = this.mIntersectList.length;
+		while(_g < _g1) {
+			var i = _g++;
+			var iNode = this.mIntersectList[i];
+			this.intersectEdges(iNode.edge1,iNode.edge2,iNode.pt);
+			this.swapPositionsInAEL(iNode.edge1,iNode.edge2);
+		}
+		this.mIntersectList.length = 0;
+	}
+	,intersectPoint: function(edge1,edge2,ip) {
+		var b1;
+		var b2;
+		if(edge1.dx == edge2.dx) {
+			ip.y = edge1.curr.y;
+			ip.x = hxClipper_Clipper.topX(edge1,ip.y);
+			return;
+		}
+		if(edge1.delta.x == 0) {
+			ip.x = edge1.bot.x;
+			if(hxClipper_ClipperBase.isHorizontal(edge2)) {
+				ip.y = edge2.bot.y;
+			} else {
+				b2 = edge2.bot.y - edge2.bot.x / edge2.dx;
+				ip.y = hxClipper_Clipper.round(ip.x / edge2.dx + b2);
+			}
+		} else if(edge2.delta.x == 0) {
+			ip.x = edge2.bot.x;
+			if(hxClipper_ClipperBase.isHorizontal(edge1)) {
+				ip.y = edge1.bot.y;
+			} else {
+				b1 = edge1.bot.y - edge1.bot.x / edge1.dx;
+				ip.y = hxClipper_Clipper.round(ip.x / edge1.dx + b1);
+			}
+		} else {
+			b1 = edge1.bot.x - edge1.bot.y * edge1.dx;
+			b2 = edge2.bot.x - edge2.bot.y * edge2.dx;
+			var q = (b2 - b1) / (edge1.dx - edge2.dx);
+			ip.y = hxClipper_Clipper.round(q);
+			if(Math.abs(edge1.dx) < Math.abs(edge2.dx)) {
+				ip.x = hxClipper_Clipper.round(edge1.dx * q + b1);
+			} else {
+				ip.x = hxClipper_Clipper.round(edge2.dx * q + b2);
+			}
+		}
+		if(ip.y < edge1.top.y || ip.y < edge2.top.y) {
+			if(edge1.top.y > edge2.top.y) {
+				ip.y = edge1.top.y;
+			} else {
+				ip.y = edge2.top.y;
+			}
+			if(Math.abs(edge1.dx) < Math.abs(edge2.dx)) {
+				ip.x = hxClipper_Clipper.topX(edge1,ip.y);
+			} else {
+				ip.x = hxClipper_Clipper.topX(edge2,ip.y);
+			}
+		}
+		if(ip.y > edge1.curr.y) {
+			ip.y = edge1.curr.y;
+			if(Math.abs(edge1.dx) > Math.abs(edge2.dx)) {
+				ip.x = hxClipper_Clipper.topX(edge2,ip.y);
+			} else {
+				ip.x = hxClipper_Clipper.topX(edge1,ip.y);
+			}
+		}
+	}
+	,processEdgesAtTopOfScanbeam: function(topY) {
+		var e = this.mActiveEdges;
+		while(e != null) {
+			var isMaximaEdge = this.isMaxima(e,topY);
+			if(isMaximaEdge) {
+				var eMaxPair = this.getMaximaPairEx(e);
+				isMaximaEdge = eMaxPair == null || !hxClipper_ClipperBase.isHorizontal(eMaxPair);
+			}
+			if(isMaximaEdge) {
+				if(this.strictlySimple) {
+					this.insertMaxima(e.top.x);
+				}
+				var ePrev = e.prevInAEL;
+				this.doMaxima(e);
+				if(ePrev == null) {
+					e = this.mActiveEdges;
+				} else {
+					e = ePrev.nextInAEL;
+				}
+			} else {
+				if(this.isIntermediate(e,topY) && hxClipper_ClipperBase.isHorizontal(e.nextInLML)) {
+					e = this.updateEdgeIntoAEL(e);
+					if(e.outIdx >= 0) {
+						this.addOutPt(e,e.bot);
+					}
+					this.addEdgeToSEL(e);
+				} else {
+					e.curr.x = hxClipper_Clipper.topX(e,topY);
+					e.curr.y = topY;
+				}
+				if(this.strictlySimple) {
+					var ePrev1 = e.prevInAEL;
+					if(e.outIdx >= 0 && e.windDelta != 0 && ePrev1 != null && ePrev1.outIdx >= 0 && ePrev1.curr.x == e.curr.x && ePrev1.windDelta != 0) {
+						var ip = e.curr.clone();
+						var op = this.addOutPt(ePrev1,ip);
+						var op2 = this.addOutPt(e,ip);
+						this.addJoin(op,op2,ip);
+					}
+				}
+				e = e.nextInAEL;
+			}
+		}
+		this.processHorizontals();
+		this.mMaxima = null;
+		e = this.mActiveEdges;
+		while(e != null) {
+			if(this.isIntermediate(e,topY)) {
+				var op1 = null;
+				if(e.outIdx >= 0) {
+					op1 = this.addOutPt(e,e.top);
+				}
+				e = this.updateEdgeIntoAEL(e);
+				var ePrev2 = e.prevInAEL;
+				var eNext = e.nextInAEL;
+				if(ePrev2 != null && ePrev2.curr.x == e.bot.x && ePrev2.curr.y == e.bot.y && op1 != null && ePrev2.outIdx >= 0 && ePrev2.curr.y > ePrev2.top.y && hxClipper_ClipperBase.slopesEqual4(e.curr,e.top,ePrev2.curr,ePrev2.top,this.mUseFullRange) && e.windDelta != 0 && ePrev2.windDelta != 0) {
+					var op21 = this.addOutPt(ePrev2,e.bot);
+					this.addJoin(op1,op21,e.top);
+				} else if(eNext != null && eNext.curr.x == e.bot.x && eNext.curr.y == e.bot.y && op1 != null && eNext.outIdx >= 0 && eNext.curr.y > eNext.top.y && hxClipper_ClipperBase.slopesEqual4(e.curr,e.top,eNext.curr,eNext.top,this.mUseFullRange) && e.windDelta != 0 && eNext.windDelta != 0) {
+					var op22 = this.addOutPt(eNext,e.bot);
+					this.addJoin(op1,op22,e.top);
+				}
+			}
+			e = e.nextInAEL;
+		}
+	}
+	,doMaxima: function(e) {
+		var eMaxPair = this.getMaximaPairEx(e);
+		if(eMaxPair == null) {
+			if(e.outIdx >= 0) {
+				this.addOutPt(e,e.top);
+			}
+			this.deleteFromAEL(e);
+			return;
+		}
+		var eNext = e.nextInAEL;
+		while(eNext != null && eNext != eMaxPair) {
+			this.intersectEdges(e,eNext,e.top);
+			this.swapPositionsInAEL(e,eNext);
+			eNext = e.nextInAEL;
+		}
+		if(e.outIdx == -1 && eMaxPair.outIdx == -1) {
+			this.deleteFromAEL(e);
+			this.deleteFromAEL(eMaxPair);
+		} else if(e.outIdx >= 0 && eMaxPair.outIdx >= 0) {
+			if(e.outIdx >= 0) {
+				this.addLocalMaxPoly(e,eMaxPair,e.top);
+			}
+			this.deleteFromAEL(e);
+			this.deleteFromAEL(eMaxPair);
+		} else {
+			throw new js__$Boot_HaxeError(new hxClipper_ClipperException("DoMaxima error"));
+		}
+	}
+	,pointCount: function(pts) {
+		if(pts == null) {
+			return 0;
+		}
+		var result = 0;
+		var p = pts;
+		while(true) {
+			++result;
+			p = p.next;
+			if(!(p != pts)) {
+				break;
+			}
+		}
+		return result;
+	}
+	,buildResult: function(polyg) {
+		polyg.length = 0;
+		var _g = 0;
+		var _g1 = this.mPolyOuts.length;
+		while(_g < _g1) {
+			var i = _g++;
+			var outRec = this.mPolyOuts[i];
+			if(outRec.pts == null) {
+				continue;
+			}
+			var p = outRec.pts.prev;
+			var cnt = this.pointCount(p);
+			if(cnt < 2) {
+				continue;
+			}
+			var pg = [];
+			var _g2 = 0;
+			while(_g2 < cnt) {
+				++_g2;
+				pg.push(p.pt);
+				p = p.prev;
+			}
+			polyg.push(pg);
+		}
+	}
+	,buildResult2: function(polytree) {
+		polytree.clear();
+		var _g = 0;
+		var _g1 = this.mPolyOuts.length;
+		while(_g < _g1) {
+			var i = _g++;
+			var outRec = this.mPolyOuts[i];
+			var cnt = this.pointCount(outRec.pts);
+			if(outRec.isOpen && cnt < 2 || !outRec.isOpen && cnt < 3) {
+				continue;
+			}
+			this.fixHoleLinkage(outRec);
+			var pn = new hxClipper_PolyNode();
+			polytree.mAllPolys.push(pn);
+			outRec.polyNode = pn;
+			var op = outRec.pts.prev;
+			var _g2 = 0;
+			while(_g2 < cnt) {
+				++_g2;
+				pn.mPolygon.push(op.pt);
+				op = op.prev;
+			}
+		}
+		var _g21 = 0;
+		var _g3 = this.mPolyOuts.length;
+		while(_g21 < _g3) {
+			var i1 = _g21++;
+			var outRec1 = this.mPolyOuts[i1];
+			if(outRec1.polyNode == null) {
+				continue;
+			} else if(outRec1.isOpen) {
+				outRec1.polyNode.isOpen = true;
+				polytree.addChild(outRec1.polyNode);
+			} else if(outRec1.firstLeft != null && outRec1.firstLeft.polyNode != null) {
+				outRec1.firstLeft.polyNode.addChild(outRec1.polyNode);
+			} else {
+				polytree.addChild(outRec1.polyNode);
+			}
+		}
+	}
+	,fixupOutPolyLine: function(outrec) {
+		var pp = outrec.pts;
+		var lastPP = pp.prev;
+		while(pp != lastPP) {
+			pp = pp.next;
+			if(pp.pt == pp.prev.pt) {
+				if(pp == lastPP) {
+					lastPP = pp.prev;
+				}
+				var tmpPP = pp.prev;
+				tmpPP.next = pp.next;
+				pp.next.prev = tmpPP;
+				pp = tmpPP;
+			}
+		}
+		if(pp == pp.prev) {
+			outrec.pts = null;
+		}
+	}
+	,fixupOutPolygon: function(outRec) {
+		var lastOK = null;
+		outRec.bottomPt = null;
+		var pp = outRec.pts;
+		var preserveCol = this.preserveCollinear || this.strictlySimple;
+		while(true) {
+			if(pp.prev == pp || pp.prev == pp.next) {
+				outRec.pts = null;
+				return;
+			}
+			if(pp.pt.equals(pp.next.pt) || pp.pt.equals(pp.prev.pt) || hxClipper_ClipperBase.slopesEqual3(pp.prev.pt,pp.pt,pp.next.pt,this.mUseFullRange) && (!preserveCol || !this.pt2IsBetweenPt1AndPt3(pp.prev.pt,pp.pt,pp.next.pt))) {
+				lastOK = null;
+				pp.prev.next = pp.next;
+				pp.next.prev = pp.prev;
+				pp = pp.prev;
+			} else if(pp == lastOK) {
+				break;
+			} else {
+				if(lastOK == null) {
+					lastOK = pp;
+				}
+				pp = pp.next;
+			}
+		}
+		outRec.pts = pp;
+	}
+	,dupOutPt: function(outPt,insertAfter) {
+		var result = new hxClipper__$Clipper_OutPt();
+		result.pt.copyFrom(outPt.pt);
+		result.idx = outPt.idx;
+		if(insertAfter) {
+			result.next = outPt.next;
+			result.prev = outPt;
+			outPt.next.prev = result;
+			outPt.next = result;
+		} else {
+			result.prev = outPt.prev;
+			result.next = outPt;
+			outPt.prev.next = result;
+			outPt.prev = result;
+		}
+		return result;
+	}
+	,getOverlap: function(a1,a2,b1,b2,outParams) {
+		if(a1 < a2) {
+			if(b1 < b2) {
+				outParams.left = Math.max(a1,b1) | 0;
+				outParams.right = Math.min(a2,b2) | 0;
+			} else {
+				outParams.left = Math.max(a1,b2) | 0;
+				outParams.right = Math.min(a2,b1) | 0;
+			}
+		} else if(b1 < b2) {
+			outParams.left = Math.max(a2,b1) | 0;
+			outParams.right = Math.min(a1,b2) | 0;
+		} else {
+			outParams.left = Math.max(a2,b2) | 0;
+			outParams.right = Math.min(a1,b1) | 0;
+		}
+		return outParams.left < outParams.right;
+	}
+	,joinHorz: function(op1,op1b,op2,op2b,pt,discardLeft) {
+		var dir1 = op1.pt.x > op1b.pt.x ? hxClipper__$Clipper_Direction.D_RIGHT_TO_LEFT : hxClipper__$Clipper_Direction.D_LEFT_TO_RIGHT;
+		var dir2 = op2.pt.x > op2b.pt.x ? hxClipper__$Clipper_Direction.D_RIGHT_TO_LEFT : hxClipper__$Clipper_Direction.D_LEFT_TO_RIGHT;
+		if(dir1 == dir2) {
+			return false;
+		}
+		if(dir1 == hxClipper__$Clipper_Direction.D_LEFT_TO_RIGHT) {
+			while(op1.next.pt.x <= pt.x && op1.next.pt.x >= op1.pt.x && op1.next.pt.y == pt.y) op1 = op1.next;
+			if(discardLeft && op1.pt.x != pt.x) {
+				op1 = op1.next;
+			}
+			op1b = this.dupOutPt(op1,!discardLeft);
+			if(!op1b.pt.equals(pt)) {
+				op1 = op1b;
+				op1.pt.copyFrom(pt);
+				op1b = this.dupOutPt(op1,!discardLeft);
+			}
+		} else {
+			while(op1.next.pt.x >= pt.x && op1.next.pt.x <= op1.pt.x && op1.next.pt.y == pt.y) op1 = op1.next;
+			if(!discardLeft && op1.pt.x != pt.x) {
+				op1 = op1.next;
+			}
+			op1b = this.dupOutPt(op1,discardLeft);
+			if(!op1b.pt.equals(pt)) {
+				op1 = op1b;
+				op1.pt.copyFrom(pt);
+				op1b = this.dupOutPt(op1,discardLeft);
+			}
+		}
+		if(dir2 == hxClipper__$Clipper_Direction.D_LEFT_TO_RIGHT) {
+			while(op2.next.pt.x <= pt.x && op2.next.pt.x >= op2.pt.x && op2.next.pt.y == pt.y) op2 = op2.next;
+			if(discardLeft && op2.pt.x != pt.x) {
+				op2 = op2.next;
+			}
+			op2b = this.dupOutPt(op2,!discardLeft);
+			if(!op2b.pt.equals(pt)) {
+				op2 = op2b;
+				op2.pt.copyFrom(pt);
+				op2b = this.dupOutPt(op2,!discardLeft);
+			}
+		} else {
+			while(op2.next.pt.x >= pt.x && op2.next.pt.x <= op2.pt.x && op2.next.pt.y == pt.y) op2 = op2.next;
+			if(!discardLeft && op2.pt.x != pt.x) {
+				op2 = op2.next;
+			}
+			op2b = this.dupOutPt(op2,discardLeft);
+			if(!op2b.pt.equals(pt)) {
+				op2 = op2b;
+				op2.pt.copyFrom(pt);
+				op2b = this.dupOutPt(op2,discardLeft);
+			}
+		}
+		if(dir1 == hxClipper__$Clipper_Direction.D_LEFT_TO_RIGHT == discardLeft) {
+			op1.prev = op2;
+			op2.next = op1;
+			op1b.next = op2b;
+			op2b.prev = op1b;
+		} else {
+			op1.next = op2;
+			op2.prev = op1;
+			op1b.prev = op2b;
+			op2b.next = op1b;
+		}
+		return true;
+	}
+	,joinPoints: function(j,outRec1,outRec2) {
+		var op1 = j.outPt1;
+		var op1b;
+		var op2 = j.outPt2;
+		var op2b;
+		var isHorizontal = j.outPt1.pt.y == j.offPt.y;
+		if(isHorizontal && j.offPt.equals(j.outPt1.pt) && j.offPt.equals(j.outPt2.pt)) {
+			if(outRec1 != outRec2) {
+				return false;
+			}
+			op1b = j.outPt1.next;
+			while(op1b != op1 && op1b.pt.equals(j.offPt)) op1b = op1b.next;
+			var reverse1 = op1b.pt.y > j.offPt.y;
+			op2b = j.outPt2.next;
+			while(op2b != op2 && op2b.pt.equals(j.offPt)) op2b = op2b.next;
+			var reverse2 = op2b.pt.y > j.offPt.y;
+			if(reverse1 == reverse2) {
+				return false;
+			}
+			if(reverse1) {
+				op1b = this.dupOutPt(op1,false);
+				op2b = this.dupOutPt(op2,true);
+				op1.prev = op2;
+				op2.next = op1;
+				op1b.next = op2b;
+				op2b.prev = op1b;
+				j.outPt1 = op1;
+				j.outPt2 = op1b;
+				return true;
+			} else {
+				op1b = this.dupOutPt(op1,true);
+				op2b = this.dupOutPt(op2,false);
+				op1.next = op2;
+				op2.prev = op1;
+				op1b.prev = op2b;
+				op2b.next = op1b;
+				j.outPt1 = op1;
+				j.outPt2 = op1b;
+				return true;
+			}
+		} else if(isHorizontal) {
+			op1b = op1;
+			while(op1.prev.pt.y == op1.pt.y && op1.prev != op1b && op1.prev != op2) op1 = op1.prev;
+			while(op1b.next.pt.y == op1b.pt.y && op1b.next != op1 && op1b.next != op2) op1b = op1b.next;
+			if(op1b.next == op1 || op1b.next == op2) {
+				return false;
+			}
+			op2b = op2;
+			while(op2.prev.pt.y == op2.pt.y && op2.prev != op2b && op2.prev != op1b) op2 = op2.prev;
+			while(op2b.next.pt.y == op2b.pt.y && op2b.next != op2 && op2b.next != op1) op2b = op2b.next;
+			if(op2b.next == op2 || op2b.next == op1) {
+				return false;
+			}
+			var left = 0;
+			var right = 0;
+			var outParams = { left : 0, right : 0};
+			if(!this.getOverlap(op1.pt.x,op1b.pt.x,op2.pt.x,op2b.pt.x,outParams)) {
+				return false;
+			}
+			left = outParams.left;
+			right = outParams.right;
+			var pt = new hxClipper_IntPoint();
+			var discardLeftSide;
+			if(op1.pt.x >= left && op1.pt.x <= right) {
+				pt.copyFrom(op1.pt);
+				discardLeftSide = op1.pt.x > op1b.pt.x;
+			} else if(op2.pt.x >= left && op2.pt.x <= right) {
+				pt.copyFrom(op2.pt);
+				discardLeftSide = op2.pt.x > op2b.pt.x;
+			} else if(op1b.pt.x >= left && op1b.pt.x <= right) {
+				pt.copyFrom(op1b.pt);
+				discardLeftSide = op1b.pt.x > op1.pt.x;
+			} else {
+				pt.copyFrom(op2b.pt);
+				discardLeftSide = op2b.pt.x > op2.pt.x;
+			}
+			j.outPt1 = op1;
+			j.outPt2 = op2;
+			return this.joinHorz(op1,op1b,op2,op2b,pt,discardLeftSide);
+		} else {
+			op1b = op1.next;
+			while(op1b.pt.equals(op1.pt) && op1b != op1) op1b = op1b.next;
+			var reverse11 = op1b.pt.y > op1.pt.y || !hxClipper_ClipperBase.slopesEqual3(op1.pt,op1b.pt,j.offPt,this.mUseFullRange);
+			if(reverse11) {
+				op1b = op1.prev;
+				while(op1b.pt.equals(op1.pt) && op1b != op1) op1b = op1b.prev;
+				if(op1b.pt.y > op1.pt.y || !hxClipper_ClipperBase.slopesEqual3(op1.pt,op1b.pt,j.offPt,this.mUseFullRange)) {
+					return false;
+				}
+			}
+			op2b = op2.next;
+			while(op2b.pt.equals(op2.pt) && op2b != op2) op2b = op2b.next;
+			var reverse21 = op2b.pt.y > op2.pt.y || !hxClipper_ClipperBase.slopesEqual3(op2.pt,op2b.pt,j.offPt,this.mUseFullRange);
+			if(reverse21) {
+				op2b = op2.prev;
+				while(op2b.pt.equals(op2.pt) && op2b != op2) op2b = op2b.prev;
+				if(op2b.pt.y > op2.pt.y || !hxClipper_ClipperBase.slopesEqual3(op2.pt,op2b.pt,j.offPt,this.mUseFullRange)) {
+					return false;
+				}
+			}
+			if(op1b == op1 || op2b == op2 || op1b == op2b || outRec1 == outRec2 && reverse11 == reverse21) {
+				return false;
+			}
+			if(reverse11) {
+				op1b = this.dupOutPt(op1,false);
+				op2b = this.dupOutPt(op2,true);
+				op1.prev = op2;
+				op2.next = op1;
+				op1b.next = op2b;
+				op2b.prev = op1b;
+				j.outPt1 = op1;
+				j.outPt2 = op1b;
+				return true;
+			} else {
+				op1b = this.dupOutPt(op1,true);
+				op2b = this.dupOutPt(op2,false);
+				op1.next = op2;
+				op2.prev = op1;
+				op1b.prev = op2b;
+				op2b.next = op1b;
+				j.outPt1 = op1;
+				j.outPt2 = op1b;
+				return true;
+			}
+		}
+	}
+	,fixupFirstLefts1: function(oldOutRec,newOutRec) {
+		var _g = 0;
+		var _g1 = this.mPolyOuts.length;
+		while(_g < _g1) {
+			var i = _g++;
+			var outRec = this.mPolyOuts[i];
+			var firstLeft = hxClipper_Clipper.parseFirstLeft(outRec.firstLeft);
+			if(outRec.pts != null && firstLeft == oldOutRec) {
+				if(hxClipper_Clipper.poly2ContainsPoly1(outRec.pts,newOutRec.pts)) {
+					outRec.firstLeft = newOutRec;
+				}
+			}
+		}
+	}
+	,fixupFirstLefts2: function(innerOutRec,outerOutRec) {
+		var orfl = outerOutRec.firstLeft;
+		var _g = 0;
+		var _g1 = this.mPolyOuts;
+		while(_g < _g1.length) {
+			var outRec = _g1[_g];
+			++_g;
+			if(outRec.pts == null || outRec == outerOutRec || outRec == innerOutRec) {
+				continue;
+			}
+			var firstLeft = hxClipper_Clipper.parseFirstLeft(outRec.firstLeft);
+			if(firstLeft != orfl && firstLeft != innerOutRec && firstLeft != outerOutRec) {
+				continue;
+			}
+			if(hxClipper_Clipper.poly2ContainsPoly1(outRec.pts,innerOutRec.pts)) {
+				outRec.firstLeft = innerOutRec;
+			} else if(hxClipper_Clipper.poly2ContainsPoly1(outRec.pts,outerOutRec.pts)) {
+				outRec.firstLeft = outerOutRec;
+			} else if(outRec.firstLeft == innerOutRec || outRec.firstLeft == outerOutRec) {
+				outRec.firstLeft = orfl;
+			}
+		}
+	}
+	,fixupFirstLefts3: function(oldOutRec,newOutRec) {
+		var _g = 0;
+		var _g1 = this.mPolyOuts;
+		while(_g < _g1.length) {
+			var outRec = _g1[_g];
+			++_g;
+			var firstLeft = hxClipper_Clipper.parseFirstLeft(outRec.firstLeft);
+			if(outRec.pts != null && firstLeft == oldOutRec) {
+				outRec.firstLeft = newOutRec;
+			}
+		}
+	}
+	,joinCommonEdges: function() {
+		var _g = 0;
+		var _g1 = this.mJoins.length;
+		while(_g < _g1) {
+			var i = _g++;
+			var join = this.mJoins[i];
+			var outRec1 = this.getOutRec(join.outPt1.idx);
+			var outRec2 = this.getOutRec(join.outPt2.idx);
+			if(outRec1.pts == null || outRec2.pts == null) {
+				continue;
+			}
+			if(outRec1.isOpen || outRec2.isOpen) {
+				continue;
+			}
+			var holeStateRec;
+			if(outRec1 == outRec2) {
+				holeStateRec = outRec1;
+			} else if(this.outRec1RightOfOutRec2(outRec1,outRec2)) {
+				holeStateRec = outRec2;
+			} else if(this.outRec1RightOfOutRec2(outRec2,outRec1)) {
+				holeStateRec = outRec1;
+			} else {
+				holeStateRec = this.getLowermostRec(outRec1,outRec2);
+			}
+			if(!this.joinPoints(join,outRec1,outRec2)) {
+				continue;
+			}
+			if(outRec1 == outRec2) {
+				outRec1.pts = join.outPt1;
+				outRec1.bottomPt = null;
+				outRec2 = this.createOutRec();
+				outRec2.pts = join.outPt2;
+				this.updateOutPtIdxs(outRec2);
+				if(hxClipper_Clipper.poly2ContainsPoly1(outRec2.pts,outRec1.pts)) {
+					outRec2.isHole = !outRec1.isHole;
+					outRec2.firstLeft = outRec1;
+					if(this.mUsingPolyTree) {
+						this.fixupFirstLefts2(outRec2,outRec1);
+					}
+					var a = outRec2.isHole;
+					var b = this.reverseSolution;
+					if((a && !b || b && !a) == this.areaOfOutRec(outRec2) > 0) {
+						this.reversePolyPtLinks(outRec2.pts);
+					}
+				} else if(hxClipper_Clipper.poly2ContainsPoly1(outRec1.pts,outRec2.pts)) {
+					outRec2.isHole = outRec1.isHole;
+					outRec1.isHole = !outRec2.isHole;
+					outRec2.firstLeft = outRec1.firstLeft;
+					outRec1.firstLeft = outRec2;
+					if(this.mUsingPolyTree) {
+						this.fixupFirstLefts2(outRec1,outRec2);
+					}
+					var a1 = outRec1.isHole;
+					var b1 = this.reverseSolution;
+					if((a1 && !b1 || b1 && !a1) == this.areaOfOutRec(outRec1) > 0) {
+						this.reversePolyPtLinks(outRec1.pts);
+					}
+				} else {
+					outRec2.isHole = outRec1.isHole;
+					outRec2.firstLeft = outRec1.firstLeft;
+					if(this.mUsingPolyTree) {
+						this.fixupFirstLefts1(outRec1,outRec2);
+					}
+				}
+			} else {
+				outRec2.pts = null;
+				outRec2.bottomPt = null;
+				outRec2.idx = outRec1.idx;
+				outRec1.isHole = holeStateRec.isHole;
+				if(holeStateRec == outRec2) {
+					outRec1.firstLeft = outRec2.firstLeft;
+				}
+				outRec2.firstLeft = outRec1;
+				if(this.mUsingPolyTree) {
+					this.fixupFirstLefts3(outRec2,outRec1);
+				}
+			}
+		}
+	}
+	,updateOutPtIdxs: function(outrec) {
+		var op = outrec.pts;
+		while(true) {
+			op.idx = outrec.idx;
+			op = op.prev;
+			if(!(op != outrec.pts)) {
+				break;
+			}
+		}
+	}
+	,doSimplePolygons: function() {
+		var i = 0;
+		while(i < this.mPolyOuts.length) {
+			var outrec = this.mPolyOuts[i++];
+			var op = outrec.pts;
+			if(op == null || outrec.isOpen) {
+				continue;
+			}
+			while(true) {
+				var op2 = op.next;
+				while(op2 != outrec.pts) {
+					if(op.pt.equals(op2.pt) && op2.next != op && op2.prev != op) {
+						var op3 = op.prev;
+						var op4 = op2.prev;
+						op.prev = op4;
+						op4.next = op;
+						op2.prev = op3;
+						op3.next = op2;
+						outrec.pts = op;
+						var outrec2 = this.createOutRec();
+						outrec2.pts = op2;
+						this.updateOutPtIdxs(outrec2);
+						if(hxClipper_Clipper.poly2ContainsPoly1(outrec2.pts,outrec.pts)) {
+							outrec2.isHole = !outrec.isHole;
+							outrec2.firstLeft = outrec;
+							if(this.mUsingPolyTree) {
+								this.fixupFirstLefts2(outrec2,outrec);
+							}
+						} else if(hxClipper_Clipper.poly2ContainsPoly1(outrec.pts,outrec2.pts)) {
+							outrec2.isHole = outrec.isHole;
+							outrec.isHole = !outrec2.isHole;
+							outrec2.firstLeft = outrec.firstLeft;
+							outrec.firstLeft = outrec2;
+							if(this.mUsingPolyTree) {
+								this.fixupFirstLefts2(outrec,outrec2);
+							}
+						} else {
+							outrec2.isHole = outrec.isHole;
+							outrec2.firstLeft = outrec.firstLeft;
+							if(this.mUsingPolyTree) {
+								this.fixupFirstLefts1(outrec,outrec2);
+							}
+						}
+						op2 = op;
+					}
+					op2 = op2.next;
+				}
+				op = op.next;
+				if(!(op != outrec.pts)) {
+					break;
+				}
+			}
+		}
+	}
+	,areaOfOutRec: function(outRec) {
+		return this.areaOfOutPt(outRec.pts);
+	}
+	,areaOfOutPt: function(op) {
+		var opFirst = op;
+		if(op == null) {
+			return 0;
+		}
+		var a = 0;
+		while(true) {
+			var dx = op.prev.pt.x + op.pt.x;
+			var dy = op.prev.pt.y - op.pt.y;
+			a += dx * dy;
+			op = op.next;
+			if(!(op != opFirst)) {
+				break;
+			}
+		}
+		return a * 0.5;
+	}
+	,__class__: hxClipper_Clipper
+});
+var hxClipper_ClipperOffset = function(miterLimit,arcTolerance) {
+	if(arcTolerance == null) {
+		arcTolerance = 0.25;
+	}
+	if(miterLimit == null) {
+		miterLimit = 2.0;
+	}
+	this.mPolyNodes = new hxClipper_PolyNode();
+	this.mLowest = new hxClipper_IntPoint();
+	this.mNormals = [];
+	this.miterLimit = miterLimit;
+	this.arcTolerance = arcTolerance;
+	this.mLowest.x = -1;
+};
+hxClipper_ClipperOffset.__name__ = "hxClipper.ClipperOffset";
+hxClipper_ClipperOffset.round = function(value) {
+	return hxClipper_Clipper.round(value);
+};
+hxClipper_ClipperOffset.getUnitNormal = function(pt1,pt2) {
+	var dx = pt2.x - pt1.x;
+	var dy = pt2.y - pt1.y;
+	if(dx == 0 && dy == 0) {
+		return new hxClipper_DoublePoint();
+	}
+	var f = 1.0 / Math.sqrt(dx * dx + dy * dy);
+	dx *= f;
+	dy *= f;
+	return new hxClipper_DoublePoint(dy,-dx);
+};
+hxClipper_ClipperOffset.prototype = {
+	mDestPolys: null
+	,mSrcPoly: null
+	,mDestPoly: null
+	,mNormals: null
+	,mDelta: null
+	,mSinA: null
+	,mSin: null
+	,mCos: null
+	,mMiterLim: null
+	,mStepsPerRad: null
+	,mLowest: null
+	,mPolyNodes: null
+	,arcTolerance: null
+	,miterLimit: null
+	,clear: function() {
+		this.mPolyNodes.get_children().length = 0;
+		this.mLowest.x = -1;
+	}
+	,addPath: function(path,joinType,endType) {
+		var highI = path.length - 1;
+		if(highI < 0) {
+			return;
+		}
+		var newNode = new hxClipper_PolyNode();
+		newNode.mJoinType = joinType;
+		newNode.mEndtype = endType;
+		if(endType == hxClipper_EndType.ET_CLOSED_LINE || endType == hxClipper_EndType.ET_CLOSED_POLYGON) {
+			while(highI > 0 && path[0].equals(path[highI])) --highI;
+		}
+		newNode.mPolygon.push(path[0]);
+		var j = 0;
+		var k = 0;
+		var _g = 1;
+		var _g1 = highI + 1;
+		while(_g < _g1) {
+			var i = _g++;
+			if(!newNode.mPolygon[j].equals(path[i])) {
+				++j;
+				newNode.mPolygon.push(path[i]);
+				if(path[i].y > newNode.mPolygon[k].y || path[i].y == newNode.mPolygon[k].y && path[i].x < newNode.mPolygon[k].x) {
+					k = j;
+				}
+			}
+		}
+		if(endType == hxClipper_EndType.ET_CLOSED_POLYGON && j < 2) {
+			return;
+		}
+		this.mPolyNodes.addChild(newNode);
+		if(endType != hxClipper_EndType.ET_CLOSED_POLYGON) {
+			return;
+		}
+		if(this.mLowest.x < 0) {
+			this.mLowest = new hxClipper_IntPoint(this.mPolyNodes.get_numChildren() - 1,k);
+		} else {
+			var ip = this.mPolyNodes.get_children()[this.mLowest.x | 0].mPolygon[this.mLowest.y | 0].clone();
+			if(newNode.mPolygon[k].y > ip.y || newNode.mPolygon[k].y == ip.y && newNode.mPolygon[k].x < ip.x) {
+				this.mLowest = new hxClipper_IntPoint(this.mPolyNodes.get_numChildren() - 1,k);
+			}
+		}
+	}
+	,addPaths: function(paths,joinType,endType) {
+		var _g = 0;
+		while(_g < paths.length) {
+			var p = paths[_g];
+			++_g;
+			this.addPath(p,joinType,endType);
+		}
+	}
+	,fixOrientations: function() {
+		if(this.mLowest.x >= 0 && !hxClipper_Clipper.orientation(this.mPolyNodes.get_children()[this.mLowest.x | 0].mPolygon)) {
+			var _g = 0;
+			var _g1 = this.mPolyNodes.get_numChildren();
+			while(_g < _g1) {
+				var i = _g++;
+				var node = this.mPolyNodes.get_children()[i];
+				if(node.mEndtype == hxClipper_EndType.ET_CLOSED_POLYGON || node.mEndtype == hxClipper_EndType.ET_CLOSED_LINE && hxClipper_Clipper.orientation(node.mPolygon)) {
+					node.mPolygon.reverse();
+				}
+			}
+		} else {
+			var _g2 = 0;
+			var _g11 = this.mPolyNodes.get_numChildren();
+			while(_g2 < _g11) {
+				var i1 = _g2++;
+				var node1 = this.mPolyNodes.get_children()[i1];
+				if(node1.mEndtype == hxClipper_EndType.ET_CLOSED_LINE && !hxClipper_Clipper.orientation(node1.mPolygon)) {
+					node1.mPolygon.reverse();
+				}
+			}
+		}
+	}
+	,doOffset: function(delta) {
+		this.mDestPolys = [];
+		this.mDelta = delta;
+		if(hxClipper_ClipperBase.nearZero(delta)) {
+			var _g = 0;
+			var _g1 = this.mPolyNodes.get_numChildren();
+			while(_g < _g1) {
+				var i = _g++;
+				var node = this.mPolyNodes.get_children()[i];
+				if(node.mEndtype == hxClipper_EndType.ET_CLOSED_POLYGON) {
+					this.mDestPolys.push(node.mPolygon);
+				}
+			}
+			return;
+		}
+		if(this.miterLimit > 2) {
+			this.mMiterLim = 2 / (this.miterLimit * this.miterLimit);
+		} else {
+			this.mMiterLim = 0.5;
+		}
+		var y;
+		if(this.arcTolerance <= 0.0) {
+			y = 0.25;
+		} else if(this.arcTolerance > Math.abs(delta) * 0.25) {
+			y = Math.abs(delta) * 0.25;
+		} else {
+			y = this.arcTolerance;
+		}
+		var steps = Math.PI / Math.acos(1 - y / Math.abs(delta));
+		this.mSin = Math.sin(6.283185307179586476925286766559 / steps);
+		this.mCos = Math.cos(6.283185307179586476925286766559 / steps);
+		this.mStepsPerRad = steps / 6.283185307179586476925286766559;
+		if(delta < 0.0) {
+			this.mSin = -this.mSin;
+		}
+		var _g2 = 0;
+		var _g11 = this.mPolyNodes.get_numChildren();
+		while(_g2 < _g11) {
+			var i1 = _g2++;
+			var node1 = this.mPolyNodes.get_children()[i1];
+			this.mSrcPoly = node1.mPolygon;
+			var len = this.mSrcPoly.length;
+			if(len == 0 || delta <= 0 && (len < 3 || node1.mEndtype != hxClipper_EndType.ET_CLOSED_POLYGON)) {
+				continue;
+			}
+			this.mDestPoly = [];
+			if(len == 1) {
+				if(node1.mJoinType == hxClipper_JoinType.JT_ROUND) {
+					var x = 1.0;
+					var y1 = 0.0;
+					var j = 1;
+					while(j <= steps) {
+						this.mDestPoly.push(new hxClipper_IntPoint(hxClipper_ClipperOffset.round(this.mSrcPoly[0].x + x * delta),hxClipper_ClipperOffset.round(this.mSrcPoly[0].y + y1 * delta)));
+						var x2 = x;
+						x = x * this.mCos - this.mSin * y1;
+						y1 = x2 * this.mSin + y1 * this.mCos;
+						++j;
+					}
+				} else {
+					var x1 = -1.0;
+					var y2 = -1.0;
+					this.mDestPoly.push(new hxClipper_IntPoint(hxClipper_ClipperOffset.round(this.mSrcPoly[0].x + -1.0 * delta),hxClipper_ClipperOffset.round(this.mSrcPoly[0].y + -1.0 * delta)));
+					x1 = 1;
+					this.mDestPoly.push(new hxClipper_IntPoint(hxClipper_ClipperOffset.round(this.mSrcPoly[0].x + x1 * delta),hxClipper_ClipperOffset.round(this.mSrcPoly[0].y + -1.0 * delta)));
+					y2 = 1;
+					this.mDestPoly.push(new hxClipper_IntPoint(hxClipper_ClipperOffset.round(this.mSrcPoly[0].x + x1 * delta),hxClipper_ClipperOffset.round(this.mSrcPoly[0].y + y2 * delta)));
+					x1 = -1;
+					this.mDestPoly.push(new hxClipper_IntPoint(hxClipper_ClipperOffset.round(this.mSrcPoly[0].x + x1 * delta),hxClipper_ClipperOffset.round(this.mSrcPoly[0].y + y2 * delta)));
+				}
+				this.mDestPolys.push(this.mDestPoly);
+				continue;
+			}
+			this.mNormals.length = 0;
+			var _g3 = 0;
+			var _g12 = len - 1;
+			while(_g3 < _g12) {
+				var j1 = _g3++;
+				this.mNormals.push(hxClipper_ClipperOffset.getUnitNormal(this.mSrcPoly[j1],this.mSrcPoly[j1 + 1]));
+			}
+			if(node1.mEndtype == hxClipper_EndType.ET_CLOSED_LINE || node1.mEndtype == hxClipper_EndType.ET_CLOSED_POLYGON) {
+				this.mNormals.push(hxClipper_ClipperOffset.getUnitNormal(this.mSrcPoly[len - 1],this.mSrcPoly[0]));
+			} else {
+				this.mNormals.push(this.mNormals[len - 2].clone());
+			}
+			if(node1.mEndtype == hxClipper_EndType.ET_CLOSED_POLYGON) {
+				var k = len - 1;
+				var _g21 = 0;
+				while(_g21 < len) {
+					var j2 = _g21++;
+					k = this.offsetPoint(j2,k,node1.mJoinType);
+				}
+				this.mDestPolys.push(this.mDestPoly);
+			} else if(node1.mEndtype == hxClipper_EndType.ET_CLOSED_LINE) {
+				var k1 = len - 1;
+				var _g22 = 0;
+				while(_g22 < len) {
+					var j3 = _g22++;
+					k1 = this.offsetPoint(j3,k1,node1.mJoinType);
+				}
+				this.mDestPolys.push(this.mDestPoly);
+				this.mDestPoly = [];
+				var n = this.mNormals[len - 1].clone();
+				var nj = len - 1;
+				while(nj > 0) {
+					this.mNormals[nj] = new hxClipper_DoublePoint(-this.mNormals[nj - 1].x,-this.mNormals[nj - 1].y);
+					--nj;
+				}
+				this.mNormals[0] = new hxClipper_DoublePoint(-n.x,-n.y);
+				k1 = 0;
+				nj = len - 1;
+				while(nj >= 0) {
+					k1 = this.offsetPoint(nj,k1,node1.mJoinType);
+					--nj;
+				}
+				this.mDestPolys.push(this.mDestPoly);
+			} else {
+				var k2 = 0;
+				var _g23 = 1;
+				var _g31 = len - 1;
+				while(_g23 < _g31) {
+					var j4 = _g23++;
+					k2 = this.offsetPoint(j4,k2,node1.mJoinType);
+				}
+				var pt1;
+				if(node1.mEndtype == hxClipper_EndType.ET_OPEN_BUTT) {
+					var j5 = len - 1;
+					pt1 = new hxClipper_IntPoint(hxClipper_ClipperOffset.round(this.mSrcPoly[j5].x + this.mNormals[j5].x * delta),hxClipper_ClipperOffset.round(this.mSrcPoly[j5].y + this.mNormals[j5].y * delta));
+					this.mDestPoly.push(pt1);
+					pt1 = new hxClipper_IntPoint(hxClipper_ClipperOffset.round(this.mSrcPoly[j5].x - this.mNormals[j5].x * delta),hxClipper_ClipperOffset.round(this.mSrcPoly[j5].y - this.mNormals[j5].y * delta));
+					this.mDestPoly.push(pt1);
+				} else {
+					var j6 = len - 1;
+					k2 = len - 2;
+					this.mSinA = 0;
+					this.mNormals[j6] = new hxClipper_DoublePoint(-this.mNormals[j6].x,-this.mNormals[j6].y);
+					if(node1.mEndtype == hxClipper_EndType.ET_OPEN_SQUARE) {
+						this.doSquare(j6,k2);
+					} else {
+						this.doRound(j6,k2);
+					}
+				}
+				var nj1 = len - 1;
+				while(nj1 > 0) {
+					this.mNormals[nj1] = new hxClipper_DoublePoint(-this.mNormals[nj1 - 1].x,-this.mNormals[nj1 - 1].y);
+					--nj1;
+				}
+				this.mNormals[0] = new hxClipper_DoublePoint(-this.mNormals[1].x,-this.mNormals[1].y);
+				k2 = len - 1;
+				nj1 = k2 - 1;
+				while(nj1 > 0) {
+					k2 = this.offsetPoint(nj1,k2,node1.mJoinType);
+					--nj1;
+				}
+				if(node1.mEndtype == hxClipper_EndType.ET_OPEN_BUTT) {
+					pt1 = new hxClipper_IntPoint(hxClipper_ClipperOffset.round(this.mSrcPoly[0].x - this.mNormals[0].x * delta),hxClipper_ClipperOffset.round(this.mSrcPoly[0].y - this.mNormals[0].y * delta));
+					this.mDestPoly.push(pt1);
+					pt1 = new hxClipper_IntPoint(hxClipper_ClipperOffset.round(this.mSrcPoly[0].x + this.mNormals[0].x * delta),hxClipper_ClipperOffset.round(this.mSrcPoly[0].y + this.mNormals[0].y * delta));
+					this.mDestPoly.push(pt1);
+				} else {
+					k2 = 1;
+					this.mSinA = 0;
+					if(node1.mEndtype == hxClipper_EndType.ET_OPEN_SQUARE) {
+						this.doSquare(0,1);
+					} else {
+						this.doRound(0,1);
+					}
+				}
+				this.mDestPolys.push(this.mDestPoly);
+			}
+		}
+	}
+	,execute: function(solution,delta) {
+		if(((solution) instanceof Array) && solution.__enum__ == null) {
+			this.executePaths(solution,delta);
+			return;
+		} else if(((solution) instanceof hxClipper_PolyTree)) {
+			this.executePolyTree(solution,delta);
+			return;
+		} else {
+			throw new js__$Boot_HaxeError(new hxClipper_ClipperException("`solution` must be either a Paths or a PolyTree"));
+		}
+	}
+	,executePaths: function(solution,delta) {
+		solution.length = 0;
+		this.fixOrientations();
+		this.doOffset(delta);
+		var clpr = new hxClipper_Clipper();
+		clpr.addPaths(this.mDestPolys,hxClipper_PolyType.PT_SUBJECT,true);
+		if(delta > 0) {
+			clpr.executePaths(hxClipper_ClipType.CT_UNION,solution,hxClipper_PolyFillType.PFT_POSITIVE,hxClipper_PolyFillType.PFT_POSITIVE);
+		} else {
+			var r = hxClipper_ClipperBase.getBounds(this.mDestPolys);
+			var outer = [];
+			outer.push(new hxClipper_IntPoint(r.left - 10,r.bottom + 10));
+			outer.push(new hxClipper_IntPoint(r.right + 10,r.bottom + 10));
+			outer.push(new hxClipper_IntPoint(r.right + 10,r.top - 10));
+			outer.push(new hxClipper_IntPoint(r.left - 10,r.top - 10));
+			clpr.addPath(outer,hxClipper_PolyType.PT_SUBJECT,true);
+			clpr.reverseSolution = true;
+			clpr.executePaths(hxClipper_ClipType.CT_UNION,solution,hxClipper_PolyFillType.PFT_NEGATIVE,hxClipper_PolyFillType.PFT_NEGATIVE);
+			if(solution.length > 0) {
+				solution.shift();
+			}
+		}
+	}
+	,executePolyTree: function(solution,delta) {
+		solution.clear();
+		this.fixOrientations();
+		this.doOffset(delta);
+		var clpr = new hxClipper_Clipper();
+		clpr.addPaths(this.mDestPolys,hxClipper_PolyType.PT_SUBJECT,true);
+		if(delta > 0) {
+			clpr.executePolyTree(hxClipper_ClipType.CT_UNION,solution,hxClipper_PolyFillType.PFT_POSITIVE,hxClipper_PolyFillType.PFT_POSITIVE);
+		} else {
+			var r = hxClipper_ClipperBase.getBounds(this.mDestPolys);
+			var outer = [];
+			outer.push(new hxClipper_IntPoint(r.left - 10,r.bottom + 10));
+			outer.push(new hxClipper_IntPoint(r.right + 10,r.bottom + 10));
+			outer.push(new hxClipper_IntPoint(r.right + 10,r.top - 10));
+			outer.push(new hxClipper_IntPoint(r.left - 10,r.top - 10));
+			clpr.addPath(outer,hxClipper_PolyType.PT_SUBJECT,true);
+			clpr.reverseSolution = true;
+			clpr.executePolyTree(hxClipper_ClipType.CT_UNION,solution,hxClipper_PolyFillType.PFT_NEGATIVE,hxClipper_PolyFillType.PFT_NEGATIVE);
+			if(solution.get_numChildren() == 1 && solution.get_children()[0].get_numChildren() > 0) {
+				var outerNode = solution.get_children()[0];
+				solution.get_children()[0] = outerNode.get_children()[0];
+				solution.get_children()[0].mParent = solution;
+				var _g = 1;
+				var _g1 = outerNode.get_numChildren();
+				while(_g < _g1) {
+					var i = _g++;
+					solution.addChild(outerNode.get_children()[i]);
+				}
+			} else {
+				solution.clear();
+			}
+		}
+	}
+	,offsetPoint: function(j,k,joinType) {
+		this.mSinA = this.mNormals[k].x * this.mNormals[j].y - this.mNormals[j].x * this.mNormals[k].y;
+		if(Math.abs(this.mSinA * this.mDelta) < 1.0) {
+			var cosA = this.mNormals[k].x * this.mNormals[j].x + this.mNormals[j].y * this.mNormals[k].y;
+			if(cosA > 0) {
+				this.mDestPoly.push(new hxClipper_IntPoint(hxClipper_ClipperOffset.round(this.mSrcPoly[j].x + this.mNormals[k].x * this.mDelta),hxClipper_ClipperOffset.round(this.mSrcPoly[j].y + this.mNormals[k].y * this.mDelta)));
+				return k;
+			}
+		} else if(this.mSinA > 1.0) {
+			this.mSinA = 1.0;
+		} else if(this.mSinA < -1.0) {
+			this.mSinA = -1.0;
+		}
+		if(this.mSinA * this.mDelta < 0) {
+			this.mDestPoly.push(new hxClipper_IntPoint(hxClipper_ClipperOffset.round(this.mSrcPoly[j].x + this.mNormals[k].x * this.mDelta),hxClipper_ClipperOffset.round(this.mSrcPoly[j].y + this.mNormals[k].y * this.mDelta)));
+			this.mDestPoly.push(this.mSrcPoly[j]);
+			this.mDestPoly.push(new hxClipper_IntPoint(hxClipper_ClipperOffset.round(this.mSrcPoly[j].x + this.mNormals[j].x * this.mDelta),hxClipper_ClipperOffset.round(this.mSrcPoly[j].y + this.mNormals[j].y * this.mDelta)));
+		} else {
+			switch(joinType._hx_index) {
+			case 0:
+				this.doSquare(j,k);
+				break;
+			case 1:
+				this.doRound(j,k);
+				break;
+			case 2:
+				var r = 1 + (this.mNormals[j].x * this.mNormals[k].x + this.mNormals[j].y * this.mNormals[k].y);
+				if(r >= this.mMiterLim) {
+					this.doMiter(j,k,r);
+				} else {
+					this.doSquare(j,k);
+				}
+				break;
+			}
+		}
+		return j;
+	}
+	,doSquare: function(j,k) {
+		var dx = Math.tan(Math.atan2(this.mSinA,this.mNormals[k].x * this.mNormals[j].x + this.mNormals[k].y * this.mNormals[j].y) / 4);
+		this.mDestPoly.push(new hxClipper_IntPoint(hxClipper_ClipperOffset.round(this.mSrcPoly[j].x + this.mDelta * (this.mNormals[k].x - this.mNormals[k].y * dx)),hxClipper_ClipperOffset.round(this.mSrcPoly[j].y + this.mDelta * (this.mNormals[k].y + this.mNormals[k].x * dx))));
+		this.mDestPoly.push(new hxClipper_IntPoint(hxClipper_ClipperOffset.round(this.mSrcPoly[j].x + this.mDelta * (this.mNormals[j].x + this.mNormals[j].y * dx)),hxClipper_ClipperOffset.round(this.mSrcPoly[j].y + this.mDelta * (this.mNormals[j].y - this.mNormals[j].x * dx))));
+	}
+	,doMiter: function(j,k,r) {
+		var q = this.mDelta / r;
+		this.mDestPoly.push(new hxClipper_IntPoint(hxClipper_ClipperOffset.round(this.mSrcPoly[j].x + (this.mNormals[k].x + this.mNormals[j].x) * q),hxClipper_ClipperOffset.round(this.mSrcPoly[j].y + (this.mNormals[k].y + this.mNormals[j].y) * q)));
+	}
+	,doRound: function(j,k) {
+		var a = Math.atan2(this.mSinA,this.mNormals[k].x * this.mNormals[j].x + this.mNormals[k].y * this.mNormals[j].y);
+		var steps = Math.max(hxClipper_ClipperOffset.round(this.mStepsPerRad * Math.abs(a)) | 0,1) | 0;
+		var x = this.mNormals[k].x;
+		var y = this.mNormals[k].y;
+		var x2;
+		var _g = 0;
+		while(_g < steps) {
+			++_g;
+			this.mDestPoly.push(new hxClipper_IntPoint(hxClipper_ClipperOffset.round(this.mSrcPoly[j].x + x * this.mDelta),hxClipper_ClipperOffset.round(this.mSrcPoly[j].y + y * this.mDelta)));
+			x2 = x;
+			x = x * this.mCos - this.mSin * y;
+			y = x2 * this.mSin + y * this.mCos;
+		}
+		this.mDestPoly.push(new hxClipper_IntPoint(hxClipper_ClipperOffset.round(this.mSrcPoly[j].x + this.mNormals[j].x * this.mDelta),hxClipper_ClipperOffset.round(this.mSrcPoly[j].y + this.mNormals[j].y * this.mDelta)));
+	}
+	,__class__: hxClipper_ClipperOffset
+};
+var hxClipper_ClipperException = function(description) {
+	this.desc = description;
+};
+hxClipper_ClipperException.__name__ = "hxClipper.ClipperException";
+hxClipper_ClipperException.prototype = {
+	desc: null
+	,toString: function() {
+		return this.desc;
+	}
+	,__class__: hxClipper_ClipperException
+};
+var hxClipper_InternalTools = function() { };
+hxClipper_InternalTools.__name__ = "hxClipper.InternalTools";
+hxClipper_InternalTools.clear = function(array) {
+	array.length = 0;
+};
+hxClipper_InternalTools.xor = function(a,b) {
+	if(!(a && !b)) {
+		if(b) {
+			return !a;
+		} else {
+			return false;
+		}
+	} else {
+		return true;
+	}
+};
+var hxClipper__$Clipper_Ref_$Impl_$ = {};
+hxClipper__$Clipper_Ref_$Impl_$.__name__ = "hxClipper._Clipper.Ref_Impl_";
+hxClipper__$Clipper_Ref_$Impl_$.__properties__ = {set_value:"set_value",get_value:"get_value"};
+hxClipper__$Clipper_Ref_$Impl_$._new = function() {
+	var this1 = new Array(1);
+	var this2 = this1;
+	return this2;
+};
+hxClipper__$Clipper_Ref_$Impl_$.get_value = function(this1) {
+	return this1[0];
+};
+hxClipper__$Clipper_Ref_$Impl_$.set_value = function(this1,param) {
+	return this1[0] = param;
+};
+hxClipper__$Clipper_Ref_$Impl_$.toString = function(this1) {
+	return "@[" + Std.string(this1[0]) + "]";
+};
+hxClipper__$Clipper_Ref_$Impl_$.to = function(v) {
+	var this1 = new Array(1);
+	var this2 = this1;
+	var ret = this2;
+	ret[0] = v;
+	return ret;
+};
 var js__$Boot_HaxeError = function(val) {
 	Error.call(this);
 	this.val = val;
@@ -910,8 +5415,9 @@ js_Boot.__interfLoop = function(cc,cl) {
 		var _g = 0;
 		var _g1 = intf.length;
 		while(_g < _g1) {
-			var i = intf[_g++];
-			if(i == cl || js_Boot.__interfLoop(i,cl)) {
+			var i = _g++;
+			var i1 = intf[i];
+			if(i1 == cl || js_Boot.__interfLoop(i1,cl)) {
 				return true;
 			}
 		}
@@ -1049,6 +5555,7 @@ postite_display_canvas_CanvasDisplay.prototype = {
 	_can: null
 	,raf: null
 	,paused: null
+	,fps: null
 	,onFrame: null
 	,get_canvas: function() {
 		if(this._can == null) {
@@ -1059,11 +5566,13 @@ postite_display_canvas_CanvasDisplay.prototype = {
 	,display: null
 	,enterframe: function(fps) {
 		var _gthis = this;
+		this.fps = fps;
 		var elapsed;
 		var fpsInterval = 1000 / fps;
 		var then = new Date();
 		var now;
-		haxe_Log.trace(then,{ fileName : "src/postite/display/canvas/CanvasDisplay.hx", lineNumber : 36, className : "postite.display.canvas.CanvasDisplay", methodName : "enterframe"});
+		var startTime = then;
+		haxe_Log.trace(startTime,{ fileName : "src/postite/display/canvas/CanvasDisplay.hx", lineNumber : 38, className : "postite.display.canvas.CanvasDisplay", methodName : "enterframe"});
 		var frame = 0;
 		this.raf = ($_=window,$bind($_,$_.requestAnimationFrame));
 		var animate = null;
@@ -1086,10 +5595,10 @@ postite_display_canvas_CanvasDisplay.prototype = {
 		this.raf(animate);
 	}
 	,togPause: function() {
-		haxe_Log.trace("paused=" + Std.string(this.paused),{ fileName : "src/postite/display/canvas/CanvasDisplay.hx", lineNumber : 67, className : "postite.display.canvas.CanvasDisplay", methodName : "togPause"});
+		haxe_Log.trace("paused=" + Std.string(this.paused),{ fileName : "src/postite/display/canvas/CanvasDisplay.hx", lineNumber : 69, className : "postite.display.canvas.CanvasDisplay", methodName : "togPause"});
 		this.paused = !this.paused;
 		if(!this.paused) {
-			this.raf(null);
+			this.enterframe(this.fps);
 		}
 	}
 	,clearRenderables: function() {
@@ -1105,7 +5614,7 @@ postite_display_canvas_CanvasDisplay.prototype = {
 		this.display.render();
 	}
 	,createCanvas: function() {
-		haxe_Log.trace("create canvas",{ fileName : "src/postite/display/canvas/CanvasDisplay.hx", lineNumber : 92, className : "postite.display.canvas.CanvasDisplay", methodName : "createCanvas"});
+		haxe_Log.trace("create canvas",{ fileName : "src/postite/display/canvas/CanvasDisplay.hx", lineNumber : 94, className : "postite.display.canvas.CanvasDisplay", methodName : "createCanvas"});
 		this._can = window.document.createElement("canvas");
 		this._can.width = window.innerWidth;
 		this._can.height = window.innerHeight;
@@ -1140,6 +5649,34 @@ postite_display_canvas_CanvasRender.prototype = {
 	}
 	,__class__: postite_display_canvas_CanvasRender
 };
+var postite_dro_Box = function(rect) {
+	this.color = 0;
+	this.height = .0;
+	this.width = .0;
+	this.y = .0;
+	this.x = .0;
+	if(rect != null) {
+		this.x = rect.x;
+		this.y = rect.y;
+		this.width = rect.width;
+		this.height = rect.height;
+	}
+};
+postite_dro_Box.__name__ = "postite.dro.Box";
+postite_dro_Box.create = function(couleur) {
+	couleur = couleur != null ? couleur : 13382400;
+	var box = new postite_dro_Box({ x : 0., y : 0., width : 100., height : 100.});
+	box.color = couleur;
+	return box;
+};
+postite_dro_Box.prototype = {
+	x: null
+	,y: null
+	,width: null
+	,height: null
+	,color: null
+	,__class__: postite_dro_Box
+};
 var postite_dro_Coords = function() { };
 postite_dro_Coords.__name__ = "postite.dro.Coords";
 var postite_dro_Star = function() { };
@@ -1153,7 +5690,8 @@ postite_dro_Star.get_coords = function() {
 		while(i > 0) {
 			var r = 50 * (i % 2 + 1) / 2;
 			var omega = alpha * i;
-			postite_dro_Star._coords.push(postite_geom__$CoolPoint_Point_$Impl_$.fromPress({ x : r * Math.sin(omega) + 100, y : r * Math.cos(omega) + 100, press : 1. * i}));
+			var pt = { x : r * Math.sin(omega) + 100, y : r * Math.cos(omega) + 100, press : 1. * i};
+			postite_dro_Star._coords.push(postite_geom__$CoolPoint_Point_$Impl_$.fromPress(pt));
 			--i;
 		}
 	}
@@ -1201,22 +5739,26 @@ postite_dro__$Couleur_Couleur_$Impl_$.set_alpha = function(this1,value) {
 postite_dro__$Couleur_Couleur_$Impl_$.random = function(alpha,red,green,blue) {
 	var randomCouleur = 0;
 	if(alpha == null) {
-		randomCouleur = Math.round(255 * Math.random()) << 24 | (randomCouleur & 16711680) >>> 16 << 16 | (randomCouleur & 65280) >>> 8 << 8 | randomCouleur & 255;
+		var value = Math.round(255 * Math.random());
+		randomCouleur = value << 24 | (randomCouleur & 16711680) >>> 16 << 16 | (randomCouleur & 65280) >>> 8 << 8 | randomCouleur & 255;
 	} else {
 		randomCouleur = alpha << 24 | (randomCouleur & 16711680) >>> 16 << 16 | (randomCouleur & 65280) >>> 8 << 8 | randomCouleur & 255;
 	}
 	if(red == null) {
-		randomCouleur = randomCouleur >>> 24 << 24 | Math.round(255 * Math.random()) << 16 | (randomCouleur & 65280) >>> 8 << 8 | randomCouleur & 255;
+		var value1 = Math.round(255 * Math.random());
+		randomCouleur = randomCouleur >>> 24 << 24 | value1 << 16 | (randomCouleur & 65280) >>> 8 << 8 | randomCouleur & 255;
 	} else {
 		randomCouleur = randomCouleur >>> 24 << 24 | red << 16 | (randomCouleur & 65280) >>> 8 << 8 | randomCouleur & 255;
 	}
 	if(green == null) {
-		randomCouleur = randomCouleur >>> 24 << 24 | (randomCouleur & 16711680) >>> 16 << 16 | Math.round(255 * Math.random()) << 8 | randomCouleur & 255;
+		var value2 = Math.round(255 * Math.random());
+		randomCouleur = randomCouleur >>> 24 << 24 | (randomCouleur & 16711680) >>> 16 << 16 | value2 << 8 | randomCouleur & 255;
 	} else {
 		randomCouleur = randomCouleur >>> 24 << 24 | (randomCouleur & 16711680) >>> 16 << 16 | green << 8 | randomCouleur & 255;
 	}
 	if(blue == null) {
-		randomCouleur = randomCouleur >>> 24 << 24 | (randomCouleur & 16711680) >>> 16 << 16 | (randomCouleur & 65280) >>> 8 << 8 | Math.round(255 * Math.random());
+		var value3 = Math.round(255 * Math.random());
+		randomCouleur = randomCouleur >>> 24 << 24 | (randomCouleur & 16711680) >>> 16 << 16 | (randomCouleur & 65280) >>> 8 << 8 | value3;
 	} else {
 		randomCouleur = randomCouleur >>> 24 << 24 | (randomCouleur & 16711680) >>> 16 << 16 | (randomCouleur & 65280) >>> 8 << 8 | blue;
 	}
@@ -1235,10 +5777,14 @@ postite_dro__$Couleur_Couleur_$Impl_$.fromString = function(s) {
 };
 postite_dro__$Couleur_Couleur_$Impl_$.mix = function(this1,color,strength) {
 	var output = postite_dro__$Couleur_Couleur_$Impl_$._new(0);
-	output = output >>> 24 << 24 | Math.floor(_$UInt_UInt_$Impl_$.toFloat((this1 & 16711680) >>> 16) * (1 - strength) + _$UInt_UInt_$Impl_$.toFloat((color & 16711680) >>> 16) * strength) << 16 | (output & 65280) >>> 8 << 8 | output & 255;
-	output = output >>> 24 << 24 | (output & 16711680) >>> 16 << 16 | Math.floor(_$UInt_UInt_$Impl_$.toFloat((this1 & 65280) >>> 8) * (1 - strength) + _$UInt_UInt_$Impl_$.toFloat((color & 65280) >>> 8) * strength) << 8 | output & 255;
-	output = output >>> 24 << 24 | (output & 16711680) >>> 16 << 16 | (output & 65280) >>> 8 << 8 | Math.floor(_$UInt_UInt_$Impl_$.toFloat(this1 & 255) * (1 - strength) + _$UInt_UInt_$Impl_$.toFloat(color & 255) * strength);
-	output = Math.floor(_$UInt_UInt_$Impl_$.toFloat(this1 >>> 24) * (1 - strength) + _$UInt_UInt_$Impl_$.toFloat(color >>> 24) * strength) << 24 | (output & 16711680) >>> 16 << 16 | (output & 65280) >>> 8 << 8 | output & 255;
+	var value = Math.floor(_$UInt_UInt_$Impl_$.toFloat((this1 & 16711680) >>> 16) * (1 - strength) + _$UInt_UInt_$Impl_$.toFloat((color & 16711680) >>> 16) * strength);
+	output = output >>> 24 << 24 | value << 16 | (output & 65280) >>> 8 << 8 | output & 255;
+	var value1 = Math.floor(_$UInt_UInt_$Impl_$.toFloat((this1 & 65280) >>> 8) * (1 - strength) + _$UInt_UInt_$Impl_$.toFloat((color & 65280) >>> 8) * strength);
+	output = output >>> 24 << 24 | (output & 16711680) >>> 16 << 16 | value1 << 8 | output & 255;
+	var value2 = Math.floor(_$UInt_UInt_$Impl_$.toFloat(this1 & 255) * (1 - strength) + _$UInt_UInt_$Impl_$.toFloat(color & 255) * strength);
+	output = output >>> 24 << 24 | (output & 16711680) >>> 16 << 16 | (output & 65280) >>> 8 << 8 | value2;
+	var value3 = Math.floor(_$UInt_UInt_$Impl_$.toFloat(this1 >>> 24) * (1 - strength) + _$UInt_UInt_$Impl_$.toFloat(color >>> 24) * strength);
+	output = value3 << 24 | (output & 16711680) >>> 16 << 16 | (output & 65280) >>> 8 << 8 | output & 255;
 	return output;
 };
 postite_dro__$Couleur_Couleur_$Impl_$.add = function(this1,color) {
@@ -1255,6 +5801,109 @@ postite_dro__$Couleur_Couleur_$Impl_$.toHex = function(c) {
 };
 postite_dro__$Couleur_Couleur_$Impl_$.toString = function(this1) {
 	return "0x" + StringTools.hex(this1,8);
+};
+var postite_dro_Dro = function() {
+};
+postite_dro_Dro.__name__ = "postite.dro.Dro";
+postite_dro_Dro.droPoint = function(ctx,_point,col,opacity) {
+	if(opacity == null) {
+		opacity = 1.0;
+	}
+	ctx.beginPath();
+	ctx.arc(_point.x,_point.y,_point.press / 2,0,2 * Math.PI,true);
+	ctx.fillStyle = postite_dro__$Couleur_Couleur_$Impl_$.toHex(col);
+	ctx.fill();
+};
+postite_dro_Dro.droBox = function(ctx,box) {
+	box = box != null ? box : postite_dro_Box.create();
+	ctx.beginPath();
+	ctx.rect(box.x,box.y,box.width,box.height);
+	ctx.fillStyle = postite_dro__$Couleur_Couleur_$Impl_$.toHex(box.color);
+	ctx.fill();
+	return box;
+};
+postite_dro_Dro.drawPoly = function(ctx,poly,col) {
+	if(col == null) {
+		col = "#000";
+	}
+	var p0 = poly[0];
+	ctx.strokeStyle = col;
+	ctx.moveTo(p0.x / 1,p0.y / 1);
+	var _g = 1;
+	var _g1 = poly.length;
+	while(_g < _g1) {
+		var i = _g++;
+		var p = poly[i];
+		ctx.lineTo(p.x / 1,p.y / 1);
+	}
+	ctx.lineTo(p0.x / 1,p0.y / 1);
+	ctx.stroke();
+	ctx.lineWidth = 1;
+	ctx.strokeStyle = "#000";
+};
+postite_dro_Dro.drawPath = function(ctx,poly,col) {
+	if(col == null) {
+		col = "#000";
+	}
+	var p0 = poly[0];
+	ctx.strokeStyle = col;
+	ctx.moveTo(p0.x / 1,p0.y / 1);
+	var _g = 1;
+	var _g1 = poly.length;
+	while(_g < _g1) {
+		var i = _g++;
+		var p = poly[i];
+		ctx.lineTo(p.x / 1,p.y / 1);
+	}
+	ctx.stroke();
+	ctx.lineWidth = 1;
+	ctx.strokeStyle = "#000";
+};
+postite_dro_Dro.droSegments = function(ctx,segments,col,fillColor,opacity) {
+	if(opacity == null) {
+		opacity = 1.0;
+	}
+	if(col == null) {
+		col = "#000";
+	}
+	ctx.strokeStyle = col;
+	ctx.lineWidth = 3;
+	var _g = 0;
+	while(_g < segments.length) {
+		var segment = segments[_g];
+		++_g;
+		ctx.moveTo(segment.x,segment.y);
+		ctx.lineTo(segment.dx + segment.x,segment.dy + segment.y);
+	}
+	ctx.stroke();
+};
+postite_dro_Dro.droRect = function(ctx,rect) {
+	ctx.strokeRect(rect.x,rect.y,rect.width,rect.height);
+	ctx.stroke();
+};
+postite_dro_Dro.droPaths = function(ctx,paths,col) {
+	if(col == null) {
+		col = "#000";
+	}
+	ctx.strokeStyle = col;
+	ctx.lineWidth = 5;
+	var _g = 0;
+	while(_g < paths.length) {
+		var path = paths[_g];
+		++_g;
+		ctx.moveTo(path[0].x,path[0].y);
+		var _g1 = 0;
+		while(_g1 < path.length) {
+			var point = path[_g1];
+			++_g1;
+			ctx.lineTo(point.x,point.y);
+		}
+		ctx.lineTo(path[0].x,path[0].y);
+	}
+	ctx.stroke();
+};
+postite_dro_Dro.prototype = {
+	__class__: postite_dro_Dro
 };
 var postite_geom__$CoolPoint_Points_$Impl_$ = {};
 postite_geom__$CoolPoint_Points_$Impl_$.__name__ = "postite.geom._CoolPoint.Points_Impl_";
@@ -1273,7 +5922,8 @@ postite_geom__$CoolPoint_Point_$Impl_$._new = function(x,y) {
 	if(x == null) {
 		x = 0;
 	}
-	return { x : x, y : y};
+	var this1 = { x : x, y : y};
+	return this1;
 };
 postite_geom__$CoolPoint_Point_$Impl_$.add = function(this1,p) {
 	return postite_geom__$CoolPoint_Point_$Impl_$._new(this1.x + p.x,this1.y + p.y);
@@ -1290,7 +5940,8 @@ postite_geom__$CoolPoint_Point_$Impl_$.toPress = function(this1) {
 var postite_geom__$CoolPoint_CoolPoint_$Impl_$ = {};
 postite_geom__$CoolPoint_CoolPoint_$Impl_$.__name__ = "postite.geom._CoolPoint.CoolPoint_Impl_";
 postite_geom__$CoolPoint_CoolPoint_$Impl_$._new = function(x,y,p) {
-	return { x : x, y : y, press : p};
+	var this1 = { x : x, y : y, press : p};
+	return this1;
 };
 postite_geom__$CoolPoint_CoolPoint_$Impl_$.fromArray = function(a) {
 	return postite_geom__$CoolPoint_CoolPoint_$Impl_$._new(a[0],a[1],a[2]);
@@ -1306,6 +5957,130 @@ postite_geom__$CoolPoint_CoolPoint_$Impl_$.fromAnonIntPress = function(a) {
 };
 postite_geom__$CoolPoint_CoolPoint_$Impl_$.toPoint = function(p) {
 	return { x : p.x, y : p.y};
+};
+var postite_geom_GeomFilters = function() {
+};
+postite_geom_GeomFilters.__name__ = "postite.geom.GeomFilters";
+postite_geom_GeomFilters.rectToArray = function(rect) {
+	var a = [];
+	a.push({ x : rect.x, y : rect.y});
+	a.push({ x : rect.x + rect.width, y : rect.y});
+	a.push({ x : rect.x + rect.width, y : rect.y + rect.height});
+	a.push({ x : rect.x, y : rect.y + rect.height});
+	a.push({ x : rect.x, y : rect.y});
+	return a;
+};
+postite_geom_GeomFilters.clipOff = function(segs,scale) {
+	if(scale == null) {
+		scale = 10.0;
+	}
+	var ints = [];
+	segs.map(function(seg) {
+		ints.push(seg.x | 0);
+		ints.push(seg.y | 0);
+	});
+	var paths = [];
+	var path = postite_geom_GeomFilters.MakePolygonFromInts(ints);
+	paths.push(path);
+	var co = new hxClipper_ClipperOffset();
+	co.addPaths(paths,hxClipper_JoinType.JT_MITER,hxClipper_EndType.ET_CLOSED_POLYGON);
+	var solution = [];
+	co.executePaths(solution,scale);
+	return solution;
+};
+postite_geom_GeomFilters.MakePolygonFromInts = function(ints,scale) {
+	if(scale == null) {
+		scale = 1.0;
+	}
+	var i = 0;
+	var p = [];
+	while(i < ints.length) {
+		p.push(new hxClipper_IntPoint(ints[i] * scale | 0,ints[i + 1] * scale | 0));
+		i += 2;
+	}
+	return p;
+};
+postite_geom_GeomFilters.boundRectForPoly = function(poly) {
+	var minX = poly[0].x;
+	var maxX = poly[0].y;
+	var minY = poly[0].y;
+	var maxY = poly[0].y;
+	var _g = 0;
+	while(_g < poly.length) {
+		var point = poly[_g];
+		++_g;
+		minX = Math.min(minX,point.x);
+		maxX = Math.max(maxX,point.x);
+		minY = Math.min(minY,point.y);
+		maxY = Math.max(maxY,point.y);
+	}
+	var width = maxX - minX;
+	var height = maxY - minY;
+	return { x : minX, y : minY, width : width, height : height};
+};
+postite_geom_GeomFilters.isClosed = function(pts,simplify) {
+	if(simplify == null) {
+		simplify = true;
+	}
+	haxe_Log.trace(pts.length,{ fileName : "src/postite/geom/GeomFilters.hx", lineNumber : 78, className : "postite.geom.GeomFilters", methodName : "isClosed"});
+	if(simplify) {
+		var simplepts = postite_geom_Simplify.simplify(pts,5);
+		var begin = new postite_geom_Segment(simplepts[0],simplepts[1]);
+		var end = new postite_geom_Ray(simplepts[simplepts.length - 1],simplepts[simplepts.length - 2]);
+		haxe_Log.trace("begin=" + Std.string(begin),{ fileName : "src/postite/geom/GeomFilters.hx", lineNumber : 85, className : "postite.geom.GeomFilters", methodName : "isClosed"});
+		haxe_Log.trace(" end=" + Std.string(end),{ fileName : "src/postite/geom/GeomFilters.hx", lineNumber : 86, className : "postite.geom.GeomFilters", methodName : "isClosed"});
+		var pt = null;
+		var inter;
+		var p = postite_geom__$CoolPoint_Point_$Impl_$._new(begin.x,begin.y);
+		var p1 = postite_geom__$CoolPoint_Point_$Impl_$._new(begin.x + begin.dx,begin.y + begin.dy);
+		if((end.dx * (p.y - end.y) - end.dy * (p.x - end.x)) * (end.dx * (p1.y - end.y) - end.dy * (p1.x - end.x)) > 0) {
+			inter = null;
+		} else {
+			var u = (end.dx * (begin.y - end.y) - end.dy * (begin.x - end.x)) / (end.dy * begin.dx - end.dx * begin.dy);
+			if(u < 0 || u > 1) {
+				inter = null;
+			} else {
+				pt = postite_geom__$CoolPoint_Point_$Impl_$._new();
+				pt.x = begin.x + u * begin.dx;
+				pt.y = begin.y + u * begin.dy;
+				inter = pt;
+			}
+		}
+		if(inter != null) {
+			haxe_Log.trace(inter,{ fileName : "src/postite/geom/GeomFilters.hx", lineNumber : 90, className : "postite.geom.GeomFilters", methodName : "isClosed"});
+			haxe_Log.trace("side=" + (begin.dx * (inter.y - begin.y) - begin.dy * (inter.x - begin.x)),{ fileName : "src/postite/geom/GeomFilters.hx", lineNumber : 91, className : "postite.geom.GeomFilters", methodName : "isClosed"});
+			return inter;
+		}
+		return null;
+	}
+	return null;
+};
+postite_geom_GeomFilters.isInsideRect = function(p,rect) {
+	var minX = rect.x;
+	var minY = rect.y;
+	var maxX = rect.width + minX;
+	var maxY = rect.height + minY;
+	if(p.x < minX || p.x > maxX || p.y < minY || p.y > maxY) {
+		return false;
+	}
+	return true;
+};
+postite_geom_GeomFilters.pnPoly = function(pt,pos,verts) {
+	var c = false;
+	var nvert = verts.length;
+	var j = nvert - 1;
+	var _g = 0;
+	while(_g < nvert) {
+		var i = _g++;
+		if(verts[i].y + pos.y > pt.y != verts[j].y + pos.y > pt.y && pt.x < (verts[j].x + pos.x - (verts[i].x + pos.x)) * (pt.y - (verts[i].y + pos.y)) / (verts[j].y + pos.y - (verts[i].y + pos.y)) + (verts[i].x + pos.x)) {
+			c = !c;
+		}
+		j = i;
+	}
+	return c;
+};
+postite_geom_GeomFilters.prototype = {
+	__class__: postite_geom_GeomFilters
 };
 var postite_geom_Geste = function() {
 	this.NumUnistrokes = 16;
@@ -1329,7 +6104,9 @@ postite_geom_Geste.Resample = function(origpoints,n) {
 		++_g;
 		var d = postite_geom_Geste.Distance(points[i - 1],points[i]);
 		if(D + d >= I) {
-			var q = postite_geom__$CoolPoint_Point_$Impl_$._new(points[i - 1].x + (I - D) / d * (points[i].x - points[i - 1].x),points[i - 1].y + (I - D) / d * (points[i].y - points[i - 1].y));
+			var qx = points[i - 1].x + (I - D) / d * (points[i].x - points[i - 1].x);
+			var qy = points[i - 1].y + (I - D) / d * (points[i].y - points[i - 1].y);
+			var q = postite_geom__$CoolPoint_Point_$Impl_$._new(qx,qy);
 			newpoints.push(q);
 			points.slice(i);
 			points.splice(i,0,q);
@@ -1358,7 +6135,9 @@ postite_geom_Geste.RotateBy = function(points,radians) {
 	var point = HxOverrides.iter(points);
 	while(point.hasNext()) {
 		var point1 = point.next();
-		newpoints[newpoints.length] = postite_geom__$CoolPoint_Point_$Impl_$._new((point1.x - c.x) * cos - (point1.y - c.y) * sin + c.x,(point1.x - c.x) * sin + (point1.y - c.y) * cos + c.y);
+		var qx = (point1.x - c.x) * cos - (point1.y - c.y) * sin + c.x;
+		var qy = (point1.x - c.x) * sin + (point1.y - c.y) * cos + c.y;
+		newpoints[newpoints.length] = postite_geom__$CoolPoint_Point_$Impl_$._new(qx,qy);
 	}
 	return newpoints;
 };
@@ -1368,7 +6147,9 @@ postite_geom_Geste.ScaleTo = function(points,size) {
 	var point = HxOverrides.iter(points);
 	while(point.hasNext()) {
 		var point1 = point.next();
-		newpoints[newpoints.length] = postite_geom__$CoolPoint_Point_$Impl_$._new(point1.x * (size / B.width),point1.y * (size / B.height));
+		var qx = point1.x * (size / B.width);
+		var qy = point1.y * (size / B.height);
+		newpoints[newpoints.length] = postite_geom__$CoolPoint_Point_$Impl_$._new(qx,qy);
 	}
 	return newpoints;
 };
@@ -1378,7 +6159,9 @@ postite_geom_Geste.TranslateTo = function(points,pt) {
 	var point = HxOverrides.iter(points);
 	while(point.hasNext()) {
 		var point1 = point.next();
-		newpoints[newpoints.length] = postite_geom__$CoolPoint_Point_$Impl_$._new(point1.x + pt.x - c.x,point1.y + pt.y - c.y);
+		var qx = point1.x + pt.x - c.x;
+		var qy = point1.y + pt.y - c.y;
+		newpoints[newpoints.length] = postite_geom__$CoolPoint_Point_$Impl_$._new(qx,qy);
 	}
 	return newpoints;
 };
@@ -1395,7 +6178,10 @@ postite_geom_Geste.Vectorize = function(points) {
 	var magnitude = Math.sqrt(sum);
 	var _g = 0;
 	var _g1 = vector.length;
-	while(_g < _g1) vector[_g++] /= magnitude;
+	while(_g < _g1) {
+		var i = _g++;
+		vector[i] /= magnitude;
+	}
 	return vector;
 };
 postite_geom_Geste.OptimalCosineDistance = function(v1,v2) {
@@ -1437,7 +6223,8 @@ postite_geom_Geste.DistanceAtBestAngle = function(points,t,a,b,threshold) {
 	return Math.min(f1,f2);
 };
 postite_geom_Geste.DistanceAtAngle = function(points,t,radians) {
-	return postite_geom_Geste.PathDistance(postite_geom_Geste.RotateBy(points,radians),t.Points);
+	var newpoints = postite_geom_Geste.RotateBy(points,radians);
+	return postite_geom_Geste.PathDistance(newpoints,t.Points);
 };
 postite_geom_Geste.Centroid = function(points) {
 	var x = 0.0;
@@ -1502,7 +6289,8 @@ postite_geom_Geste.prototype = {
 	,Recognize: function(points,useProtractor) {
 		var t0 = new Date();
 		points = postite_geom_Geste.Resample(points,postite_geom_Geste.NumPoints);
-		points = postite_geom_Geste.RotateBy(points,-postite_geom_Geste.IndicativeAngle(points));
+		var radians = postite_geom_Geste.IndicativeAngle(points);
+		points = postite_geom_Geste.RotateBy(points,-radians);
 		points = postite_geom_Geste.ScaleTo(points,postite_geom_Geste.SquareSize);
 		points = postite_geom_Geste.TranslateTo(points,postite_geom_Geste.Origin);
 		var vector = postite_geom_Geste.Vectorize(points);
@@ -1524,7 +6312,8 @@ postite_geom_Geste.prototype = {
 				u = i;
 			}
 		}
-		var newdate = new Date(new Date().getTime() + -t0.getTime());
+		var t1 = new Date();
+		var newdate = new Date(t1.getTime() + -t0.getTime());
 		if(u == -1) {
 			return new postite_geom_Result("No match.",0.0,newdate);
 		} else {
@@ -1536,8 +6325,11 @@ postite_geom_Geste.prototype = {
 		var num = 0;
 		var _g = 0;
 		var _g1 = this.Unistrokes.length;
-		while(_g < _g1) if(this.Unistrokes[_g++].Name == name) {
-			++num;
+		while(_g < _g1) {
+			var i = _g++;
+			if(this.Unistrokes[i].Name == name) {
+				++num;
+			}
 		}
 		return num;
 	}
@@ -1550,7 +6342,8 @@ postite_geom_Geste.prototype = {
 var postite_geom_UniStroke = function(name,points) {
 	this.Name = name;
 	this.Points = postite_geom_Geste.Resample(points,postite_geom_Geste.NumPoints);
-	this.Points = postite_geom_Geste.RotateBy(this.Points,-postite_geom_Geste.IndicativeAngle(this.Points));
+	var radians = postite_geom_Geste.IndicativeAngle(this.Points);
+	this.Points = postite_geom_Geste.RotateBy(this.Points,-radians);
 	this.Points = postite_geom_Geste.ScaleTo(this.Points,postite_geom_Geste.SquareSize);
 	this.Points = postite_geom_Geste.TranslateTo(this.Points,postite_geom_Geste.Origin);
 	this.Vector = postite_geom_Geste.Vectorize(this.Points);
@@ -1575,8 +6368,417 @@ postite_geom_Result.prototype = {
 	,Time: null
 	,__class__: postite_geom_Result
 };
+var postite_geom__$PolyGon_Polygon_$Impl_$ = {};
+postite_geom__$PolyGon_Polygon_$Impl_$.__name__ = "postite.geom._PolyGon.Polygon_Impl_";
+postite_geom__$PolyGon_Polygon_$Impl_$.__properties__ = {get_length:"get_length",get_points:"get_points"};
+postite_geom__$PolyGon_Polygon_$Impl_$.get_length = function(this1) {
+	return this1.length;
+};
+postite_geom__$PolyGon_Polygon_$Impl_$.get_points = function(this1) {
+	return this1;
+};
+postite_geom__$PolyGon_Polygon_$Impl_$._new = function(points) {
+	var this1 = points == null ? [] : points;
+	return this1;
+};
+postite_geom__$PolyGon_Polygon_$Impl_$.convexHull = function(this1) {
+	if(this1.length < 3) {
+		return this1;
+	}
+	this1.sort(function(a,b) {
+		if(a.x == b.x) {
+			if(a.y < b.y) {
+				return -1;
+			} else {
+				return 1;
+			}
+		} else if(a.x < b.x) {
+			return -1;
+		} else {
+			return 1;
+		}
+	});
+	var hull = [];
+	var k = 0;
+	var _g = 0;
+	while(_g < this1.length) {
+		var p = this1[_g];
+		++_g;
+		while(true) {
+			var tmp;
+			if(k >= 2) {
+				var p1 = hull[k - 2];
+				var p2 = hull[k - 1];
+				tmp = (p2.x - p1.x) * (p.y - p1.y) - (p2.y - p1.y) * (p.x - p1.x) <= 0;
+			} else {
+				tmp = false;
+			}
+			if(!tmp) {
+				break;
+			}
+			--k;
+		}
+		hull[k++] = p;
+	}
+	var i = this1.length - 2;
+	var len = k + 1;
+	while(i >= 0) {
+		var p3 = this1[i];
+		while(true) {
+			var tmp1;
+			if(k >= len) {
+				var p11 = hull[k - 2];
+				var p21 = hull[k - 1];
+				tmp1 = (p21.x - p11.x) * (p3.y - p11.y) - (p21.y - p11.y) * (p3.x - p11.x) <= 0;
+			} else {
+				tmp1 = false;
+			}
+			if(!tmp1) {
+				break;
+			}
+			--k;
+		}
+		hull[k++] = p3;
+		--i;
+	}
+	while(hull.length >= k) hull.pop();
+	return hull;
+};
+postite_geom__$PolyGon_Polygon_$Impl_$.xSort = function(this1,a,b) {
+	if(a.x == b.x) {
+		if(a.y < b.y) {
+			return -1;
+		} else {
+			return 1;
+		}
+	}
+	if(a.x < b.x) {
+		return -1;
+	} else {
+		return 1;
+	}
+};
+postite_geom__$PolyGon_Polygon_$Impl_$.contains = function(this1,p,isConvex) {
+	if(isConvex == null) {
+		isConvex = false;
+	}
+	if(isConvex) {
+		var p1 = this1[this1.length - 1];
+		var _g = 0;
+		while(_g < this1.length) {
+			var p2 = this1[_g];
+			++_g;
+			if((p2.x - p1.x) * (p.y - p1.y) - (p2.y - p1.y) * (p.x - p1.x) < 0) {
+				return false;
+			}
+			p1 = p2;
+		}
+		return true;
+	} else {
+		var w = 0;
+		var p11 = this1[this1.length - 1];
+		var _g1 = 0;
+		while(_g1 < this1.length) {
+			var p21 = this1[_g1];
+			++_g1;
+			if(p21.y <= p.y) {
+				if(p11.y > p.y && (p11.x - p21.x) * (p.y - p21.y) - (p11.y - p21.y) * (p.x - p21.x) > 0) {
+					++w;
+				}
+			} else if(p11.y <= p.y && (p11.x - p21.x) * (p.y - p21.y) - (p11.y - p21.y) * (p.x - p21.x) < 0) {
+				--w;
+			}
+			p11 = p21;
+		}
+		return w != 0;
+	}
+};
+postite_geom__$PolyGon_Polygon_$Impl_$.side = function(this1,p1,p2,t) {
+	return (p2.x - p1.x) * (t.y - p1.y) - (p2.y - p1.y) * (t.x - p1.x);
+};
+var postite_geom_Segment = function(p1,p2) {
+	this.x = p1.x;
+	this.y = p1.y;
+	this.dx = p2.x - this.x;
+	this.dy = p2.y - this.y;
+	this.lenSq = this.dx * this.dx + this.dy * this.dy;
+	this.invLenSq = 1 / this.lenSq;
+};
+postite_geom_Segment.__name__ = "postite.geom.Segment";
+postite_geom_Segment.prototype = {
+	x: null
+	,y: null
+	,dx: null
+	,dy: null
+	,lenSq: null
+	,invLenSq: null
+	,setPoints: function(p1,p2) {
+		this.x = p1.x;
+		this.y = p1.y;
+		this.dx = p2.x - this.x;
+		this.dy = p2.y - this.y;
+		this.lenSq = this.dx * this.dx + this.dy * this.dy;
+		this.invLenSq = 1 / this.lenSq;
+	}
+	,side: function(p) {
+		return this.dx * (p.y - this.y) - this.dy * (p.x - this.x);
+	}
+	,distanceSq: function(p) {
+		var px = p.x - this.x;
+		var py = p.y - this.y;
+		var t = px * this.dx + py * this.dy;
+		if(t < 0) {
+			return px * px + py * py;
+		} else if(t > this.lenSq) {
+			var kx = p.x - (this.x + this.dx);
+			var ky = p.y - (this.y + this.dy);
+			return kx * kx + ky * ky;
+		} else {
+			var tl2 = t * this.invLenSq;
+			var pdx = this.x + tl2 * this.dx - p.x;
+			var pdy = this.y + tl2 * this.dy - p.y;
+			return pdx * pdx + pdy * pdy;
+		}
+	}
+	,distance: function(p) {
+		var px = p.x - this.x;
+		var py = p.y - this.y;
+		var t = px * this.dx + py * this.dy;
+		var tmp;
+		if(t < 0) {
+			tmp = px * px + py * py;
+		} else if(t > this.lenSq) {
+			var kx = p.x - (this.x + this.dx);
+			var ky = p.y - (this.y + this.dy);
+			tmp = kx * kx + ky * ky;
+		} else {
+			var tl2 = t * this.invLenSq;
+			var pdx = this.x + tl2 * this.dx - p.x;
+			var pdy = this.y + tl2 * this.dy - p.y;
+			tmp = pdx * pdx + pdy * pdy;
+		}
+		return Math.sqrt(tmp);
+	}
+	,project: function(p) {
+		var px = p.x - this.x;
+		var py = p.y - this.y;
+		var t = px * this.dx + py * this.dy;
+		if(t < 0) {
+			return postite_geom__$CoolPoint_Point_$Impl_$._new(this.x,this.y);
+		} else if(t > this.lenSq) {
+			return postite_geom__$CoolPoint_Point_$Impl_$._new(this.x + this.dx,this.y + this.dy);
+		} else {
+			var tl2 = t * this.invLenSq;
+			return postite_geom__$CoolPoint_Point_$Impl_$._new(this.x + tl2 * this.dx,this.y + tl2 * this.dy);
+		}
+	}
+	,lineIntersection: function(r,pt) {
+		var p = postite_geom__$CoolPoint_Point_$Impl_$._new(this.x,this.y);
+		var p1 = postite_geom__$CoolPoint_Point_$Impl_$._new(this.x + this.dx,this.y + this.dy);
+		if((r.dx * (p.y - r.y) - r.dy * (p.x - r.x)) * (r.dx * (p1.y - r.y) - r.dy * (p1.x - r.x)) > 0) {
+			return null;
+		}
+		var u = (r.dx * (this.y - r.y) - r.dy * (this.x - r.x)) / (r.dy * this.dx - r.dx * this.dy);
+		if(u < 0 || u > 1) {
+			return null;
+		}
+		if(pt == null) {
+			pt = postite_geom__$CoolPoint_Point_$Impl_$._new();
+		}
+		pt.x = this.x + u * this.dx;
+		pt.y = this.y + u * this.dy;
+		return pt;
+	}
+	,__class__: postite_geom_Segment
+};
+var postite_geom_Ray = function(p1,p2) {
+	this.x = p1.x;
+	this.y = p1.y;
+	this.dx = p2.x - this.x;
+	this.dy = p2.y - this.y;
+};
+postite_geom_Ray.__name__ = "postite.geom.Ray";
+postite_geom_Ray.prototype = {
+	x: null
+	,y: null
+	,dx: null
+	,dy: null
+	,setPoints: function(p1,p2) {
+		this.x = p1.x;
+		this.y = p1.y;
+		this.dx = p2.x - this.x;
+		this.dy = p2.y - this.y;
+	}
+	,side: function(p) {
+		return this.dx * (p.y - this.y) - this.dy * (p.x - this.x);
+	}
+	,getPos: function() {
+		return postite_geom__$CoolPoint_Point_$Impl_$._new(this.x,this.y);
+	}
+	,getDir: function() {
+		return postite_geom__$CoolPoint_Point_$Impl_$._new(this.dx,this.dy);
+	}
+	,__class__: postite_geom_Ray
+};
+var postite_geom_Simplify = function() {
+};
+postite_geom_Simplify.__name__ = "postite.geom.Simplify";
+postite_geom_Simplify.getSquareDistance = function(p1,p2) {
+	var dx = p1.x - p2.x;
+	var dy = p1.y - p2.y;
+	return dx * dx + dy * dy;
+};
+postite_geom_Simplify.getSquareSegmentDistance = function(p,p1,p2) {
+	var x = p1.x;
+	var y = p1.y;
+	var dx = p2.x - x;
+	var dy = p2.y - y;
+	var t;
+	if(dx != 0 || dy != 0) {
+		t = ((p.x - x) * dx + (p.y - y) * dy) / (dx * dx + dy * dy);
+		if(t > 1) {
+			x = p2.x;
+			y = p2.y;
+		} else if(t > 0) {
+			x += dx * t;
+			y += dy * t;
+		}
+	}
+	dx = p.x - x;
+	dy = p.y - y;
+	return dx * dx + dy * dy;
+};
+postite_geom_Simplify.simplifyRadialDistance = function(points,sqTolerance) {
+	var len = points.length;
+	var point = null;
+	var prevPoint = points[0];
+	var newPoints = null;
+	newPoints = [prevPoint];
+	var _g = 0;
+	while(_g < len) {
+		var i = _g++;
+		point = points[i];
+		if(postite_geom_Simplify.getSquareDistance(point,prevPoint) > sqTolerance) {
+			newPoints.push(point);
+			prevPoint = point;
+		}
+	}
+	if(prevPoint != point) {
+		newPoints.push(point);
+	}
+	return newPoints;
+};
+postite_geom_Simplify.simplifyDouglasPeucker = function(points,sqTolerance) {
+	var len = points.length;
+	var markers = null;
+	markers = [];
+	var first = 0;
+	var last = len - 1;
+	var maxSqDist;
+	var sqDist;
+	var index = 0;
+	var firstStack = null;
+	firstStack = [];
+	var lastStack = null;
+	lastStack = [];
+	var newPoints = null;
+	newPoints = [];
+	markers[last] = 1;
+	markers[0] = 1;
+	while(last != null) {
+		maxSqDist = 0;
+		var _g = first;
+		var _g1 = last;
+		while(_g < _g1) {
+			var i = _g++;
+			sqDist = postite_geom_Simplify.getSquareSegmentDistance(points[i],points[first],points[last]);
+			if(sqDist > maxSqDist) {
+				index = i;
+				maxSqDist = sqDist;
+			}
+		}
+		if(maxSqDist > sqTolerance) {
+			markers[index] = 1;
+			firstStack.push(first);
+			lastStack.push(index);
+			firstStack.push(index);
+			lastStack.push(last);
+		}
+		first = firstStack.pop();
+		last = lastStack.pop();
+	}
+	var _g2 = 0;
+	while(_g2 < len) {
+		var i1 = _g2++;
+		if(markers[i1] != null) {
+			newPoints.push(points[i1]);
+		}
+	}
+	return newPoints;
+};
+postite_geom_Simplify.simplify = function(points,tolerance,highestQuality) {
+	if(highestQuality == null) {
+		highestQuality = false;
+	}
+	if(tolerance == null) {
+		tolerance = 1;
+	}
+	var sqTolerance = tolerance * tolerance;
+	if(!highestQuality) {
+		points = postite_geom_Simplify.simplifyRadialDistance(points,sqTolerance);
+	}
+	points = postite_geom_Simplify.simplifyDouglasPeucker(points,sqTolerance);
+	return points;
+};
+postite_geom_Simplify.prototype = {
+	__class__: postite_geom_Simplify
+};
 var postite_geom_UnistrokePatterns = function() { };
 postite_geom_UnistrokePatterns.__name__ = "postite.geom.UnistrokePatterns";
+var postite_math_Matools = function() { };
+postite_math_Matools.__name__ = "postite.math.Matools";
+postite_math_Matools.lerp = function(a,b,k) {
+	return a + k * (b - a);
+};
+postite_math_Matools.inverseLerp = function(min,max,value) {
+	if(Math.abs(max - min) < 1e-10) {
+		return min;
+	}
+	return (value - min) / (max - min);
+};
+postite_math_Matools.scale = function(old,neo,OldValue) {
+	var OldRange = old[1] - old[0];
+	var NewRange = neo[1] - neo[0];
+	var NewValue = (OldValue - old[0]) * NewRange / OldRange + neo[0];
+	return NewValue;
+};
+postite_math_Matools.wrap = function(x,n) {
+	if(x < 0) {
+		return n - -x % n;
+	} else {
+		return x % n;
+	}
+};
+postite_math_Matools.clamp = function(f,min,max) {
+	if(max == null) {
+		max = 1.;
+	}
+	if(min == null) {
+		min = 0.;
+	}
+	if(f < min) {
+		return min;
+	} else if(f > max) {
+		return max;
+	} else {
+		return f;
+	}
+};
+postite_math_Matools.getRandomInt = function(min,max) {
+	min = Math.ceil(min);
+	max = Math.floor(max);
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+};
 var postite_uz__$Debug_LogLevel_$Impl_$ = {};
 postite_uz__$Debug_LogLevel_$Impl_$.__name__ = "postite.uz._Debug.LogLevel_Impl_";
 postite_uz__$Debug_LogLevel_$Impl_$.toString = function(this1) {
@@ -1798,13 +7000,53 @@ tests_TestAll.main = function() {
 	postite_uz_Debug.log("op",null,{ fileName : "tests/TestAll.hx", lineNumber : 10, className : "tests.TestAll", methodName : "main"});
 	haxe_Log.trace("hop",{ fileName : "tests/TestAll.hx", lineNumber : 12, className : "tests.TestAll", methodName : "main"});
 	var runner = new utest_Runner();
+	runner.addCase(new tests_TestApp());
 	runner.addCase(new tests_TestGesteStatics());
 	runner.addCase(new tests_TestResample());
 	runner.addCase(new tests_TestGeste());
 	runner.addCase(new tests_TestCouleur());
 	runner.addCase(new tests_TestDisplay());
+	runner.addCase(new tests_TestVector2d());
 	utest_ui_Report.create(runner);
 	runner.run();
+};
+var tests_TestVrac = function(dims,can) {
+	this.enabled = true;
+	this.can = can;
+};
+tests_TestVrac.__name__ = "tests.TestVrac";
+tests_TestVrac.__interfaces__ = [postite_display_IRenderable];
+tests_TestVrac.prototype = {
+	can: null
+	,enabled: null
+	,render: function(r) {
+		var seg = new postite_geom_Segment({ x : 20.0, y : 10.0},{ x : 210.0, y : 220.0});
+		postite_dro_Dro.droSegments(r.ctx,[seg]);
+		var pt = postite_geom__$CoolPoint_CoolPoint_$Impl_$._new(20,130,10);
+		postite_dro_Dro.droPoint(r.ctx,pt);
+		var p = postite_geom__$CoolPoint_CoolPoint_$Impl_$.toPoint(pt);
+		haxe_Log.trace(seg.dx * (p.y - seg.y) - seg.dy * (p.x - seg.x),{ fileName : "tests/TestApp.hx", lineNumber : 34, className : "tests.TestVrac", methodName : "render"});
+	}
+	,__class__: tests_TestVrac
+};
+var tests_TestApp = function() {
+	haxe_Log.trace("new Appli",{ fileName : "tests/TestApp.hx", lineNumber : 45, className : "tests.TestApp", methodName : "new"});
+	var can = window.document.createElement("canvas");
+	can.width = 800;
+	can.height = 800;
+	window.document.body.appendChild(can);
+	var display = new postite_display_canvas_CanvasDisplay();
+	var mock = new tests_TestVrac(null,can);
+	display.addRenderable(mock);
+	display.enterframe(12);
+};
+tests_TestApp.__name__ = "tests.TestApp";
+tests_TestApp.main = function() {
+	new tests_TestApp();
+};
+tests_TestApp.prototype = {
+	raf: null
+	,__class__: tests_TestApp
 };
 var utest_ITest = function() { };
 utest_ITest.__name__ = "utest.ITest";
@@ -1814,7 +7056,8 @@ utest_Test.__name__ = "utest.Test";
 utest_Test.__interfaces__ = [utest_ITest];
 utest_Test.prototype = {
 	__initializeUtest__: function() {
-		return { tests : [], accessories : { }};
+		var init = { tests : [], accessories : { }};
+		return init;
 	}
 	,__class__: utest_Test
 };
@@ -1906,7 +7149,7 @@ tests_TestDisplay.prototype = $extend(utest_Test.prototype,{
 		var _gthis = this;
 		haxe_Timer.delay(function() {
 			utest_Assert.equals(24,_gthis.counter,null,{ fileName : "tests/TestDisplay.hx", lineNumber : 25, className : "tests.TestDisplay", methodName : "testigTested"});
-			async.done();
+			async.done({ fileName : "tests/TestDisplay.hx", lineNumber : 26, className : "tests.TestDisplay", methodName : "testigTested"});
 		},2000);
 	}
 	,testPause: function(async) {
@@ -1914,7 +7157,7 @@ tests_TestDisplay.prototype = $extend(utest_Test.prototype,{
 		this.display.togPause();
 		haxe_Timer.delay(function() {
 			utest_Assert.equals(0,_gthis.counter,null,{ fileName : "tests/TestDisplay.hx", lineNumber : 34, className : "tests.TestDisplay", methodName : "testPause"});
-			async.done();
+			async.done({ fileName : "tests/TestDisplay.hx", lineNumber : 35, className : "tests.TestDisplay", methodName : "testPause"});
 		},1000);
 	}
 	,testAfterPause: function(async) {
@@ -1923,7 +7166,7 @@ tests_TestDisplay.prototype = $extend(utest_Test.prototype,{
 		haxe_Timer.delay(function() {
 			_gthis.display.togPause();
 			utest_Assert.equals(12,_gthis.counter,null,{ fileName : "tests/TestDisplay.hx", lineNumber : 43, className : "tests.TestDisplay", methodName : "testAfterPause"});
-			async.done();
+			async.done({ fileName : "tests/TestDisplay.hx", lineNumber : 44, className : "tests.TestDisplay", methodName : "testAfterPause"});
 		},1000);
 	}
 	,teardown: function() {
@@ -2038,12 +7281,13 @@ var tests_TestGesteStatics = function() {
 };
 tests_TestGesteStatics.__name__ = "tests.TestGesteStatics";
 tests_TestGesteStatics.getMaxPoint = function(rr) {
-	return Lambda.fold(rr,function(a,b) {
+	var getMax = function(a,b) {
 		if(a.x > b.x || a.y > b.y) {
 			return a;
 		}
 		return b;
-	},rr[0]);
+	};
+	return Lambda.fold(rr,getMax,rr[0]);
 };
 tests_TestGesteStatics.toPoints = function(val) {
 	return val.map(function(p) {
@@ -2059,56 +7303,73 @@ tests_TestGesteStatics.prototype = $extend(utest_Test.prototype,{
 		utest_Assert.isTrue(true,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 24, className : "tests.TestGesteStatics", methodName : "testTest"});
 	}
 	,testDeg2Rad: function() {
-		utest_Assert.floatEquals(0.785398,postite_geom_Geste.Deg2Rad(45.0),null,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 29, className : "tests.TestGesteStatics", methodName : "testDeg2Rad"});
+		var p = postite_geom_Geste.Deg2Rad(45.0);
+		utest_Assert.floatEquals(0.785398,p,null,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 29, className : "tests.TestGesteStatics", methodName : "testDeg2Rad"});
 	}
 	,testDistance: function() {
-		utest_Assert.floatEquals(282.84,postite_geom_Geste.Distance(tests_TestGesteStatics.p1,tests_TestGesteStatics.p2),1e-2,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 34, className : "tests.TestGesteStatics", methodName : "testDistance"});
+		var d = postite_geom_Geste.Distance(tests_TestGesteStatics.p1,tests_TestGesteStatics.p2);
+		utest_Assert.floatEquals(282.84,d,1e-2,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 34, className : "tests.TestGesteStatics", methodName : "testDistance"});
 	}
 	,testPathLength: function() {
-		utest_Assert.floatEquals(282.84,postite_geom_Geste.PathLength([tests_TestGesteStatics.p1,tests_TestGesteStatics.p2]),1e-2,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 39, className : "tests.TestGesteStatics", methodName : "testPathLength"});
+		var p = postite_geom_Geste.PathLength([tests_TestGesteStatics.p1,tests_TestGesteStatics.p2]);
+		utest_Assert.floatEquals(282.84,p,1e-2,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 39, className : "tests.TestGesteStatics", methodName : "testPathLength"});
 	}
 	,testPathDistance: function() {
-		utest_Assert.floatEquals(223.60679774997897,postite_geom_Geste.PathDistance([tests_TestGesteStatics.p1,tests_TestGesteStatics.p2],postite_geom_Geste.TranslateTo(tests_TestGesteStatics.seg,postite_geom__$CoolPoint_Point_$Impl_$.fromAnonInt({ x : 400, y : 400}))),1e-2,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 44, className : "tests.TestGesteStatics", methodName : "testPathDistance"});
+		var p = postite_geom_Geste.PathDistance([tests_TestGesteStatics.p1,tests_TestGesteStatics.p2],postite_geom_Geste.TranslateTo(tests_TestGesteStatics.seg,postite_geom__$CoolPoint_Point_$Impl_$.fromAnonInt({ x : 400, y : 400})));
+		utest_Assert.floatEquals(223.60679774997897,p,1e-2,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 44, className : "tests.TestGesteStatics", methodName : "testPathDistance"});
 	}
 	,testBound: function() {
-		utest_Assert.same({ x : 0, y : 0, width : 100, height : 100},postite_geom_Geste.BoundingBox(tests_TestGesteStatics.rec),null,null,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 49, className : "tests.TestGesteStatics", methodName : "testBound"});
+		var r = postite_geom_Geste.BoundingBox(tests_TestGesteStatics.rec);
+		utest_Assert.same({ x : 0, y : 0, width : 100, height : 100},r,null,null,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 49, className : "tests.TestGesteStatics", methodName : "testBound"});
 	}
 	,testCentroid: function() {
-		utest_Assert.same({ x : 200, y : 300},postite_geom_Geste.Centroid([tests_TestGesteStatics.p1,tests_TestGesteStatics.p2]),null,null,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 59, className : "tests.TestGesteStatics", methodName : "testCentroid"});
+		var p = postite_geom_Geste.Centroid([tests_TestGesteStatics.p1,tests_TestGesteStatics.p2]);
+		utest_Assert.same({ x : 200, y : 300},p,null,null,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 59, className : "tests.TestGesteStatics", methodName : "testCentroid"});
 	}
 	,testDistanceAtAngle: function() {
-		utest_Assert.equals(137.79376055283058,postite_geom_Geste.DistanceAtAngle(tests_TestGesteStatics.seg,{ Points : tests_TestGesteStatics.seg},45),null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 64, className : "tests.TestGesteStatics", methodName : "testDistanceAtAngle"});
+		var dis = postite_geom_Geste.DistanceAtAngle(tests_TestGesteStatics.seg,{ Points : tests_TestGesteStatics.seg},45);
+		utest_Assert.equals(137.79376055283058,dis,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 64, className : "tests.TestGesteStatics", methodName : "testDistanceAtAngle"});
 	}
 	,testBestDistanceAtAngle: function() {
-		utest_Assert.equals(7.265398696948875,postite_geom_Geste.DistanceAtBestAngle(tests_TestGesteStatics.seg,{ Points : tests_TestGesteStatics.seg},45.0,90.0,1.0),null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 69, className : "tests.TestGesteStatics", methodName : "testBestDistanceAtAngle"});
+		var r = postite_geom_Geste.DistanceAtBestAngle(tests_TestGesteStatics.seg,{ Points : tests_TestGesteStatics.seg},45.0,90.0,1.0);
+		utest_Assert.equals(7.265398696948875,r,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 69, className : "tests.TestGesteStatics", methodName : "testBestDistanceAtAngle"});
 	}
 	,testRotateBy: function() {
-		utest_Assert.same(postite_geom_Geste.RotateBy(tests_TestGesteStatics.seg,45.0)[0],{ x : 232.55815357163885, y : 162.37744866481518},null,null,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 74, className : "tests.TestGesteStatics", methodName : "testRotateBy"});
+		var r = postite_geom_Geste.RotateBy(tests_TestGesteStatics.seg,45.0);
+		utest_Assert.same(r[0],{ x : 232.55815357163885, y : 162.37744866481518},null,null,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 74, className : "tests.TestGesteStatics", methodName : "testRotateBy"});
 	}
 	,testOptimalCosineDistance: function() {
-		utest_Assert.floatEquals(0,postite_geom_Geste.OptimalCosineDistance([0,1],[1,0]),null,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 82, className : "tests.TestGesteStatics", methodName : "testOptimalCosineDistance"});
+		var o = postite_geom_Geste.OptimalCosineDistance([0,1],[1,0]);
+		utest_Assert.floatEquals(0,o,null,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 82, className : "tests.TestGesteStatics", methodName : "testOptimalCosineDistance"});
 	}
 	,testVectorize: function() {
-		utest_Assert.isTrue(postite_geom_Geste.Vectorize(tests_TestGesteStatics.seg).length > 1,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 87, className : "tests.TestGesteStatics", methodName : "testVectorize"});
+		var v = postite_geom_Geste.Vectorize(tests_TestGesteStatics.seg);
+		utest_Assert.isTrue(v.length > 1,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 87, className : "tests.TestGesteStatics", methodName : "testVectorize"});
 	}
 	,testTranslateTo: function() {
 		var t = postite_geom_Geste.TranslateTo(tests_TestGesteStatics.seg,postite_geom__$CoolPoint_Point_$Impl_$.fromAnonInt({ x : 350, y : 350}));
 		utest_Assert.same([{ x : 250, y : 250},{ x : 450, y : 450}],t,null,null,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 92, className : "tests.TestGesteStatics", methodName : "testTranslateTo"});
 	}
 	,testScaleTo: function() {
-		var upPoint = tests_TestGesteStatics.getMaxPoint(postite_geom_Geste.ScaleTo(postite_geom__$CoolPoint_Points_$Impl_$.fromArrayInt(tests_TestGesteStatics.rec),300));
-		utest_Assert.equals(300,Math.min(upPoint.x,upPoint.y),null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 106, className : "tests.TestGesteStatics", methodName : "testScaleTo"});
+		var s = postite_geom_Geste.ScaleTo(postite_geom__$CoolPoint_Points_$Impl_$.fromArrayInt(tests_TestGesteStatics.rec),300);
+		var upPoint = tests_TestGesteStatics.getMaxPoint(s);
+		var up = Math.min(upPoint.x,upPoint.y);
+		utest_Assert.equals(300,up,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 106, className : "tests.TestGesteStatics", methodName : "testScaleTo"});
 	}
 	,testIndicativeAngle: function() {
-		utest_Assert.floatEquals(0.7853981633974483,postite_geom_Geste.IndicativeAngle(tests_TestGesteStatics.seg),null,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 111, className : "tests.TestGesteStatics", methodName : "testIndicativeAngle"});
+		var ind = postite_geom_Geste.IndicativeAngle(tests_TestGesteStatics.seg);
+		utest_Assert.floatEquals(0.7853981633974483,ind,null,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 111, className : "tests.TestGesteStatics", methodName : "testIndicativeAngle"});
 	}
 	,testresample: function() {
-		utest_Assert.equals(3,postite_geom_Geste.Resample(tests_TestGesteStatics.seg.slice(),3).length,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 117, className : "tests.TestGesteStatics", methodName : "testresample"});
+		var t = tests_TestGesteStatics.seg.slice();
+		var r = postite_geom_Geste.Resample(t,3);
+		utest_Assert.equals(3,r.length,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 117, className : "tests.TestGesteStatics", methodName : "testresample"});
 	}
 	,testresamplebiggerArray: function() {
 		var v = tests_TestGesteStatics.seg.slice();
 		v = postite_geom_Geste.TranslateTo(v,postite_geom__$CoolPoint_Point_$Impl_$.fromAnonInt({ x : 700, y : 600}));
-		var con = tests_TestGesteStatics.seg.slice().concat(v);
+		var t = tests_TestGesteStatics.seg.slice();
+		var con = t.concat(v);
 		var r = postite_geom_Geste.Resample(con,3);
 		utest_Assert.equals(4,con.length,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 128, className : "tests.TestGesteStatics", methodName : "testresamplebiggerArray"});
 		utest_Assert.equals(3,r.length,null,{ fileName : "tests/TestGesteStatics.hx", lineNumber : 129, className : "tests.TestGesteStatics", methodName : "testresamplebiggerArray"});
@@ -2216,7 +7477,9 @@ tests_TestResample.prototype = $extend(utest_Test.prototype,{
 	testCircle: function() {
 		haxe_Log.trace("circl",{ fileName : "tests/TestResample.hx", lineNumber : 31, className : "tests.TestResample", methodName : "testCircle"});
 		var _this = postite_geom_UnistrokePatterns.unimap;
-		utest_Assert.equals(64,postite_geom_Geste.Resample(__map_reserved["circle"] != null ? _this.getReserved("circle") : _this.h["circle"],64).length,null,{ fileName : "tests/TestResample.hx", lineNumber : 34, className : "tests.TestResample", methodName : "testCircle"});
+		var circle = __map_reserved["circle"] != null ? _this.getReserved("circle") : _this.h["circle"];
+		var n = postite_geom_Geste.Resample(circle,64);
+		utest_Assert.equals(64,n.length,null,{ fileName : "tests/TestResample.hx", lineNumber : 34, className : "tests.TestResample", methodName : "testCircle"});
 	}
 	,__initializeUtest__: function() {
 		var _gthis = this;
@@ -2229,69 +7492,138 @@ tests_TestResample.prototype = $extend(utest_Test.prototype,{
 	}
 	,__class__: tests_TestResample
 });
+var tests_TestVector2d = function() {
+	utest_Test.call(this);
+};
+tests_TestVector2d.__name__ = "tests.TestVector2d";
+tests_TestVector2d.__super__ = utest_Test;
+tests_TestVector2d.prototype = $extend(utest_Test.prototype,{
+	testTest: function() {
+		utest_Assert.isTrue(true,null,{ fileName : "tests/TestVector2d.hx", lineNumber : 7, className : "tests.TestVector2d", methodName : "testTest"});
+	}
+	,testVector: function() {
+		var this1 = { x : 10, y : 20};
+		var vec = this1;
+		var magn = Math.sqrt(vec.x * vec.x + vec.y * vec.y);
+		utest_Assert.equals(10,magn,null,{ fileName : "tests/TestVector2d.hx", lineNumber : 13, className : "tests.TestVector2d", methodName : "testVector"});
+	}
+	,__initializeUtest__: function() {
+		var _gthis = this;
+		var init = utest_Test.prototype.__initializeUtest__.call(this);
+		init.tests.push({ name : "testTest", execute : function() {
+			_gthis.testTest();
+			return utest_Async.getResolved();
+		}});
+		init.tests.push({ name : "testVector", execute : function() {
+			_gthis.testVector();
+			return utest_Async.getResolved();
+		}});
+		return init;
+	}
+	,__class__: tests_TestVector2d
+});
 var utest_Assert = function() { };
 utest_Assert.__name__ = "utest.Assert";
-utest_Assert.isTrue = function(cond,msg,pos) {
+utest_Assert.processResult = function(cond,getMessage,pos) {
 	if(utest_Assert.results == null) {
-		throw new js__$Boot_HaxeError("Assert.results is not currently bound to any assert context");
-	}
-	if(null == msg) {
-		msg = "expected true";
+		throw new js__$Boot_HaxeError("Assert at " + pos.fileName + ":" + pos.lineNumber + " out of context. Most likely you are trying to assert after a test timeout.");
 	}
 	if(cond) {
 		utest_Assert.results.add(utest_Assertation.Success(pos));
 	} else {
-		utest_Assert.results.add(utest_Assertation.Failure(msg,pos));
+		utest_Assert.results.add(utest_Assertation.Failure(getMessage(),pos));
+	}
+};
+utest_Assert.isTrue = function(cond,msg,pos) {
+	if(utest_Assert.results == null) {
+		throw new js__$Boot_HaxeError("Assert at " + pos.fileName + ":" + pos.lineNumber + " out of context. Most likely you are trying to assert after a test timeout.");
+	}
+	if(cond) {
+		utest_Assert.results.add(utest_Assertation.Success(pos));
+	} else {
+		utest_Assert.results.add(utest_Assertation.Failure(msg != null ? msg : "expected true",pos));
 	}
 };
 utest_Assert.isFalse = function(value,msg,pos) {
-	if(null == msg) {
-		msg = "expected false";
+	if(utest_Assert.results == null) {
+		throw new js__$Boot_HaxeError("Assert at " + pos.fileName + ":" + pos.lineNumber + " out of context. Most likely you are trying to assert after a test timeout.");
 	}
-	utest_Assert.isTrue(value == false,msg,pos);
+	if(value == false) {
+		utest_Assert.results.add(utest_Assertation.Success(pos));
+	} else {
+		utest_Assert.results.add(utest_Assertation.Failure(msg != null ? msg : "expected false",pos));
+	}
 };
 utest_Assert.isNull = function(value,msg,pos) {
-	if(msg == null) {
-		msg = "expected null but it is " + utest_Assert.q(value);
+	if(utest_Assert.results == null) {
+		throw new js__$Boot_HaxeError("Assert at " + pos.fileName + ":" + pos.lineNumber + " out of context. Most likely you are trying to assert after a test timeout.");
 	}
-	utest_Assert.isTrue(value == null,msg,pos);
+	if(value == null) {
+		utest_Assert.results.add(utest_Assertation.Success(pos));
+	} else {
+		utest_Assert.results.add(utest_Assertation.Failure(msg != null ? msg : "expected null but it is " + utest_Assert.q(value),pos));
+	}
 };
 utest_Assert.notNull = function(value,msg,pos) {
-	if(null == msg) {
-		msg = "expected not null";
+	if(utest_Assert.results == null) {
+		throw new js__$Boot_HaxeError("Assert at " + pos.fileName + ":" + pos.lineNumber + " out of context. Most likely you are trying to assert after a test timeout.");
 	}
-	utest_Assert.isTrue(value != null,msg,pos);
+	if(value != null) {
+		utest_Assert.results.add(utest_Assertation.Success(pos));
+	} else {
+		utest_Assert.results.add(utest_Assertation.Failure(msg != null ? msg : "expected not null",pos));
+	}
 };
 utest_Assert.is = function(value,type,msg,pos) {
-	if(msg == null) {
-		msg = "expected type " + utest_Assert.typeToString(type) + " but it is " + utest_Assert.typeToString(value);
+	if(utest_Assert.results == null) {
+		throw new js__$Boot_HaxeError("Assert at " + pos.fileName + ":" + pos.lineNumber + " out of context. Most likely you are trying to assert after a test timeout.");
 	}
-	utest_Assert.isTrue(js_Boot.__instanceof(value,type),msg,pos);
+	if(js_Boot.__instanceof(value,type)) {
+		utest_Assert.results.add(utest_Assertation.Success(pos));
+	} else {
+		utest_Assert.results.add(utest_Assertation.Failure(msg != null ? msg : "expected type " + utest_Assert.typeToString(type) + " but it is " + utest_Assert.typeToString(value),pos));
+	}
 };
 utest_Assert.notEquals = function(expected,value,msg,pos) {
-	if(msg == null) {
-		msg = "expected " + utest_Assert.q(expected) + " and test value " + utest_Assert.q(value) + " should be different";
+	if(utest_Assert.results == null) {
+		throw new js__$Boot_HaxeError("Assert at " + pos.fileName + ":" + pos.lineNumber + " out of context. Most likely you are trying to assert after a test timeout.");
 	}
-	utest_Assert.isFalse(expected == value,msg,pos);
+	if(expected != value) {
+		utest_Assert.results.add(utest_Assertation.Success(pos));
+	} else {
+		utest_Assert.results.add(utest_Assertation.Failure(msg != null ? msg : "expected " + utest_Assert.q(expected) + " and test value " + utest_Assert.q(value) + " should be different",pos));
+	}
 };
 utest_Assert.equals = function(expected,value,msg,pos) {
-	if(msg == null) {
-		msg = "expected " + utest_Assert.q(expected) + " but it is " + utest_Assert.q(value);
+	if(utest_Assert.results == null) {
+		throw new js__$Boot_HaxeError("Assert at " + pos.fileName + ":" + pos.lineNumber + " out of context. Most likely you are trying to assert after a test timeout.");
 	}
-	utest_Assert.isTrue(expected == value,msg,pos);
+	if(expected == value) {
+		utest_Assert.results.add(utest_Assertation.Success(pos));
+	} else {
+		utest_Assert.results.add(utest_Assertation.Failure(msg != null ? msg : "expected " + utest_Assert.q(expected) + " but it is " + utest_Assert.q(value),pos));
+	}
 };
 utest_Assert.match = function(pattern,value,msg,pos) {
-	if(msg == null) {
-		msg = "the value " + utest_Assert.q(value) + " does not match the provided pattern";
+	var cond = pattern.match(value);
+	if(utest_Assert.results == null) {
+		throw new js__$Boot_HaxeError("Assert at " + pos.fileName + ":" + pos.lineNumber + " out of context. Most likely you are trying to assert after a test timeout.");
 	}
-	utest_Assert.isTrue(pattern.match(value),msg,pos);
+	if(cond) {
+		utest_Assert.results.add(utest_Assertation.Success(pos));
+	} else {
+		utest_Assert.results.add(utest_Assertation.Failure(msg != null ? msg : "the value " + utest_Assert.q(value) + " does not match the provided pattern",pos));
+	}
 };
 utest_Assert.floatEquals = function(expected,value,approx,msg,pos) {
-	if(msg == null) {
-		msg = "expected " + utest_Assert.q(expected) + " but it is " + utest_Assert.q(value);
+	if(utest_Assert.results == null) {
+		throw new js__$Boot_HaxeError("Assert at " + pos.fileName + ":" + pos.lineNumber + " out of context. Most likely you are trying to assert after a test timeout.");
 	}
-	utest_Assert.isTrue(utest_Assert._floatEquals(expected,value,approx),msg,pos);
-	return;
+	if(utest_Assert._floatEquals(expected,value,approx)) {
+		utest_Assert.results.add(utest_Assertation.Success(pos));
+	} else {
+		utest_Assert.results.add(utest_Assertation.Failure(msg != null ? msg : "expected " + utest_Assert.q(expected) + " but it is " + utest_Assert.q(value),pos));
+	}
 };
 utest_Assert._floatEquals = function(expected,value,approx) {
 	if(isNaN(expected)) {
@@ -2332,7 +7664,8 @@ utest_Assert.getTypeName = function(v) {
 	}
 };
 utest_Assert.isIterable = function(v,isAnonym) {
-	if(!Lambda.has(isAnonym ? Reflect.fields(v) : Type.getInstanceFields(v == null ? null : js_Boot.getClass(v)),"iterator")) {
+	var fields = isAnonym ? Reflect.fields(v) : Type.getInstanceFields(v == null ? null : js_Boot.getClass(v));
+	if(!Lambda.has(fields,"iterator")) {
 		return false;
 	}
 	return Reflect.isFunction(Reflect.field(v,"iterator"));
@@ -2351,6 +7684,8 @@ utest_Assert.isIterator = function(v,isAnonym) {
 utest_Assert.sameAs = function(expected,value,status,approx) {
 	var texpected = utest_Assert.getTypeName(expected);
 	var tvalue = utest_Assert.getTypeName(value);
+	status.expectedValue = expected;
+	status.actualValue = value;
 	if(texpected != tvalue && !(texpected == "Int" && tvalue == "Float" || texpected == "Float" && tvalue == "Int")) {
 		status.error = "expected type " + texpected + " but it is " + tvalue + (status.path == "" ? "" : " for field " + status.path);
 		return false;
@@ -2388,7 +7723,8 @@ utest_Assert.sameAs = function(expected,value,status,approx) {
 				if(Reflect.isFunction(e)) {
 					continue;
 				}
-				if(!utest_Assert.sameAs(e,Reflect.field(value,field),status,approx)) {
+				var v = Reflect.field(value,field);
+				if(!utest_Assert.sameAs(e,v,status,approx)) {
 					return false;
 				}
 			}
@@ -2420,7 +7756,7 @@ utest_Assert.sameAs = function(expected,value,status,approx) {
 					var i = _g2++;
 					status.path = path1 == "" ? "iterator[" + i + "]" : path1 + "[" + i + "]";
 					if(!utest_Assert.sameAs(evalues[i],vvalues[i],status,approx)) {
-						status.error = "expected " + utest_Assert.q(expected) + " but it is " + utest_Assert.q(value) + (status.path == "" ? "" : " for field " + status.path);
+						status.error = "expected " + utest_Assert.q(status.expectedValue) + " but it is " + utest_Assert.q(status.actualValue) + (status.path == "" ? "" : " for field " + status.path);
 						return false;
 					}
 				}
@@ -2490,7 +7826,7 @@ utest_Assert.sameAs = function(expected,value,status,approx) {
 					var i2 = _g4++;
 					status.path = path3 == "" ? "array[" + i2 + "]" : path3 + "[" + i2 + "]";
 					if(!utest_Assert.sameAs(expected[i2],value[i2],status,approx)) {
-						status.error = "expected array element at [" + i2 + "] to be " + utest_Assert.q(expected[i2]) + " but it is " + utest_Assert.q(value[i2]) + (status.path == "" ? "" : " for field " + status.path);
+						status.error = "expected array element at [" + i2 + "] to have " + utest_Assert.q(status.expectedValue) + " but it is " + utest_Assert.q(status.actualValue) + (status.path == "" ? "" : " for field " + status.path);
 						return false;
 					}
 				}
@@ -2529,11 +7865,17 @@ utest_Assert.sameAs = function(expected,value,status,approx) {
 				var vmap = js_Boot.__cast(value , haxe_IMap);
 				var _g6 = [];
 				var k = map.keys();
-				while(k.hasNext()) _g6.push(k.next());
+				while(k.hasNext()) {
+					var k1 = k.next();
+					_g6.push(k1);
+				}
 				var keys = _g6;
 				var _g15 = [];
-				var k1 = vmap.keys();
-				while(k1.hasNext()) _g15.push(k1.next());
+				var k2 = vmap.keys();
+				while(k2.hasNext()) {
+					var k3 = k2.next();
+					_g15.push(k3);
+				}
 				var vkeys = _g15;
 				if(keys.length != vkeys.length) {
 					status.error = "expected " + keys.length + " keys but they are " + vkeys.length + (status.path == "" ? "" : " for field " + status.path);
@@ -2546,7 +7888,7 @@ utest_Assert.sameAs = function(expected,value,status,approx) {
 					++_g21;
 					status.path = path4 == "" ? "hash[" + Std.string(key) + "]" : path4 + "[" + Std.string(key) + "]";
 					if(!utest_Assert.sameAs(map.get(key),vmap.get(key),status,approx)) {
-						status.error = "expected " + utest_Assert.q(expected) + " but it is " + utest_Assert.q(value) + (status.path == "" ? "" : " for field " + status.path);
+						status.error = "expected " + utest_Assert.q(status.expectedValue) + " but it is " + utest_Assert.q(status.actualValue) + (status.path == "" ? "" : " for field " + status.path);
 						return false;
 					}
 				}
@@ -2572,7 +7914,7 @@ utest_Assert.sameAs = function(expected,value,status,approx) {
 					var i4 = _g7++;
 					status.path = path5 == "" ? "iterator[" + i4 + "]" : path5 + "[" + i4 + "]";
 					if(!utest_Assert.sameAs(evalues2[i4],vvalues2[i4],status,approx)) {
-						status.error = "expected " + utest_Assert.q(expected) + " but it is " + utest_Assert.q(value) + (status.path == "" ? "" : " for field " + status.path);
+						status.error = "expected " + utest_Assert.q(status.expectedValue) + " but it is " + utest_Assert.q(status.actualValue) + (status.path == "" ? "" : " for field " + status.path);
 						return false;
 					}
 				}
@@ -2613,7 +7955,8 @@ utest_Assert.sameAs = function(expected,value,status,approx) {
 				if(Reflect.isFunction(e1)) {
 					continue;
 				}
-				if(!utest_Assert.sameAs(e1,Reflect.field(value,field1),status,approx)) {
+				var v1 = Reflect.field(value,field1);
+				if(!utest_Assert.sameAs(e1,v1,status,approx)) {
 					return false;
 				}
 			}
@@ -2666,7 +8009,7 @@ utest_Assert.same = function(expected,value,recursive,msg,approx,pos) {
 	if(null == approx) {
 		approx = 1e-5;
 	}
-	var status = { recursive : null == recursive ? true : recursive, path : "", error : null};
+	var status = { recursive : null == recursive ? true : recursive, path : "", error : null, expectedValue : expected, actualValue : value};
 	if(utest_Assert.sameAs(expected,value,status,approx)) {
 		utest_Assert.pass(msg,pos);
 	} else {
@@ -2834,13 +8177,14 @@ var utest_Async = function(timeoutMs) {
 	this.callbacks = [];
 	this.timedOut = false;
 	this.resolved = false;
+	this.startTime = Date.now() / 1000;
 	this.timer = haxe_Timer.delay($bind(this,this.setTimedOutState),timeoutMs);
 };
 utest_Async.__name__ = "utest.Async";
 utest_Async.getResolved = function() {
 	if(utest_Async.resolvedInstance == null) {
 		utest_Async.resolvedInstance = new utest_Async();
-		utest_Async.resolvedInstance.done();
+		utest_Async.resolvedInstance.done({ fileName : "utest/Async.hx", lineNumber : 28, className : "utest.Async", methodName : "getResolved"});
 	}
 	return utest_Async.resolvedInstance;
 };
@@ -2848,19 +8192,35 @@ utest_Async.prototype = {
 	resolved: null
 	,timedOut: null
 	,callbacks: null
+	,startTime: null
 	,timer: null
-	,done: function() {
+	,done: function(pos) {
 		if(this.resolved) {
 			if(this.timedOut) {
-				throw new js__$Boot_HaxeError("Cannot resolve timed out Async.");
+				throw new js__$Boot_HaxeError("Cannot done() at " + pos.fileName + ":" + pos.lineNumber + " because async is timed out.");
 			} else {
-				throw new js__$Boot_HaxeError("Async is already resolved.");
+				throw new js__$Boot_HaxeError("Cannot done() at " + pos.fileName + ":" + pos.lineNumber + " because async is done already.");
 			}
 		}
 		this.resolved = true;
 		var _g = 0;
 		var _g1 = this.callbacks;
-		while(_g < _g1.length) _g1[_g++]();
+		while(_g < _g1.length) {
+			var cb = _g1[_g];
+			++_g;
+			cb();
+		}
+	}
+	,setTimeout: function(timeoutMs,pos) {
+		if(this.resolved) {
+			throw new js__$Boot_HaxeError("Cannot setTimeout(" + timeoutMs + ") at " + pos.fileName + ":" + pos.lineNumber + " because async is done.");
+		}
+		if(this.timedOut) {
+			throw new js__$Boot_HaxeError("Cannot setTimeout(" + timeoutMs + ") at " + pos.fileName + ":" + pos.lineNumber + " because async is timed out.");
+		}
+		this.timer.stop();
+		var delay = timeoutMs - Math.round(1000 * (Date.now() / 1000 - this.startTime));
+		this.timer = haxe_Timer.delay($bind(this,this.setTimedOutState),delay);
 	}
 	,then: function(cb) {
 		if(this.resolved) {
@@ -2874,7 +8234,7 @@ utest_Async.prototype = {
 			return;
 		}
 		this.timedOut = true;
-		this.done();
+		this.done({ fileName : "utest/Async.hx", lineNumber : 78, className : "utest.Async", methodName : "setTimedOutState"});
 	}
 	,__class__: utest_Async
 };
@@ -2912,7 +8272,11 @@ utest_Dispatcher.prototype = {
 		try {
 			var list = this.handlers.slice();
 			var _g = 0;
-			while(_g < list.length) list[_g++](e);
+			while(_g < list.length) {
+				var l = list[_g];
+				++_g;
+				l(e);
+			}
 			return true;
 		} catch( exc ) {
 			haxe_CallStack.lastException = exc;
@@ -2959,7 +8323,11 @@ utest_Notifier.prototype = {
 		try {
 			var list = this.handlers.slice();
 			var _g = 0;
-			while(_g < list.length) list[_g++]();
+			while(_g < list.length) {
+				var l = list[_g];
+				++_g;
+				l();
+			}
 			return true;
 		} catch( exc ) {
 			haxe_CallStack.lastException = exc;
@@ -3294,7 +8662,7 @@ utest_ITestHandler.prototype = $extend(utest_TestHandler.prototype,{
 			return;
 		}
 		utest_Assert.results = this.results;
-		var msg = " is not allowed in tests extending utest.ITest. Add `async:utestAsync` argument to the test method instead.";
+		var msg = " is not allowed in tests extending utest.ITest. Add `async:utest.Async` argument to the test method instead.";
 		utest_Assert.createAsync = function(f,t) {
 			throw new js__$Boot_HaxeError("Assert.createAsync() " + msg);
 		};
@@ -3309,10 +8677,12 @@ var utest__$IgnoredFixture_IgnoredFixture_$Impl_$ = {};
 utest__$IgnoredFixture_IgnoredFixture_$Impl_$.__name__ = "utest._IgnoredFixture.IgnoredFixture_Impl_";
 utest__$IgnoredFixture_IgnoredFixture_$Impl_$.__properties__ = {get_ignoreReason:"get_ignoreReason",get_isIgnored:"get_isIgnored"};
 utest__$IgnoredFixture_IgnoredFixture_$Impl_$.NotIgnored = function() {
-	return null;
+	var this1 = null;
+	return this1;
 };
 utest__$IgnoredFixture_IgnoredFixture_$Impl_$.Ignored = function(reason) {
-	return reason != null ? reason : "";
+	var this1 = reason != null ? reason : "";
+	return this1;
 };
 utest__$IgnoredFixture_IgnoredFixture_$Impl_$._new = function(reason) {
 	return reason;
@@ -3326,6 +8696,7 @@ utest__$IgnoredFixture_IgnoredFixture_$Impl_$.get_ignoreReason = function(this1)
 var utest_Runner = function() {
 	this.executedFixtures = 0;
 	this.pos = 0;
+	this.complete = false;
 	this.globalPattern = null;
 	this.iTestFixtures = new haxe_ds_ObjectMap();
 	this.fixtures = [];
@@ -3349,6 +8720,7 @@ utest_Runner.prototype = {
 	,onTestComplete: null
 	,length: null
 	,globalPattern: null
+	,complete: null
 	,addCase: function(test,setup,teardown,prefix,pattern,setupAsync,teardownAsync) {
 		if(teardownAsync == null) {
 			teardownAsync = "teardownAsync";
@@ -3439,8 +8811,12 @@ utest_Runner.prototype = {
 	,isTestFixtureName: function(name,prefixes,pattern,globalPattern) {
 		if(pattern == null && globalPattern == null) {
 			var _g = 0;
-			while(_g < prefixes.length) if(StringTools.startsWith(name,prefixes[_g++])) {
-				return true;
+			while(_g < prefixes.length) {
+				var prefix = prefixes[_g];
+				++_g;
+				if(StringTools.startsWith(name,prefix)) {
+					return true;
+				}
 			}
 			return false;
 		}
@@ -3466,7 +8842,14 @@ utest_Runner.prototype = {
 	}
 	,run: function() {
 		this.onStart.dispatch(this);
-		new utest__$Runner_ITestRunner(this).run();
+		var iTestRunner = new utest__$Runner_ITestRunner(this);
+		iTestRunner.run();
+		this.waitForCompletion();
+	}
+	,waitForCompletion: function() {
+		if(!this.complete) {
+			haxe_Timer.delay($bind(this,this.waitForCompletion),100);
+		}
 	}
 	,pos: null
 	,executedFixtures: null
@@ -3485,6 +8868,7 @@ utest_Runner.prototype = {
 				return;
 			}
 		}
+		this.complete = true;
 		this.onComplete.dispatch(this);
 	}
 	,runFixture: function(fixture) {
@@ -3566,7 +8950,8 @@ utest__$Runner_ITestRunner.prototype = {
 			this.teardownAsync = this.teardownClass();
 		} catch( e ) {
 			haxe_CallStack.lastException = e;
-			this.teardownFailed(utest_Assertation.TeardownError("tearDownClass failed: " + Std.string(((e) instanceof js__$Boot_HaxeError) ? e.val : e),haxe_CallStack.exceptionStack()));
+			this.teardownFailed(utest_Assertation.TeardownError("teardownClass failed: " + Std.string(((e) instanceof js__$Boot_HaxeError) ? e.val : e),haxe_CallStack.exceptionStack()));
+			return true;
 		}
 		if(this.teardownAsync.resolved && finishedHandler == null) {
 			return true;
@@ -3629,7 +9014,8 @@ utest_TestFixture.prototype = {
 	}
 	,getIgnored: function() {
 		var o = this.target;
-		var metasForTestMetas = Reflect.getProperty(haxe_rtti_Meta.getFields(o == null ? null : js_Boot.getClass(o)),this.method);
+		var metas = haxe_rtti_Meta.getFields(o == null ? null : js_Boot.getClass(o));
+		var metasForTestMetas = Reflect.getProperty(metas,this.method);
 		if(metasForTestMetas == null || !Object.prototype.hasOwnProperty.call(metasForTestMetas,"Ignored")) {
 			return utest__$IgnoredFixture_IgnoredFixture_$Impl_$.NotIgnored();
 		}
@@ -3637,7 +9023,8 @@ utest_TestFixture.prototype = {
 		if(ignoredArgs == null || ignoredArgs.length == 0 || ignoredArgs[0] == null) {
 			return utest__$IgnoredFixture_IgnoredFixture_$Impl_$.Ignored();
 		}
-		return utest__$IgnoredFixture_IgnoredFixture_$Impl_$.Ignored(Std.string(ignoredArgs[0]));
+		var ignoredReason = Std.string(ignoredArgs[0]);
+		return utest__$IgnoredFixture_IgnoredFixture_$Impl_$.Ignored(ignoredReason);
 	}
 	,__class__: utest_TestFixture
 };
@@ -3692,10 +9079,13 @@ utest_TestResult.prototype = {
 	,assertations: null
 	,allOk: function() {
 		var head = this.assertations.h;
-		while(head != null) if(head.item._hx_index == 0) {
-			break;
-		} else {
-			return false;
+		while(head != null) {
+			var val = head.item;
+			if(val._hx_index == 0) {
+				break;
+			} else {
+				return false;
+			}
 		}
 		return true;
 	}
@@ -3780,7 +9170,10 @@ utest_ui_common_ClassResult.prototype = {
 		}
 		var names = [];
 		var name = this.fixtures.keys();
-		while(name.hasNext()) names.push(name.next());
+		while(name.hasNext()) {
+			var name1 = name.next();
+			names.push(name1);
+		}
 		if(errorsHavePriority) {
 			var me = this;
 			names.sort(function(a,b) {
@@ -3924,7 +9317,10 @@ utest_ui_common_PackageResult.prototype = {
 	,stats: null
 	,addResult: function(result,flattenPackage) {
 		this.isEmpty = false;
-		this.getOrCreateClass(this.getOrCreatePackage(result.pack,flattenPackage,this),result.cls,result.setup,result.teardown).add(this.createFixture(result.method,result.assertations));
+		var pack = this.getOrCreatePackage(result.pack,flattenPackage,this);
+		var cls = this.getOrCreateClass(pack,result.cls,result.setup,result.teardown);
+		var fix = this.createFixture(result.method,result.assertations);
+		cls.add(fix);
 	}
 	,addClass: function(result) {
 		this.isEmpty = false;
@@ -3989,7 +9385,10 @@ utest_ui_common_PackageResult.prototype = {
 		}
 		var names = [];
 		var name = this.classes.keys();
-		while(name.hasNext()) names.push(name.next());
+		while(name.hasNext()) {
+			var name1 = name.next();
+			names.push(name1);
+		}
 		if(errorsHavePriority) {
 			var me = this;
 			names.sort(function(a,b) {
@@ -4045,7 +9444,10 @@ utest_ui_common_PackageResult.prototype = {
 			names.push("");
 		}
 		var name = this.packages.keys();
-		while(name.hasNext()) names.push(name.next());
+		while(name.hasNext()) {
+			var name1 = name.next();
+			names.push(name1);
+		}
 		if(errorsHavePriority) {
 			var me = this;
 			names.sort(function(a,b) {
@@ -4095,7 +9497,10 @@ utest_ui_common_PackageResult.prototype = {
 	,createFixture: function(method,assertations) {
 		var f = new utest_ui_common_FixtureResult(method);
 		var assertation = $getIterator(assertations);
-		while(assertation.hasNext()) f.add(assertation.next());
+		while(assertation.hasNext()) {
+			var assertation1 = assertation.next();
+			f.add(assertation1);
+		}
 		return f;
 	}
 	,getOrCreateClass: function(pack,cls,setup,teardown) {
@@ -4120,7 +9525,11 @@ utest_ui_common_PackageResult.prototype = {
 		} else {
 			var parts = pack.split(".");
 			var _g = 0;
-			while(_g < parts.length) ref = this.getOrCreatePackage(parts[_g++],true,ref);
+			while(_g < parts.length) {
+				var part = parts[_g];
+				++_g;
+				ref = this.getOrCreatePackage(part,true,ref);
+			}
 			return ref;
 		}
 	}
@@ -4201,7 +9610,8 @@ utest_ui_common_ResultAggregator.prototype = {
 		var _g = 0;
 		var _g1 = this.runner.length;
 		while(_g < _g1) {
-			var fixture = this.runner.getFixture(_g++);
+			var i = _g++;
+			var fixture = this.runner.getFixture(i);
 			if(!fixture.isITest) {
 				++total;
 				if(first == null) {
@@ -4244,7 +9654,11 @@ utest_ui_common_ResultAggregator.prototype = {
 		} else {
 			var parts = pack.split(".");
 			var _g = 0;
-			while(_g < parts.length) ref = this.getOrCreatePackage(parts[_g++],true,ref);
+			while(_g < parts.length) {
+				var part = parts[_g];
+				++_g;
+				ref = this.getOrCreatePackage(part,true,ref);
+			}
 			return ref;
 		}
 	}
@@ -4282,7 +9696,8 @@ utest_ui_common_ResultAggregator.prototype = {
 		result.cls = "";
 		result.method = "";
 		result.assertations = new haxe_ds_List();
-		result.assertations.add(utest_Assertation.Failure("No tests executed.",{ fileName : "", lineNumber : 1, className : "utest.Runner", methodName : "run"}));
+		var pos = { fileName : "", lineNumber : 1, className : "utest.Runner", methodName : "run"};
+		result.assertations.add(utest_Assertation.Failure("No tests executed.",pos));
 		return result;
 	}
 	,__class__: utest_ui_common_ResultAggregator
@@ -4533,7 +9948,8 @@ utest_ui_text_HtmlReport.prototype = {
 				parts.push(part);
 			}
 		}
-		return "<div>" + ("<ul><li>" + parts.join("</li>" + nl + "<li>") + "</li></ul>" + nl) + "</div>" + nl;
+		var s = "<ul><li>" + parts.join("</li>" + nl + "<li>") + "</li></ul>" + nl;
+		return "<div>" + s + "</div>" + nl;
 	}
 	,addFixture: function(buf,result,name,isOk) {
 		if(utest_ui_common_ReportTools.skipResult(this,result.stats,isOk)) {
@@ -4562,32 +9978,41 @@ utest_ui_text_HtmlReport.prototype = {
 			case 0:
 				break;
 			case 1:
-				messages.push("<strong>line " + val.pos.lineNumber + "</strong>: <em>" + StringTools.htmlEscape(val.msg) + "</em>");
+				var pos = val.pos;
+				var msg = val.msg;
+				messages.push("<strong>line " + pos.lineNumber + "</strong>: <em>" + StringTools.htmlEscape(msg) + "</em>");
 				break;
 			case 2:
+				var s = val.stack;
 				var e = val.e;
-				messages.push("<strong>error</strong>: <em>" + this.getErrorDescription(e) + "</em>\n<br/><strong>stack</strong>:" + this.getErrorStack(val.stack,e));
+				messages.push("<strong>error</strong>: <em>" + this.getErrorDescription(e) + "</em>\n<br/><strong>stack</strong>:" + this.getErrorStack(s,e));
 				break;
 			case 3:
+				var s1 = val.stack;
 				var e1 = val.e;
-				messages.push("<strong>setup error</strong>: " + this.getErrorDescription(e1) + "\n<br/><strong>stack</strong>:" + this.getErrorStack(val.stack,e1));
+				messages.push("<strong>setup error</strong>: " + this.getErrorDescription(e1) + "\n<br/><strong>stack</strong>:" + this.getErrorStack(s1,e1));
 				break;
 			case 4:
+				var s2 = val.stack;
 				var e2 = val.e;
-				messages.push("<strong>tear-down error</strong>: " + this.getErrorDescription(e2) + "\n<br/><strong>stack</strong>:" + this.getErrorStack(val.stack,e2));
+				messages.push("<strong>tear-down error</strong>: " + this.getErrorDescription(e2) + "\n<br/><strong>stack</strong>:" + this.getErrorStack(s2,e2));
 				break;
 			case 5:
-				messages.push("<strong>missed async call(s)</strong>: " + val.missedAsyncs);
+				var missedAsyncs = val.missedAsyncs;
+				messages.push("<strong>missed async call(s)</strong>: " + missedAsyncs);
 				break;
 			case 6:
+				var s3 = val.stack;
 				var e3 = val.e;
-				messages.push("<strong>async error</strong>: " + this.getErrorDescription(e3) + "\n<br/><strong>stack</strong>:" + this.getErrorStack(val.stack,e3));
+				messages.push("<strong>async error</strong>: " + this.getErrorDescription(e3) + "\n<br/><strong>stack</strong>:" + this.getErrorStack(s3,e3));
 				break;
 			case 7:
-				messages.push(StringTools.htmlEscape(val.msg));
+				var msg1 = val.msg;
+				messages.push(StringTools.htmlEscape(msg1));
 				break;
 			case 8:
-				messages.push(StringTools.htmlEscape(val.reason));
+				var reason = val.reason;
+				messages.push(StringTools.htmlEscape(reason));
 				break;
 			}
 		}
@@ -4731,32 +10156,45 @@ utest_ui_text_HtmlReport.prototype = {
 							buf_b += ".";
 							break;
 						case 1:
+							var pos = val.pos;
+							var msg = val.msg;
 							buf_b += "F";
-							messages += indents(2) + "line: " + val.pos.lineNumber + ", " + val.msg + newline;
+							messages += indents(2) + "line: " + pos.lineNumber + ", " + msg + newline;
 							break;
 						case 2:
+							var s = val.stack;
+							var e = val.e;
 							buf_b += "E";
-							messages += indents(2) + Std.string(val.e) + dumpStack(val.stack) + newline;
+							messages += indents(2) + Std.string(e) + dumpStack(s) + newline;
 							break;
 						case 3:
+							var s1 = val.stack;
+							var e1 = val.e;
 							buf_b += "S";
-							messages += indents(2) + Std.string(val.e) + dumpStack(val.stack) + newline;
+							messages += indents(2) + Std.string(e1) + dumpStack(s1) + newline;
 							break;
 						case 4:
+							var s2 = val.stack;
+							var e2 = val.e;
 							buf_b += "T";
-							messages += indents(2) + Std.string(val.e) + dumpStack(val.stack) + newline;
+							messages += indents(2) + Std.string(e2) + dumpStack(s2) + newline;
 							break;
 						case 5:
+							var s3 = val.stack;
+							var missedAsyncs = val.missedAsyncs;
 							buf_b += "O";
-							messages += indents(2) + "missed async calls: " + val.missedAsyncs + dumpStack(val.stack) + newline;
+							messages += indents(2) + "missed async calls: " + missedAsyncs + dumpStack(s3) + newline;
 							break;
 						case 6:
+							var s4 = val.stack;
+							var e3 = val.e;
 							buf_b += "A";
-							messages += indents(2) + Std.string(val.e) + dumpStack(val.stack) + newline;
+							messages += indents(2) + Std.string(e3) + dumpStack(s4) + newline;
 							break;
 						case 7:
+							var msg1 = val.msg;
 							buf_b += "W";
-							messages += indents(2) + val.msg + newline;
+							messages += indents(2) + msg1 + newline;
 							break;
 						case 8:
 							var reason = val.reason;
@@ -4779,7 +10217,8 @@ utest_ui_text_HtmlReport.prototype = {
 		if(!utest_ui_common_ReportTools.hasHeader(this,this.result.stats)) {
 			return "";
 		}
-		var time = ((Date.now() / 1000 - this.startTime) * 1000 | 0) / 1000;
+		var end = Date.now() / 1000;
+		var time = ((end - this.startTime) * 1000 | 0) / 1000;
 		var msg = "TEST OK";
 		if(this.result.stats.hasErrors) {
 			msg = "TEST ERRORS";
@@ -4975,7 +10414,8 @@ utest_ui_text_PlainTextReport.prototype = {
 		if(!utest_ui_common_ReportTools.hasHeader(this,result.stats)) {
 			return;
 		}
-		var time = ((this.getTime() - this.startTime) * 1000 | 0) / 1000;
+		var end = this.getTime();
+		var time = ((end - this.startTime) * 1000 | 0) / 1000;
 		buf.b += Std.string("\nassertations: " + result.stats.assertations + this.newline);
 		buf.b += Std.string("successes: " + result.stats.successes + this.newline);
 		buf.b += Std.string("errors: " + result.stats.errors + this.newline);
@@ -5038,32 +10478,45 @@ utest_ui_text_PlainTextReport.prototype = {
 							buf.b += ".";
 							break;
 						case 1:
+							var pos = val.pos;
+							var msg = val.msg;
 							buf.b += "F";
-							messages += this.indents(2) + "line: " + val.pos.lineNumber + ", " + val.msg + this.newline;
+							messages += this.indents(2) + "line: " + pos.lineNumber + ", " + msg + this.newline;
 							break;
 						case 2:
+							var s = val.stack;
+							var e = val.e;
 							buf.b += "E";
-							messages += this.indents(2) + Std.string(val.e) + this.dumpStack(val.stack) + this.newline;
+							messages += this.indents(2) + Std.string(e) + this.dumpStack(s) + this.newline;
 							break;
 						case 3:
+							var s1 = val.stack;
+							var e1 = val.e;
 							buf.b += "S";
-							messages += this.indents(2) + Std.string(val.e) + this.dumpStack(val.stack) + this.newline;
+							messages += this.indents(2) + Std.string(e1) + this.dumpStack(s1) + this.newline;
 							break;
 						case 4:
+							var s2 = val.stack;
+							var e2 = val.e;
 							buf.b += "T";
-							messages += this.indents(2) + Std.string(val.e) + this.dumpStack(val.stack) + this.newline;
+							messages += this.indents(2) + Std.string(e2) + this.dumpStack(s2) + this.newline;
 							break;
 						case 5:
+							var s3 = val.stack;
+							var missedAsyncs = val.missedAsyncs;
 							buf.b += "O";
-							messages += this.indents(2) + "missed async calls: " + val.missedAsyncs + this.dumpStack(val.stack) + this.newline;
+							messages += this.indents(2) + "missed async calls: " + missedAsyncs + this.dumpStack(s3) + this.newline;
 							break;
 						case 6:
+							var s4 = val.stack;
+							var e3 = val.e;
 							buf.b += "A";
-							messages += this.indents(2) + Std.string(val.e) + this.dumpStack(val.stack) + this.newline;
+							messages += this.indents(2) + Std.string(e3) + this.dumpStack(s4) + this.newline;
 							break;
 						case 7:
+							var msg1 = val.msg;
 							buf.b += "W";
-							messages += this.indents(2) + val.msg + this.newline;
+							messages += this.indents(2) + msg1 + this.newline;
 							break;
 						case 8:
 							var reason = val.reason;
@@ -5144,11 +10597,11 @@ utest_utils_AccessoriesUtils.getTeardownClass = function(accessories) {
 };
 var utest_utils_AsyncUtils = function() { };
 utest_utils_AsyncUtils.__name__ = "utest.utils.AsyncUtils";
-utest_utils_AsyncUtils.orResolved = function(async) {
-	if(async == null) {
+utest_utils_AsyncUtils.orResolved = function(_async) {
+	if(_async == null) {
 		return utest_Async.getResolved();
 	} else {
-		return async;
+		return _async;
 	}
 };
 function $getIterator(o) { if( o instanceof Array ) return HxOverrides.iter(o); else return o.iterator(); }
@@ -5172,6 +10625,14 @@ Object.defineProperty(js__$Boot_HaxeError.prototype,"message",{ get : function()
 	return String(this.val);
 }});
 js_Boot.__toStr = ({ }).toString;
+hxClipper_ClipperBase.HORIZONTAL = -3.4E+38;
+hxClipper_ClipperBase.SKIP = -2;
+hxClipper_ClipperBase.UNASSIGNED = -1;
+hxClipper_ClipperBase.TOLERANCE = 1.0E-20;
+hxClipper_ClipperBase.LO_RANGE = 32767;
+hxClipper_ClipperBase.HI_RANGE = 32767;
+hxClipper_ClipperOffset.TWO_PI = 6.283185307179586476925286766559;
+hxClipper_ClipperOffset.DEFAULT_ARC_TOLERANCE = 0.25;
 postite_dro_Coords.notclockcircle = [{ x : 595., y : 225., press : -1.},{ x : 593., y : 225., press : 1.},{ x : 587., y : 225., press : 1.},{ x : 583., y : 225., press : 1.},{ x : 571., y : 225., press : 1.},{ x : 566., y : 225., press : 1.},{ x : 562., y : 225., press : 1.},{ x : 558., y : 225., press : 1.},{ x : 553., y : 225., press : 1.},{ x : 548., y : 226., press : 1.},{ x : 544., y : 228., press : 1.},{ x : 540., y : 230., press : 1.},{ x : 535., y : 232., press : 1.},{ x : 530., y : 235., press : 1.},{ x : 527., y : 237., press : 1.},{ x : 523., y : 239., press : 1.},{ x : 519., y : 242., press : 1.},{ x : 515., y : 245., press : 1.},{ x : 513., y : 247., press : 1.},{ x : 510., y : 250., press : 1.},{ x : 503., y : 256., press : 1.},{ x : 501., y : 259., press : 1.},{ x : 496., y : 264., press : 1.},{ x : 494., y : 267., press : 1.},{ x : 492., y : 270., press : 1.},{ x : 490., y : 273., press : 1.},{ x : 489., y : 276., press : 1.},{ x : 487., y : 280., press : 1.},{ x : 486., y : 283., press : 1.},{ x : 485., y : 287., press : 1.},{ x : 485., y : 294., press : 1.},{ x : 485., y : 297., press : 1.},{ x : 485., y : 302., press : 1.},{ x : 485., y : 306., press : 1.},{ x : 487., y : 313., press : 1.},{ x : 487., y : 316., press : 1.},{ x : 489., y : 319., press : 1.},{ x : 489., y : 322., press : 1.},{ x : 490., y : 326., press : 1.},{ x : 491., y : 329., press : 1.},{ x : 493., y : 332., press : 1.},{ x : 493., y : 335., press : 1.},{ x : 496., y : 341., press : 1.},{ x : 497., y : 345., press : 1.},{ x : 500., y : 347., press : 1.},{ x : 501., y : 349., press : 1.},{ x : 503., y : 350., press : 1.},{ x : 506., y : 352., press : 1.},{ x : 508., y : 354., press : 1.},{ x : 510., y : 354., press : 1.},{ x : 512., y : 356., press : 1.},{ x : 514., y : 357., press : 1.},{ x : 516., y : 357., press : 1.},{ x : 518., y : 358., press : 1.},{ x : 520., y : 359., press : 1.},{ x : 522., y : 360., press : 1.},{ x : 524., y : 361., press : 1.},{ x : 526., y : 363., press : 1.},{ x : 529., y : 365., press : 1.},{ x : 531., y : 365., press : 1.},{ x : 533., y : 365., press : 1.},{ x : 537., y : 367., press : 1.},{ x : 540., y : 368., press : 1.},{ x : 542., y : 368., press : 1.},{ x : 544., y : 369., press : 1.},{ x : 547., y : 370., press : 1.},{ x : 549., y : 370., press : 1.},{ x : 551., y : 370., press : 1.},{ x : 553., y : 370., press : 1.},{ x : 556., y : 370., press : 1.},{ x : 559., y : 370., press : 1.},{ x : 564., y : 370., press : 1.},{ x : 572., y : 370., press : 1.},{ x : 576., y : 370., press : 1.},{ x : 579., y : 369., press : 1.},{ x : 582., y : 369., press : 1.},{ x : 585., y : 368., press : 1.},{ x : 588., y : 368., press : 1.},{ x : 593., y : 367., press : 1.},{ x : 596., y : 367., press : 1.},{ x : 603., y : 363., press : 1.},{ x : 609., y : 361., press : 1.},{ x : 612., y : 361., press : 1.},{ x : 615., y : 361., press : 1.},{ x : 616., y : 361., press : 1.},{ x : 620., y : 361., press : 1.},{ x : 622., y : 361., press : 1.},{ x : 624., y : 361., press : 1.},{ x : 626., y : 361., press : 1.},{ x : 628., y : 361., press : 1.},{ x : 629., y : 361., press : 1.},{ x : 636., y : 359., press : 1.},{ x : 643., y : 353., press : 1.},{ x : 645., y : 352., press : 1.},{ x : 648., y : 350., press : 1.},{ x : 650., y : 350., press : 1.},{ x : 651., y : 348., press : 1.},{ x : 655., y : 344., press : 1.},{ x : 656., y : 343., press : 1.},{ x : 657., y : 340., press : 1.},{ x : 659., y : 338., press : 1.},{ x : 660., y : 335., press : 1.},{ x : 661., y : 333., press : 1.},{ x : 662., y : 331., press : 1.},{ x : 663., y : 329., press : 1.},{ x : 663., y : 327., press : 1.},{ x : 663., y : 325., press : 1.},{ x : 663., y : 324., press : 1.},{ x : 663., y : 321., press : 1.},{ x : 663., y : 320., press : 1.},{ x : 663., y : 316., press : 1.},{ x : 663., y : 308., press : 1.},{ x : 663., y : 305., press : 1.},{ x : 663., y : 302., press : 1.},{ x : 663., y : 299., press : 1.},{ x : 663., y : 297., press : 1.},{ x : 663., y : 295., press : 1.},{ x : 663., y : 293., press : 1.},{ x : 663., y : 288., press : 1.},{ x : 663., y : 283., press : 1.},{ x : 663., y : 281., press : 1.},{ x : 662., y : 279., press : 1.},{ x : 662., y : 278., press : 1.},{ x : 661., y : 276., press : 1.},{ x : 661., y : 273., press : 1.},{ x : 660., y : 271., press : 1.},{ x : 660., y : 270., press : 1.},{ x : 659., y : 268., press : 1.},{ x : 658., y : 267., press : 1.},{ x : 655., y : 264., press : 1.},{ x : 654., y : 262., press : 1.},{ x : 651., y : 259., press : 1.},{ x : 650., y : 258., press : 1.},{ x : 649., y : 256., press : 1.},{ x : 648., y : 254., press : 1.},{ x : 647., y : 253., press : 1.},{ x : 646., y : 252., press : 1.},{ x : 644., y : 251., press : 1.},{ x : 643., y : 250., press : 1.},{ x : 642., y : 249., press : 1.},{ x : 641., y : 248., press : 1.},{ x : 640., y : 247., press : 1.},{ x : 639., y : 247., press : 1.},{ x : 638., y : 246., press : 1.},{ x : 637., y : 245., press : 1.},{ x : 636., y : 244., press : 1.},{ x : 635., y : 242., press : 1.},{ x : 633., y : 242., press : 1.},{ x : 632., y : 241., press : 1.},{ x : 631., y : 241., press : 1.},{ x : 630., y : 241., press : 1.},{ x : 630., y : 240., press : 1.},{ x : 629., y : 240., press : 1.},{ x : 628., y : 240., press : 1.},{ x : 627., y : 240., press : 1.},{ x : 627., y : 239., press : 1.},{ x : 626., y : 239., press : 1.},{ x : 625., y : 239., press : 1.},{ x : 624., y : 238., press : 1.},{ x : 624., y : 238., press : 1.},{ x : 623., y : 237., press : 1.},{ x : 622., y : 237., press : 1.},{ x : 622., y : 236., press : 1.},{ x : 621., y : 236., press : 1.},{ x : 620., y : 236., press : 1.},{ x : 619., y : 234., press : 1.},{ x : 618., y : 233., press : 1.},{ x : 618., y : 232., press : 1.},{ x : 617., y : 231., press : 1.},{ x : 614., y : 231., press : 1.},{ x : 613., y : 231., press : 1.},{ x : 612., y : 231., press : 1.},{ x : 611., y : 231., press : 1.},{ x : 609., y : 231., press : 1.},{ x : 608., y : 231., press : 1.},{ x : 606., y : 231., press : 1.},{ x : 606., y : 231., press : -1.}];
 postite_dro_Coords.clockcircle = [{ x : 459., y : 344., press : -1.},{ x : 459., y : 342., press : 1.},{ x : 459., y : 341., press : 1.},{ x : 459., y : 337., press : 1.},{ x : 459., y : 333., press : 1.},{ x : 459., y : 329., press : 1.},{ x : 459., y : 325., press : 1.},{ x : 459., y : 321., press : 1.},{ x : 459., y : 316., press : 1.},{ x : 459., y : 312., press : 1.},{ x : 461., y : 309., press : 1.},{ x : 463., y : 303., press : 1.},{ x : 465., y : 299., press : 1.},{ x : 468., y : 295., press : 1.},{ x : 471., y : 291., press : 1.},{ x : 475., y : 287., press : 1.},{ x : 481., y : 280., press : 1.},{ x : 484., y : 277., press : 1.},{ x : 487., y : 275., press : 1.},{ x : 493., y : 272., press : 1.},{ x : 496., y : 271., press : 1.},{ x : 501., y : 269., press : 1.},{ x : 508., y : 267., press : 1.},{ x : 514., y : 266., press : 1.},{ x : 521., y : 264., press : 1.},{ x : 526., y : 262., press : 1.},{ x : 532., y : 261., press : 1.},{ x : 537., y : 260., press : 1.},{ x : 541., y : 258., press : 1.},{ x : 545., y : 258., press : 1.},{ x : 549., y : 258., press : 1.},{ x : 555., y : 258., press : 1.},{ x : 559., y : 258., press : 1.},{ x : 563., y : 258., press : 1.},{ x : 567., y : 258., press : 1.},{ x : 570., y : 258., press : 1.},{ x : 574., y : 259., press : 1.},{ x : 580., y : 261., press : 1.},{ x : 583., y : 263., press : 1.},{ x : 586., y : 264., press : 1.},{ x : 589., y : 266., press : 1.},{ x : 593., y : 269., press : 1.},{ x : 596., y : 270., press : 1.},{ x : 599., y : 272., press : 1.},{ x : 603., y : 275., press : 1.},{ x : 607., y : 278., press : 1.},{ x : 611., y : 281., press : 1.},{ x : 613., y : 284., press : 1.},{ x : 617., y : 287., press : 1.},{ x : 620., y : 290., press : 1.},{ x : 622., y : 294., press : 1.},{ x : 624., y : 297., press : 1.},{ x : 626., y : 300., press : 1.},{ x : 628., y : 302., press : 1.},{ x : 629., y : 304., press : 1.},{ x : 630., y : 306., press : 1.},{ x : 632., y : 309., press : 1.},{ x : 633., y : 311., press : 1.},{ x : 634., y : 313., press : 1.},{ x : 636., y : 316., press : 1.},{ x : 636., y : 319., press : 1.},{ x : 637., y : 322., press : 1.},{ x : 638., y : 326., press : 1.},{ x : 639., y : 331., press : 1.},{ x : 640., y : 334., press : 1.},{ x : 640., y : 339., press : 1.},{ x : 641., y : 342., press : 1.},{ x : 641., y : 345., press : 1.},{ x : 641., y : 349., press : 1.},{ x : 641., y : 352., press : 1.},{ x : 641., y : 356., press : 1.},{ x : 641., y : 359., press : 1.},{ x : 641., y : 364., press : 1.},{ x : 641., y : 370., press : 1.},{ x : 640., y : 374., press : 1.},{ x : 638., y : 379., press : 1.},{ x : 637., y : 383., press : 1.},{ x : 636., y : 387., press : 1.},{ x : 634., y : 389., press : 1.},{ x : 631., y : 394., press : 1.},{ x : 630., y : 397., press : 1.},{ x : 628., y : 400., press : 1.},{ x : 626., y : 405., press : 1.},{ x : 623., y : 408., press : 1.},{ x : 621., y : 410., press : 1.},{ x : 619., y : 413., press : 1.},{ x : 616., y : 415., press : 1.},{ x : 613., y : 417., press : 1.},{ x : 609., y : 419., press : 1.},{ x : 607., y : 421., press : 1.},{ x : 603., y : 423., press : 1.},{ x : 600., y : 424., press : 1.},{ x : 597., y : 426., press : 1.},{ x : 593., y : 426., press : 1.},{ x : 589., y : 428., press : 1.},{ x : 586., y : 429., press : 1.},{ x : 581., y : 429., press : 1.},{ x : 577., y : 429., press : 1.},{ x : 571., y : 430., press : 1.},{ x : 566., y : 430., press : 1.},{ x : 559., y : 430., press : 1.},{ x : 555., y : 431., press : 1.},{ x : 549., y : 432., press : 1.},{ x : 545., y : 432., press : 1.},{ x : 541., y : 432., press : 1.},{ x : 536., y : 432., press : 1.},{ x : 531., y : 432., press : 1.},{ x : 528., y : 432., press : 1.},{ x : 523., y : 431., press : 1.},{ x : 517., y : 431., press : 1.},{ x : 512., y : 430., press : 1.},{ x : 508., y : 430., press : 1.},{ x : 504., y : 429., press : 1.},{ x : 501., y : 428., press : 1.},{ x : 497., y : 427., press : 1.},{ x : 494., y : 426., press : 1.},{ x : 491., y : 425., press : 1.},{ x : 488., y : 424., press : 1.},{ x : 485., y : 424., press : 1.},{ x : 482., y : 422., press : 1.},{ x : 479., y : 422., press : 1.},{ x : 477., y : 421., press : 1.},{ x : 475., y : 420., press : 1.},{ x : 474., y : 418., press : 1.},{ x : 473., y : 416., press : 1.},{ x : 471., y : 414., press : 1.},{ x : 470., y : 412., press : 1.},{ x : 469., y : 410., press : 1.},{ x : 467., y : 408., press : 1.},{ x : 467., y : 406., press : 1.},{ x : 466., y : 404., press : 1.},{ x : 465., y : 402., press : 1.},{ x : 464., y : 399., press : 1.},{ x : 463., y : 398., press : 1.},{ x : 462., y : 396., press : 1.},{ x : 461., y : 393., press : 1.},{ x : 461., y : 391., press : 1.},{ x : 460., y : 388., press : 1.},{ x : 460., y : 386., press : 1.},{ x : 460., y : 384., press : 1.},{ x : 460., y : 381., press : 1.},{ x : 460., y : 378., press : 1.},{ x : 460., y : 376., press : 1.},{ x : 460., y : 374., press : 1.},{ x : 460., y : 372., press : 1.},{ x : 460., y : 370., press : 1.},{ x : 460., y : 368., press : 1.},{ x : 460., y : 366., press : 1.},{ x : 460., y : 365., press : 1.},{ x : 459., y : 364., press : 1.},{ x : 459., y : 363., press : 1.},{ x : 459., y : 362., press : 1.},{ x : 459., y : 361., press : 1.},{ x : 459., y : 360., press : 1.},{ x : 459., y : 359., press : 1.},{ x : 459., y : 358., press : 1.},{ x : 459., y : 358., press : 1.},{ x : 459., y : 357., press : 1.},{ x : 459., y : 356., press : 1.},{ x : 459., y : 355., press : 1.},{ x : 459., y : 355., press : 1.},{ x : 459., y : 354., press : 1.},{ x : 459., y : 354., press : -1.}];
 postite_dro_Coords.small = [{ x : 87., y : 150.},{ x : 87., y : 148.},{ x : 91., y : 140.},{ x : 97., y : 133.},{ x : 105., y : 127.},{ x : 112., y : 124.},{ x : 117., y : 124.},{ x : 128., y : 124.},{ x : 135., y : 135.},{ x : 139., y : 144.},{ x : 145., y : 161.},{ x : 151., y : 175.},{ x : 154., y : 187.},{ x : 155., y : 199.},{ x : 156., y : 210.},{ x : 157., y : 215.},{ x : 158., y : 222.},{ x : 160., y : 226.},{ x : 166., y : 230.},{ x : 174., y : 234.},{ x : 185., y : 237.}];
@@ -5189,6 +10650,7 @@ postite_dro__$Couleur_Couleur_$Impl_$.Olive = 8421376;
 postite_dro__$Couleur_Couleur_$Impl_$.Noir = 0;
 postite_dro__$Couleur_Couleur_$Impl_$.Blanc = 16777215;
 postite_dro__$Couleur_Couleur_$Impl_$.Gris = 8355711;
+postite_dro_Dro.fill = "#ooaaff";
 postite_geom_Geste.NumPoints = 64;
 postite_geom_Geste.SquareSize = 250.0;
 postite_geom_Geste.Origin = postite_geom__$CoolPoint_Point_$Impl_$._new(0,0);
@@ -5315,6 +10777,8 @@ postite_geom_UnistrokePatterns.unimap = (function($this) {
 	$r = _g;
 	return $r;
 }(this));
+postite_math_Matools.PI = 3.14159265358979323;
+postite_math_Matools.EPSILON = 1e-10;
 postite_uz__$Debug_LogLevel_$Impl_$.Debug = 10;
 postite_uz__$Debug_LogLevel_$Impl_$.Info = 20;
 postite_uz__$Debug_LogLevel_$Impl_$.Warning = 30;
@@ -5338,3 +10802,5 @@ utest_AccessoryName.TEARDOWN_CLASS_NAME = "teardownClass";
 utest_ui_text_HtmlReport.platform = "javascript";
 tests_TestAll.main();
 })(typeof window != "undefined" ? window : typeof global != "undefined" ? global : typeof self != "undefined" ? self : this);
+
+//# sourceMappingURL=test.js.map

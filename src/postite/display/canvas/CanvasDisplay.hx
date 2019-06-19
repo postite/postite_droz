@@ -10,6 +10,7 @@ class CanvasDisplay {
 	var _can:CanvasElement;
 	var raf:(Float->Void)->Void;
 	var paused:Bool=false;
+	var fps:Int;
 	public var onFrame:Int->Void;
 	public var canvas(get, never):CanvasElement;
 
@@ -27,6 +28,7 @@ class CanvasDisplay {
 
 	// animating stuff
 	public function enterframe(fps) {
+		this.fps=fps;
 		// var fps, fpsInterval, startTime, now, then, elapsed;
 		var elapsed;
 		var fpsInterval = 1000 / fps;
@@ -34,7 +36,7 @@ class CanvasDisplay {
 		var now;
 		var startTime = then;
 		trace(startTime);
-	var frame:Int=0;
+		var frame:Int=0;
 		var frameCount = 0;
 		raf = js.Browser.window.requestAnimationFrame;
 		var stop = false;
@@ -67,7 +69,7 @@ class CanvasDisplay {
 		trace( "paused="+paused);
 		paused=!paused;
 		if( !paused )
-		raf(null);
+		enterframe(fps);
 
 		
 	}

@@ -85,7 +85,7 @@ class Dro{
 		
 	}
 
-	public static function droRect(ctx:js.html.CanvasRenderingContext2D,rect:Rect){
+	public static function droRect(ctx:js.html.CanvasRenderingContext2D,rect:Rect,col:String="#000"){
 		ctx.strokeRect(rect.x,rect.y,rect.width,rect.height);
 		ctx.stroke();
 	}

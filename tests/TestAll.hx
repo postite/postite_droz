@@ -12,13 +12,16 @@ class TestAll {
     trace( "hop");
     
     var runner = new Runner();
+    runner.addCase(new TestApp());
     runner.addCase(new TestGesteStatics());
    runner.addCase(new TestResample());
     runner.addCase(new TestGeste());
     runner.addCase(new TestCouleur());
     runner.addCase(new TestDisplay());
+    runner.addCase(new TestVector2d());
     //runner.addCase(new TestCase2());
     Report.create(runner);
+    
     runner.run();
     
     // //the short way in case you don't need to handle any specifics

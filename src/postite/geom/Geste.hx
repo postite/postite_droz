@@ -155,16 +155,8 @@ public static function IndicativeAngle(points:Points):Float
 }
 public static function RotateBy(points:Points, radians:Float):Points // rotates points around centroid
 {
-	var c = Centroid(points);
-	var cos = Math.cos(radians);
-	var sin = Math.sin(radians);
-	var newpoints:Points = [];
-	for (point in points) {
-		var qx = (point.x - c.x) * cos - (point.y - c.y) * sin + c.x;
-		var qy = (point.x - c.x) * sin + (point.y - c.y) * cos + c.y;
-		newpoints[newpoints.length] = new Point(qx, qy);
-	}
-	return newpoints;
+	return GeomFilters.rotateBy(points,radians);
+	
 }
 
 public static function ScaleTo(points:Points, size:Float) // non-uniform scale; assumes 2D gestures (i.e., no lines)
@@ -183,14 +175,8 @@ public static function ScaleTo(points:Points, size:Float) // non-uniform scale; 
 //translate polygon to be centered(centroid) on pt Point.
 public static function TranslateTo(points:Points, pt:Point):Points // translates points' centroid
 {
-	var c = Centroid(points);
-	var newpoints = new Array();
-	for (point in points) {
-		var qx = point.x + pt.x - c.x;
-		var qy = point.y+ pt.y - c.y;
-		newpoints[newpoints.length] = new Point(qx, qy);
-	}
-	return newpoints;
+	return GeomFilters.translateTo(points,pt);
+	
 }
 public static function Vectorize(points:Points):Array<Float> // for Protractor
 {
@@ -279,6 +265,7 @@ public static function DistanceAtAngle<T:{Points:Points}>(points:Points,t:T, rad
 }
 public static function Centroid(points:Points):Point
 {
+	return GeomFilters.centroid(points);
 	var x = 0.0, y = 0.0;
 	for (point in  points) {
 		x += point.x;

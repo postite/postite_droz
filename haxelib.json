@@ -4,13 +4,14 @@
     "license": "MIT",
     "tags": ["drawing","geom","utils"],
     "description": "",
-    "version": "0.0.2",
+    "version": "0.0.4",
     "classPath": "src/",
     "releasenote": "init",
     "contributors": ["postite"],
     "dependencies": {
         "hxDelaunay":"git:https://github.com/azrafe7/hxDelaunay.git",
         "tink_core":"",
-        "hxClipper":"git:https://github.com/azrafe7/hxClipper"
+        "hxClipper":"git:https://github.com/azrafe7/hxClipper",
+        "hx-vector2d":"git:https://github.com/markknol/hx-vector2d.git"
     }
 }

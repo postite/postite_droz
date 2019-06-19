@@ -2,6 +2,8 @@ package postite.dro;
 
 
 
+import js.html.audio.ConstantSourceNode;
+
 /**
  * ...
  * @author P.J.Shand
@@ -110,6 +112,14 @@ package postite.dro;
 		else if (s.indexOf("0x") == 0)	return new Couleur(Std.parseInt(s));
 		// unable to parse
 		return new Couleur(0);
+	}
+	@:to
+	static public function toFloat(n:Couleur):Float{
+		return n*1.0;
+	}
+	@:from
+	 static inline public function fromFloat(n:Float):Couleur{
+		 return new Couleur(Std.int(n));
 	}
 
 	public function mix(color:Couleur, strength:Float):Couleur

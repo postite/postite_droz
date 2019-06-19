@@ -200,5 +200,47 @@ public static function pnPoly(pt:Point, pos:Point, verts:Array<CoolPoint>) : Boo
     return c;
 }
 
+public static function centroid(points:Points):Point
+{
+	
+	var x = 0.0, y = 0.0;
+	for (point in  points) {
+		x += point.x;
+		y += point.y;
+	}
+	x /= points.length;
+	y /= points.length;
+	return new Point(x, y);
+}
+
+public static function rotateBy(points:Points, radians:postite.geom.units.Angle.Radian):Points // rotates points around centroid
+{
+	
+	var c = centroid(points);
+	var cos = Math.cos(radians);
+	var sin = Math.sin(radians);
+	var newpoints:Points = [];
+	for (point in points) {
+		var qx = (point.x - c.x) * cos - (point.y - c.y) * sin + c.x;
+		var qy = (point.x - c.x) * sin + (point.y - c.y) * cos + c.y;
+		newpoints[newpoints.length] = new Point(qx, qy);
+	}
+	return newpoints;
+}
+
+//translate polygon to be centered(centroid) on pt Point.
+public static function translateTo(points:Points, pt:Point):Points // translates points' centroid
+{
+	
+	var c = centroid(points);
+	var newpoints = new Array();
+	for (point in points) {
+		var qx = point.x + pt.x - c.x;
+		var qy = point.y+ pt.y - c.y;
+		newpoints[newpoints.length] = new Point(qx, qy);
+	}
+	return newpoints;
+}
+
 
 }

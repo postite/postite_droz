@@ -6,7 +6,9 @@
 -lib utest
 -lib hxClipper
 -lib random
-#-debug
+-lib hx-vector2d
+-debug
+
 -D dump-dependencies
 #-lib hxDelaunay
 -lib tink_core

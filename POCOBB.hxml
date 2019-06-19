@@ -1,12 +1,13 @@
 -cp src
 -D analyzer-optimize
--main app.App
+-main app.PocOBBApp
 -lib hxClipper
 #-lib random
 -debug
 -lib hxDelaunay
 -lib tink_core
--js www/geom.js
+#-lib croqgest
+-js www/pocobb.js
 -D source-maps
 -lib hx-vector2d
 #-x app.App

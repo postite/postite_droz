@@ -2,21 +2,21 @@
 package tests;
 
 import js.Browser.document as doc;
-import app.CanvasRender;
+//import app.CanvasRender;
 import js.html.CanvasRenderingContext2D;
 
 import postite.geom.CoolPoint;
 import postite.geom.GeomFilters;
 import postite.geom.PolyGon;
 import postite.geom.Simplify;
-import app.CanvasRender;
+import postite.display.canvas.CanvasRender;
 import postite.math.Matools;
 using postite.dro.Dro;
 import postite.geom.Segment;
 
 
 
-class TestVrac implements IRenderable{
+class TestVrac implements postite.display.canvas.CanvasDisplay.IRenderCan{
 
 	var can:js.html.CanvasElement;
 	public var enabled=true;
@@ -47,21 +47,22 @@ class TestApp{
 		can.width = 800;
 		can.height = 800;
 		doc.body.appendChild(can);
-		raf = js.Browser.window.requestAnimationFrame;
+		//raf = js.Browser.window.requestAnimationFrame;
 
 		
 
-		var display = new CanvasRender(can);
+		var display = new postite.display.canvas.CanvasDisplay();
 		var mock = new TestVrac(null,can);
 		display.addRenderable(mock);
+		display.enterframe(12);
 
-		function step(timestamp:Float) {
-			// trace("hop");
-			display.render();
-			//raf(step);
-		}
+		// function step(timestamp:Float) {
+		// 	// trace("hop");
+		// 	display.render();
+		// 	//raf(step);
+		// }
 
-		raf(step);
+		//raf(step);
 
        // KB.addListener(Shift,croc.memoize);
 
