@@ -32,6 +32,7 @@ abstract Points(Array<Point>) from Array<Point> to Array<Point>{
 	public static function fromArrayPress(a:Array<CoolPoint>):Points {
 		return  cast a;
 	}
+	
 }
 
 @:forward

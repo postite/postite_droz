@@ -8,7 +8,11 @@ abstract PolyGon(Array<Point>) from Array<Point> to Array<Point> {
 	@:noDebug
 	public var points(get, never):Array<Point>;
 	public var length(get, never):Int;
-
+	
+	@:to 
+	public inline function toPoints():Points{
+		return cast this;
+	}
 	inline function get_length()
 		return this.length;
 

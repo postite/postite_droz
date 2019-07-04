@@ -20,7 +20,7 @@ class CanvasDisplay {
 		return _can;
 	}
 
-	var display:Display<CanvasRender>;
+	public var display:Display<CanvasRender>;
 
 	public function new() {
 		display = new Display(new CanvasRender(createCanvas()));

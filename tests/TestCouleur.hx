@@ -35,6 +35,15 @@ class TestCouleur extends utest.Test{
         Assert.equals(pureYellow,pureRed.add(pureGreen));
        
     }
+    public function testAlpha(){
+            var middleColor=new Couleur(0);
+            middleColor.red=Math.floor(255/2);
+             middleColor.green=Math.floor(255/2);
+             trace("middle color bef="+ middleColor);
+            middleColor.alpha=20;
+            trace("middle color="+ middleColor);
+             Assert.equals(20,middleColor.alpha);
+    }
 
 }
 

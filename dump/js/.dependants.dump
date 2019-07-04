@@ -154,6 +154,7 @@
 	/Users/ut/haxe/versions/4.0.0-rc.2/std/js/html/Navigator.hx
 /Users/ut/Documents/LAB/postite_droz/src/postite/geom/GeomFilters.hx:
 	/Users/ut/Documents/LAB/postite_droz/tests/TestApp.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Geste.hx
 /Users/ut/Documents/LAB/postite_droz/src/postite/geom/Segment.hx:
 	/Users/ut/Documents/LAB/postite_droz/tests/TestApp.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/GeomFilters.hx
@@ -583,6 +584,7 @@
 	/Users/ut/Documents/LAB/postite_droz/src/postite/uz/StepIterator.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/uz/Debug.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/math/Matools.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/units/Angle.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/UnistrokePatterns.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Simplify.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Segment.hx
@@ -1534,6 +1536,7 @@
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Dispatcher.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Simplify.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/PolyGon.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Geste.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/GeomFilters.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/dro/Dro.hx
@@ -2267,6 +2270,7 @@
 	/Users/ut/Documents/LAB/postite_droz/src/postite/uz/StepIterator.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/uz/Debug.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/math/Matools.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/units/Angle.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/UnistrokePatterns.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Simplify.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Segment.hx
@@ -2940,6 +2944,8 @@
 	/Users/ut/Documents/LAB/postite_droz/tests/TestResample.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGesteStatics.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx
+/Users/ut/Documents/LAB/postite_droz/src/postite/geom/units/Angle.hx:
+	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/GeomFilters.hx
 /Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/FixtureResult.hx:
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ResultAggregator.hx

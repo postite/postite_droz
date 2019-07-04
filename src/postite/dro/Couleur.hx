@@ -2,7 +2,7 @@ package postite.dro;
 
 
 
-import js.html.audio.ConstantSourceNode;
+
 
 /**
  * ...
@@ -150,6 +150,10 @@ import js.html.audio.ConstantSourceNode;
     public function lighten(strength:Float):Couleur{
         return mix(Blanc,strength);
     }
+
+	public function withAlpha(perc:Int):Couleur{
+		return set_alpha(perc);
+	}
 
     @:to
     public static function toHex(c:Couleur):String{

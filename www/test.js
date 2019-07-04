@@ -5775,6 +5775,12 @@ postite_dro__$Couleur_Couleur_$Impl_$.fromString = function(s) {
 	}
 	return postite_dro__$Couleur_Couleur_$Impl_$._new(0);
 };
+postite_dro__$Couleur_Couleur_$Impl_$.toFloat = function(n) {
+	return n * 1.0;
+};
+postite_dro__$Couleur_Couleur_$Impl_$.fromFloat = function(n) {
+	return postite_dro__$Couleur_Couleur_$Impl_$._new(n | 0);
+};
 postite_dro__$Couleur_Couleur_$Impl_$.mix = function(this1,color,strength) {
 	var output = postite_dro__$Couleur_Couleur_$Impl_$._new(0);
 	var value = Math.floor(_$UInt_UInt_$Impl_$.toFloat((this1 & 16711680) >>> 16) * (1 - strength) + _$UInt_UInt_$Impl_$.toFloat((color & 16711680) >>> 16) * strength);
@@ -5795,6 +5801,10 @@ postite_dro__$Couleur_Couleur_$Impl_$.darken = function(this1,strength) {
 };
 postite_dro__$Couleur_Couleur_$Impl_$.lighten = function(this1,strength) {
 	return postite_dro__$Couleur_Couleur_$Impl_$.mix(this1,16777215,strength);
+};
+postite_dro__$Couleur_Couleur_$Impl_$.withAlpha = function(this1,perc) {
+	this1 = perc << 24 | (this1 & 16711680) >>> 16 << 16 | (this1 & 65280) >>> 8 << 8 | this1 & 255;
+	return perc;
 };
 postite_dro__$Couleur_Couleur_$Impl_$.toHex = function(c) {
 	return "#" + StringTools.hex(c);
@@ -5877,7 +5887,10 @@ postite_dro_Dro.droSegments = function(ctx,segments,col,fillColor,opacity) {
 	}
 	ctx.stroke();
 };
-postite_dro_Dro.droRect = function(ctx,rect) {
+postite_dro_Dro.droRect = function(ctx,rect,col) {
+	if(col == null) {
+		col = "#000";
+	}
 	ctx.strokeRect(rect.x,rect.y,rect.width,rect.height);
 	ctx.stroke();
 };
@@ -6079,6 +6092,45 @@ postite_geom_GeomFilters.pnPoly = function(pt,pos,verts) {
 	}
 	return c;
 };
+postite_geom_GeomFilters.centroid = function(points) {
+	var x = 0.0;
+	var y = 0.0;
+	var point = HxOverrides.iter(points);
+	while(point.hasNext()) {
+		var point1 = point.next();
+		x += point1.x;
+		y += point1.y;
+	}
+	x /= points.length;
+	y /= points.length;
+	return postite_geom__$CoolPoint_Point_$Impl_$._new(x,y);
+};
+postite_geom_GeomFilters.rotateBy = function(points,radians) {
+	var c = postite_geom_GeomFilters.centroid(points);
+	var cos = Math.cos(radians);
+	var sin = Math.sin(radians);
+	var newpoints = [];
+	var point = HxOverrides.iter(points);
+	while(point.hasNext()) {
+		var point1 = point.next();
+		var qx = (point1.x - c.x) * cos - (point1.y - c.y) * sin + c.x;
+		var qy = (point1.x - c.x) * sin + (point1.y - c.y) * cos + c.y;
+		newpoints[newpoints.length] = postite_geom__$CoolPoint_Point_$Impl_$._new(qx,qy);
+	}
+	return newpoints;
+};
+postite_geom_GeomFilters.translateTo = function(points,pt) {
+	var c = postite_geom_GeomFilters.centroid(points);
+	var newpoints = [];
+	var point = HxOverrides.iter(points);
+	while(point.hasNext()) {
+		var point1 = point.next();
+		var qx = point1.x + pt.x - c.x;
+		var qy = point1.y + pt.y - c.y;
+		newpoints[newpoints.length] = postite_geom__$CoolPoint_Point_$Impl_$._new(qx,qy);
+	}
+	return newpoints;
+};
 postite_geom_GeomFilters.prototype = {
 	__class__: postite_geom_GeomFilters
 };
@@ -6128,18 +6180,7 @@ postite_geom_Geste.IndicativeAngle = function(points) {
 	return Math.atan2(c.y - points[0].y,c.x - points[0].x);
 };
 postite_geom_Geste.RotateBy = function(points,radians) {
-	var c = postite_geom_Geste.Centroid(points);
-	var cos = Math.cos(radians);
-	var sin = Math.sin(radians);
-	var newpoints = [];
-	var point = HxOverrides.iter(points);
-	while(point.hasNext()) {
-		var point1 = point.next();
-		var qx = (point1.x - c.x) * cos - (point1.y - c.y) * sin + c.x;
-		var qy = (point1.x - c.x) * sin + (point1.y - c.y) * cos + c.y;
-		newpoints[newpoints.length] = postite_geom__$CoolPoint_Point_$Impl_$._new(qx,qy);
-	}
-	return newpoints;
+	return postite_geom_GeomFilters.rotateBy(points,radians);
 };
 postite_geom_Geste.ScaleTo = function(points,size) {
 	var B = postite_geom_Geste.BoundingBox(points);
@@ -6154,16 +6195,7 @@ postite_geom_Geste.ScaleTo = function(points,size) {
 	return newpoints;
 };
 postite_geom_Geste.TranslateTo = function(points,pt) {
-	var c = postite_geom_Geste.Centroid(points);
-	var newpoints = [];
-	var point = HxOverrides.iter(points);
-	while(point.hasNext()) {
-		var point1 = point.next();
-		var qx = point1.x + pt.x - c.x;
-		var qy = point1.y + pt.y - c.y;
-		newpoints[newpoints.length] = postite_geom__$CoolPoint_Point_$Impl_$._new(qx,qy);
-	}
-	return newpoints;
+	return postite_geom_GeomFilters.translateTo(points,pt);
 };
 postite_geom_Geste.Vectorize = function(points) {
 	var sum = 0.0;
@@ -6196,7 +6228,7 @@ postite_geom_Geste.OptimalCosineDistance = function(v1,v2) {
 			b += v1[i] * v2[i + 1] - v1[i + 1] * v2[i];
 		} catch( msg ) {
 			haxe_CallStack.lastException = msg;
-			haxe_Log.trace("eer" + Std.string(((msg) instanceof js__$Boot_HaxeError) ? msg.val : msg),{ fileName : "src/postite/geom/Geste.hx", lineNumber : 223, className : "postite.geom.Geste", methodName : "OptimalCosineDistance"});
+			haxe_Log.trace("eer" + Std.string(((msg) instanceof js__$Boot_HaxeError) ? msg.val : msg),{ fileName : "src/postite/geom/Geste.hx", lineNumber : 211, className : "postite.geom.Geste", methodName : "OptimalCosineDistance"});
 		}
 	}
 	var angle = Math.atan(b / a);
@@ -6227,17 +6259,7 @@ postite_geom_Geste.DistanceAtAngle = function(points,t,radians) {
 	return postite_geom_Geste.PathDistance(newpoints,t.Points);
 };
 postite_geom_Geste.Centroid = function(points) {
-	var x = 0.0;
-	var y = 0.0;
-	var point = HxOverrides.iter(points);
-	while(point.hasNext()) {
-		var point1 = point.next();
-		x += point1.x;
-		y += point1.y;
-	}
-	x /= points.length;
-	y /= points.length;
-	return postite_geom__$CoolPoint_Point_$Impl_$._new(x,y);
+	return postite_geom_GeomFilters.centroid(points);
 };
 postite_geom_Geste.BoundingBox = function(points) {
 	var minX = Infinity;
@@ -6295,7 +6317,7 @@ postite_geom_Geste.prototype = {
 		points = postite_geom_Geste.TranslateTo(points,postite_geom_Geste.Origin);
 		var vector = postite_geom_Geste.Vectorize(points);
 		var b = Infinity;
-		haxe_Log.trace(this.Unistrokes.length,{ fileName : "src/postite/geom/Geste.hx", lineNumber : 36, className : "postite.geom.Geste", methodName : "Recognize"});
+		haxe_Log.trace(this.Unistrokes.length,{ fileName : "src/postite/geom/Geste.hx", lineNumber : 38, className : "postite.geom.Geste", methodName : "Recognize"});
 		var u = -1;
 		var _g = 0;
 		var _g1 = this.Unistrokes.length;
@@ -6313,7 +6335,8 @@ postite_geom_Geste.prototype = {
 			}
 		}
 		var t1 = new Date();
-		var newdate = new Date(t1.getTime() + -t0.getTime());
+		var t = -t0.getTime();
+		var newdate = new Date(t1.getTime() + t);
 		if(u == -1) {
 			return new postite_geom_Result("No match.",0.0,newdate);
 		} else {
@@ -6368,20 +6391,23 @@ postite_geom_Result.prototype = {
 	,Time: null
 	,__class__: postite_geom_Result
 };
-var postite_geom__$PolyGon_Polygon_$Impl_$ = {};
-postite_geom__$PolyGon_Polygon_$Impl_$.__name__ = "postite.geom._PolyGon.Polygon_Impl_";
-postite_geom__$PolyGon_Polygon_$Impl_$.__properties__ = {get_length:"get_length",get_points:"get_points"};
-postite_geom__$PolyGon_Polygon_$Impl_$.get_length = function(this1) {
-	return this1.length;
-};
-postite_geom__$PolyGon_Polygon_$Impl_$.get_points = function(this1) {
+var postite_geom__$PolyGon_PolyGon_$Impl_$ = {};
+postite_geom__$PolyGon_PolyGon_$Impl_$.__name__ = "postite.geom._PolyGon.PolyGon_Impl_";
+postite_geom__$PolyGon_PolyGon_$Impl_$.__properties__ = {get_length:"get_length",get_points:"get_points"};
+postite_geom__$PolyGon_PolyGon_$Impl_$.toPoints = function(this1) {
 	return this1;
 };
-postite_geom__$PolyGon_Polygon_$Impl_$._new = function(points) {
+postite_geom__$PolyGon_PolyGon_$Impl_$.get_length = function(this1) {
+	return this1.length;
+};
+postite_geom__$PolyGon_PolyGon_$Impl_$.get_points = function(this1) {
+	return this1;
+};
+postite_geom__$PolyGon_PolyGon_$Impl_$._new = function(points) {
 	var this1 = points == null ? [] : points;
 	return this1;
 };
-postite_geom__$PolyGon_Polygon_$Impl_$.convexHull = function(this1) {
+postite_geom__$PolyGon_PolyGon_$Impl_$.convexHull = function(this1) {
 	if(this1.length < 3) {
 		return this1;
 	}
@@ -6444,7 +6470,7 @@ postite_geom__$PolyGon_Polygon_$Impl_$.convexHull = function(this1) {
 	while(hull.length >= k) hull.pop();
 	return hull;
 };
-postite_geom__$PolyGon_Polygon_$Impl_$.xSort = function(this1,a,b) {
+postite_geom__$PolyGon_PolyGon_$Impl_$.xSort = function(this1,a,b) {
 	if(a.x == b.x) {
 		if(a.y < b.y) {
 			return -1;
@@ -6458,7 +6484,7 @@ postite_geom__$PolyGon_Polygon_$Impl_$.xSort = function(this1,a,b) {
 		return 1;
 	}
 };
-postite_geom__$PolyGon_Polygon_$Impl_$.contains = function(this1,p,isConvex) {
+postite_geom__$PolyGon_PolyGon_$Impl_$.contains = function(this1,p,isConvex) {
 	if(isConvex == null) {
 		isConvex = false;
 	}
@@ -6493,8 +6519,61 @@ postite_geom__$PolyGon_Polygon_$Impl_$.contains = function(this1,p,isConvex) {
 		return w != 0;
 	}
 };
-postite_geom__$PolyGon_Polygon_$Impl_$.side = function(this1,p1,p2,t) {
+postite_geom__$PolyGon_PolyGon_$Impl_$.side = function(this1,p1,p2,t) {
 	return (p2.x - p1.x) * (t.y - p1.y) - (p2.y - p1.y) * (t.x - p1.x);
+};
+postite_geom__$PolyGon_PolyGon_$Impl_$.optimize = function(this1,epsilon) {
+	var out = [];
+	postite_geom__$PolyGon_PolyGon_$Impl_$.optimizeRec(this1,0,this1.length - 1,out,epsilon);
+	return out;
+};
+postite_geom__$PolyGon_PolyGon_$Impl_$.optimizeRec = function(points,start,end,out,epsilon) {
+	var dmax = 0.;
+	var pfirst = points[start];
+	var plast = points[end];
+	var index = 0;
+	var _g = start + 1;
+	while(_g < end) {
+		var i = _g++;
+		var p0 = points[i];
+		var A = p0.x - pfirst.x;
+		var B = p0.y - pfirst.y;
+		var C = plast.x - pfirst.x;
+		var D = plast.y - pfirst.y;
+		var dot = A * C + B * D;
+		var dist = C * C + D * D;
+		var param = -1.;
+		if(dist != 0) {
+			param = dot / dist;
+		}
+		var xx;
+		var yy;
+		if(param < 0) {
+			xx = pfirst.x;
+			yy = pfirst.y;
+		} else if(param > 1) {
+			xx = plast.x;
+			yy = plast.y;
+		} else {
+			xx = pfirst.x + param * C;
+			yy = pfirst.y + param * D;
+		}
+		var dx = p0.x - xx;
+		var dy = p0.y - yy;
+		var d = dx * dx + dy * dy;
+		if(d > dmax) {
+			index = i;
+			dmax = d;
+		}
+	}
+	if(dmax >= epsilon * epsilon) {
+		postite_geom__$PolyGon_PolyGon_$Impl_$.optimizeRec(points,start,index,out,epsilon);
+		out.pop();
+		postite_geom__$PolyGon_PolyGon_$Impl_$.optimizeRec(points,index,end,out,epsilon);
+	} else {
+		out.push(points[start]);
+		out.push(points[end]);
+	}
 };
 var postite_geom_Segment = function(p1,p2) {
 	this.x = p1.x;
@@ -6735,6 +6814,48 @@ postite_geom_Simplify.prototype = {
 };
 var postite_geom_UnistrokePatterns = function() { };
 postite_geom_UnistrokePatterns.__name__ = "postite.geom.UnistrokePatterns";
+var postite_geom_units__$Angle_Degree_$Impl_$ = {};
+postite_geom_units__$Angle_Degree_$Impl_$.__name__ = "postite.geom.units._Angle.Degree_Impl_";
+postite_geom_units__$Angle_Degree_$Impl_$.fromFloat = function(value) {
+	return value;
+};
+postite_geom_units__$Angle_Degree_$Impl_$.fromInt = function(value) {
+	var this1 = value;
+	return this1;
+};
+postite_geom_units__$Angle_Degree_$Impl_$.toFloat = function(this1) {
+	return this1;
+};
+postite_geom_units__$Angle_Degree_$Impl_$._new = function(value) {
+	return value;
+};
+postite_geom_units__$Angle_Degree_$Impl_$.toRadian = function(this1) {
+	return this1 * postite_geom_units__$Angle_Degree_$Impl_$.ofUnit / postite_geom_units__$Angle_Degree_$Impl_$.dividerRadian;
+};
+postite_geom_units__$Angle_Degree_$Impl_$.toString = function(this1) {
+	return "" + this1 + "°";
+};
+var postite_geom_units__$Angle_Radian_$Impl_$ = {};
+postite_geom_units__$Angle_Radian_$Impl_$.__name__ = "postite.geom.units._Angle.Radian_Impl_";
+postite_geom_units__$Angle_Radian_$Impl_$.fromFloat = function(value) {
+	return value;
+};
+postite_geom_units__$Angle_Radian_$Impl_$.fromInt = function(value) {
+	var this1 = value;
+	return this1;
+};
+postite_geom_units__$Angle_Radian_$Impl_$._new = function(value) {
+	return value;
+};
+postite_geom_units__$Angle_Radian_$Impl_$.toDegree = function(this1) {
+	return this1 * postite_geom_units__$Angle_Radian_$Impl_$.ofUnit / postite_geom_units__$Angle_Radian_$Impl_$.dividerDegree;
+};
+postite_geom_units__$Angle_Radian_$Impl_$.toString = function(this1) {
+	return "" + this1 + "rad";
+};
+postite_geom_units__$Angle_Radian_$Impl_$.toFloat = function(this1) {
+	return this1;
+};
 var postite_math_Matools = function() { };
 postite_math_Matools.__name__ = "postite.math.Matools";
 postite_math_Matools.lerp = function(a,b,k) {
@@ -7095,6 +7216,15 @@ tests_TestCouleur.prototype = $extend(utest_Test.prototype,{
 	,testAdd: function() {
 		utest_Assert.equals(this.pureYellow,postite_dro__$Couleur_Couleur_$Impl_$.add(this.pureRed,this.pureGreen),null,{ fileName : "tests/TestCouleur.hx", lineNumber : 35, className : "tests.TestCouleur", methodName : "testAdd"});
 	}
+	,testAlpha: function() {
+		var middleColor = postite_dro__$Couleur_Couleur_$Impl_$._new(0);
+		middleColor = middleColor >>> 24 << 24 | 127 << 16 | (middleColor & 65280) >>> 8 << 8 | middleColor & 255;
+		middleColor = middleColor >>> 24 << 24 | (middleColor & 16711680) >>> 16 << 16 | 127 << 8 | middleColor & 255;
+		haxe_Log.trace("middle color bef=" + postite_dro__$Couleur_Couleur_$Impl_$.toString(middleColor),{ fileName : "tests/TestCouleur.hx", lineNumber : 42, className : "tests.TestCouleur", methodName : "testAlpha"});
+		middleColor = 20 << 24 | (middleColor & 16711680) >>> 16 << 16 | (middleColor & 65280) >>> 8 << 8 | middleColor & 255;
+		haxe_Log.trace("middle color=" + postite_dro__$Couleur_Couleur_$Impl_$.toString(middleColor),{ fileName : "tests/TestCouleur.hx", lineNumber : 44, className : "tests.TestCouleur", methodName : "testAlpha"});
+		utest_Assert.equals(20,middleColor,null,{ fileName : "tests/TestCouleur.hx", lineNumber : 45, className : "tests.TestCouleur", methodName : "testAlpha"});
+	}
 	,__initializeUtest__: function() {
 		var _gthis = this;
 		var init = utest_Test.prototype.__initializeUtest__.call(this);
@@ -7116,6 +7246,10 @@ tests_TestCouleur.prototype = $extend(utest_Test.prototype,{
 		}});
 		init.tests.push({ name : "testAdd", execute : function() {
 			_gthis.testAdd();
+			return utest_Async.getResolved();
+		}});
+		init.tests.push({ name : "testAlpha", execute : function() {
+			_gthis.testAlpha();
 			return utest_Async.getResolved();
 		}});
 		return init;
@@ -10777,6 +10911,14 @@ postite_geom_UnistrokePatterns.unimap = (function($this) {
 	$r = _g;
 	return $r;
 }(this));
+postite_geom_units__$Angle_Degree_$Impl_$.ofUnit = 0.00277777777777777788;
+postite_geom_units__$Angle_Degree_$Impl_$.turn = 360.0;
+postite_geom_units__$Angle_Degree_$Impl_$.dividerRadian = 0.159154943091895346;
+postite_geom_units__$Angle_Degree_$Impl_$.symbol = "°";
+postite_geom_units__$Angle_Radian_$Impl_$.ofUnit = 0.159154943091895346;
+postite_geom_units__$Angle_Radian_$Impl_$.turn = 6.283185307179586;
+postite_geom_units__$Angle_Radian_$Impl_$.dividerDegree = 0.00277777777777777788;
+postite_geom_units__$Angle_Radian_$Impl_$.symbol = "rad";
 postite_math_Matools.PI = 3.14159265358979323;
 postite_math_Matools.EPSILON = 1e-10;
 postite_uz__$Debug_LogLevel_$Impl_$.Debug = 10;

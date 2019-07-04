@@ -204,6 +204,7 @@ public static function centroid(points:Points):Point
 {
 	
 	var x = 0.0, y = 0.0;
+	
 	for (point in  points) {
 		x += point.x;
 		y += point.y;

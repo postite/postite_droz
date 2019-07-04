@@ -24,14 +24,16 @@ public function new(){
 }
 public function Recognize(points:Points,useProtractor:Bool):Result{
         var t0 = Date.now();
+		//trace(points);
 		points = Resample(points, NumPoints);
+		//trace(points);
 		var radians = IndicativeAngle(points);
 		points = RotateBy(points, -radians);
 		points = ScaleTo(points, SquareSize);
 		points = TranslateTo(points, Origin);
 		var vector = Vectorize(points); // for Protractor
 
-
+		
         var b = Math.POSITIVE_INFINITY;
         trace( Unistrokes.length);
 		var u = -1;
