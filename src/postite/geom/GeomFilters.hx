@@ -214,7 +214,7 @@ public static function centroid(points:Points):Point
 	return new Point(x, y);
 }
 
-public static function rotateBy(points:Points, radians:postite.geom.units.Angle.Radian):Points // rotates points around centroid
+public static function rotateBy(points:Points, radians:postite.geom.units.Radian):Points // rotates points around centroid
 {
 	
 	var c = centroid(points);

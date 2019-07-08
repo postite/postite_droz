@@ -1,10 +1,8 @@
 package postite.math;
 
 class Matools{
-    public static inline var PI = 3.14159265358979323;
+  public static inline var PI = 3.14159265358979323;
 	public static inline var EPSILON = 1e-10;
-
-	
 
     /**
 		Linear interpolation between two values. When k is 0.0 a is returned, when it's 1.0, b is returned.
@@ -58,6 +56,52 @@ class Matools{
 		max = Math.floor(max);
 		return Math.floor(Math.random() * (max - min + 1)) + min;
 	}
+
+
+
+  /**
+  thx.Floats
+Return the maximum value between two integers or floats.
+**/
+  inline public static function max<T : Float>(a : T, b : T) : T
+    return a > b ? a : b;
+
+/**
+thx.Floats
+Return the minimum value between two integers or floats.
+**/
+  inline public static function min<T : Float>(a : T, b : T) : T
+    return a < b ? a : b;
+
+/**
+thx.Floats
+Float numbers can sometime introduce tiny errors even for simple operations.
+`nearEquals` compares two floats using a tiny tollerance (last optional
+argument). By default it is defined as `EPSILON`.
+**/
+  public static function nearEquals(a : Float, b : Float, ?tollerance = EPSILON) {
+    if(Math.isFinite(a)) {
+      #if (php || java)
+      if(!Math.isFinite(b))
+        return false;
+      #end
+      return Math.abs(a - b) <= tollerance;
+    }
+    if(Math.isNaN(a))
+      return Math.isNaN(b);
+    if(Math.isNaN(b))
+      return false;
+    if(!Math.isFinite(b))
+      return (a > 0) == (b > 0);
+    // a is Infinity and b is finite
+    return false;
+}
+
+/**
+`sign` returns `-1` if `value` is a negative number, `1` otherwise.
+*/
+  inline public static function sign<T : Float>(value : T) : Int
+    return value < 0 ? -1 : 1;
 
 
 } 

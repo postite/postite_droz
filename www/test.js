@@ -6814,47 +6814,263 @@ postite_geom_Simplify.prototype = {
 };
 var postite_geom_UnistrokePatterns = function() { };
 postite_geom_UnistrokePatterns.__name__ = "postite.geom.UnistrokePatterns";
-var postite_geom_units__$Angle_Degree_$Impl_$ = {};
-postite_geom_units__$Angle_Degree_$Impl_$.__name__ = "postite.geom.units._Angle.Degree_Impl_";
-postite_geom_units__$Angle_Degree_$Impl_$.fromFloat = function(value) {
+var postite_geom_units__$Degree_Degree_$Impl_$ = {};
+postite_geom_units__$Degree_Degree_$Impl_$.__name__ = "postite.geom.units._Degree.Degree_Impl_";
+postite_geom_units__$Degree_Degree_$Impl_$.fromFloat = function(value) {
 	return value;
 };
-postite_geom_units__$Angle_Degree_$Impl_$.fromInt = function(value) {
+postite_geom_units__$Degree_Degree_$Impl_$.fromInt = function(value) {
 	var this1 = value;
 	return this1;
 };
-postite_geom_units__$Angle_Degree_$Impl_$.toFloat = function(this1) {
-	return this1;
-};
-postite_geom_units__$Angle_Degree_$Impl_$._new = function(value) {
+postite_geom_units__$Degree_Degree_$Impl_$._new = function(value) {
 	return value;
 };
-postite_geom_units__$Angle_Degree_$Impl_$.toRadian = function(this1) {
-	return this1 * postite_geom_units__$Angle_Degree_$Impl_$.ofUnit / postite_geom_units__$Angle_Degree_$Impl_$.dividerRadian;
+postite_geom_units__$Degree_Degree_$Impl_$.abs = function(this1) {
+	return Math.abs(this1);
 };
-postite_geom_units__$Angle_Degree_$Impl_$.toString = function(this1) {
+postite_geom_units__$Degree_Degree_$Impl_$.min = function(this1,that) {
+	var b = that;
+	var this2 = this1 < b ? this1 : b;
+	return this2;
+};
+postite_geom_units__$Degree_Degree_$Impl_$.max = function(this1,that) {
+	var b = that;
+	var this2 = this1 > b ? this1 : b;
+	return this2;
+};
+postite_geom_units__$Degree_Degree_$Impl_$.negate = function(this1) {
+	var this2 = -this1;
+	return this2;
+};
+postite_geom_units__$Degree_Degree_$Impl_$.add = function(this1,that) {
+	var this2 = this1 + that;
+	return this2;
+};
+postite_geom_units__$Degree_Degree_$Impl_$.subtract = function(this1,that) {
+	var this2 = this1 - that;
+	return this2;
+};
+postite_geom_units__$Degree_Degree_$Impl_$.multiply = function(this1,that) {
+	var this2 = this1 * that;
+	return this2;
+};
+postite_geom_units__$Degree_Degree_$Impl_$.divide = function(this1,that) {
+	var this2 = this1 / that;
+	return this2;
+};
+postite_geom_units__$Degree_Degree_$Impl_$.modulo = function(this1,that) {
+	var this2 = this1 % that;
+	return this2;
+};
+postite_geom_units__$Degree_Degree_$Impl_$.equalsTo = function(this1,that) {
+	return this1 == that;
+};
+postite_geom_units__$Degree_Degree_$Impl_$.equals = function(self,that) {
+	return self == that;
+};
+postite_geom_units__$Degree_Degree_$Impl_$.nearEqualsTo = function(this1,that) {
+	return postite_math_Matools.nearEquals(this1,that);
+};
+postite_geom_units__$Degree_Degree_$Impl_$.nearEquals = function(self,that) {
+	return postite_math_Matools.nearEquals(self,that);
+};
+postite_geom_units__$Degree_Degree_$Impl_$.notEqualsTo = function(this1,that) {
+	return this1 != that;
+};
+postite_geom_units__$Degree_Degree_$Impl_$.notEquals = function(self,that) {
+	return self != that;
+};
+postite_geom_units__$Degree_Degree_$Impl_$.lessThan = function(this1,that) {
+	return this1 < that;
+};
+postite_geom_units__$Degree_Degree_$Impl_$.less = function(self,that) {
+	return self < that;
+};
+postite_geom_units__$Degree_Degree_$Impl_$.lessEqualsTo = function(this1,that) {
+	return this1 <= that;
+};
+postite_geom_units__$Degree_Degree_$Impl_$.lessEquals = function(self,that) {
+	return self <= that;
+};
+postite_geom_units__$Degree_Degree_$Impl_$.greaterThan = function(this1,that) {
+	return this1 > that;
+};
+postite_geom_units__$Degree_Degree_$Impl_$.greater = function(self,that) {
+	return self >= that;
+};
+postite_geom_units__$Degree_Degree_$Impl_$.greaterEqualsTo = function(this1,that) {
+	return this1 >= that;
+};
+postite_geom_units__$Degree_Degree_$Impl_$.greaterEquals = function(self,that) {
+	return self >= that;
+};
+postite_geom_units__$Degree_Degree_$Impl_$.toFloat = function(this1) {
+	return this1;
+};
+postite_geom_units__$Degree_Degree_$Impl_$.toDegree = function(this1) {
+	return this1;
+};
+postite_geom_units__$Degree_Degree_$Impl_$.toRadian = function(this1) {
+	return this1 * postite_geom_units__$Degree_Degree_$Impl_$.ofUnit / postite_geom_units__$Degree_Degree_$Impl_$.dividerRadian;
+};
+postite_geom_units__$Degree_Degree_$Impl_$.toString = function(this1) {
 	return "" + this1 + "°";
 };
-var postite_geom_units__$Angle_Radian_$Impl_$ = {};
-postite_geom_units__$Angle_Radian_$Impl_$.__name__ = "postite.geom.units._Angle.Radian_Impl_";
-postite_geom_units__$Angle_Radian_$Impl_$.fromFloat = function(value) {
+postite_geom_units__$Degree_Degree_$Impl_$.pointToDegree = function(x,y) {
+	return Math.atan2(y,x) * postite_geom_units__$Radian_Radian_$Impl_$.ofUnit / postite_geom_units__$Radian_Radian_$Impl_$.dividerDegree;
+};
+postite_geom_units__$Degree_Degree_$Impl_$.cos = function(this1) {
+	return Math.cos(this1 * postite_geom_units__$Degree_Degree_$Impl_$.ofUnit / postite_geom_units__$Degree_Degree_$Impl_$.dividerRadian);
+};
+postite_geom_units__$Degree_Degree_$Impl_$.sin = function(this1) {
+	return Math.sin(this1 * postite_geom_units__$Degree_Degree_$Impl_$.ofUnit / postite_geom_units__$Degree_Degree_$Impl_$.dividerRadian);
+};
+postite_geom_units__$Degree_Degree_$Impl_$.normalize = function(this1) {
+	var n = this1 % postite_geom_units__$Degree_Degree_$Impl_$.turn;
+	if(n < 0) {
+		return postite_geom_units__$Degree_Degree_$Impl_$.turn + n;
+	} else {
+		return n;
+	}
+};
+postite_geom_units__$Degree_Degree_$Impl_$.normalizeDirection = function(this1) {
+	var normalized = postite_geom_units__$Degree_Degree_$Impl_$.normalize(this1);
+	if(normalized >= postite_geom_units__$Degree_Degree_$Impl_$.turn / 2) {
+		var this2 = normalized - postite_geom_units__$Degree_Degree_$Impl_$.turn;
+		return this2;
+	} else {
+		return normalized;
+	}
+};
+var postite_geom_units__$Radian_Radian_$Impl_$ = {};
+postite_geom_units__$Radian_Radian_$Impl_$.__name__ = "postite.geom.units._Radian.Radian_Impl_";
+postite_geom_units__$Radian_Radian_$Impl_$.fromFloat = function(value) {
 	return value;
 };
-postite_geom_units__$Angle_Radian_$Impl_$.fromInt = function(value) {
+postite_geom_units__$Radian_Radian_$Impl_$.fromInt = function(value) {
 	var this1 = value;
 	return this1;
 };
-postite_geom_units__$Angle_Radian_$Impl_$._new = function(value) {
+postite_geom_units__$Radian_Radian_$Impl_$._new = function(value) {
 	return value;
 };
-postite_geom_units__$Angle_Radian_$Impl_$.toDegree = function(this1) {
-	return this1 * postite_geom_units__$Angle_Radian_$Impl_$.ofUnit / postite_geom_units__$Angle_Radian_$Impl_$.dividerDegree;
+postite_geom_units__$Radian_Radian_$Impl_$.abs = function(this1) {
+	return Math.abs(this1);
 };
-postite_geom_units__$Angle_Radian_$Impl_$.toString = function(this1) {
+postite_geom_units__$Radian_Radian_$Impl_$.min = function(this1,that) {
+	var b = that;
+	var this2 = this1 < b ? this1 : b;
+	return this2;
+};
+postite_geom_units__$Radian_Radian_$Impl_$.max = function(this1,that) {
+	var b = that;
+	var this2 = this1 > b ? this1 : b;
+	return this2;
+};
+postite_geom_units__$Radian_Radian_$Impl_$.negate = function(this1) {
+	var this2 = -this1;
+	return this2;
+};
+postite_geom_units__$Radian_Radian_$Impl_$.add = function(this1,that) {
+	var this2 = this1 + that;
+	return this2;
+};
+postite_geom_units__$Radian_Radian_$Impl_$.subtract = function(this1,that) {
+	var this2 = this1 - that;
+	return this2;
+};
+postite_geom_units__$Radian_Radian_$Impl_$.multiply = function(this1,that) {
+	var this2 = this1 * that;
+	return this2;
+};
+postite_geom_units__$Radian_Radian_$Impl_$.divide = function(this1,that) {
+	var this2 = this1 / that;
+	return this2;
+};
+postite_geom_units__$Radian_Radian_$Impl_$.modulo = function(this1,that) {
+	var this2 = this1 % that;
+	return this2;
+};
+postite_geom_units__$Radian_Radian_$Impl_$.equalsTo = function(this1,that) {
+	return this1 == that;
+};
+postite_geom_units__$Radian_Radian_$Impl_$.equals = function(self,that) {
+	return self == that;
+};
+postite_geom_units__$Radian_Radian_$Impl_$.nearEqualsTo = function(this1,that) {
+	return postite_math_Matools.nearEquals(this1,that);
+};
+postite_geom_units__$Radian_Radian_$Impl_$.nearEquals = function(self,that) {
+	return postite_math_Matools.nearEquals(self,that);
+};
+postite_geom_units__$Radian_Radian_$Impl_$.notEqualsTo = function(this1,that) {
+	return this1 != that;
+};
+postite_geom_units__$Radian_Radian_$Impl_$.notEquals = function(self,that) {
+	return self != that;
+};
+postite_geom_units__$Radian_Radian_$Impl_$.lessThan = function(this1,that) {
+	return this1 < that;
+};
+postite_geom_units__$Radian_Radian_$Impl_$.less = function(self,that) {
+	return self < that;
+};
+postite_geom_units__$Radian_Radian_$Impl_$.lessEqualsTo = function(this1,that) {
+	return this1 <= that;
+};
+postite_geom_units__$Radian_Radian_$Impl_$.lessEquals = function(self,that) {
+	return self <= that;
+};
+postite_geom_units__$Radian_Radian_$Impl_$.greaterThan = function(this1,that) {
+	return this1 > that;
+};
+postite_geom_units__$Radian_Radian_$Impl_$.greater = function(self,that) {
+	return self >= that;
+};
+postite_geom_units__$Radian_Radian_$Impl_$.greaterEqualsTo = function(this1,that) {
+	return this1 >= that;
+};
+postite_geom_units__$Radian_Radian_$Impl_$.greaterEquals = function(self,that) {
+	return self >= that;
+};
+postite_geom_units__$Radian_Radian_$Impl_$.toFloat = function(this1) {
+	return this1;
+};
+postite_geom_units__$Radian_Radian_$Impl_$.toDegree = function(this1) {
+	return this1 * postite_geom_units__$Radian_Radian_$Impl_$.ofUnit / postite_geom_units__$Radian_Radian_$Impl_$.dividerDegree;
+};
+postite_geom_units__$Radian_Radian_$Impl_$.toRadian = function(this1) {
+	return this1;
+};
+postite_geom_units__$Radian_Radian_$Impl_$.toString = function(this1) {
 	return "" + this1 + "rad";
 };
-postite_geom_units__$Angle_Radian_$Impl_$.toFloat = function(this1) {
-	return this1;
+postite_geom_units__$Radian_Radian_$Impl_$.pointToRadian = function(x,y) {
+	return Math.atan2(y,x);
+};
+postite_geom_units__$Radian_Radian_$Impl_$.cos = function(this1) {
+	return Math.cos(this1);
+};
+postite_geom_units__$Radian_Radian_$Impl_$.sin = function(this1) {
+	return Math.sin(this1);
+};
+postite_geom_units__$Radian_Radian_$Impl_$.normalize = function(this1) {
+	var n = this1 % postite_geom_units__$Radian_Radian_$Impl_$.turn;
+	if(n < 0) {
+		return postite_geom_units__$Radian_Radian_$Impl_$.turn + n;
+	} else {
+		return n;
+	}
+};
+postite_geom_units__$Radian_Radian_$Impl_$.normalizeDirection = function(this1) {
+	var normalized = postite_geom_units__$Radian_Radian_$Impl_$.normalize(this1);
+	if(normalized >= postite_geom_units__$Radian_Radian_$Impl_$.turn / 2) {
+		var this2 = normalized - postite_geom_units__$Radian_Radian_$Impl_$.turn;
+		return this2;
+	} else {
+		return normalized;
+	}
 };
 var postite_math_Matools = function() { };
 postite_math_Matools.__name__ = "postite.math.Matools";
@@ -6899,6 +7115,45 @@ postite_math_Matools.getRandomInt = function(min,max) {
 	min = Math.ceil(min);
 	max = Math.floor(max);
 	return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+postite_math_Matools.max = function(a,b) {
+	if(a > b) {
+		return a;
+	} else {
+		return b;
+	}
+};
+postite_math_Matools.min = function(a,b) {
+	if(a < b) {
+		return a;
+	} else {
+		return b;
+	}
+};
+postite_math_Matools.nearEquals = function(a,b,tollerance) {
+	if(tollerance == null) {
+		tollerance = 1e-10;
+	}
+	if(isFinite(a)) {
+		return Math.abs(a - b) <= tollerance;
+	}
+	if(isNaN(a)) {
+		return isNaN(b);
+	}
+	if(isNaN(b)) {
+		return false;
+	}
+	if(!isFinite(b)) {
+		return a > 0 == b > 0;
+	}
+	return false;
+};
+postite_math_Matools.sign = function(value) {
+	if(value < 0) {
+		return -1;
+	} else {
+		return 1;
+	}
 };
 var postite_uz__$Debug_LogLevel_$Impl_$ = {};
 postite_uz__$Debug_LogLevel_$Impl_$.__name__ = "postite.uz._Debug.LogLevel_Impl_";
@@ -7223,7 +7478,7 @@ tests_TestCouleur.prototype = $extend(utest_Test.prototype,{
 		haxe_Log.trace("middle color bef=" + postite_dro__$Couleur_Couleur_$Impl_$.toString(middleColor),{ fileName : "tests/TestCouleur.hx", lineNumber : 42, className : "tests.TestCouleur", methodName : "testAlpha"});
 		middleColor = 20 << 24 | (middleColor & 16711680) >>> 16 << 16 | (middleColor & 65280) >>> 8 << 8 | middleColor & 255;
 		haxe_Log.trace("middle color=" + postite_dro__$Couleur_Couleur_$Impl_$.toString(middleColor),{ fileName : "tests/TestCouleur.hx", lineNumber : 44, className : "tests.TestCouleur", methodName : "testAlpha"});
-		utest_Assert.equals(20,middleColor,null,{ fileName : "tests/TestCouleur.hx", lineNumber : 45, className : "tests.TestCouleur", methodName : "testAlpha"});
+		utest_Assert.equals(20,middleColor >>> 24,null,{ fileName : "tests/TestCouleur.hx", lineNumber : 45, className : "tests.TestCouleur", methodName : "testAlpha"});
 	}
 	,__initializeUtest__: function() {
 		var _gthis = this;
@@ -10911,14 +11166,16 @@ postite_geom_UnistrokePatterns.unimap = (function($this) {
 	$r = _g;
 	return $r;
 }(this));
-postite_geom_units__$Angle_Degree_$Impl_$.ofUnit = 0.00277777777777777788;
-postite_geom_units__$Angle_Degree_$Impl_$.turn = 360.0;
-postite_geom_units__$Angle_Degree_$Impl_$.dividerRadian = 0.159154943091895346;
-postite_geom_units__$Angle_Degree_$Impl_$.symbol = "°";
-postite_geom_units__$Angle_Radian_$Impl_$.ofUnit = 0.159154943091895346;
-postite_geom_units__$Angle_Radian_$Impl_$.turn = 6.283185307179586;
-postite_geom_units__$Angle_Radian_$Impl_$.dividerDegree = 0.00277777777777777788;
-postite_geom_units__$Angle_Radian_$Impl_$.symbol = "rad";
+postite_geom_units__$Degree_Degree_$Impl_$.ofUnit = 0.00277777777777777788;
+postite_geom_units__$Degree_Degree_$Impl_$.turn = 360.0;
+postite_geom_units__$Degree_Degree_$Impl_$.dividerDegree = 0.00277777777777777788;
+postite_geom_units__$Degree_Degree_$Impl_$.dividerRadian = 0.159154943091895346;
+postite_geom_units__$Degree_Degree_$Impl_$.symbol = "°";
+postite_geom_units__$Radian_Radian_$Impl_$.ofUnit = 0.159154943091895346;
+postite_geom_units__$Radian_Radian_$Impl_$.turn = 6.283185307179586;
+postite_geom_units__$Radian_Radian_$Impl_$.dividerDegree = 0.00277777777777777788;
+postite_geom_units__$Radian_Radian_$Impl_$.dividerRadian = 0.159154943091895346;
+postite_geom_units__$Radian_Radian_$Impl_$.symbol = "rad";
 postite_math_Matools.PI = 3.14159265358979323;
 postite_math_Matools.EPSILON = 1e-10;
 postite_uz__$Debug_LogLevel_$Impl_$.Debug = 10;
