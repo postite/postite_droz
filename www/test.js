@@ -7383,6 +7383,7 @@ tests_TestAll.main = function() {
 	runner.addCase(new tests_TestCouleur());
 	runner.addCase(new tests_TestDisplay());
 	runner.addCase(new tests_TestVector2d());
+	runner.addCase(new tests_TestMatools());
 	utest_ui_Report.create(runner);
 	runner.run();
 };
@@ -7851,6 +7852,26 @@ tests_TestGesteStatics.prototype = $extend(utest_Test.prototype,{
 		return init;
 	}
 	,__class__: tests_TestGesteStatics
+});
+var tests_TestMatools = function() {
+	utest_Test.call(this);
+};
+tests_TestMatools.__name__ = "tests.TestMatools";
+tests_TestMatools.__super__ = utest_Test;
+tests_TestMatools.prototype = $extend(utest_Test.prototype,{
+	testTest: function() {
+		utest_Assert.equals(1,2,null,{ fileName : "tests/TestMatools.hx", lineNumber : 7, className : "tests.TestMatools", methodName : "testTest"});
+	}
+	,__initializeUtest__: function() {
+		var _gthis = this;
+		var init = utest_Test.prototype.__initializeUtest__.call(this);
+		init.tests.push({ name : "testTest", execute : function() {
+			_gthis.testTest();
+			return utest_Async.getResolved();
+		}});
+		return init;
+	}
+	,__class__: tests_TestMatools
 });
 var tests_TestResample = function() {
 	utest_Test.call(this);

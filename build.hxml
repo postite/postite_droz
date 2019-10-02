@@ -9,4 +9,5 @@
 -js www/geom.js
 -D source-maps
 -lib hx-vector2d
+#--interp
 #-x app.App
