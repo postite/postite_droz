@@ -2,6 +2,7 @@ package postite.geom;
 import hxClipper.Clipper;
 import postite.geom.CoolPoint;
 import postite.geom.Segment;
+
 class GeomFilters {
 	public function new() {}
 
@@ -16,6 +17,33 @@ class GeomFilters {
 		a.push({x:rect.x,y:rect.y});
         return a;
     }
+
+public static function boundingBox(points:Array<Point>):Rect
+{
+	var minX = Math.POSITIVE_INFINITY, maxX = Math.NEGATIVE_INFINITY, minY = Math.POSITIVE_INFINITY, maxY = Math.NEGATIVE_INFINITY;
+	for (point in points) {
+		minX = Math.min(minX, point.x);
+		minY = Math.min(minY, point.y);
+		maxX = Math.max(maxX, point.x);
+		maxY = Math.max(maxY, point.y);
+	}
+    return {x:minX, y:minY, width:maxX - minX, height:maxY - minY}
+	// return new Rectangle(minX, minY, maxX - minX, maxY - minY);
+}
+	 
+
+	 public static function scaleTo(points:Points, size:Float) // non-uniform scale; assumes 2D gestures (i.e., no lines)
+{
+	var B = boundingBox(points);
+	var newpoints = new Array();
+	//for (var i = 0; i < points.length; i++) {
+    for (point in points) {
+		var qx = point.x * (size / B.width);
+		var qy = point.y * (size / B.height);
+		newpoints[newpoints.length] = new Point(qx, qy);
+	}
+	return newpoints;
+}
 
 	public static function clipOff(segs:Array<Point>,scale:Float=10.0) {
 		//var scale = 10.0;
@@ -72,6 +100,18 @@ class GeomFilters {
 			width: width,
 			height: height
 		}
+	}
+
+	public static function close(pts:Array<Point>):Array<Point> {
+		
+		pts.push(pts[0]);
+		return pts;
+		//return 
+		
+	}
+
+	public function smoothing(){
+		//https://www.codeproject.com/Articles/1093960/D-Polyline-Vertex-Smoothing
 	}
 
 	public static function isClosed(pts:Array<Point>,?simplify:Bool=true){
