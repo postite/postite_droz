@@ -52,6 +52,7 @@ public static function boundingBox(points:Array<Point>):Rect
 		segs.map(function(seg) {
 			ints.push(cast Std.int(seg.x));
 			ints.push(cast Std.int(seg.y));
+			return seg;
 		});
 
 		var paths = new hxClipper.Paths();

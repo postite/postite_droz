@@ -15,6 +15,6 @@
 #-js www/test.js
 -main tests.TestAll
 #--interp
-#-x tests.TestAll
---neko test.n
--cmd neko test.n
+-x tests.TestAll
+#--neko test.n
+#-cmd neko test.n

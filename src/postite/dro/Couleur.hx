@@ -151,7 +151,7 @@ package postite.dro;
         return mix(Blanc,strength);
     }
 
-	public function withAlpha(perc:Int):Couleur{
+	public inline function withAlpha(perc:Int):Couleur{
 		return set_alpha(perc);
 	}
 
