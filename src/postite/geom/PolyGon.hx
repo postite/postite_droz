@@ -4,7 +4,7 @@ import postite.geom.CoolPoint;
 //borowed from heaps.h2d.PolyGon
 
 @:forward(push, remove, insert, copy)
-abstract PolyGon(Array<Point>) from Array<Point> to Array<Point> {
+abstract PolyGon(Array<Point>) from Array<Point> to Array<Point>{
 	@:noDebug
 	public var points(get, never):Array<Point>;
 	public var length(get, never):Int;

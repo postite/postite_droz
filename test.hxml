@@ -14,7 +14,7 @@
 -lib tink_core
 #-js www/test.js
 -main tests.TestAll
-#--interp
--x tests.TestAll
+--interp
+#-x tests.TestAll
 #--neko test.n
 #-cmd neko test.n

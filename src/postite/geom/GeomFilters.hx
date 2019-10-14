@@ -1,4 +1,5 @@
 package postite.geom;
+import haxe.ds.Option;
 import hxClipper.Clipper;
 import postite.geom.CoolPoint;
 import postite.geom.Segment;
@@ -45,7 +46,7 @@ public static function boundingBox(points:Array<Point>):Rect
 	return newpoints;
 }
 
-	public static function clipOff(segs:Array<Point>,scale:Float=10.0) {
+	public static function clipOff(segs:Array<Point>,scale:Float=10.0):Array<Array<Point>> {
 		//var scale = 10.0;
 		var dist=1.0;
 		 var ints = [];
@@ -66,7 +67,7 @@ public static function boundingBox(points:Array<Point>):Rect
 		// solution.clear();
 		co.executePaths(solution, dist * scale);
 		// trace("solution="+ solution.length);
-		return solution;
+		return cast solution;
 	}
 
 	static private function MakePolygonFromInts(ints:Array<Int>, scale:Float = 1.0):Path {
@@ -115,27 +116,32 @@ public static function boundingBox(points:Array<Point>):Rect
 		//https://www.codeproject.com/Articles/1093960/D-Polyline-Vertex-Smoothing
 	}
 
-	public static function isClosed(pts:Array<Point>,?simplify:Bool=true){
-		trace( pts.length);
+	public static function isOpen(pts:Points):Bool{
+		throw ' not implmented yet';
+	}
+
+	// renvoie l'intersection
+	public static function isClosedAt(pts:Array<Point>,?simplify:Bool=true):Option<Point>{
+		//trace( pts.length);
 		if (simplify){
 		var simplepts=postite.geom.Simplify.simplify(pts,5);
 		var begin:Segment=new Segment(simplepts[0],simplepts[1]);
 
 		var end:Ray= new Ray(simplepts[simplepts.length-1],simplepts[simplepts.length-2]);
 		
-		trace( "begin="+begin);
-		trace(" end="+end);
+		//trace( "begin="+begin);
+		//trace(" end="+end);
 
 		var inter=begin.lineIntersection(end);
-		if (inter!=null){
-		trace(inter);
-		trace("side="+ begin.side(inter));
-		return inter; 
+			if (inter!=null){
+				//trace(inter);
+				//trace("side="+ begin.side(inter));
+				return Some(inter); 
+			}
+		return None;
+		
 		}
-		return null;
-		//return simplepts;
-		}
-		return null;
+		return None;
 	}
 /*
 	public function segmentsIntersects(seg1:Segment,seg2:Segment):Bool{

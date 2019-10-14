@@ -32,7 +32,10 @@ abstract Points(Array<Point>) from Array<Point> to Array<Point>{
 	public static function fromArrayPress(a:Array<CoolPoint>):Points {
 		return  cast a;
 	}
-	
+	@:to 
+	public static function toPoly(a:Array<Point>):PolyGon{
+		return cast a;
+	}	
 }
 
 @:forward

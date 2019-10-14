@@ -23,6 +23,7 @@ class TestAll {
     #end
     runner.addCase(new TestVector2d());
     runner.addCase(new TestMatools());
+    runner.addCase(new TestGeomFilters());
     //runner.addCase(new TestCase2());
     Report.create(runner);
     

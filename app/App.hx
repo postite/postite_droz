@@ -31,6 +31,7 @@ class App {
 		var disp= new CanvasDisplay();
 		disp.enterframe(12);
 		var mock = new MockFlock(null,disp.canvas);
+		mock.enabled=true;
 		disp.addRenderable(mock);
 		//mock.enabled=false;
 		var colo=new ColTest();

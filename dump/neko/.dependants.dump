@@ -1,14 +1,86 @@
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/rtti/Meta.hx:
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestFixture.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Web.hx:
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PrintReport.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/Report.hx
 /Users/ut/Documents/LAB/postite_droz/src/postite/geom/units/Degree.hx:
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/units/Radian.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/BytesData.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/FileOutput.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/FileInput.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/vm/Module.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Lib.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Bytes.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Math.hx:
+/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/vm/Loader.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/vm/Module.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/sys/io/FileSeek.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/FileOutput.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/FileInput.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/FileInput.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/File.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Sys.hx
+/Users/ut/Documents/LAB/postite_droz/tests/TestCouleur.hx:
+	/Users/ut/Documents/LAB/postite_droz/tests/TestAll.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/thread/Lock.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/EntryPoint.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/MainLoop.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Timer.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/EntryPoint.hx
+/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestFixture.hx:
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestHandler.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ITestHandler.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/FileSystem.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/File.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Sys.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Constraints.hx:
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/iterators/MapKeyValueIterator.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/WeakMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/haxe/ds/StringMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/haxe/ds/ObjectMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/Map.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/haxe/ds/IntMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/EnumValueMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/BalancedTree.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Reflect.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/Map.hx
+/Users/ut/Documents/LAB/postite_droz/tests/TestMatools.hx:
+	/Users/ut/Documents/LAB/postite_droz/tests/TestAll.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/StringBuf.hx:
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PlainTextReport.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Web.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Path.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/BytesBuffer.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Bytes.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/Vector.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/haxe/ds/StringMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/haxe/ds/ObjectMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/List.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/haxe/ds/IntMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/SysTools.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/CallStack.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/StringTools.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/EReg.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Array.hx
+/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ResultStats.hx:
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ReportTools.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/PackageResult.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/FixtureResult.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ClassResult.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/FileOutput.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/File.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Sys.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/PosInfos.hx:
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Async.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assertation.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/uz/Debug.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Timer.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Log.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Int32.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Int64.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/Enum.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Boot.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/EnumTools.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Type.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Std.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Math.hx:
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Async.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
@@ -22,143 +94,34 @@
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/GeomFilters.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/dro/Couleur.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/dro/Coords.hx
-	/Users/ut/haxe/haxe_libraries/hxClipper/0.0.0/github/393fbee5fd1cf1f38b6465a4181444cad8e053a1/src/hxClipper/Clipper.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Int64Helper.hx
+	/Users/ut/Documents/LAB/localLibs/hxClipper/src/hxClipper/Clipper.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Int64Helper.hx
 	/Users/ut/haxe/haxe_libraries/hx-vector2d/0.0.2/github/2ee0471898cf68b8f33c1fe85ff3092cc6bf2a15/src/geom/Vector2d.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Std.hx
-/Users/ut/Documents/LAB/postite_droz/tests/TestCouleur.hx:
-	/Users/ut/Documents/LAB/postite_droz/tests/TestAll.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/BalancedTree.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/EnumValueMap.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Boot.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Lib.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Type.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Std.hx
-/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestFixture.hx:
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestHandler.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ITestHandler.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/List.hx:
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ResultAggregator.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/FixtureResult.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestResult.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestHandler.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
-/Users/ut/Documents/LAB/postite_droz/tests/TestMatools.hx:
-	/Users/ut/Documents/LAB/postite_droz/tests/TestAll.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/Map.hx:
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/PackageResult.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ClassResult.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/UnistrokePatterns.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/vm/Module.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/vm/Loader.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Web.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Sys.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/StringBuf.hx:
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PlainTextReport.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Web.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Path.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/BytesBuffer.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Bytes.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/Vector.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/haxe/ds/StringMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/haxe/ds/ObjectMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/List.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/haxe/ds/IntMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/CallStack.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/StringTools.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/EReg.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Array.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/Vector.hx:
-	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Simplify.hx
-	/Users/ut/haxe/haxe_libraries/hxClipper/0.0.0/github/393fbee5fd1cf1f38b6465a4181444cad8e053a1/src/hxClipper/Clipper.hx
-/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ResultStats.hx:
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ReportTools.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/PackageResult.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/FixtureResult.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ClassResult.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/CallStack.hx:
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PlainTextReport.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestHandler.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ITestHandler.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assertation.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/FileSystem.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/File.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Sys.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Date.hx:
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/FileSystem.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/sys/FileStat.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/uz/Debug.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Geste.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Web.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/DateTools.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/haxe/ds/StringMap.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/vm/Module.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/vm/Loader.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Web.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/Map.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Sys.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Std.hx
 /Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestHandler.hx:
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestResult.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ITestHandler.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/PosInfos.hx:
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Async.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assertation.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/uz/Debug.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Timer.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Log.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Reflect.hx:
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/PackageResult.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ClassResult.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestHandler.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestFixture.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Dispatcher.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/vm/Module.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/vm/Loader.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/EnumValueMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/BalancedTree.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Type.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Type.hx:
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PlainTextReport.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ResultAggregator.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ReportTools.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/FixtureResult.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestResult.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestFixture.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/FileOutput.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/FileInput.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/FileSystem.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/uz/Debug.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/vm/Module.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Lib.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Boot.hx
-	/Users/ut/haxe/haxe_libraries/hxClipper/0.0.0/github/393fbee5fd1cf1f38b6465a4181444cad8e053a1/src/hxClipper/Clipper.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Path.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Int64.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/EnumTools.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/CallStack.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Sys.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/StringTools.hx
 /Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/utils/AsyncUtils.hx:
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ITestHandler.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/HashMap.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/Map.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/rtti/Meta.hx:
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestFixture.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/Lambda.hx:
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestGesteStatics.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Log.hx:
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PrintReport.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ResultAggregator.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestResample.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestCouleur.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestAll.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/uz/Debug.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Geste.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/GeomFilters.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Timer.hx
 /Users/ut/Documents/LAB/postite_droz/src/postite/uz/Debug.hx:
 	/Users/ut/Documents/LAB/postite_droz/tests/TestVector2d.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestResample.hx
@@ -167,31 +130,11 @@
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestCouleur.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestAll.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Lib.hx:
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PrintReport.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/thread/Tls.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/thread/Thread.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/thread/Mutex.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/thread/Lock.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/FileOutput.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/FileInput.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/File.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/FileSystem.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/vm/Module.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Web.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Input.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/FPHelper.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Sys.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/StringTools.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/StringBuf.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/String.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Reflect.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Math.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/EReg.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/DateTools.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Date.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Array.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/iterators/MapKeyValueIterator.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/haxe/ds/StringMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/haxe/ds/ObjectMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/haxe/ds/IntMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/BalancedTree.hx
 /Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assertation.hx:
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/PackageResult.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/FixtureResult.hx
@@ -201,12 +144,10 @@
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
 /Users/ut/Documents/LAB/postite_droz/tests/TestResample.hx:
 	/Users/ut/Documents/LAB/postite_droz/tests/TestAll.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/sys/io/FileSeek.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/FileOutput.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/FileInput.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/Map.hx:
-	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/UnistrokePatterns.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/Map.hx
+/Users/ut/Documents/LAB/localLibs/hxClipper/src/hxClipper/Clipper.hx:
+	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/GeomFilters.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/iterators/StringKeyValueIterator.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/StringTools.hx
 /Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PlainTextReport.hx:
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PrintReport.hx
 /Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ITest.hx:
@@ -215,10 +156,20 @@
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Test.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ITestHandler.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/haxe/ds/IntMap.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/iterators/MapKeyValueIterator.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/Map.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/HashMap.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/iterators/StringIteratorUnicode.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/StringTools.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/List.hx:
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/FixtureResult.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Web.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/haxe/ds/StringMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/haxe/ds/ObjectMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/haxe/ds/IntMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/List.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/Lambda.hx
+/Users/ut/Documents/LAB/postite_droz/src/postite/dro/Coords.hx:
+	/Users/ut/Documents/LAB/postite_droz/tests/TestResample.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestGesteStatics.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx
 /Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestData.hx:
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/utils/AccessoriesUtils.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestFixture.hx
@@ -231,144 +182,21 @@
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGesteStatics.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestCouleur.hx
-/Users/ut/Documents/LAB/postite_droz/src/postite/dro/Coords.hx:
-	/Users/ut/Documents/LAB/postite_droz/tests/TestResample.hx
-	/Users/ut/Documents/LAB/postite_droz/tests/TestGesteStatics.hx
-	/Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/StringTools.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Encoding.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Output.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Input.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/BytesBuffer.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Bytes.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/thread/Mutex.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/EntryPoint.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Input.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/FileInput.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/vm/Module.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Output.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Sys.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/String.hx:
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/utils/AsyncUtils.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/utils/AccessoriesUtils.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PrintReport.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Timer.hx:
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PlainTextReport.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ResultStats.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ResultAggregator.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ReportTools.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/PackageResult.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/IReport.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/HeaderDisplayMode.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/FixtureResult.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ClassResult.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/Report.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestResult.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestHandler.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestFixture.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestData.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Test.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/IgnoredFixture.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ITestHandler.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ITest.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Dispatcher.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Async.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assertation.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
-	/Users/ut/Documents/LAB/postite_droz/tests/TestVector2d.hx
-	/Users/ut/Documents/LAB/postite_droz/tests/TestResample.hx
-	/Users/ut/Documents/LAB/postite_droz/tests/TestMatools.hx
-	/Users/ut/Documents/LAB/postite_droz/tests/TestGesteStatics.hx
-	/Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx
-	/Users/ut/Documents/LAB/postite_droz/tests/TestCouleur.hx
-	/Users/ut/Documents/LAB/postite_droz/tests/TestAll.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/thread/Tls.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/thread/Thread.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/thread/Mutex.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/thread/Lock.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/sys/io/FileSeek.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/FileOutput.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/FileInput.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/File.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/FileSystem.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/sys/FileStat.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/uz/StepIterator.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/uz/Debug.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/math/Matools.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/units/Radian.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/units/Degree.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/UnistrokePatterns.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Simplify.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Segment.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Geste.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/GeomFilters.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/CoolPoint.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/dro/Couleur.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/dro/Coords.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/vm/Module.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/vm/Loader.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Web.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/NativeString.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/NativeArray.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Lib.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Boot.hx
-	/Users/ut/haxe/haxe_libraries/hxClipper/0.0.0/github/393fbee5fd1cf1f38b6465a4181444cad8e053a1/src/hxClipper/Clipper.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/rtti/Meta.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/iterators/StringIteratorUnicode.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/iterators/MapKeyValueIterator.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Path.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Output.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Input.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/FPHelper.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Error.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Eof.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Encoding.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/BytesData.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/BytesBuffer.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Bytes.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/WeakMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/Vector.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/haxe/ds/StringMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/haxe/ds/ObjectMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/Map.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/List.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/haxe/ds/IntMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/HashMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/EnumValueMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/BalancedTree.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/ArraySort.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Timer.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/PosInfos.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/MainLoop.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Log.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Int64Helper.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Int64.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Int32.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/EnumTools.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/EntryPoint.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Constraints.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/CallStack.hx
-	/Users/ut/haxe/haxe_libraries/hx-vector2d/0.0.2/github/2ee0471898cf68b8f33c1fe85ff3092cc6bf2a15/src/geom/Vector2d.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/UInt.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Type.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Sys.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/StringTools.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/StringBuf.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Std.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Reflect.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Math.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/Map.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/List.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/Lambda.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/IntIterator.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/EnumValue.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/Enum.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/EReg.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/DateTools.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Date.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/Class.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Array.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/MainLoop.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/thread/Mutex.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/EntryPoint.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Eof.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/FileInput.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Output.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Input.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/haxe/ds/ObjectMap.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/Map.hx
 /Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/FixtureResult.hx:
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ResultAggregator.hx
@@ -378,30 +206,57 @@
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/Report.hx
 /Users/ut/Documents/LAB/postite_droz/src/postite/dro/Couleur.hx:
 	/Users/ut/Documents/LAB/postite_droz/tests/TestCouleur.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/EnumValue.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/Map.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/EnumValueMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/EnumTools.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Type.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Lib.hx:
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PrintReport.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/thread/Tls.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/thread/Thread.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/thread/Mutex.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/thread/Lock.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/FileOutput.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/FileInput.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/File.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/FileSystem.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/vm/Module.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Web.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Input.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/FPHelper.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Sys.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/StringTools.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/StringBuf.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/String.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Reflect.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Math.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/EReg.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/DateTools.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Date.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Array.hx
 /Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/utils/AccessoriesUtils.hx:
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestFixture.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Eof.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/FileInput.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Output.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Input.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/MainLoop.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Timer.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/EntryPoint.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/EnumValue.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/Map.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/EnumValueMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/EnumTools.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Type.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Web.hx:
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PrintReport.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/Report.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/haxe/ds/ObjectMap.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/Map.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/EnumTools.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/EnumValueMap.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/UInt.hx:
-	/Users/ut/Documents/LAB/postite_droz/src/postite/dro/Couleur.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/BytesBuffer.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Web.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Input.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/thread/Tls.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/FPHelper.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Int64.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/FPHelper.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/BytesBuffer.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Bytes.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Int64Helper.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Int64Helper.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Int64.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/List.hx:
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ResultAggregator.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/FixtureResult.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestResult.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestHandler.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
 /Users/ut/haxe/haxe_libraries/hx-vector2d/0.0.2/github/2ee0471898cf68b8f33c1fe85ff3092cc6bf2a15/src/geom/Vector2d.hx:
 	/Users/ut/Documents/LAB/postite_droz/tests/TestVector2d.hx
 /Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/utils/TestBuilder.hx:
@@ -412,21 +267,49 @@
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGesteStatics.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestCouleur.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Path.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/FileSystem.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Constraints.hx:
+/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Reflect.hx:
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/PackageResult.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ClassResult.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestHandler.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestFixture.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Dispatcher.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/iterators/MapKeyValueIterator.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/WeakMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/haxe/ds/StringMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/haxe/ds/ObjectMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/Map.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/haxe/ds/IntMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/EnumValueMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/BalancedTree.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Reflect.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/Map.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/IntIterator.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/vm/Module.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/vm/Loader.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/EnumValueMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/BalancedTree.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Type.hx
+/Users/ut/Documents/LAB/postite_droz/src/postite/uz/StepIterator.hx:
+	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Geste.hx
+/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Dispatcher.hx:
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ResultStats.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ResultAggregator.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestHandler.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/NativeString.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/FPHelper.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/BytesData.hx
+/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/PackageResult.hx:
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PlainTextReport.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ResultAggregator.hx
+/Users/ut/Documents/LAB/postite_droz/src/postite/geom/UnistrokePatterns.hx:
+	/Users/ut/Documents/LAB/postite_droz/tests/TestResample.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Geste.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/vm/Module.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/vm/Loader.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Sys.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Boot.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Lib.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Type.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Std.hx
+/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/IgnoredFixture.hx:
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestFixture.hx
+/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/Report.hx:
+	/Users/ut/Documents/LAB/postite_droz/tests/TestAll.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/IntIterator.hx:
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ResultAggregator.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx
@@ -435,32 +318,21 @@
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Simplify.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Geste.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/GeomFilters.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/vm/Module.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Lib.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Boot.hx
-	/Users/ut/haxe/haxe_libraries/hxClipper/0.0.0/github/393fbee5fd1cf1f38b6465a4181444cad8e053a1/src/hxClipper/Clipper.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Path.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Bytes.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/Vector.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/EnumValueMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/ArraySort.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/MainLoop.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Int64Helper.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Type.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/StringTools.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Array.hx
-/Users/ut/Documents/LAB/postite_droz/src/postite/uz/StepIterator.hx:
-	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Geste.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/FileInput.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/File.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Sys.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Output.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/FileOutput.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Sys.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/FileOutput.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/File.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Sys.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/StdTypes.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/vm/Module.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Lib.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Boot.hx
+	/Users/ut/Documents/LAB/localLibs/hxClipper/src/hxClipper/Clipper.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Path.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Bytes.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/Vector.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/EnumValueMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/ArraySort.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/SysTools.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/MainLoop.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Int64Helper.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Type.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Array.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/StdTypes.hx:
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/utils/AsyncUtils.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/utils/AccessoriesUtils.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PrintReport.hx
@@ -495,16 +367,16 @@
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestCouleur.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestAll.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/thread/Tls.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/thread/Thread.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/thread/Mutex.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/thread/Lock.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/sys/io/FileSeek.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/FileOutput.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/FileInput.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/File.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/FileSystem.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/sys/FileStat.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/thread/Tls.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/thread/Thread.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/thread/Mutex.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/thread/Lock.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/sys/io/FileSeek.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/FileOutput.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/FileInput.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/File.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/FileSystem.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/sys/FileStat.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/uz/StepIterator.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/uz/Debug.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/math/Matools.hx
@@ -518,101 +390,74 @@
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/CoolPoint.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/dro/Couleur.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/dro/Coords.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/vm/Module.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/vm/Loader.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Web.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/NativeString.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/NativeArray.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Lib.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Boot.hx
-	/Users/ut/haxe/haxe_libraries/hxClipper/0.0.0/github/393fbee5fd1cf1f38b6465a4181444cad8e053a1/src/hxClipper/Clipper.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/rtti/Meta.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/iterators/StringIteratorUnicode.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/iterators/MapKeyValueIterator.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Path.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Output.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Input.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/FPHelper.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Error.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Eof.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Encoding.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/BytesData.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/BytesBuffer.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Bytes.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/WeakMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/Vector.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/haxe/ds/StringMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/haxe/ds/ObjectMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/Map.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/List.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/haxe/ds/IntMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/HashMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/EnumValueMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/BalancedTree.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/ArraySort.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Timer.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/PosInfos.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/MainLoop.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Log.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Int64Helper.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Int64.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Int32.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/EnumTools.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/EntryPoint.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Constraints.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/CallStack.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/vm/Module.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/vm/Loader.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Web.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/NativeString.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/NativeArray.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Lib.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Boot.hx
+	/Users/ut/Documents/LAB/localLibs/hxClipper/src/hxClipper/Clipper.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/rtti/Meta.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/iterators/StringKeyValueIterator.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/iterators/StringIteratorUnicode.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/iterators/StringIterator.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/iterators/MapKeyValueIterator.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Path.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Output.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Input.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/FPHelper.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Error.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Eof.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Encoding.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/BytesData.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/BytesBuffer.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Bytes.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/WeakMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/Vector.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/haxe/ds/StringMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/ReadOnlyArray.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/haxe/ds/ObjectMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/Map.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/List.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/haxe/ds/IntMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/HashMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/EnumValueMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/BalancedTree.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/ArraySort.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Timer.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/SysTools.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/PosInfos.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/MainLoop.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Log.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Int64Helper.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Int64.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Int32.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/EnumTools.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/EntryPoint.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Constraints.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/CallStack.hx
 	/Users/ut/haxe/haxe_libraries/hx-vector2d/0.0.2/github/2ee0471898cf68b8f33c1fe85ff3092cc6bf2a15/src/geom/Vector2d.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/UInt.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Type.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Sys.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/StringTools.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/StringBuf.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/String.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Std.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Reflect.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Math.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/Map.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/List.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/Lambda.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/IntIterator.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/EnumValue.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/Enum.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/EReg.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/DateTools.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Date.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/Class.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Array.hx
-/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Dispatcher.hx:
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ResultStats.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ResultAggregator.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestHandler.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/thread/Tls.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/FPHelper.hx
-/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/PackageResult.hx:
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PlainTextReport.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ResultAggregator.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/sys/FileStat.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/FileSystem.hx
-/Users/ut/Documents/LAB/postite_droz/src/postite/geom/UnistrokePatterns.hx:
-	/Users/ut/Documents/LAB/postite_droz/tests/TestResample.hx
-	/Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Geste.hx
-/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/IgnoredFixture.hx:
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestFixture.hx
-/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/Report.hx:
-	/Users/ut/Documents/LAB/postite_droz/tests/TestAll.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Error.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/FileOutput.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/FileInput.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Output.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Input.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/BytesBuffer.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Bytes.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/Lambda.hx:
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
-	/Users/ut/Documents/LAB/postite_droz/tests/TestGesteStatics.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/UInt.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Type.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Sys.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/StringTools.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/StringBuf.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/String.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Std.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Reflect.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Math.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/Map.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/List.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/Lambda.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/IntIterator.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/EnumValue.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/Enum.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/EReg.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/DateTools.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Date.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/Class.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Array.hx
 /Users/ut/Documents/LAB/postite_droz/import.hx:
 	/Users/ut/Documents/LAB/postite_droz/tests/TestVector2d.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestResample.hx
@@ -621,33 +466,167 @@
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestCouleur.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestAll.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/sys/FileStat.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/FileSystem.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/Class.hx:
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Boot.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Type.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Std.hx
 /Users/ut/Documents/LAB/postite_droz/src/postite/math/Matools.hx:
 	/Users/ut/Documents/LAB/postite_droz/tests/TestMatools.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/units/Radian.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/units/Degree.hx
-/Users/ut/haxe/haxe_libraries/hxClipper/0.0.0/github/393fbee5fd1cf1f38b6465a4181444cad8e053a1/src/hxClipper/Clipper.hx:
-	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/GeomFilters.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/NativeArray.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/Vector.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/List.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Reflect.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Array.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/Class.hx:
+/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/EReg.hx:
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Boot.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Type.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Std.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/thread/Lock.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/EntryPoint.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/File.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/FileOutput.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/FileInput.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Sys.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/Enum.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Boot.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/EnumTools.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Type.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Std.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Web.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Path.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/SysTools.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/String.hx:
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/utils/AsyncUtils.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/utils/AccessoriesUtils.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PrintReport.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PlainTextReport.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ResultStats.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ResultAggregator.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ReportTools.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/PackageResult.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/IReport.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/HeaderDisplayMode.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/FixtureResult.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ClassResult.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/Report.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestResult.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestHandler.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestFixture.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestData.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Test.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/IgnoredFixture.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ITestHandler.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ITest.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Dispatcher.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Async.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assertation.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestVector2d.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestResample.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestMatools.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestGesteStatics.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestCouleur.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestAll.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/thread/Tls.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/thread/Thread.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/thread/Mutex.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/thread/Lock.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/sys/io/FileSeek.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/FileOutput.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/FileInput.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/File.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/FileSystem.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/sys/FileStat.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/uz/StepIterator.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/uz/Debug.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/math/Matools.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/units/Radian.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/units/Degree.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/UnistrokePatterns.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Simplify.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Segment.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Geste.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/GeomFilters.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/CoolPoint.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/dro/Couleur.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/dro/Coords.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/vm/Module.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/vm/Loader.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Web.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/NativeString.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/NativeArray.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Lib.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Boot.hx
+	/Users/ut/Documents/LAB/localLibs/hxClipper/src/hxClipper/Clipper.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/rtti/Meta.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/iterators/StringKeyValueIterator.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/iterators/StringIteratorUnicode.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/iterators/StringIterator.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/iterators/MapKeyValueIterator.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Path.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Output.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Input.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/FPHelper.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Error.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Eof.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Encoding.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/BytesData.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/BytesBuffer.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Bytes.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/WeakMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/Vector.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/haxe/ds/StringMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/ReadOnlyArray.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/haxe/ds/ObjectMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/Map.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/List.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/haxe/ds/IntMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/HashMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/EnumValueMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/BalancedTree.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/ArraySort.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Timer.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/SysTools.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/PosInfos.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/MainLoop.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Log.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Int64Helper.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Int64.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Int32.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/EnumTools.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/EntryPoint.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Constraints.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/CallStack.hx
+	/Users/ut/haxe/haxe_libraries/hx-vector2d/0.0.2/github/2ee0471898cf68b8f33c1fe85ff3092cc6bf2a15/src/geom/Vector2d.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/UInt.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Type.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Sys.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/StringTools.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/StringBuf.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Std.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Reflect.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Math.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/Map.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/List.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/Lambda.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/IntIterator.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/EnumValue.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/Enum.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/EReg.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/DateTools.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Date.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/Class.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Array.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/haxe/ds/StringMap.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/vm/Module.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/vm/Loader.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Web.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/Map.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Sys.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/SysTools.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Sys.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/StringTools.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/iterators/StringIterator.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/StringTools.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Date.hx:
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/FileSystem.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/sys/FileStat.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/uz/Debug.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Geste.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Web.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/DateTools.hx
 /Users/ut/Documents/LAB/postite_droz/src/postite/geom/CoolPoint.hx:
 	/Users/ut/Documents/LAB/postite_droz/tests/TestResample.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGesteStatics.hx
@@ -658,16 +637,9 @@
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Geste.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/GeomFilters.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/dro/Coords.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/DateTools.hx:
+/Users/ut/haxe/versions/4.0.0-rc.5/std/DateTools.hx:
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Geste.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Web.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Timer.hx:
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PlainTextReport.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestHandler.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Async.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/MainLoop.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Web.hx
 /Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx:
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PrintReport.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PlainTextReport.hx
@@ -676,13 +648,8 @@
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/Report.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestAll.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/FPHelper.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Output.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Input.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/BytesBuffer.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Bytes.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/EnumValueMap.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/Map.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/EnumTools.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/EnumValueMap.hx
 /Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/IReport.hx:
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PlainTextReport.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
@@ -690,7 +657,51 @@
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/Report.hx
 /Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx:
 	/Users/ut/Documents/LAB/postite_droz/tests/TestAll.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/StringTools.hx:
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/ArraySort.hx:
+	/Users/ut/Documents/LAB/localLibs/hxClipper/src/hxClipper/Clipper.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Encoding.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Output.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Input.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/BytesBuffer.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Bytes.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/EnumValueMap.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/Map.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/haxe/ds/IntMap.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/iterators/MapKeyValueIterator.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/Map.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/HashMap.hx
+/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/HeaderDisplayMode.hx:
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PlainTextReport.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/IReport.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/Report.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/CallStack.hx:
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PlainTextReport.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestHandler.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ITestHandler.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assertation.hx
+/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Simplify.hx:
+	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/GeomFilters.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Bytes.hx:
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/FileOutput.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/FileInput.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/File.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/vm/Module.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Web.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Lib.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Output.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Input.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/BytesBuffer.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/thread/Thread.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/EntryPoint.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Path.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/FileSystem.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/EntryPoint.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/MainLoop.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/StringTools.hx:
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PrintReport.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx
@@ -704,57 +715,24 @@
 	/Users/ut/Documents/LAB/postite_droz/tests/TestAll.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/uz/Debug.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/dro/Couleur.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Web.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/iterators/StringIteratorUnicode.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Path.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Bytes.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Int64Helper.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Sys.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Int64.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/FPHelper.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/BytesBuffer.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Bytes.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Int64Helper.hx
-/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/HeaderDisplayMode.hx:
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PlainTextReport.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/IReport.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/Report.hx
-/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Simplify.hx:
-	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/GeomFilters.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Bytes.hx:
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/FileOutput.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/FileInput.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/io/File.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/vm/Module.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Web.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Lib.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Output.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Input.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/BytesBuffer.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Sys.hx:
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PlainTextReport.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/FileSystem.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Timer.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Log.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/List.hx:
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/FixtureResult.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Web.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/haxe/ds/StringMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/haxe/ds/ObjectMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/haxe/ds/IntMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/List.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/Lambda.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Web.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/iterators/StringKeyValueIterator.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/iterators/StringIteratorUnicode.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/iterators/StringIterator.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Path.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Bytes.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/SysTools.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Int64Helper.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Sys.hx
 /Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ClassResult.hx:
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ResultAggregator.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/PackageResult.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/ArraySort.hx:
-	/Users/ut/haxe/haxe_libraries/hxClipper/0.0.0/github/393fbee5fd1cf1f38b6465a4181444cad8e053a1/src/hxClipper/Clipper.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/EntryPoint.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/MainLoop.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/NativeArray.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/Vector.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/List.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Reflect.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Array.hx
 /Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ITestHandler.hx:
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx
 /Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Async.hx:
@@ -770,21 +748,88 @@
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGesteStatics.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestCouleur.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/thread/Thread.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/EntryPoint.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/iterators/StringIteratorUnicode.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/StringTools.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/NativeString.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/FPHelper.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/BytesData.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/WeakMap.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/Map.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/BalancedTree.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/EnumValueMap.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Input.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/FileInput.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/vm/Module.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Output.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Sys.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/BytesData.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/FileOutput.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/FileInput.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/vm/Module.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Lib.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Bytes.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Array.hx:
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PlainTextReport.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/PackageResult.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ClassResult.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestHandler.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestFixture.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestData.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Dispatcher.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Async.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assertation.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestResample.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestGesteStatics.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/FileSystem.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/math/Matools.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Simplify.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Geste.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/GeomFilters.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/CoolPoint.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/dro/Couleur.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/dro/Coords.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/vm/Module.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/vm/Loader.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Web.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/NativeArray.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Lib.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Boot.hx
+	/Users/ut/Documents/LAB/localLibs/hxClipper/src/hxClipper/Clipper.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/rtti/Meta.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Path.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/Vector.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/ReadOnlyArray.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/EnumValueMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/BalancedTree.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/ArraySort.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/PosInfos.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/EnumTools.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/EntryPoint.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/CallStack.hx
+	/Users/ut/haxe/haxe_libraries/hx-vector2d/0.0.2/github/2ee0471898cf68b8f33c1fe85ff3092cc6bf2a15/src/geom/Vector2d.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Type.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Sys.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/StringTools.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/String.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Reflect.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/Lambda.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/EReg.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/DateTools.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/Map.hx:
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/PackageResult.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ClassResult.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/UnistrokePatterns.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/vm/Module.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/vm/Loader.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Web.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Sys.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/Map.hx:
+	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/UnistrokePatterns.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/Map.hx
 /Users/ut/Documents/LAB/postite_droz/src/postite/geom/Geste.hx:
 	/Users/ut/Documents/LAB/postite_droz/tests/TestResample.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGesteStatics.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/vm/Loader.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/vm/Module.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/WeakMap.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/Map.hx
 /Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ReportTools.hx:
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PlainTextReport.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
@@ -795,22 +840,9 @@
 /Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ResultAggregator.hx:
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PlainTextReport.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Log.hx:
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PrintReport.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ResultAggregator.hx
-	/Users/ut/Documents/LAB/postite_droz/tests/TestResample.hx
-	/Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx
-	/Users/ut/Documents/LAB/postite_droz/tests/TestCouleur.hx
-	/Users/ut/Documents/LAB/postite_droz/tests/TestAll.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/uz/Debug.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Geste.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/GeomFilters.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Timer.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/BytesBuffer.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Web.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Input.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Std.hx:
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/HashMap.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/Map.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Std.hx:
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PlainTextReport.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestFixture.hx
@@ -820,23 +852,40 @@
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Geste.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/GeomFilters.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/dro/Couleur.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Web.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Boot.hx
-	/Users/ut/haxe/haxe_libraries/hxClipper/0.0.0/github/393fbee5fd1cf1f38b6465a4181444cad8e053a1/src/hxClipper/Clipper.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Path.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/Vector.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/haxe/ds/StringMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/haxe/ds/ObjectMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/List.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/haxe/ds/IntMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/EnumValueMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/BalancedTree.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Log.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Int64.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/UInt.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/EReg.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/DateTools.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Date.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Web.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Boot.hx
+	/Users/ut/Documents/LAB/localLibs/hxClipper/src/hxClipper/Clipper.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Path.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/Vector.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/haxe/ds/StringMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/haxe/ds/ObjectMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/List.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/haxe/ds/IntMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/EnumValueMap.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/BalancedTree.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Log.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Int64.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/UInt.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/EReg.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/DateTools.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Date.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Error.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/FileOutput.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/FileInput.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Output.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Input.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/BytesBuffer.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Bytes.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/File.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/FileOutput.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/FileInput.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Sys.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Sys.hx:
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PlainTextReport.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/FileSystem.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Timer.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Log.hx
 /Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PrintReport.hx:
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/Report.hx
 /Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestResult.hx:
@@ -857,6 +906,8 @@
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/GeomFilters.hx
 /Users/ut/Documents/LAB/postite_droz/tests/TestGesteStatics.hx:
 	/Users/ut/Documents/LAB/postite_droz/tests/TestAll.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/ReadOnlyArray.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/SysTools.hx
 /Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Test.hx:
 	/Users/ut/Documents/LAB/postite_droz/tests/TestVector2d.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestResample.hx
@@ -866,70 +917,41 @@
 	/Users/ut/Documents/LAB/postite_droz/tests/TestCouleur.hx
 /Users/ut/Documents/LAB/postite_droz/tests/TestVector2d.hx:
 	/Users/ut/Documents/LAB/postite_droz/tests/TestAll.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Int32.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Int64.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/iterators/MapKeyValueIterator.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/haxe/ds/StringMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/haxe/ds/ObjectMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/haxe/ds/IntMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/BalancedTree.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/EReg.hx:
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Web.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Path.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/StringTools.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Int64Helper.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/Int64.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/vm/Module.hx:
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/vm/Loader.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Sys.hx
-/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Array.hx:
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/FPHelper.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Output.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Input.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/BytesBuffer.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Bytes.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Type.hx:
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PlainTextReport.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/HtmlReport.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/PackageResult.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ClassResult.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestHandler.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ResultAggregator.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/ReportTools.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/FixtureResult.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestResult.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestFixture.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestData.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Dispatcher.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Async.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assertation.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
-	/Users/ut/Documents/LAB/postite_droz/tests/TestResample.hx
-	/Users/ut/Documents/LAB/postite_droz/tests/TestGesteStatics.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/sys/FileSystem.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/math/Matools.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Simplify.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Geste.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/GeomFilters.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/CoolPoint.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/FileOutput.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/FileInput.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/FileSystem.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/uz/Debug.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/vm/Module.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Lib.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/Boot.hx
+	/Users/ut/Documents/LAB/localLibs/hxClipper/src/hxClipper/Clipper.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Path.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/SysTools.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Int64.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/EnumTools.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/CallStack.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Sys.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/StringTools.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/UInt.hx:
 	/Users/ut/Documents/LAB/postite_droz/src/postite/dro/Couleur.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/dro/Coords.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/vm/Module.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/vm/Loader.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Web.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/NativeArray.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Lib.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/Boot.hx
-	/Users/ut/haxe/haxe_libraries/hxClipper/0.0.0/github/393fbee5fd1cf1f38b6465a4181444cad8e053a1/src/hxClipper/Clipper.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/rtti/Meta.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/io/Path.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/Vector.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/EnumValueMap.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/BalancedTree.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/ds/ArraySort.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/PosInfos.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/EnumTools.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/EntryPoint.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/haxe/CallStack.hx
-	/Users/ut/haxe/haxe_libraries/hx-vector2d/0.0.2/github/2ee0471898cf68b8f33c1fe85ff3092cc6bf2a15/src/geom/Vector2d.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Type.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Sys.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/StringTools.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/String.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/Reflect.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/Lambda.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/neko/_std/EReg.hx
-	/Users/ut/haxe/versions/4.0.0-rc.2/std/DateTools.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/Vector.hx:
+	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Simplify.hx
+	/Users/ut/Documents/LAB/localLibs/hxClipper/src/hxClipper/Clipper.hx
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Output.hx:
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/sys/io/FileOutput.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/neko/_std/Sys.hx

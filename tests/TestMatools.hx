@@ -16,7 +16,16 @@ class TestMatools extends utest.Test {
         Assert.equals(30,Matools.scale([2,6],[20,60],3));
     }
     public function testwrap(){
-        Assert.equals(0, Matools.wrap(0,0));
+       // Assert.equals(0, Matools.wrap(0,0));
+        var this_month = 11;//decembre
+        var  next_month = 0;//janvier
+        //(this_month + 1) % 12;
+        Assert.equals(next_month, Matools.wrap(this_month+1,12));
+
+        var this_month = 0;//janvier
+        var  prev_month = 11 ;//decembre
+        //(this_month + 1) % 12;
+        Assert.equals(11, Matools.wrap(this_month-1,12));
     }
     public function testClamp(){
         Assert.equals(0,Matools.clamp(0,0,0));
