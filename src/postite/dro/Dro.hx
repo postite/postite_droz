@@ -5,14 +5,13 @@ import hxClipper.Clipper;
 import postite.geom.Segment;
 import postite.dro.Box;
 import com.nodename.geom.*;
+
 class Dro{
 
   static var fill="#ooaaff";
 
   public function new(){
   }
-
-
 
    public static function droPoint(ctx:CanvasRenderingContext2D,_point:PressPoint,?col:Couleur,?opacity:Float=1.0){
       
@@ -82,7 +81,6 @@ class Dro{
 		}
          ctx.stroke();
 
-		
 	}
 
 	public static function droRect(ctx:js.html.CanvasRenderingContext2D,rect:Rect,col:String="#000"){
@@ -105,7 +103,6 @@ public static function droPaths(ctx:js.html.CanvasRenderingContext2D,paths:hxCli
 		}
          ctx.stroke();
 	
-		
 }
     
 }
