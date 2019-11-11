@@ -263,7 +263,7 @@ public static function pnPoly(pt:Point, pos:Point, verts:Array<CoolPoint>) : Boo
     return c;
 }
 
-public static function centroid(points:Points):Point
+public static function centroid(points:Array<Point>):Point
 {
 	
 	var x = 0.0, y = 0.0;
