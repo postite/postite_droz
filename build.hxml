@@ -3,7 +3,7 @@
 -main app.App
 -lib hxClipper
 #-lib random
--debug
+#-debug
 -lib hxDelaunay
 -lib tink_core
 -js www/geom.js

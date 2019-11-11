@@ -3,6 +3,7 @@ import utest.Test;
 import postite.dro.Coords;
 import postite.geom.PolyGon;
 import utest.Assert;
+import postite.geom.CoolPoint;
 using postite.geom.GeomFilters;
 
 class TestGeomFilters extends Test{
@@ -40,6 +41,13 @@ class TestGeomFilters extends Test{
 
    public function testClose(){
          
+   }
+
+   public function testRandomInCircle(){
+      var p:Point= GeomFilters.randomInCircle(15,{x:15,y:15});
+      Assert.isTrue(GeomFilters.pointIsInCircle(15,{x:15,y:15},{x:15,y:15}) );
+      Assert.isTrue(GeomFilters.pointIsInCircle(15,{x:15,y:15},{x:16,y:17}) );
+      Assert.isFalse(GeomFilters.pointIsInCircle(15,{x:15,y:15},{x:40,y:40}) );
    }
 
 }

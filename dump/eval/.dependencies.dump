@@ -1,4 +1,5 @@
-/Users/ut/Documents/LAB/postite_droz/import.hx:
+/Users/ut/Documents/LAB/localLibs/hxClipper/src/hxClipper/import.hx:
+/Users/ut/Documents/LAB/localLibs/hxClipper/src/import.hx:
 /Users/ut/Documents/LAB/postite_droz/import.hx:
 /Users/ut/Documents/LAB/postite_droz/src/import.hx:
 /Users/ut/Documents/LAB/postite_droz/src/postite/dro/import.hx:
@@ -6,10 +7,33 @@
 /Users/ut/Documents/LAB/postite_droz/src/postite/geom/units/import.hx:
 /Users/ut/Documents/LAB/postite_droz/src/postite/import.hx:
 /Users/ut/Documents/LAB/postite_droz/src/postite/math/import.hx:
+/Users/ut/Documents/LAB/postite_droz/src/postite/uz/import.hx:
 /Users/ut/Documents/LAB/postite_droz/tests/import.hx:
+/Users/ut/haxe/haxe_libraries/hx-vector2d/0.0.2/github/2ee0471898cf68b8f33c1fe85ff3092cc6bf2a15/src/geom/import.hx:
+/Users/ut/haxe/haxe_libraries/hx-vector2d/0.0.2/github/2ee0471898cf68b8f33c1fe85ff3092cc6bf2a15/src/import.hx:
+/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/import.hx:
+/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/import.hx:
+/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/common/import.hx:
+/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/import.hx:
+/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/import.hx:
+/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/utils/import.hx:
+/Users/ut/haxe/versions/4.0.0-rc.5/std/eval/_std/haxe/import.hx:
+/Users/ut/haxe/versions/4.0.0-rc.5/std/eval/_std/haxe/io/import.hx:
+/Users/ut/haxe/versions/4.0.0-rc.5/std/eval/_std/import.hx:
+/Users/ut/haxe/versions/4.0.0-rc.5/std/eval/_std/sys/import.hx:
+/Users/ut/haxe/versions/4.0.0-rc.5/std/eval/_std/sys/io/import.hx:
+/Users/ut/haxe/versions/4.0.0-rc.5/std/eval/_std/sys/thread/import.hx:
+/Users/ut/haxe/versions/4.0.0-rc.5/std/eval/import.hx:
+/Users/ut/haxe/versions/4.0.0-rc.5/std/eval/vm/import.hx:
 /Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/import.hx:
 /Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/import.hx:
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/import.hx:
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/iterators/import.hx:
+/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/rtti/import.hx:
 /Users/ut/haxe/versions/4.0.0-rc.5/std/import.hx:
+/Users/ut/haxe/versions/4.0.0-rc.5/std/sys/import.hx:
+/Users/ut/haxe/versions/4.0.0-rc.5/std/sys/io/import.hx:
+/Users/ut/haxe/versions/4.0.0-rc.5/std/sys/thread/import.hx:
 /Users/ut/haxe/versions/4.0.0-rc.5/std/Array.hx:
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/StdTypes.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/String.hx
@@ -372,12 +396,11 @@
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/String.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/Array.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/Std.hx
-	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Log.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/IntIterator.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/Math.hx
-	/Users/ut/Documents/LAB/localLibs/hxClipper/src/hxClipper/Clipper.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/CoolPoint.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/Option.hx
+	/Users/ut/Documents/LAB/localLibs/hxClipper/src/hxClipper/Clipper.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Segment.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/units/Radian.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Simplify.hx
@@ -390,11 +413,11 @@
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Log.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/IntIterator.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/Math.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/uz/StepIterator.hx
-	/Users/ut/haxe/versions/4.0.0-rc.5/std/DateTools.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/CoolPoint.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/GeomFilters.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/UnistrokePatterns.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/uz/StepIterator.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/DateTools.hx
 /Users/ut/Documents/LAB/postite_droz/src/postite/geom/PolyGon.hx:
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/StdTypes.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/String.hx
@@ -411,8 +434,8 @@
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/String.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/Array.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/IntIterator.hx
-	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/Vector.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/CoolPoint.hx
+	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/Vector.hx
 /Users/ut/Documents/LAB/postite_droz/src/postite/geom/UnistrokePatterns.hx:
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/StdTypes.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/String.hx
@@ -476,16 +499,16 @@
 /Users/ut/Documents/LAB/postite_droz/tests/TestAll.hx:
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/StdTypes.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/String.hx
+	/Users/ut/Documents/LAB/postite_droz/import.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/uz/Debug.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/StringTools.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/Report.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Log.hx
-	/Users/ut/Documents/LAB/postite_droz/tests/TestCouleur.hx
-	/Users/ut/Documents/LAB/postite_droz/import.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGesteStatics.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestResample.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestCouleur.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestVector2d.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestMatools.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeomFilters.hx
@@ -514,31 +537,33 @@
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/Type.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Log.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/dro/Coords.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/CoolPoint.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Test.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/utils/TestBuilder.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/dro/Coords.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/PolyGon.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/GeomFilters.hx
 /Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx:
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/StdTypes.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/String.hx
+	/Users/ut/Documents/LAB/postite_droz/import.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/uz/Debug.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/StringTools.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestData.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Async.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Log.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Test.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/utils/TestBuilder.hx
-	/Users/ut/Documents/LAB/postite_droz/import.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/dro/Coords.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/CoolPoint.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Geste.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Test.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/utils/TestBuilder.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/UnistrokePatterns.hx
 /Users/ut/Documents/LAB/postite_droz/tests/TestGesteStatics.hx:
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/StdTypes.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/String.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/Array.hx
+	/Users/ut/Documents/LAB/postite_droz/import.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/uz/Debug.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/StringTools.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestData.hx
@@ -546,12 +571,11 @@
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/Math.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/Lambda.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Test.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/utils/TestBuilder.hx
-	/Users/ut/Documents/LAB/postite_droz/import.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/dro/Coords.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/CoolPoint.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Geste.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Test.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/utils/TestBuilder.hx
 /Users/ut/Documents/LAB/postite_droz/tests/TestMatools.hx:
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/StdTypes.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/String.hx
@@ -568,18 +592,18 @@
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/StdTypes.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/String.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/Array.hx
+	/Users/ut/Documents/LAB/postite_droz/import.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/uz/Debug.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/StringTools.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestData.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Async.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Log.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Test.hx
-	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/utils/TestBuilder.hx
-	/Users/ut/Documents/LAB/postite_droz/import.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/dro/Coords.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/CoolPoint.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Geste.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Test.hx
+	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/utils/TestBuilder.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/UnistrokePatterns.hx
 /Users/ut/Documents/LAB/postite_droz/tests/TestVector2d.hx:
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/StdTypes.hx

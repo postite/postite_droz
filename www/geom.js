@@ -94,8 +94,7 @@ var app_App = function() {
 	var mock = new app_MockFlock(null,disp.get_canvas());
 	mock.enabled = true;
 	disp.addRenderable(mock);
-	var colo = new app_ColTest();
-	disp.addRenderable(colo);
+	disp.addRenderable(new app_ColTest());
 };
 app_App.__name__ = true;
 app_App.main = function() {
@@ -159,8 +158,7 @@ app_Hit.prototype = {
 		});
 	}
 	,isIntersect: function(point,circle) {
-		var pow = Math.sqrt(Math.pow(point.x - circle.x,2) + Math.pow(point.y - circle.y,2));
-		return pow < circle.press * 2;
+		return Math.sqrt(Math.pow(point.x - circle.x,2) + Math.pow(point.y - circle.y,2)) < circle.press * 2;
 	}
 	,clear: function() {
 		var _gthis = this;
@@ -198,11 +196,7 @@ app_MockFlock.prototype = {
 		});
 		var _g2 = 0;
 		var _g3 = app_MockFlock.coolPoints;
-		while(_g2 < _g3.length) {
-			var cpoint1 = _g3[_g2];
-			++_g2;
-			this.listen.observe(cpoint1);
-		}
+		while(_g2 < _g3.length) this.listen.observe(_g3[_g2++]);
 		this.update();
 	}
 	,update: function() {
@@ -226,9 +220,7 @@ app_MockFlock.prototype = {
 		}
 		app_MockFlock.points = result1;
 		this.rect = postite_geom_GeomFilters.boundRectForPoly(app_MockFlock.points);
-		var poto = app_MockFlock.points;
-		var hull = postite_geom__$PolyGon_PolyGon_$Impl_$.convexHull(poto);
-		this.hullPol = hull;
+		this.hullPol = postite_geom__$PolyGon_PolyGon_$Impl_$.convexHull(app_MockFlock.points);
 	}
 	,render: function(_render) {
 		postite_dro_Dro.drawPoly(_render.ctx,this.hullPol,postite_dro__$Couleur_Couleur_$Impl_$.toHex(16768629));
@@ -284,10 +276,8 @@ app_MockFlock.prototype = {
 		postite_dro_Dro.drawPoly(_render.ctx,con);
 		var tra = postite_geom_Geste.TranslateTo(con,postite_geom__$CoolPoint_Point_$Impl_$.fromAnonInt({ x : 400, y : 200}));
 		postite_dro_Dro.drawPoly(_render.ctx,tra,"#00aaff");
-		var centr = postite_geom_Geste.Centroid(tra);
-		postite_dro_Dro.droPoint(_render.ctx,postite_geom__$CoolPoint_Point_$Impl_$.toPress(centr));
-		var centro = postite_geom_Geste.Centroid(con);
-		postite_dro_Dro.droPoint(_render.ctx,postite_geom__$CoolPoint_Point_$Impl_$.toPress(centro));
+		postite_dro_Dro.droPoint(_render.ctx,postite_geom__$CoolPoint_Point_$Impl_$.toPress(postite_geom_Geste.Centroid(tra)));
+		postite_dro_Dro.droPoint(_render.ctx,postite_geom__$CoolPoint_Point_$Impl_$.toPress(postite_geom_Geste.Centroid(con)));
 		postite_dro_Dro.droPoint(_render.ctx,{ x : 400, y : 200, press : 10},13382400);
 	}
 };
@@ -337,8 +327,7 @@ haxe_ds_ArraySort.rec = function(a,cmp,from,to) {
 		}
 		var _g = from + 1;
 		while(_g < to) {
-			var i = _g++;
-			var j = i;
+			var j = _g++;
 			while(j > from) {
 				if(cmp(a[j],a[j - 1]) < 0) {
 					haxe_ds_ArraySort.swap(a,j - 1,j);
@@ -614,10 +603,7 @@ hxClipper_PolyTree.prototype = $extend(hxClipper_PolyNode.prototype,{
 	clear: function() {
 		var _g = 0;
 		var _g1 = this.mAllPolys.length;
-		while(_g < _g1) {
-			var i = _g++;
-			this.mAllPolys[i] = null;
-		}
+		while(_g < _g1) this.mAllPolys[_g++] = null;
 		this.mAllPolys.length = 0;
 		this.mChildren.length = 0;
 	}
@@ -869,10 +855,7 @@ hxClipper_ClipperBase.prototype = {
 			var i = _g++;
 			var _g2 = 0;
 			var _g11 = this.mEdges[i].length;
-			while(_g2 < _g11) {
-				var j = _g2++;
-				this.mEdges[i][j] = null;
-			}
+			while(_g2 < _g11) this.mEdges[i][_g2++] = null;
 			this.mEdges[i].length = 0;
 		}
 		this.mEdges.length = 0;
@@ -1194,11 +1177,8 @@ hxClipper_ClipperBase.prototype = {
 		var result = false;
 		var _g = 0;
 		var _g1 = paths.length;
-		while(_g < _g1) {
-			var i = _g++;
-			if(this.addPath(paths[i],polyType,closed)) {
-				result = true;
-			}
+		while(_g < _g1) if(this.addPath(paths[_g++],polyType,closed)) {
+			result = true;
 		}
 		return result;
 	}
@@ -1214,9 +1194,8 @@ hxClipper_ClipperBase.prototype = {
 	,removeEdge: function(e) {
 		e.prev.next = e.next;
 		e.next.prev = e.prev;
-		var result = e.next;
 		e.prev = null;
-		return result;
+		return e.next;
 	}
 	,setDx: function(e) {
 		e.delta.x = e.top.x - e.bot.x;
@@ -1224,8 +1203,7 @@ hxClipper_ClipperBase.prototype = {
 		if(e.delta.y == 0) {
 			e.dx = -3.4E+38;
 		} else {
-			var deltaX = e.delta.x;
-			e.dx = deltaX / e.delta.y;
+			e.dx = e.delta.x / e.delta.y;
 		}
 	}
 	,insertLocalMinima: function(newLm) {
@@ -1492,11 +1470,7 @@ hxClipper_Clipper.topX = function(edge,currentY) {
 };
 hxClipper_Clipper.reversePaths = function(polys) {
 	var _g = 0;
-	while(_g < polys.length) {
-		var poly = polys[_g];
-		++_g;
-		poly.reverse();
-	}
+	while(_g < polys.length) polys[_g++].reverse();
 };
 hxClipper_Clipper.orientation = function(poly) {
 	return hxClipper_Clipper.area(poly) >= 0;
@@ -1524,9 +1498,7 @@ hxClipper_Clipper.pointInPolygon = function(pt,path) {
 				if(ipNext.x > pt.x) {
 					result = 1 - result;
 				} else {
-					var dx = ip.x - pt.x;
-					var dy = ip.y - pt.y;
-					var d = dx * (ipNext.y - pt.y) - (ipNext.x - pt.x) * dy;
+					var d = (ip.x - pt.x) * (ipNext.y - pt.y) - (ipNext.x - pt.x) * (ip.y - pt.y);
 					if(d == 0) {
 						return -1;
 					} else if(d > 0 == ipNext.y > ip.y) {
@@ -1534,9 +1506,7 @@ hxClipper_Clipper.pointInPolygon = function(pt,path) {
 					}
 				}
 			} else if(ipNext.x > pt.x) {
-				var dx1 = ip.x - pt.x;
-				var dy1 = ip.y - pt.y;
-				var d1 = dx1 * (ipNext.y - pt.y) - (ipNext.x - pt.x) * dy1;
+				var d1 = (ip.x - pt.x) * (ipNext.y - pt.y) - (ipNext.x - pt.x) * (ip.y - pt.y);
 				if(d1 == 0) {
 					return -1;
 				} else if(d1 > 0 == ipNext.y > ip.y) {
@@ -1569,9 +1539,7 @@ hxClipper_Clipper.pointInOutPt = function(pt,op) {
 				if(poly1x > ptx) {
 					result = 1 - result;
 				} else {
-					var dx = poly0x - ptx;
-					var dy = poly0y - pty;
-					var d = dx * (poly1y - pty) - (poly1x - ptx) * dy;
+					var d = (poly0x - ptx) * (poly1y - pty) - (poly1x - ptx) * (poly0y - pty);
 					if(d == 0) {
 						return -1;
 					}
@@ -1580,9 +1548,7 @@ hxClipper_Clipper.pointInOutPt = function(pt,op) {
 					}
 				}
 			} else if(poly1x > ptx) {
-				var dx1 = poly0x - ptx;
-				var dy1 = poly0y - pty;
-				var d1 = dx1 * (poly1y - pty) - (poly1x - ptx) * dy1;
+				var d1 = (poly0x - ptx) * (poly1y - pty) - (poly1x - ptx) * (poly0y - pty);
 				if(d1 == 0) {
 					return -1;
 				}
@@ -1627,9 +1593,7 @@ hxClipper_Clipper.area = function(poly) {
 	var _g = 0;
 	while(_g < cnt) {
 		var i = _g++;
-		var dx = poly[j].x + poly[i].x;
-		var dy = poly[j].y - poly[i].y;
-		a += dx * dy;
+		a += (poly[j].x + poly[i].x) * (poly[j].y - poly[i].y);
 		j = i;
 	}
 	return -a * 0.5;
@@ -1757,10 +1721,7 @@ hxClipper_Clipper.cleanPolygons = function(polys,distance) {
 	var result = [];
 	var _g = 0;
 	var _g1 = polys.length;
-	while(_g < _g1) {
-		var i = _g++;
-		result.push(hxClipper_Clipper.cleanPolygon(polys[i],distance));
-	}
+	while(_g < _g1) result.push(hxClipper_Clipper.cleanPolygon(polys[_g++],distance));
 	return result;
 };
 hxClipper_Clipper.minkowski = function(pattern,path,isSum,isClosed) {
@@ -1840,11 +1801,9 @@ hxClipper_Clipper.minkowskiSumPaths = function(pattern,paths,pathIsClosed) {
 	var _g1 = paths.length;
 	while(_g < _g1) {
 		var i = _g++;
-		var tmp = hxClipper_Clipper.minkowski(pattern,paths[i],true,pathIsClosed);
-		c.addPaths(tmp,hxClipper_PolyType.PT_SUBJECT,true);
+		c.addPaths(hxClipper_Clipper.minkowski(pattern,paths[i],true,pathIsClosed),hxClipper_PolyType.PT_SUBJECT,true);
 		if(pathIsClosed) {
-			var path = hxClipper_Clipper.translatePath(paths[i],pattern[0]);
-			c.addPath(path,hxClipper_PolyType.PT_CLIP,true);
+			c.addPath(hxClipper_Clipper.translatePath(paths[i],pattern[0]),hxClipper_PolyType.PT_CLIP,true);
 		}
 	}
 	c.executePaths(hxClipper_ClipType.CT_UNION,solution,hxClipper_PolyFillType.PFT_NON_ZERO,hxClipper_PolyFillType.PFT_NON_ZERO);
@@ -1877,11 +1836,7 @@ hxClipper_Clipper.addPolyNodeToPaths = function(polynode,nt,paths) {
 	}
 	var _g = 0;
 	var _g1 = polynode.get_children();
-	while(_g < _g1.length) {
-		var pn = _g1[_g];
-		++_g;
-		hxClipper_Clipper.addPolyNodeToPaths(pn,nt,paths);
-	}
+	while(_g < _g1.length) hxClipper_Clipper.addPolyNodeToPaths(_g1[_g++],nt,paths);
 };
 hxClipper_Clipper.openPathsFromPolyTree = function(polytree) {
 	var result = [];
@@ -2018,8 +1973,7 @@ hxClipper_Clipper.prototype = $extend(hxClipper_ClipperBase.prototype,{
 		var _g = 0;
 		var _g1 = this.mPolyOuts.length;
 		while(_g < _g1) {
-			var i = _g++;
-			var outRec = this.mPolyOuts[i];
+			var outRec = this.mPolyOuts[_g++];
 			if(outRec.pts == null || outRec.isOpen) {
 				continue;
 			}
@@ -2033,8 +1987,7 @@ hxClipper_Clipper.prototype = $extend(hxClipper_ClipperBase.prototype,{
 		var _g2 = 0;
 		var _g3 = this.mPolyOuts.length;
 		while(_g2 < _g3) {
-			var i1 = _g2++;
-			var outRec1 = this.mPolyOuts[i1];
+			var outRec1 = this.mPolyOuts[_g2++];
 			if(outRec1.pts == null) {
 				continue;
 			} else if(outRec1.isOpen) {
@@ -2051,10 +2004,7 @@ hxClipper_Clipper.prototype = $extend(hxClipper_ClipperBase.prototype,{
 	,disposeAllPolyPts: function() {
 		var _g = 0;
 		var _g1 = this.mPolyOuts.length;
-		while(_g < _g1) {
-			var i = _g++;
-			this.disposeOutRec(i);
-		}
+		while(_g < _g1) this.disposeOutRec(_g++);
 		this.mPolyOuts.length = 0;
 	}
 	,addJoin: function(op1,op2,offPt) {
@@ -2118,21 +2068,18 @@ hxClipper_Clipper.prototype = $extend(hxClipper_ClipperBase.prototype,{
 				var _g = 0;
 				var _g1 = this.mGhostJoins.length;
 				while(_g < _g1) {
-					var i = _g++;
-					var j = this.mGhostJoins[i];
+					var j = this.mGhostJoins[_g++];
 					if(this.horzSegmentsOverlap(j.outPt1.pt.x,j.offPt.x,rb.bot.x,rb.top.x)) {
 						this.addJoin(j.outPt1,op1,j.offPt);
 					}
 				}
 			}
 			if(lb.outIdx >= 0 && lb.prevInAEL != null && lb.prevInAEL.curr.x == lb.bot.x && lb.prevInAEL.outIdx >= 0 && hxClipper_ClipperBase.slopesEqual4(lb.prevInAEL.curr,lb.prevInAEL.top,lb.curr,lb.top,this.mUseFullRange) && lb.windDelta != 0 && lb.prevInAEL.windDelta != 0) {
-				var op2 = this.addOutPt(lb.prevInAEL,lb.bot);
-				this.addJoin(op1,op2,lb.top);
+				this.addJoin(op1,this.addOutPt(lb.prevInAEL,lb.bot),lb.top);
 			}
 			if(lb.nextInAEL != rb) {
 				if(rb.outIdx >= 0 && rb.prevInAEL.outIdx >= 0 && hxClipper_ClipperBase.slopesEqual4(rb.prevInAEL.curr,rb.prevInAEL.top,rb.curr,rb.top,this.mUseFullRange) && rb.windDelta != 0 && rb.prevInAEL.windDelta != 0) {
-					var op21 = this.addOutPt(rb.prevInAEL,rb.bot);
-					this.addJoin(op1,op21,rb.top);
+					this.addJoin(op1,this.addOutPt(rb.prevInAEL,rb.bot),rb.top);
 				}
 				var e = lb.nextInAEL;
 				if(e != null) {
@@ -2285,9 +2232,8 @@ hxClipper_Clipper.prototype = $extend(hxClipper_ClipperBase.prototype,{
 		var e = edge.prevInAEL;
 		while(e != null && (e.polyType != edge.polyType || e.windDelta == 0)) e = e.prevInAEL;
 		if(e == null) {
-			var pft = edge.polyType == hxClipper_PolyType.PT_SUBJECT ? this.mSubjFillType : this.mClipFillType;
 			if(edge.windDelta == 0) {
-				edge.windCnt = pft == hxClipper_PolyFillType.PFT_NEGATIVE ? -1 : 1;
+				edge.windCnt = (edge.polyType == hxClipper_PolyType.PT_SUBJECT ? this.mSubjFillType : this.mClipFillType) == hxClipper_PolyFillType.PFT_NEGATIVE ? -1 : 1;
 			} else {
 				edge.windCnt = edge.windDelta;
 			}
@@ -2489,8 +2435,7 @@ hxClipper_Clipper.prototype = $extend(hxClipper_ClipperBase.prototype,{
 			var xPrev = hxClipper_Clipper.topX(prevE,pt.y);
 			var xE = hxClipper_Clipper.topX(e,pt.y);
 			if(xPrev == xE && e.windDelta != 0 && prevE.windDelta != 0 && hxClipper_ClipperBase.slopesEqual4(new hxClipper_IntPoint(xPrev,pt.y),prevE.top,new hxClipper_IntPoint(xE,pt.y),e.top,this.mUseFullRange)) {
-				var outPt = this.addOutPt(prevE,pt);
-				this.addJoin(result,outPt,e.top);
+				this.addJoin(result,this.addOutPt(prevE,pt),e.top);
 			}
 		}
 		return result;
@@ -2587,9 +2532,7 @@ hxClipper_Clipper.prototype = $extend(hxClipper_ClipperBase.prototype,{
 		if(pt1.y == pt2.y) {
 			return -3.4E+38;
 		} else {
-			var dx = pt2.x - pt1.x;
-			var dy = pt2.y - pt1.y;
-			return dx / dy;
+			return (pt2.x - pt1.x) / (pt2.y - pt1.y);
 		}
 	}
 	,firstIsBottomPt: function(btmPt1,btmPt2) {
@@ -3019,8 +2962,7 @@ hxClipper_Clipper.prototype = $extend(hxClipper_ClipperBase.prototype,{
 					var eNextHorz = this.mSortedEdges;
 					while(eNextHorz != null) {
 						if(eNextHorz.outIdx >= 0 && this.horzSegmentsOverlap(horzEdge.bot.x,horzEdge.top.x,eNextHorz.bot.x,eNextHorz.top.x)) {
-							var op2 = this.getLastOutPt(eNextHorz);
-							this.addJoin(op2,op1,eNextHorz.top);
+							this.addJoin(this.getLastOutPt(eNextHorz),op1,eNextHorz.top);
 						}
 						eNextHorz = eNextHorz.nextInSEL;
 					}
@@ -3035,11 +2977,9 @@ hxClipper_Clipper.prototype = $extend(hxClipper_ClipperBase.prototype,{
 					return;
 				}
 				if(dir == hxClipper__$Clipper_Direction.D_LEFT_TO_RIGHT) {
-					var pt = new hxClipper_IntPoint(e.curr.x,horzEdge.curr.y);
-					this.intersectEdges(horzEdge,e,pt);
+					this.intersectEdges(horzEdge,e,new hxClipper_IntPoint(e.curr.x,horzEdge.curr.y));
 				} else {
-					var pt1 = new hxClipper_IntPoint(e.curr.x,horzEdge.curr.y);
-					this.intersectEdges(e,horzEdge,pt1);
+					this.intersectEdges(e,horzEdge,new hxClipper_IntPoint(e.curr.x,horzEdge.curr.y));
 				}
 				var eNext = this.getNextInAEL(e,dir);
 				this.swapPositionsInAEL(horzEdge,e);
@@ -3062,8 +3002,7 @@ hxClipper_Clipper.prototype = $extend(hxClipper_ClipperBase.prototype,{
 			var eNextHorz1 = this.mSortedEdges;
 			while(eNextHorz1 != null) {
 				if(eNextHorz1.outIdx >= 0 && this.horzSegmentsOverlap(horzEdge.bot.x,horzEdge.top.x,eNextHorz1.bot.x,eNextHorz1.top.x)) {
-					var op21 = this.getLastOutPt(eNextHorz1);
-					this.addJoin(op21,op1,eNextHorz1.top);
+					this.addJoin(this.getLastOutPt(eNextHorz1),op1,eNextHorz1.top);
 				}
 				eNextHorz1 = eNextHorz1.nextInSEL;
 			}
@@ -3079,11 +3018,9 @@ hxClipper_Clipper.prototype = $extend(hxClipper_ClipperBase.prototype,{
 				var ePrev = horzEdge.prevInAEL;
 				var eNext1 = horzEdge.nextInAEL;
 				if(ePrev != null && ePrev.curr.x == horzEdge.bot.x && ePrev.curr.y == horzEdge.bot.y && ePrev.windDelta != 0 && (ePrev.outIdx >= 0 && ePrev.curr.y > ePrev.top.y && hxClipper_ClipperBase.slopesEqual(horzEdge,ePrev,this.mUseFullRange))) {
-					var op22 = this.addOutPt(ePrev,horzEdge.bot);
-					this.addJoin(op11,op22,horzEdge.top);
+					this.addJoin(op11,this.addOutPt(ePrev,horzEdge.bot),horzEdge.top);
 				} else if(eNext1 != null && eNext1.curr.x == horzEdge.bot.x && eNext1.curr.y == horzEdge.bot.y && eNext1.windDelta != 0 && eNext1.outIdx >= 0 && eNext1.curr.y > eNext1.top.y && hxClipper_ClipperBase.slopesEqual(horzEdge,eNext1,this.mUseFullRange)) {
-					var op23 = this.addOutPt(eNext1,horzEdge.bot);
-					this.addJoin(op11,op23,horzEdge.top);
+					this.addJoin(op11,this.addOutPt(eNext1,horzEdge.bot),horzEdge.top);
 				}
 			} else {
 				horzEdge = this.updateEdgeIntoAEL(horzEdge);
@@ -3236,8 +3173,7 @@ hxClipper_Clipper.prototype = $extend(hxClipper_ClipperBase.prototype,{
 		var _g = 0;
 		var _g1 = this.mIntersectList.length;
 		while(_g < _g1) {
-			var i = _g++;
-			var iNode = this.mIntersectList[i];
+			var iNode = this.mIntersectList[_g++];
 			this.intersectEdges(iNode.edge1,iNode.edge2,iNode.pt);
 			this.swapPositionsInAEL(iNode.edge1,iNode.edge2);
 		}
@@ -3333,9 +3269,7 @@ hxClipper_Clipper.prototype = $extend(hxClipper_ClipperBase.prototype,{
 					var ePrev1 = e.prevInAEL;
 					if(e.outIdx >= 0 && e.windDelta != 0 && ePrev1 != null && ePrev1.outIdx >= 0 && ePrev1.curr.x == e.curr.x && ePrev1.windDelta != 0) {
 						var ip = e.curr.clone();
-						var op = this.addOutPt(ePrev1,ip);
-						var op2 = this.addOutPt(e,ip);
-						this.addJoin(op,op2,ip);
+						this.addJoin(this.addOutPt(ePrev1,ip),this.addOutPt(e,ip),ip);
 					}
 				}
 				e = e.nextInAEL;
@@ -3346,19 +3280,17 @@ hxClipper_Clipper.prototype = $extend(hxClipper_ClipperBase.prototype,{
 		e = this.mActiveEdges;
 		while(e != null) {
 			if(this.isIntermediate(e,topY)) {
-				var op1 = null;
+				var op = null;
 				if(e.outIdx >= 0) {
-					op1 = this.addOutPt(e,e.top);
+					op = this.addOutPt(e,e.top);
 				}
 				e = this.updateEdgeIntoAEL(e);
 				var ePrev2 = e.prevInAEL;
 				var eNext = e.nextInAEL;
-				if(ePrev2 != null && ePrev2.curr.x == e.bot.x && ePrev2.curr.y == e.bot.y && op1 != null && ePrev2.outIdx >= 0 && ePrev2.curr.y > ePrev2.top.y && hxClipper_ClipperBase.slopesEqual4(e.curr,e.top,ePrev2.curr,ePrev2.top,this.mUseFullRange) && e.windDelta != 0 && ePrev2.windDelta != 0) {
-					var op21 = this.addOutPt(ePrev2,e.bot);
-					this.addJoin(op1,op21,e.top);
-				} else if(eNext != null && eNext.curr.x == e.bot.x && eNext.curr.y == e.bot.y && op1 != null && eNext.outIdx >= 0 && eNext.curr.y > eNext.top.y && hxClipper_ClipperBase.slopesEqual4(e.curr,e.top,eNext.curr,eNext.top,this.mUseFullRange) && e.windDelta != 0 && eNext.windDelta != 0) {
-					var op22 = this.addOutPt(eNext,e.bot);
-					this.addJoin(op1,op22,e.top);
+				if(ePrev2 != null && ePrev2.curr.x == e.bot.x && ePrev2.curr.y == e.bot.y && op != null && ePrev2.outIdx >= 0 && ePrev2.curr.y > ePrev2.top.y && hxClipper_ClipperBase.slopesEqual4(e.curr,e.top,ePrev2.curr,ePrev2.top,this.mUseFullRange) && e.windDelta != 0 && ePrev2.windDelta != 0) {
+					this.addJoin(op,this.addOutPt(ePrev2,e.bot),e.top);
+				} else if(eNext != null && eNext.curr.x == e.bot.x && eNext.curr.y == e.bot.y && op != null && eNext.outIdx >= 0 && eNext.curr.y > eNext.top.y && hxClipper_ClipperBase.slopesEqual4(e.curr,e.top,eNext.curr,eNext.top,this.mUseFullRange) && e.windDelta != 0 && eNext.windDelta != 0) {
+					this.addJoin(op,this.addOutPt(eNext,e.bot),e.top);
 				}
 			}
 			e = e.nextInAEL;
@@ -3412,8 +3344,7 @@ hxClipper_Clipper.prototype = $extend(hxClipper_ClipperBase.prototype,{
 		var _g = 0;
 		var _g1 = this.mPolyOuts.length;
 		while(_g < _g1) {
-			var i = _g++;
-			var outRec = this.mPolyOuts[i];
+			var outRec = this.mPolyOuts[_g++];
 			if(outRec.pts == null) {
 				continue;
 			}
@@ -3437,8 +3368,7 @@ hxClipper_Clipper.prototype = $extend(hxClipper_ClipperBase.prototype,{
 		var _g = 0;
 		var _g1 = this.mPolyOuts.length;
 		while(_g < _g1) {
-			var i = _g++;
-			var outRec = this.mPolyOuts[i];
+			var outRec = this.mPolyOuts[_g++];
 			var cnt = this.pointCount(outRec.pts);
 			if(outRec.isOpen && cnt < 2 || !outRec.isOpen && cnt < 3) {
 				continue;
@@ -3458,8 +3388,7 @@ hxClipper_Clipper.prototype = $extend(hxClipper_ClipperBase.prototype,{
 		var _g21 = 0;
 		var _g3 = this.mPolyOuts.length;
 		while(_g21 < _g3) {
-			var i1 = _g21++;
-			var outRec1 = this.mPolyOuts[i1];
+			var outRec1 = this.mPolyOuts[_g21++];
 			if(outRec1.polyNode == null) {
 				continue;
 			} else if(outRec1.isOpen) {
@@ -3632,8 +3561,7 @@ hxClipper_Clipper.prototype = $extend(hxClipper_ClipperBase.prototype,{
 			var reverse1 = op1b.pt.y > j.offPt.y;
 			op2b = j.outPt2.next;
 			while(op2b != op2 && op2b.pt.equals(j.offPt)) op2b = op2b.next;
-			var reverse2 = op2b.pt.y > j.offPt.y;
-			if(reverse1 == reverse2) {
+			if(reverse1 == op2b.pt.y > j.offPt.y) {
 				return false;
 			}
 			if(reverse1) {
@@ -3709,15 +3637,15 @@ hxClipper_Clipper.prototype = $extend(hxClipper_ClipperBase.prototype,{
 			}
 			op2b = op2.next;
 			while(op2b.pt.equals(op2.pt) && op2b != op2) op2b = op2b.next;
-			var reverse21 = op2b.pt.y > op2.pt.y || !hxClipper_ClipperBase.slopesEqual3(op2.pt,op2b.pt,j.offPt,this.mUseFullRange);
-			if(reverse21) {
+			var reverse2 = op2b.pt.y > op2.pt.y || !hxClipper_ClipperBase.slopesEqual3(op2.pt,op2b.pt,j.offPt,this.mUseFullRange);
+			if(reverse2) {
 				op2b = op2.prev;
 				while(op2b.pt.equals(op2.pt) && op2b != op2) op2b = op2b.prev;
 				if(op2b.pt.y > op2.pt.y || !hxClipper_ClipperBase.slopesEqual3(op2.pt,op2b.pt,j.offPt,this.mUseFullRange)) {
 					return false;
 				}
 			}
-			if(op1b == op1 || op2b == op2 || op1b == op2b || outRec1 == outRec2 && reverse11 == reverse21) {
+			if(op1b == op1 || op2b == op2 || op1b == op2b || outRec1 == outRec2 && reverse11 == reverse2) {
 				return false;
 			}
 			if(reverse11) {
@@ -3747,10 +3675,8 @@ hxClipper_Clipper.prototype = $extend(hxClipper_ClipperBase.prototype,{
 		var _g = 0;
 		var _g1 = this.mPolyOuts.length;
 		while(_g < _g1) {
-			var i = _g++;
-			var outRec = this.mPolyOuts[i];
-			var firstLeft = hxClipper_Clipper.parseFirstLeft(outRec.firstLeft);
-			if(outRec.pts != null && firstLeft == oldOutRec) {
+			var outRec = this.mPolyOuts[_g++];
+			if(outRec.pts != null && hxClipper_Clipper.parseFirstLeft(outRec.firstLeft) == oldOutRec) {
 				if(hxClipper_Clipper.poly2ContainsPoly1(outRec.pts,newOutRec.pts)) {
 					outRec.firstLeft = newOutRec;
 				}
@@ -3786,8 +3712,7 @@ hxClipper_Clipper.prototype = $extend(hxClipper_ClipperBase.prototype,{
 		while(_g < _g1.length) {
 			var outRec = _g1[_g];
 			++_g;
-			var firstLeft = hxClipper_Clipper.parseFirstLeft(outRec.firstLeft);
-			if(outRec.pts != null && firstLeft == oldOutRec) {
+			if(outRec.pts != null && hxClipper_Clipper.parseFirstLeft(outRec.firstLeft) == oldOutRec) {
 				outRec.firstLeft = newOutRec;
 			}
 		}
@@ -3796,8 +3721,7 @@ hxClipper_Clipper.prototype = $extend(hxClipper_ClipperBase.prototype,{
 		var _g = 0;
 		var _g1 = this.mJoins.length;
 		while(_g < _g1) {
-			var i = _g++;
-			var join = this.mJoins[i];
+			var join = this.mJoins[_g++];
 			var outRec1 = this.getOutRec(join.outPt1.idx);
 			var outRec2 = this.getOutRec(join.outPt2.idx);
 			if(outRec1.pts == null || outRec2.pts == null) {
@@ -3945,9 +3869,7 @@ hxClipper_Clipper.prototype = $extend(hxClipper_ClipperBase.prototype,{
 		}
 		var a = 0;
 		while(true) {
-			var dx = op.prev.pt.x + op.pt.x;
-			var dy = op.prev.pt.y - op.pt.y;
-			a += dx * dy;
+			a += (op.prev.pt.x + op.pt.x) * (op.prev.pt.y - op.pt.y);
 			op = op.next;
 			if(!(op != opFirst)) {
 				break;
@@ -4034,19 +3956,14 @@ hxClipper_ClipperOffset.prototype = {
 	}
 	,addPaths: function(paths,joinType,endType) {
 		var _g = 0;
-		while(_g < paths.length) {
-			var p = paths[_g];
-			++_g;
-			this.addPath(p,joinType,endType);
-		}
+		while(_g < paths.length) this.addPath(paths[_g++],joinType,endType);
 	}
 	,fixOrientations: function() {
 		if(this.mLowest.x >= 0 && !hxClipper_Clipper.orientation(this.mPolyNodes.get_children()[this.mLowest.x | 0].mPolygon)) {
 			var _g = 0;
 			var _g1 = this.mPolyNodes.get_numChildren();
 			while(_g < _g1) {
-				var i = _g++;
-				var node = this.mPolyNodes.get_children()[i];
+				var node = this.mPolyNodes.get_children()[_g++];
 				if(node.mEndtype == hxClipper_EndType.ET_CLOSED_POLYGON || node.mEndtype == hxClipper_EndType.ET_CLOSED_LINE && hxClipper_Clipper.orientation(node.mPolygon)) {
 					node.mPolygon.reverse();
 				}
@@ -4055,8 +3972,7 @@ hxClipper_ClipperOffset.prototype = {
 			var _g2 = 0;
 			var _g11 = this.mPolyNodes.get_numChildren();
 			while(_g2 < _g11) {
-				var i1 = _g2++;
-				var node1 = this.mPolyNodes.get_children()[i1];
+				var node1 = this.mPolyNodes.get_children()[_g2++];
 				if(node1.mEndtype == hxClipper_EndType.ET_CLOSED_LINE && !hxClipper_Clipper.orientation(node1.mPolygon)) {
 					node1.mPolygon.reverse();
 				}
@@ -4070,8 +3986,7 @@ hxClipper_ClipperOffset.prototype = {
 			var _g = 0;
 			var _g1 = this.mPolyNodes.get_numChildren();
 			while(_g < _g1) {
-				var i = _g++;
-				var node = this.mPolyNodes.get_children()[i];
+				var node = this.mPolyNodes.get_children()[_g++];
 				if(node.mEndtype == hxClipper_EndType.ET_CLOSED_POLYGON) {
 					this.mDestPolys.push(node.mPolygon);
 				}
@@ -4101,8 +4016,7 @@ hxClipper_ClipperOffset.prototype = {
 		var _g2 = 0;
 		var _g11 = this.mPolyNodes.get_numChildren();
 		while(_g2 < _g11) {
-			var i1 = _g2++;
-			var node1 = this.mPolyNodes.get_children()[i1];
+			var node1 = this.mPolyNodes.get_children()[_g2++];
 			this.mSrcPoly = node1.mPolygon;
 			var len = this.mSrcPoly.length;
 			if(len == 0 || delta <= 0 && (len < 3 || node1.mEndtype != hxClipper_EndType.ET_CLOSED_POLYGON)) {
@@ -4150,18 +4064,12 @@ hxClipper_ClipperOffset.prototype = {
 			if(node1.mEndtype == hxClipper_EndType.ET_CLOSED_POLYGON) {
 				var k = len - 1;
 				var _g21 = 0;
-				while(_g21 < len) {
-					var j2 = _g21++;
-					k = this.offsetPoint(j2,k,node1.mJoinType);
-				}
+				while(_g21 < len) k = this.offsetPoint(_g21++,k,node1.mJoinType);
 				this.mDestPolys.push(this.mDestPoly);
 			} else if(node1.mEndtype == hxClipper_EndType.ET_CLOSED_LINE) {
 				var k1 = len - 1;
 				var _g22 = 0;
-				while(_g22 < len) {
-					var j3 = _g22++;
-					k1 = this.offsetPoint(j3,k1,node1.mJoinType);
-				}
+				while(_g22 < len) k1 = this.offsetPoint(_g22++,k1,node1.mJoinType);
 				this.mDestPolys.push(this.mDestPoly);
 				this.mDestPoly = [];
 				var n = this.mNormals[len - 1].clone();
@@ -4182,26 +4090,23 @@ hxClipper_ClipperOffset.prototype = {
 				var k2 = 0;
 				var _g23 = 1;
 				var _g31 = len - 1;
-				while(_g23 < _g31) {
-					var j4 = _g23++;
-					k2 = this.offsetPoint(j4,k2,node1.mJoinType);
-				}
+				while(_g23 < _g31) k2 = this.offsetPoint(_g23++,k2,node1.mJoinType);
 				var pt1;
 				if(node1.mEndtype == hxClipper_EndType.ET_OPEN_BUTT) {
-					var j5 = len - 1;
-					pt1 = new hxClipper_IntPoint(hxClipper_ClipperOffset.round(this.mSrcPoly[j5].x + this.mNormals[j5].x * delta),hxClipper_ClipperOffset.round(this.mSrcPoly[j5].y + this.mNormals[j5].y * delta));
+					var j2 = len - 1;
+					pt1 = new hxClipper_IntPoint(hxClipper_ClipperOffset.round(this.mSrcPoly[j2].x + this.mNormals[j2].x * delta),hxClipper_ClipperOffset.round(this.mSrcPoly[j2].y + this.mNormals[j2].y * delta));
 					this.mDestPoly.push(pt1);
-					pt1 = new hxClipper_IntPoint(hxClipper_ClipperOffset.round(this.mSrcPoly[j5].x - this.mNormals[j5].x * delta),hxClipper_ClipperOffset.round(this.mSrcPoly[j5].y - this.mNormals[j5].y * delta));
+					pt1 = new hxClipper_IntPoint(hxClipper_ClipperOffset.round(this.mSrcPoly[j2].x - this.mNormals[j2].x * delta),hxClipper_ClipperOffset.round(this.mSrcPoly[j2].y - this.mNormals[j2].y * delta));
 					this.mDestPoly.push(pt1);
 				} else {
-					var j6 = len - 1;
+					var j3 = len - 1;
 					k2 = len - 2;
 					this.mSinA = 0;
-					this.mNormals[j6] = new hxClipper_DoublePoint(-this.mNormals[j6].x,-this.mNormals[j6].y);
+					this.mNormals[j3] = new hxClipper_DoublePoint(-this.mNormals[j3].x,-this.mNormals[j3].y);
 					if(node1.mEndtype == hxClipper_EndType.ET_OPEN_SQUARE) {
-						this.doSquare(j6,k2);
+						this.doSquare(j3,k2);
 					} else {
-						this.doRound(j6,k2);
+						this.doRound(j3,k2);
 					}
 				}
 				var nj1 = len - 1;
@@ -4292,10 +4197,7 @@ hxClipper_ClipperOffset.prototype = {
 				solution.get_children()[0].mParent = solution;
 				var _g = 1;
 				var _g1 = outerNode.get_numChildren();
-				while(_g < _g1) {
-					var i = _g++;
-					solution.addChild(outerNode.get_children()[i]);
-				}
+				while(_g < _g1) solution.addChild(outerNode.get_children()[_g++]);
 			} else {
 				solution.clear();
 			}
@@ -4304,8 +4206,7 @@ hxClipper_ClipperOffset.prototype = {
 	,offsetPoint: function(j,k,joinType) {
 		this.mSinA = this.mNormals[k].x * this.mNormals[j].y - this.mNormals[j].x * this.mNormals[k].y;
 		if(Math.abs(this.mSinA * this.mDelta) < 1.0) {
-			var cosA = this.mNormals[k].x * this.mNormals[j].x + this.mNormals[j].y * this.mNormals[k].y;
-			if(cosA > 0) {
+			if(this.mNormals[k].x * this.mNormals[j].x + this.mNormals[j].y * this.mNormals[k].y > 0) {
 				this.mDestPoly.push(new hxClipper_IntPoint(hxClipper_ClipperOffset.round(this.mSrcPoly[j].x + this.mNormals[k].x * this.mDelta),hxClipper_ClipperOffset.round(this.mSrcPoly[j].y + this.mNormals[k].y * this.mDelta)));
 				return k;
 			}
@@ -4348,8 +4249,7 @@ hxClipper_ClipperOffset.prototype = {
 		this.mDestPoly.push(new hxClipper_IntPoint(hxClipper_ClipperOffset.round(this.mSrcPoly[j].x + (this.mNormals[k].x + this.mNormals[j].x) * q),hxClipper_ClipperOffset.round(this.mSrcPoly[j].y + (this.mNormals[k].y + this.mNormals[j].y) * q)));
 	}
 	,doRound: function(j,k) {
-		var a = Math.atan2(this.mSinA,this.mNormals[k].x * this.mNormals[j].x + this.mNormals[k].y * this.mNormals[j].y);
-		var steps = Math.max(hxClipper_ClipperOffset.round(this.mStepsPerRad * Math.abs(a)) | 0,1) | 0;
+		var steps = Math.max(hxClipper_ClipperOffset.round(this.mStepsPerRad * Math.abs(Math.atan2(this.mSinA,this.mNormals[k].x * this.mNormals[j].x + this.mNormals[k].y * this.mNormals[j].y))) | 0,1) | 0;
 		var x = this.mNormals[k].x;
 		var y = this.mNormals[k].y;
 		var x2;
@@ -4392,9 +4292,7 @@ hxClipper_InternalTools.xor = function(a,b) {
 var hxClipper__$Clipper_Ref_$Impl_$ = {};
 hxClipper__$Clipper_Ref_$Impl_$.__name__ = true;
 hxClipper__$Clipper_Ref_$Impl_$._new = function() {
-	var this1 = new Array(1);
-	var this2 = this1;
-	return this2;
+	return new Array(1);
 };
 hxClipper__$Clipper_Ref_$Impl_$.get_value = function(this1) {
 	return this1[0];
@@ -4406,9 +4304,7 @@ hxClipper__$Clipper_Ref_$Impl_$.toString = function(this1) {
 	return "@[" + Std.string(this1[0]) + "]";
 };
 hxClipper__$Clipper_Ref_$Impl_$.to = function(v) {
-	var this1 = new Array(1);
-	var this2 = this1;
-	var ret = this2;
+	var ret = new Array(1);
 	ret[0] = v;
 	return ret;
 };
@@ -4576,8 +4472,7 @@ postite_display_canvas_CanvasDisplay.prototype = {
 		var fpsInterval = 1000 / fps;
 		var then = new Date();
 		var now;
-		var startTime = then;
-		console.log("src/postite/display/canvas/CanvasDisplay.hx:38:",startTime);
+		console.log("src/postite/display/canvas/CanvasDisplay.hx:38:",then);
 		var frame = 0;
 		this.raf = ($_=window,$bind($_,$_.requestAnimationFrame));
 		var animate = null;
@@ -4680,8 +4575,7 @@ postite_dro_Star.get_coords = function() {
 		while(i > 0) {
 			var r = 50 * (i % 2 + 1) / 2;
 			var omega = alpha * i;
-			var pt = { x : r * Math.sin(omega) + 100, y : r * Math.cos(omega) + 100, press : 1. * i};
-			postite_dro_Star._coords.push(postite_geom__$CoolPoint_Point_$Impl_$.fromPress(pt));
+			postite_dro_Star._coords.push(postite_geom__$CoolPoint_Point_$Impl_$.fromPress({ x : r * Math.sin(omega) + 100, y : r * Math.cos(omega) + 100, press : 1. * i}));
 			--i;
 		}
 	}
@@ -4728,26 +4622,22 @@ postite_dro__$Couleur_Couleur_$Impl_$.set_alpha = function(this1,value) {
 postite_dro__$Couleur_Couleur_$Impl_$.random = function(alpha,red,green,blue) {
 	var randomCouleur = 0;
 	if(alpha == null) {
-		var value = Math.round(255 * Math.random());
-		randomCouleur = value << 24 | (randomCouleur & 16711680) >>> 16 << 16 | (randomCouleur & 65280) >>> 8 << 8 | randomCouleur & 255;
+		randomCouleur = Math.round(255 * Math.random()) << 24 | (randomCouleur & 16711680) >>> 16 << 16 | (randomCouleur & 65280) >>> 8 << 8 | randomCouleur & 255;
 	} else {
 		randomCouleur = alpha << 24 | (randomCouleur & 16711680) >>> 16 << 16 | (randomCouleur & 65280) >>> 8 << 8 | randomCouleur & 255;
 	}
 	if(red == null) {
-		var value1 = Math.round(255 * Math.random());
-		randomCouleur = randomCouleur >>> 24 << 24 | value1 << 16 | (randomCouleur & 65280) >>> 8 << 8 | randomCouleur & 255;
+		randomCouleur = randomCouleur >>> 24 << 24 | Math.round(255 * Math.random()) << 16 | (randomCouleur & 65280) >>> 8 << 8 | randomCouleur & 255;
 	} else {
 		randomCouleur = randomCouleur >>> 24 << 24 | red << 16 | (randomCouleur & 65280) >>> 8 << 8 | randomCouleur & 255;
 	}
 	if(green == null) {
-		var value2 = Math.round(255 * Math.random());
-		randomCouleur = randomCouleur >>> 24 << 24 | (randomCouleur & 16711680) >>> 16 << 16 | value2 << 8 | randomCouleur & 255;
+		randomCouleur = randomCouleur >>> 24 << 24 | (randomCouleur & 16711680) >>> 16 << 16 | Math.round(255 * Math.random()) << 8 | randomCouleur & 255;
 	} else {
 		randomCouleur = randomCouleur >>> 24 << 24 | (randomCouleur & 16711680) >>> 16 << 16 | green << 8 | randomCouleur & 255;
 	}
 	if(blue == null) {
-		var value3 = Math.round(255 * Math.random());
-		randomCouleur = randomCouleur >>> 24 << 24 | (randomCouleur & 16711680) >>> 16 << 16 | (randomCouleur & 65280) >>> 8 << 8 | value3;
+		randomCouleur = randomCouleur >>> 24 << 24 | (randomCouleur & 16711680) >>> 16 << 16 | (randomCouleur & 65280) >>> 8 << 8 | Math.round(255 * Math.random());
 	} else {
 		randomCouleur = randomCouleur >>> 24 << 24 | (randomCouleur & 16711680) >>> 16 << 16 | (randomCouleur & 65280) >>> 8 << 8 | blue;
 	}
@@ -4772,14 +4662,10 @@ postite_dro__$Couleur_Couleur_$Impl_$.fromFloat = function(n) {
 };
 postite_dro__$Couleur_Couleur_$Impl_$.mix = function(this1,color,strength) {
 	var output = postite_dro__$Couleur_Couleur_$Impl_$._new(0);
-	var value = Math.floor(_$UInt_UInt_$Impl_$.toFloat((this1 & 16711680) >>> 16) * (1 - strength) + _$UInt_UInt_$Impl_$.toFloat((color & 16711680) >>> 16) * strength);
-	output = output >>> 24 << 24 | value << 16 | (output & 65280) >>> 8 << 8 | output & 255;
-	var value1 = Math.floor(_$UInt_UInt_$Impl_$.toFloat((this1 & 65280) >>> 8) * (1 - strength) + _$UInt_UInt_$Impl_$.toFloat((color & 65280) >>> 8) * strength);
-	output = output >>> 24 << 24 | (output & 16711680) >>> 16 << 16 | value1 << 8 | output & 255;
-	var value2 = Math.floor(_$UInt_UInt_$Impl_$.toFloat(this1 & 255) * (1 - strength) + _$UInt_UInt_$Impl_$.toFloat(color & 255) * strength);
-	output = output >>> 24 << 24 | (output & 16711680) >>> 16 << 16 | (output & 65280) >>> 8 << 8 | value2;
-	var value3 = Math.floor(_$UInt_UInt_$Impl_$.toFloat(this1 >>> 24) * (1 - strength) + _$UInt_UInt_$Impl_$.toFloat(color >>> 24) * strength);
-	output = value3 << 24 | (output & 16711680) >>> 16 << 16 | (output & 65280) >>> 8 << 8 | output & 255;
+	output = output >>> 24 << 24 | Math.floor(_$UInt_UInt_$Impl_$.toFloat((this1 & 16711680) >>> 16) * (1 - strength) + _$UInt_UInt_$Impl_$.toFloat((color & 16711680) >>> 16) * strength) << 16 | (output & 65280) >>> 8 << 8 | output & 255;
+	output = output >>> 24 << 24 | (output & 16711680) >>> 16 << 16 | Math.floor(_$UInt_UInt_$Impl_$.toFloat((this1 & 65280) >>> 8) * (1 - strength) + _$UInt_UInt_$Impl_$.toFloat((color & 65280) >>> 8) * strength) << 8 | output & 255;
+	output = output >>> 24 << 24 | (output & 16711680) >>> 16 << 16 | (output & 65280) >>> 8 << 8 | Math.floor(_$UInt_UInt_$Impl_$.toFloat(this1 & 255) * (1 - strength) + _$UInt_UInt_$Impl_$.toFloat(color & 255) * strength);
+	output = Math.floor(_$UInt_UInt_$Impl_$.toFloat(this1 >>> 24) * (1 - strength) + _$UInt_UInt_$Impl_$.toFloat(color >>> 24) * strength) << 24 | (output & 16711680) >>> 16 << 16 | (output & 65280) >>> 8 << 8 | output & 255;
 	return output;
 };
 postite_dro__$Couleur_Couleur_$Impl_$.add = function(this1,color) {
@@ -4831,8 +4717,7 @@ postite_dro_Dro.drawPoly = function(ctx,poly,col) {
 	var _g = 1;
 	var _g1 = poly.length;
 	while(_g < _g1) {
-		var i = _g++;
-		var p = poly[i];
+		var p = poly[_g++];
 		ctx.lineTo(p.x / 1,p.y / 1);
 	}
 	ctx.lineTo(p0.x / 1,p0.y / 1);
@@ -4850,8 +4735,7 @@ postite_dro_Dro.drawPath = function(ctx,poly,col) {
 	var _g = 1;
 	var _g1 = poly.length;
 	while(_g < _g1) {
-		var i = _g++;
-		var p = poly[i];
+		var p = poly[_g++];
 		ctx.lineTo(p.x / 1,p.y / 1);
 	}
 	ctx.stroke();
@@ -4924,8 +4808,7 @@ postite_geom__$CoolPoint_Point_$Impl_$._new = function(x,y) {
 	if(x == null) {
 		x = 0;
 	}
-	var this1 = { x : x, y : y};
-	return this1;
+	return { x : x, y : y};
 };
 postite_geom__$CoolPoint_Point_$Impl_$.add = function(this1,p) {
 	return postite_geom__$CoolPoint_Point_$Impl_$._new(this1.x + p.x,this1.y + p.y);
@@ -4942,8 +4825,7 @@ postite_geom__$CoolPoint_Point_$Impl_$.toPress = function(this1) {
 var postite_geom__$CoolPoint_CoolPoint_$Impl_$ = {};
 postite_geom__$CoolPoint_CoolPoint_$Impl_$.__name__ = true;
 postite_geom__$CoolPoint_CoolPoint_$Impl_$._new = function(x,y,p) {
-	var this1 = { x : x, y : y, press : p};
-	return this1;
+	return { x : x, y : y, press : p};
 };
 postite_geom__$CoolPoint_CoolPoint_$Impl_$.fromArray = function(a) {
 	return postite_geom__$CoolPoint_CoolPoint_$Impl_$._new(a[0],a[1],a[2]);
@@ -4996,9 +4878,7 @@ postite_geom_GeomFilters.scaleTo = function(points,size) {
 	while(_g < _g1.length) {
 		var point = _g1[_g];
 		++_g;
-		var qx = point.x * (size / B.width);
-		var qy = point.y * (size / B.height);
-		newpoints[newpoints.length] = postite_geom__$CoolPoint_Point_$Impl_$._new(qx,qy);
+		newpoints[newpoints.length] = postite_geom__$CoolPoint_Point_$Impl_$._new(point.x * (size / B.width),point.y * (size / B.height));
 	}
 	return newpoints;
 };
@@ -5018,8 +4898,7 @@ postite_geom_GeomFilters.clipOff = function(segs,scale) {
 		result[i] = seg;
 	}
 	var paths = [];
-	var path = postite_geom_GeomFilters.MakePolygonFromInts(ints);
-	paths.push(path);
+	paths.push(postite_geom_GeomFilters.MakePolygonFromInts(ints));
 	var co = new hxClipper_ClipperOffset();
 	co.addPaths(paths,hxClipper_JoinType.JT_MITER,hxClipper_EndType.ET_CLOSED_POLYGON);
 	var solution = [];
@@ -5052,13 +4931,19 @@ postite_geom_GeomFilters.boundRectForPoly = function(poly) {
 		minY = Math.min(minY,point.y);
 		maxY = Math.max(maxY,point.y);
 	}
-	var width = maxX - minX;
-	var height = maxY - minY;
-	return { x : minX, y : minY, width : width, height : height};
+	return { x : minX, y : minY, width : maxX - minX, height : maxY - minY};
 };
 postite_geom_GeomFilters.close = function(pts) {
 	pts.push(pts[0]);
 	return pts;
+};
+postite_geom_GeomFilters.randomInCircle = function(R,center) {
+	var r = R * Math.sqrt(Math.random());
+	var theta = Math.random() * 2 * Math.PI;
+	return { x : center.x + r * Math.cos(theta), y : center.y + r * Math.sin(theta)};
+};
+postite_geom_GeomFilters.pointIsInCircle = function(circleRadius,center,pt) {
+	return Math.pow(pt.x - center.x,2) + Math.pow(pt.y - center.y,2) < Math.pow(circleRadius,2);
 };
 postite_geom_GeomFilters.isOpen = function(pts) {
 	throw new js__$Boot_HaxeError(" not implmented yet");
@@ -5108,9 +4993,7 @@ postite_geom_GeomFilters.isClosedAt = function(pts,simplify) {
 postite_geom_GeomFilters.isInsideRect = function(p,rect) {
 	var minX = rect.x;
 	var minY = rect.y;
-	var maxX = rect.width + minX;
-	var maxY = rect.height + minY;
-	if(p.x < minX || p.x > maxX || p.y < minY || p.y > maxY) {
+	if(p.x < minX || p.x > rect.width + minX || p.y < minY || p.y > rect.height + minY) {
 		return false;
 	}
 	return true;
@@ -5154,9 +5037,7 @@ postite_geom_GeomFilters.rotateBy = function(points,radians) {
 	while(_g < _g1.length) {
 		var point = _g1[_g];
 		++_g;
-		var qx = (point.x - c.x) * cos - (point.y - c.y) * sin + c.x;
-		var qy = (point.x - c.x) * sin + (point.y - c.y) * cos + c.y;
-		newpoints[newpoints.length] = postite_geom__$CoolPoint_Point_$Impl_$._new(qx,qy);
+		newpoints[newpoints.length] = postite_geom__$CoolPoint_Point_$Impl_$._new((point.x - c.x) * cos - (point.y - c.y) * sin + c.x,(point.x - c.x) * sin + (point.y - c.y) * cos + c.y);
 	}
 	return newpoints;
 };
@@ -5168,9 +5049,7 @@ postite_geom_GeomFilters.translateTo = function(points,pt) {
 	while(_g < _g1.length) {
 		var point = _g1[_g];
 		++_g;
-		var qx = point.x + pt.x - c.x;
-		var qy = point.y + pt.y - c.y;
-		newpoints[newpoints.length] = postite_geom__$CoolPoint_Point_$Impl_$._new(qx,qy);
+		newpoints[newpoints.length] = postite_geom__$CoolPoint_Point_$Impl_$._new(point.x + pt.x - c.x,point.y + pt.y - c.y);
 	}
 	return newpoints;
 };
@@ -5200,9 +5079,7 @@ postite_geom_Geste.Resample = function(origpoints,n) {
 		++_g;
 		var d = postite_geom_Geste.Distance(points[i - 1],points[i]);
 		if(D + d >= I) {
-			var qx = points[i - 1].x + (I - D) / d * (points[i].x - points[i - 1].x);
-			var qy = points[i - 1].y + (I - D) / d * (points[i].y - points[i - 1].y);
-			var q = postite_geom__$CoolPoint_Point_$Impl_$._new(qx,qy);
+			var q = postite_geom__$CoolPoint_Point_$Impl_$._new(points[i - 1].x + (I - D) / d * (points[i].x - points[i - 1].x),points[i - 1].y + (I - D) / d * (points[i].y - points[i - 1].y));
 			newpoints.push(q);
 			points.slice(i);
 			points.splice(i,0,q);
@@ -5234,9 +5111,7 @@ postite_geom_Geste.ScaleTo = function(points,size) {
 	while(_g < _g1.length) {
 		var point = _g1[_g];
 		++_g;
-		var qx = point.x * (size / B.width);
-		var qy = point.y * (size / B.height);
-		newpoints[newpoints.length] = postite_geom__$CoolPoint_Point_$Impl_$._new(qx,qy);
+		newpoints[newpoints.length] = postite_geom__$CoolPoint_Point_$Impl_$._new(point.x * (size / B.width),point.y * (size / B.height));
 	}
 	return newpoints;
 };
@@ -5258,10 +5133,7 @@ postite_geom_Geste.Vectorize = function(points) {
 	var magnitude = Math.sqrt(sum);
 	var _g2 = 0;
 	var _g3 = vector.length;
-	while(_g2 < _g3) {
-		var i = _g2++;
-		vector[i] /= magnitude;
-	}
+	while(_g2 < _g3) vector[_g2++] /= magnitude;
 	return vector;
 };
 postite_geom_Geste.OptimalCosineDistance = function(v1,v2) {
@@ -5275,7 +5147,7 @@ postite_geom_Geste.OptimalCosineDistance = function(v1,v2) {
 			a += v1[i] * v2[i] + v1[i + 1] * v2[i + 1];
 			b += v1[i] * v2[i + 1] - v1[i + 1] * v2[i];
 		} catch( msg ) {
-			console.log("src/postite/geom/Geste.hx:211:","eer" + Std.string(((msg) instanceof js__$Boot_HaxeError) ? msg.val : msg));
+			console.log("src/postite/geom/Geste.hx:208:","eer" + Std.string(((msg) instanceof js__$Boot_HaxeError) ? msg.val : msg));
 		}
 	}
 	var angle = Math.atan(b / a);
@@ -5302,8 +5174,7 @@ postite_geom_Geste.DistanceAtBestAngle = function(points,t,a,b,threshold) {
 	return Math.min(f1,f2);
 };
 postite_geom_Geste.DistanceAtAngle = function(points,t,radians) {
-	var newpoints = postite_geom_Geste.RotateBy(points,radians);
-	return postite_geom_Geste.PathDistance(newpoints,t.Points);
+	return postite_geom_Geste.PathDistance(postite_geom_Geste.RotateBy(points,radians),t.Points);
 };
 postite_geom_Geste.Centroid = function(points) {
 	return postite_geom_GeomFilters.centroid(points);
@@ -5356,8 +5227,7 @@ postite_geom_Geste.prototype = {
 	Recognize: function(points,useProtractor) {
 		var t0 = new Date();
 		points = postite_geom_Geste.Resample(points,postite_geom_Geste.NumPoints);
-		var radians = postite_geom_Geste.IndicativeAngle(points);
-		points = postite_geom_Geste.RotateBy(points,-radians);
+		points = postite_geom_Geste.RotateBy(points,-postite_geom_Geste.IndicativeAngle(points));
 		points = postite_geom_Geste.ScaleTo(points,postite_geom_Geste.SquareSize);
 		points = postite_geom_Geste.TranslateTo(points,postite_geom_Geste.Origin);
 		var vector = postite_geom_Geste.Vectorize(points);
@@ -5393,11 +5263,8 @@ postite_geom_Geste.prototype = {
 		var num = 0;
 		var _g = 0;
 		var _g1 = this.Unistrokes.length;
-		while(_g < _g1) {
-			var i = _g++;
-			if(this.Unistrokes[i].Name == name) {
-				++num;
-			}
+		while(_g < _g1) if(this.Unistrokes[_g++].Name == name) {
+			++num;
 		}
 		return num;
 	}
@@ -5434,8 +5301,7 @@ postite_geom__$PolyGon_PolyGon_$Impl_$.get_points = function(this1) {
 	return this1;
 };
 postite_geom__$PolyGon_PolyGon_$Impl_$._new = function(points) {
-	var this1 = points == null ? [] : points;
-	return this1;
+	return points == null ? [] : points;
 };
 postite_geom__$PolyGon_PolyGon_$Impl_$.convexHull = function(this1) {
 	if(this1.length < 3) {
@@ -5566,15 +5432,12 @@ postite_geom__$PolyGon_PolyGon_$Impl_$.optimizeRec = function(points,start,end,o
 	while(_g < end) {
 		var i = _g++;
 		var p0 = points[i];
-		var A = p0.x - pfirst.x;
-		var B = p0.y - pfirst.y;
 		var C = plast.x - pfirst.x;
 		var D = plast.y - pfirst.y;
-		var dot = A * C + B * D;
 		var dist = C * C + D * D;
 		var param = -1.;
 		if(dist != 0) {
-			param = dot / dist;
+			param = ((p0.x - pfirst.x) * C + (p0.y - pfirst.y) * D) / dist;
 		}
 		var xx;
 		var yy;
@@ -5663,9 +5526,7 @@ postite_geom_Segment.prototype = {
 		return Math.sqrt(tmp);
 	}
 	,project: function(p) {
-		var px = p.x - this.x;
-		var py = p.y - this.y;
-		var t = px * this.dx + py * this.dy;
+		var t = (p.x - this.x) * this.dx + (p.y - this.y) * this.dy;
 		if(t < 0) {
 			return postite_geom__$CoolPoint_Point_$Impl_$._new(this.x,this.y);
 		} else if(t > this.lenSq) {
@@ -5753,8 +5614,7 @@ postite_geom_Simplify.simplifyRadialDistance = function(points,sqTolerance) {
 	newPoints = [prevPoint];
 	var _g = 0;
 	while(_g < len) {
-		var i = _g++;
-		point = points[i];
+		point = points[_g++];
 		if(postite_geom_Simplify.getSquareDistance(point,prevPoint) > sqTolerance) {
 			newPoints.push(point);
 			prevPoint = point;
@@ -5835,8 +5695,7 @@ postite_geom_units__$Degree_Degree_$Impl_$.fromFloat = function(value) {
 	return value;
 };
 postite_geom_units__$Degree_Degree_$Impl_$.fromInt = function(value) {
-	var this1 = value;
-	return this1;
+	return value;
 };
 postite_geom_units__$Degree_Degree_$Impl_$._new = function(value) {
 	return value;
@@ -5846,37 +5705,29 @@ postite_geom_units__$Degree_Degree_$Impl_$.abs = function(this1) {
 };
 postite_geom_units__$Degree_Degree_$Impl_$.min = function(this1,that) {
 	var b = that;
-	var this2 = this1 < b ? this1 : b;
-	return this2;
+	return this1 < b ? this1 : b;
 };
 postite_geom_units__$Degree_Degree_$Impl_$.max = function(this1,that) {
 	var b = that;
-	var this2 = this1 > b ? this1 : b;
-	return this2;
+	return this1 > b ? this1 : b;
 };
 postite_geom_units__$Degree_Degree_$Impl_$.negate = function(this1) {
-	var this2 = -this1;
-	return this2;
+	return -this1;
 };
 postite_geom_units__$Degree_Degree_$Impl_$.add = function(this1,that) {
-	var this2 = this1 + that;
-	return this2;
+	return this1 + that;
 };
 postite_geom_units__$Degree_Degree_$Impl_$.subtract = function(this1,that) {
-	var this2 = this1 - that;
-	return this2;
+	return this1 - that;
 };
 postite_geom_units__$Degree_Degree_$Impl_$.multiply = function(this1,that) {
-	var this2 = this1 * that;
-	return this2;
+	return this1 * that;
 };
 postite_geom_units__$Degree_Degree_$Impl_$.divide = function(this1,that) {
-	var this2 = this1 / that;
-	return this2;
+	return this1 / that;
 };
 postite_geom_units__$Degree_Degree_$Impl_$.modulo = function(this1,that) {
-	var this2 = this1 % that;
-	return this2;
+	return this1 % that;
 };
 postite_geom_units__$Degree_Degree_$Impl_$.equalsTo = function(this1,that) {
 	return this1 == that;
@@ -5952,8 +5803,7 @@ postite_geom_units__$Degree_Degree_$Impl_$.normalize = function(this1) {
 postite_geom_units__$Degree_Degree_$Impl_$.normalizeDirection = function(this1) {
 	var normalized = postite_geom_units__$Degree_Degree_$Impl_$.normalize(this1);
 	if(normalized >= postite_geom_units__$Degree_Degree_$Impl_$.turn / 2) {
-		var this2 = normalized - postite_geom_units__$Degree_Degree_$Impl_$.turn;
-		return this2;
+		return normalized - postite_geom_units__$Degree_Degree_$Impl_$.turn;
 	} else {
 		return normalized;
 	}
@@ -5964,8 +5814,7 @@ postite_geom_units__$Radian_Radian_$Impl_$.fromFloat = function(value) {
 	return value;
 };
 postite_geom_units__$Radian_Radian_$Impl_$.fromInt = function(value) {
-	var this1 = value;
-	return this1;
+	return value;
 };
 postite_geom_units__$Radian_Radian_$Impl_$._new = function(value) {
 	return value;
@@ -5975,37 +5824,29 @@ postite_geom_units__$Radian_Radian_$Impl_$.abs = function(this1) {
 };
 postite_geom_units__$Radian_Radian_$Impl_$.min = function(this1,that) {
 	var b = that;
-	var this2 = this1 < b ? this1 : b;
-	return this2;
+	return this1 < b ? this1 : b;
 };
 postite_geom_units__$Radian_Radian_$Impl_$.max = function(this1,that) {
 	var b = that;
-	var this2 = this1 > b ? this1 : b;
-	return this2;
+	return this1 > b ? this1 : b;
 };
 postite_geom_units__$Radian_Radian_$Impl_$.negate = function(this1) {
-	var this2 = -this1;
-	return this2;
+	return -this1;
 };
 postite_geom_units__$Radian_Radian_$Impl_$.add = function(this1,that) {
-	var this2 = this1 + that;
-	return this2;
+	return this1 + that;
 };
 postite_geom_units__$Radian_Radian_$Impl_$.subtract = function(this1,that) {
-	var this2 = this1 - that;
-	return this2;
+	return this1 - that;
 };
 postite_geom_units__$Radian_Radian_$Impl_$.multiply = function(this1,that) {
-	var this2 = this1 * that;
-	return this2;
+	return this1 * that;
 };
 postite_geom_units__$Radian_Radian_$Impl_$.divide = function(this1,that) {
-	var this2 = this1 / that;
-	return this2;
+	return this1 / that;
 };
 postite_geom_units__$Radian_Radian_$Impl_$.modulo = function(this1,that) {
-	var this2 = this1 % that;
-	return this2;
+	return this1 % that;
 };
 postite_geom_units__$Radian_Radian_$Impl_$.equalsTo = function(this1,that) {
 	return this1 == that;
@@ -6081,8 +5922,7 @@ postite_geom_units__$Radian_Radian_$Impl_$.normalize = function(this1) {
 postite_geom_units__$Radian_Radian_$Impl_$.normalizeDirection = function(this1) {
 	var normalized = postite_geom_units__$Radian_Radian_$Impl_$.normalize(this1);
 	if(normalized >= postite_geom_units__$Radian_Radian_$Impl_$.turn / 2) {
-		var this2 = normalized - postite_geom_units__$Radian_Radian_$Impl_$.turn;
-		return this2;
+		return normalized - postite_geom_units__$Radian_Radian_$Impl_$.turn;
 	} else {
 		return normalized;
 	}
@@ -6099,10 +5939,7 @@ postite_math_Matools.inverseLerp = function(_min,max,value) {
 	return (value - _min) / (max - _min);
 };
 postite_math_Matools.scale = function(old,neo,OldValue) {
-	var OldRange = old[1] - old[0];
-	var NewRange = neo[1] - neo[0];
-	var NewValue = (OldValue - old[0]) * NewRange / OldRange + neo[0];
-	return NewValue;
+	return (OldValue - old[0]) * (neo[1] - neo[0]) / (old[1] - old[0]) + neo[0];
 };
 postite_math_Matools.wrap = function(x,n) {
 	if(x < 0) {
@@ -6408,11 +6245,7 @@ tink_core__$Callback_Callback_$Impl_$.fromNiladic = function(f) {
 tink_core__$Callback_Callback_$Impl_$.fromMany = function(callbacks) {
 	return function(v) {
 		var _g = 0;
-		while(_g < callbacks.length) {
-			var callback = callbacks[_g];
-			++_g;
-			tink_core__$Callback_Callback_$Impl_$.invoke(callback,v);
-		}
+		while(_g < callbacks.length) tink_core__$Callback_Callback_$Impl_$.invoke(callbacks[_g++],v);
 	};
 };
 tink_core__$Callback_Callback_$Impl_$.defer = function(f) {
@@ -6421,8 +6254,7 @@ tink_core__$Callback_Callback_$Impl_$.defer = function(f) {
 var tink_core__$Callback_CallbackLink_$Impl_$ = {};
 tink_core__$Callback_CallbackLink_$Impl_$.__name__ = true;
 tink_core__$Callback_CallbackLink_$Impl_$._new = function(link) {
-	var this1 = new tink_core_SimpleLink(link);
-	return this1;
+	return new tink_core_SimpleLink(link);
 };
 tink_core__$Callback_CallbackLink_$Impl_$.cancel = function(this1) {
 	if(this1 != null) {
@@ -6449,14 +6281,13 @@ tink_core__$Callback_CallbackLink_$Impl_$.toCallback = function(this1) {
 	};
 };
 tink_core__$Callback_CallbackLink_$Impl_$.fromFunction = function(f) {
-	var this1 = new tink_core_SimpleLink(f);
-	return this1;
+	return new tink_core_SimpleLink(f);
 };
 tink_core__$Callback_CallbackLink_$Impl_$.join = function(a,b) {
 	return new tink_core__$Callback_LinkPair(a,b);
 };
 tink_core__$Callback_CallbackLink_$Impl_$.fromMany = function(callbacks) {
-	var this1 = new tink_core_SimpleLink(function() {
+	return new tink_core_SimpleLink(function() {
 		var _g = 0;
 		while(_g < callbacks.length) {
 			var cb = callbacks[_g];
@@ -6466,7 +6297,6 @@ tink_core__$Callback_CallbackLink_$Impl_$.fromMany = function(callbacks) {
 			}
 		}
 	});
-	return this1;
 };
 var tink_core_SimpleLink = function(f) {
 	this.f = f;
@@ -6532,8 +6362,7 @@ tink_core__$Callback_ListCell.prototype = {
 var tink_core__$Callback_CallbackList_$Impl_$ = {};
 tink_core__$Callback_CallbackList_$Impl_$.__name__ = true;
 tink_core__$Callback_CallbackList_$Impl_$._new = function() {
-	var this1 = [];
-	return this1;
+	return [];
 };
 tink_core__$Callback_CallbackList_$Impl_$.get_length = function(this1) {
 	return this1.length;
@@ -6557,11 +6386,7 @@ tink_core__$Callback_CallbackList_$Impl_$.invoke = function(this1,data) {
 tink_core__$Callback_CallbackList_$Impl_$.clear = function(this1) {
 	var _g = 0;
 	var _g1 = this1.splice(0,this1.length);
-	while(_g < _g1.length) {
-		var cell = _g1[_g];
-		++_g;
-		cell.clear();
-	}
+	while(_g < _g1.length) _g1[_g++].clear();
 };
 tink_core__$Callback_CallbackList_$Impl_$.invokeAndClear = function(this1,data) {
 	var _g = 0;
@@ -6637,8 +6462,7 @@ tink_core_TypedError.prototype = {
 		return ret;
 	}
 	,throwSelf: function() {
-		var any = this;
-		throw js__$Boot_HaxeError.wrap(any);
+		throw js__$Boot_HaxeError.wrap(this);
 	}
 };
 var tink_core__$Error_Stack_$Impl_$ = {};
@@ -6718,8 +6542,7 @@ tink_core__$Future_SyncFuture.prototype = {
 var tink_core__$Future_Future_$Impl_$ = {};
 tink_core__$Future_Future_$Impl_$.__name__ = true;
 tink_core__$Future_Future_$Impl_$._new = function(f) {
-	var this1 = new tink_core__$Future_SimpleFuture(f);
-	return this1;
+	return new tink_core__$Future_SimpleFuture(f);
 };
 tink_core__$Future_Future_$Impl_$.first = function(this1,other) {
 	var ret = new tink_core_FutureTrigger();
@@ -6776,10 +6599,9 @@ tink_core__$Future_Future_$Impl_$.merge = function(this1,other,merger,gather) {
 		gather1 = true;
 	}
 	var ret = this1.flatMap(function(t) {
-		var ret1 = other.map(function(a) {
+		return other.map(function(a) {
 			return merger(t,a);
 		});
-		return ret1;
 	});
 	if(gather1) {
 		return ret.gather();
@@ -6812,22 +6634,16 @@ tink_core__$Future_Future_$Impl_$.ofMany = function(futures,gather) {
 	}
 	var ret = new tink_core__$Future_SyncFuture(new tink_core__$Lazy_LazyConst([]));
 	var _g = 0;
-	while(_g < futures.length) {
-		var f = [futures[_g]];
-		++_g;
-		var ret1 = ret.flatMap((function(f1) {
-			return function(results) {
-				var ret2 = (function() {
-					return function(result) {
-						return results.concat([result]);
-					};
-				})();
-				var ret3 = f1[0].map(ret2);
-				return ret3;
-			};
-		})(f));
-		ret = ret1;
-	}
+	while(_g < futures.length) ret = ret.flatMap((function(f) {
+		return function(results) {
+			var ret1 = (function() {
+				return function(result) {
+					return results.concat([result]);
+				};
+			})();
+			return f[0].map(ret1);
+		};
+	})([futures[_g++]]));
 	if(gather) {
 		return ret.gather();
 	} else {
@@ -6851,8 +6667,7 @@ tink_core__$Future_Future_$Impl_$.async = function(f,lazy) {
 		return new tink_core__$Future_LazyTrigger(f);
 	} else {
 		var op = new tink_core_FutureTrigger();
-		var wrapped = f;
-		tink_core__$Callback_Callback_$Impl_$.invoke(wrapped,$bind(op,op.trigger));
+		tink_core__$Callback_Callback_$Impl_$.invoke(f,$bind(op,op.trigger));
 		return op;
 	}
 };
@@ -6860,58 +6675,48 @@ tink_core__$Future_Future_$Impl_$.or = function(a,b) {
 	return tink_core__$Future_Future_$Impl_$.first(a,b);
 };
 tink_core__$Future_Future_$Impl_$.either = function(a,b) {
-	var ret = a.map(haxe_ds_Either.Left);
-	var ret1 = b.map(haxe_ds_Either.Right);
-	return tink_core__$Future_Future_$Impl_$.first(ret,ret1);
+	return tink_core__$Future_Future_$Impl_$.first(a.map(haxe_ds_Either.Left),b.map(haxe_ds_Either.Right));
 };
 tink_core__$Future_Future_$Impl_$.and = function(a,b) {
 	return tink_core__$Future_Future_$Impl_$.merge(a,b,function(a1,b1) {
-		var this1 = new tink_core_MPair(a1,b1);
-		return this1;
+		return new tink_core_MPair(a1,b1);
 	});
 };
 tink_core__$Future_Future_$Impl_$._tryFailingFlatMap = function(f,map) {
-	var ret = f.flatMap(function(o) {
+	return f.flatMap(function(o) {
 		switch(o._hx_index) {
 		case 0:
 			return map(o.data);
 		case 1:
 			return new tink_core__$Future_SyncFuture(new tink_core__$Lazy_LazyConst(tink_core_Outcome.Failure(o.failure)));
 		}
-	});
-	return ret.gather();
+	}).gather();
 };
 tink_core__$Future_Future_$Impl_$._tryFlatMap = function(f,map) {
-	var ret = f.flatMap(function(o) {
+	return f.flatMap(function(o) {
 		switch(o._hx_index) {
 		case 0:
-			var ret1 = map(o.data).map(tink_core_Outcome.Success);
-			return ret1.gather();
+			return map(o.data).map(tink_core_Outcome.Success).gather();
 		case 1:
 			return new tink_core__$Future_SyncFuture(new tink_core__$Lazy_LazyConst(tink_core_Outcome.Failure(o.failure)));
 		}
-	});
-	return ret.gather();
+	}).gather();
 };
 tink_core__$Future_Future_$Impl_$._tryFailingMap = function(f,map) {
-	var ret = f.map(function(o) {
+	return f.map(function(o) {
 		return tink_core_OutcomeTools.flatMap(o,tink_core__$Outcome_OutcomeMapper_$Impl_$.withSameError(map));
-	});
-	return ret.gather();
+	}).gather();
 };
 tink_core__$Future_Future_$Impl_$._tryMap = function(f,map) {
-	var ret = f.map(function(o) {
+	return f.map(function(o) {
 		return tink_core_OutcomeTools.map(o,map);
-	});
-	return ret.gather();
+	}).gather();
 };
 tink_core__$Future_Future_$Impl_$._flatMap = function(f,map) {
-	var ret = f.flatMap(map);
-	return ret.gather();
+	return f.flatMap(map).gather();
 };
 tink_core__$Future_Future_$Impl_$._map = function(f,map) {
-	var ret = f.map(map);
-	return ret.gather();
+	return f.map(map).gather();
 };
 tink_core__$Future_Future_$Impl_$.trigger = function() {
 	return new tink_core_FutureTrigger();
@@ -6970,18 +6775,14 @@ var tink_core__$Future_NestedFuture = function(outer) {
 tink_core__$Future_NestedFuture.__name__ = true;
 tink_core__$Future_NestedFuture.prototype = {
 	map: function(f) {
-		var ret = this.outer.flatMap(function(inner) {
-			var ret1 = inner.map(f);
-			return ret1.gather();
-		});
-		return ret.gather();
+		return this.outer.flatMap(function(inner) {
+			return inner.map(f).gather();
+		}).gather();
 	}
 	,flatMap: function(f) {
-		var ret = this.outer.flatMap(function(inner) {
-			var ret1 = inner.flatMap(f);
-			return ret1.gather();
-		});
-		return ret.gather();
+		return this.outer.flatMap(function(inner) {
+			return inner.flatMap(f).gather();
+		}).gather();
 	}
 	,gather: function() {
 		if(this.gathered != null) {
@@ -7007,13 +6808,12 @@ tink_core__$Future_NestedFuture.prototype = {
 	}
 };
 var tink_core_FutureTrigger = function() {
-	var this1 = [];
-	this.list = this1;
+	this.list = [];
 };
 tink_core_FutureTrigger.__name__ = true;
 tink_core_FutureTrigger.gatherFuture = function(f) {
 	var op = null;
-	var this1 = new tink_core__$Future_SimpleFuture(function(cb) {
+	return new tink_core__$Future_SimpleFuture(function(cb) {
 		if(op == null) {
 			op = new tink_core_FutureTrigger();
 			f.handle($bind(op,op.trigger));
@@ -7021,7 +6821,6 @@ tink_core_FutureTrigger.gatherFuture = function(f) {
 		}
 		return op.handle(cb);
 	});
-	return this1;
 };
 tink_core_FutureTrigger.prototype = {
 	handle: function(callback) {
@@ -7079,9 +6878,6 @@ tink_core_FutureTrigger.prototype = {
 	}
 };
 var tink_core__$Future_LazyTrigger = function(op) {
-	if(op == null) {
-		throw new js__$Boot_HaxeError("invalid argument");
-	}
 	this.op = op;
 	tink_core_FutureTrigger.call(this);
 };
@@ -7152,20 +6948,14 @@ tink_core__$Lazy_Lazy_$Impl_$.ofConst = function(c) {
 	return new tink_core__$Lazy_LazyConst(c);
 };
 var tink_core__$Lazy_LazyFunc = function(f) {
-	this.busy = false;
 	this.f = f;
 };
 tink_core__$Lazy_LazyFunc.__name__ = true;
 tink_core__$Lazy_LazyFunc.prototype = {
 	get: function() {
-		if(this.busy) {
-			throw new js__$Boot_HaxeError(new tink_core_TypedError(null,"circular lazyness",{ fileName : "tink/core/Lazy.hx", lineNumber : 54, className : "tink.core._Lazy.LazyFunc", methodName : "get"}));
-		}
 		if(this.f != null) {
-			this.busy = true;
 			this.result = this.f();
 			this.f = null;
-			this.busy = false;
 		}
 		return this.result;
 	}
@@ -7399,8 +7189,7 @@ tink_core_OutcomeTools.flatten = function(o) {
 var tink_core__$Outcome_OutcomeMapper_$Impl_$ = {};
 tink_core__$Outcome_OutcomeMapper_$Impl_$.__name__ = true;
 tink_core__$Outcome_OutcomeMapper_$Impl_$._new = function(f) {
-	var this1 = { f : f};
-	return this1;
+	return { f : f};
 };
 tink_core__$Outcome_OutcomeMapper_$Impl_$.apply = function(this1,o) {
 	return this1.f(o);
@@ -7435,8 +7224,7 @@ tink_core__$Outcome_OutcomeMapper_$Impl_$.withEitherError = function(f) {
 var tink_core__$Pair_Pair_$Impl_$ = {};
 tink_core__$Pair_Pair_$Impl_$.__name__ = true;
 tink_core__$Pair_Pair_$Impl_$._new = function(a,b) {
-	var this1 = new tink_core_MPair(a,b);
-	return this1;
+	return new tink_core_MPair(a,b);
 };
 tink_core__$Pair_Pair_$Impl_$.get_a = function(this1) {
 	return this1.a;
@@ -7464,58 +7252,52 @@ tink_core__$Promise_Promise_$Impl_$._new = function(f,lazy) {
 	if(lazy == null) {
 		lazy = false;
 	}
-	var this1 = tink_core__$Future_Future_$Impl_$.async(function(cb) {
+	return tink_core__$Future_Future_$Impl_$.async(function(cb) {
 		f(function(v) {
 			cb(tink_core_Outcome.Success(v));
 		},function(e) {
 			cb(tink_core_Outcome.Failure(e));
 		});
 	},lazy);
-	return this1;
 };
 tink_core__$Promise_Promise_$Impl_$.eager = function(this1) {
 	return this1.eager();
 };
 tink_core__$Promise_Promise_$Impl_$.map = function(this1,f) {
-	var ret = this1.map(f);
-	return ret.gather();
+	return this1.map(f).gather();
 };
 tink_core__$Promise_Promise_$Impl_$.flatMap = function(this1,f) {
-	var ret = this1.flatMap(f);
-	return ret.gather();
+	return this1.flatMap(f).gather();
 };
 tink_core__$Promise_Promise_$Impl_$.tryRecover = function(this1,f) {
-	var ret = this1.flatMap(function(o) {
+	return this1.flatMap(function(o) {
 		switch(o._hx_index) {
 		case 0:
 			return new tink_core__$Future_SyncFuture(new tink_core__$Lazy_LazyConst(o));
 		case 1:
 			return f(o.failure);
 		}
-	});
-	return ret.gather();
+	}).gather();
 };
 tink_core__$Promise_Promise_$Impl_$.recover = function(this1,f) {
-	var ret = this1.flatMap(function(o) {
+	return this1.flatMap(function(o) {
 		switch(o._hx_index) {
 		case 0:
 			return new tink_core__$Future_SyncFuture(new tink_core__$Lazy_LazyConst(o.data));
 		case 1:
 			return f(o.failure);
 		}
-	});
-	return ret.gather();
+	}).gather();
 };
 tink_core__$Promise_Promise_$Impl_$.mapError = function(this1,f) {
-	var ret = this1.map(function(o) {
+	return this1.map(function(o) {
 		switch(o._hx_index) {
 		case 0:
 			return o;
 		case 1:
 			return tink_core_Outcome.Failure(f(o.failure));
 		}
-	});
-	return ret.gather();
+	}).gather();
 };
 tink_core__$Promise_Promise_$Impl_$.handle = function(this1,cb) {
 	return this1.handle(cb);
@@ -7526,10 +7308,9 @@ tink_core__$Promise_Promise_$Impl_$.noise = function(this1) {
 	});
 };
 tink_core__$Promise_Promise_$Impl_$.isSuccess = function(this1) {
-	var ret = this1.map(function(o) {
+	return this1.map(function(o) {
 		return tink_core_OutcomeTools.isSuccess(o);
-	});
-	return ret.gather();
+	}).gather();
 };
 tink_core__$Promise_Promise_$Impl_$.next = function(this1,f,gather) {
 	if(gather == null) {
@@ -7575,8 +7356,7 @@ tink_core__$Promise_Promise_$Impl_$.merge = function(this1,other,merger,gather) 
 };
 tink_core__$Promise_Promise_$Impl_$.and = function(a,b) {
 	return tink_core__$Promise_Promise_$Impl_$.merge(a,b,function(a1,b1) {
-		var this1 = new tink_core_MPair(a1,b1);
-		return new tink_core__$Future_SyncFuture(new tink_core__$Lazy_LazyConst(tink_core_Outcome.Success(this1)));
+		return new tink_core__$Future_SyncFuture(new tink_core__$Lazy_LazyConst(tink_core_Outcome.Success(new tink_core_MPair(a1,b1))));
 	});
 };
 tink_core__$Promise_Promise_$Impl_$.iterate = function(promises,$yield,fallback,lazy) {
@@ -7632,15 +7412,14 @@ tink_core__$Promise_Promise_$Impl_$.retry = function(gen,next) {
 				return attempt(count + 1);
 			});
 		};
-		var ret = gen().flatMap(function(o) {
+		return gen().flatMap(function(o) {
 			switch(o._hx_index) {
 			case 0:
 				return new tink_core__$Future_SyncFuture(new tink_core__$Lazy_LazyConst(o));
 			case 1:
 				return f(o.failure);
 			}
-		});
-		return ret.gather();
+		}).gather();
 	};
 	return attempt(1);
 };
@@ -7665,8 +7444,7 @@ tink_core__$Promise_Promise_$Impl_$.ofSpecific = function(s) {
 	return s;
 };
 tink_core__$Promise_Promise_$Impl_$.ofFuture = function(f) {
-	var ret = f.map(tink_core_Outcome.Success);
-	return ret.gather();
+	return f.map(tink_core_Outcome.Success).gather();
 };
 tink_core__$Promise_Promise_$Impl_$.ofOutcome = function(o) {
 	return new tink_core__$Future_SyncFuture(new tink_core__$Lazy_LazyConst(o));
@@ -7788,21 +7566,19 @@ tink_core__$Promise_Promise_$Impl_$.cache = function(gen) {
 				p = ret;
 			}
 		}
-		var ret1 = ret.map(function(o1) {
+		return ret.map(function(o1) {
 			if(!tink_core_OutcomeTools.isSuccess(o1)) {
 				p = null;
 			}
 			return o1;
-		});
-		return ret1.gather();
+		}).gather();
 	};
 };
 tink_core__$Promise_Promise_$Impl_$.lift = function(p) {
 	return p;
 };
 tink_core__$Promise_Promise_$Impl_$.trigger = function() {
-	var this1 = new tink_core_FutureTrigger();
-	return this1;
+	return new tink_core_FutureTrigger();
 };
 tink_core__$Promise_Promise_$Impl_$.resolve = function(v) {
 	return new tink_core__$Future_SyncFuture(new tink_core__$Lazy_LazyConst(tink_core_Outcome.Success(v)));
@@ -7819,8 +7595,7 @@ tink_core__$Promise_Next_$Impl_$.ofSafe = function(f) {
 };
 tink_core__$Promise_Next_$Impl_$.ofSync = function(f) {
 	return function(x) {
-		var ret = f(x).map(tink_core_Outcome.Success);
-		return ret.gather();
+		return f(x).map(tink_core_Outcome.Success).gather();
 	};
 };
 tink_core__$Promise_Next_$Impl_$.ofSafeSync = function(f) {
@@ -7849,8 +7624,7 @@ tink_core__$Promise_Combiner_$Impl_$.ofSafe = function(f) {
 };
 tink_core__$Promise_Combiner_$Impl_$.ofSync = function(f) {
 	return function(x1,x2) {
-		var ret = f(x1,x2).map(tink_core_Outcome.Success);
-		return ret.gather();
+		return f(x1,x2).map(tink_core_Outcome.Success).gather();
 	};
 };
 tink_core__$Promise_Combiner_$Impl_$.ofSafeSync = function(f) {
@@ -7861,8 +7635,7 @@ tink_core__$Promise_Combiner_$Impl_$.ofSafeSync = function(f) {
 var tink_core__$Promise_PromiseTrigger_$Impl_$ = {};
 tink_core__$Promise_PromiseTrigger_$Impl_$.__name__ = true;
 tink_core__$Promise_PromiseTrigger_$Impl_$._new = function() {
-	var this1 = new tink_core_FutureTrigger();
-	return this1;
+	return new tink_core_FutureTrigger();
 };
 tink_core__$Promise_PromiseTrigger_$Impl_$.resolve = function(this1,v) {
 	return this1.trigger(tink_core_Outcome.Success(v));
@@ -7884,9 +7657,7 @@ tink_core__$Promise_TinkError.prototype = $extend(Error.prototype,{
 var tink_core__$Ref_Ref_$Impl_$ = {};
 tink_core__$Ref_Ref_$Impl_$.__name__ = true;
 tink_core__$Ref_Ref_$Impl_$._new = function() {
-	var this1 = new Array(1);
-	var this2 = this1;
-	return this2;
+	return new Array(1);
 };
 tink_core__$Ref_Ref_$Impl_$.get_value = function(this1) {
 	return this1[0];
@@ -7898,29 +7669,25 @@ tink_core__$Ref_Ref_$Impl_$.toString = function(this1) {
 	return "@[" + Std.string(this1[0]) + "]";
 };
 tink_core__$Ref_Ref_$Impl_$.to = function(v) {
-	var this1 = new Array(1);
-	var this2 = this1;
-	var ret = this2;
+	var ret = new Array(1);
 	ret[0] = v;
 	return ret;
 };
 var tink_core__$Signal_Signal_$Impl_$ = {};
 tink_core__$Signal_Signal_$Impl_$.__name__ = true;
 tink_core__$Signal_Signal_$Impl_$._new = function(f) {
-	var this1 = new tink_core__$Signal_SimpleSignal(f);
-	return this1;
+	return new tink_core__$Signal_SimpleSignal(f);
 };
 tink_core__$Signal_Signal_$Impl_$.map = function(this1,f,gather) {
 	if(gather == null) {
 		gather = true;
 	}
-	var this2 = new tink_core__$Signal_SimpleSignal(function(cb) {
+	var ret = new tink_core__$Signal_SimpleSignal(function(cb) {
 		return this1.handle(function(result) {
-			var this3 = f(result);
-			tink_core__$Callback_Callback_$Impl_$.invoke(cb,this3);
+			var this2 = f(result);
+			tink_core__$Callback_Callback_$Impl_$.invoke(cb,this2);
 		});
 	});
-	var ret = this2;
 	if(gather) {
 		return tink_core__$Signal_Signal_$Impl_$.gather(ret);
 	} else {
@@ -7931,12 +7698,11 @@ tink_core__$Signal_Signal_$Impl_$.flatMap = function(this1,f,gather) {
 	if(gather == null) {
 		gather = true;
 	}
-	var this2 = new tink_core__$Signal_SimpleSignal(function(cb) {
+	var ret = new tink_core__$Signal_SimpleSignal(function(cb) {
 		return this1.handle(function(result) {
 			f(result).handle(cb);
 		});
 	});
-	var ret = this2;
 	if(gather) {
 		return tink_core__$Signal_Signal_$Impl_$.gather(ret);
 	} else {
@@ -7947,14 +7713,13 @@ tink_core__$Signal_Signal_$Impl_$.filter = function(this1,f,gather) {
 	if(gather == null) {
 		gather = true;
 	}
-	var this2 = new tink_core__$Signal_SimpleSignal(function(cb) {
+	var ret = new tink_core__$Signal_SimpleSignal(function(cb) {
 		return this1.handle(function(result) {
 			if(f(result)) {
 				tink_core__$Callback_Callback_$Impl_$.invoke(cb,result);
 			}
 		});
 	});
-	var ret = this2;
 	if(gather) {
 		return tink_core__$Signal_Signal_$Impl_$.gather(ret);
 	} else {
@@ -7965,7 +7730,7 @@ tink_core__$Signal_Signal_$Impl_$.select = function(this1,selector,gather) {
 	if(gather == null) {
 		gather = true;
 	}
-	var this2 = new tink_core__$Signal_SimpleSignal(function(cb) {
+	var ret = new tink_core__$Signal_SimpleSignal(function(cb) {
 		return this1.handle(function(result) {
 			var _g = selector(result);
 			switch(_g._hx_index) {
@@ -7977,7 +7742,6 @@ tink_core__$Signal_Signal_$Impl_$.select = function(this1,selector,gather) {
 			}
 		});
 	});
-	var ret = this2;
 	if(gather) {
 		return tink_core__$Signal_Signal_$Impl_$.gather(ret);
 	} else {
@@ -7988,10 +7752,9 @@ tink_core__$Signal_Signal_$Impl_$.join = function(this1,other,gather) {
 	if(gather == null) {
 		gather = true;
 	}
-	var this2 = new tink_core__$Signal_SimpleSignal(function(cb) {
+	var ret = new tink_core__$Signal_SimpleSignal(function(cb) {
 		return new tink_core__$Callback_LinkPair(this1.handle(cb),other.handle(cb));
 	});
-	var ret = this2;
 	if(gather) {
 		return tink_core__$Signal_Signal_$Impl_$.gather(ret);
 	} else {
@@ -8061,19 +7824,17 @@ tink_core__$Signal_Signal_$Impl_$.ofClassical = function(add,remove,gather) {
 	if(gather == null) {
 		gather = true;
 	}
-	var this1 = new tink_core__$Signal_SimpleSignal(function(cb) {
+	var ret = new tink_core__$Signal_SimpleSignal(function(cb) {
 		var f = function(a) {
 			tink_core__$Callback_Callback_$Impl_$.invoke(cb,a);
 		};
 		add(f);
 		var f1 = remove;
 		var a1 = f;
-		var this2 = new tink_core_SimpleLink(function() {
+		return new tink_core_SimpleLink(function() {
 			f1(a1);
 		});
-		return this2;
 	});
-	var ret = this1;
 	if(gather) {
 		return tink_core__$Signal_Signal_$Impl_$.gather(ret);
 	} else {
@@ -8110,19 +7871,16 @@ tink_core__$Signal_Suspendable.prototype = {
 		if(this.trigger.handlers.length == 0) {
 			this.suspend = this.activate(($_=this.trigger,$bind($_,$_.trigger)));
 		}
-		var a = tink_core__$Callback_CallbackList_$Impl_$.add(this.trigger.handlers,cb);
-		var this1 = new tink_core_SimpleLink(function() {
+		return new tink_core__$Callback_LinkPair(tink_core__$Callback_CallbackList_$Impl_$.add(this.trigger.handlers,cb),new tink_core_SimpleLink(function() {
 			if(_gthis.trigger.handlers.length == 0) {
 				_gthis.suspend();
 				_gthis.suspend = null;
 			}
-		});
-		return new tink_core__$Callback_LinkPair(a,this1);
+		}));
 	}
 };
 var tink_core_SignalTrigger = function() {
-	var this1 = [];
-	this.handlers = this1;
+	this.handlers = [];
 };
 tink_core_SignalTrigger.__name__ = true;
 tink_core_SignalTrigger.prototype = {
@@ -8335,13 +8093,6 @@ tink_core__$Future_Future_$Impl_$.NEVER = tink_core__$Future_NeverFuture.inst;
 tink_core__$Lazy_Lazy_$Impl_$.NULL = new tink_core__$Lazy_LazyConst(null);
 tink_core__$Promise_Promise_$Impl_$.NULL = new tink_core__$Future_SyncFuture(new tink_core__$Lazy_LazyConst(tink_core_Outcome.Success(null)));
 tink_core__$Promise_Promise_$Impl_$.NOISE = new tink_core__$Future_SyncFuture(new tink_core__$Lazy_LazyConst(tink_core_Outcome.Success(tink_core_Noise.Noise)));
-tink_core__$Promise_Promise_$Impl_$.NEVER = (function($this) {
-	var $r;
-	var ret = tink_core__$Future_Future_$Impl_$.NEVER.map(tink_core_Outcome.Success);
-	$r = ret.gather();
-	return $r;
-}(this));
+tink_core__$Promise_Promise_$Impl_$.NEVER = tink_core__$Future_Future_$Impl_$.NEVER.map(tink_core_Outcome.Success).gather();
 app_App.main();
 })(typeof window != "undefined" ? window : typeof global != "undefined" ? global : typeof self != "undefined" ? self : this);
-
-//# sourceMappingURL=geom.js.map

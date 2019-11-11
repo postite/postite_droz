@@ -96,7 +96,6 @@
 	/Users/ut/Documents/LAB/postite_droz/tests/TestAll.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/uz/Debug.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Geste.hx
-	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/GeomFilters.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Timer.hx
 /Users/ut/Documents/LAB/postite_droz/src/postite/uz/Debug.hx:
 	/Users/ut/Documents/LAB/postite_droz/tests/TestVector2d.hx
@@ -607,6 +606,7 @@
 	/Users/ut/Documents/LAB/postite_droz/tests/TestResample.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGesteStatics.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestGeomFilters.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/UnistrokePatterns.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Simplify.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Segment.hx

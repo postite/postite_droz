@@ -70,9 +70,6 @@ public function Recognize(points:Points,useProtractor:Bool):Result{
                 this.Unistrokes[u].Name, (useProtractor)? 1.0 / b : 1.0 - b / HalfDiagonal, newdate 
                 );
             }
-
-            
-
 }
 public function addGesture(name,points):Int{
 this.Unistrokes[this.Unistrokes.length] = new UniStroke(name, points); // append new unistroke

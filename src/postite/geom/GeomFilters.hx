@@ -112,6 +112,22 @@ public static function boundingBox(points:Array<Point>):Rect
 		
 	}
 
+	//https://stackoverflow.com/questions/5837572/generate-a-random-point-within-a-circle-uniformly
+	public static function randomInCircle(R:Float,center:Point):Point{
+		var r = R * Math.sqrt(Math.random());
+		var theta = Math.random() * 2 * Math.PI;
+
+
+	var x = center.x + r * Math.cos(theta);
+var y = center.y + r * Math.sin(theta);
+return {x:x,y:y};
+	}
+//isPoint in circle
+	public static function  pointIsInCircle( circleRadius:Float, center :Point, pt:Point):Bool
+{
+    return (Math.pow(pt.x - center.x, 2) + Math.pow(pt.y - center.y, 2)) < (Math.pow(circleRadius, 2));
+}
+
 	public function smoothing(){
 		//https://www.codeproject.com/Articles/1093960/D-Polyline-Vertex-Smoothing
 	}
