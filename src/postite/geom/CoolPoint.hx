@@ -1,5 +1,5 @@
 package postite.geom;
-
+import postite.geom.units.Degree;
 typedef _Point = {
 	x:Float,
 	y:Float 
@@ -15,7 +15,7 @@ typedef PressPoint={
 }
 typedef RPoint=
 	_Point&{
-	?rotation:Float
+	?rotation:Degree
 }
 
 typedef Rect={
