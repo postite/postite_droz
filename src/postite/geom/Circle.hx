@@ -81,7 +81,7 @@ class Circle  {
    public function pointInCircle(t:Radian):RPoint{
 		var  _x = ray*Math.cos(t) + x;
 		var  _y = ray*Math.sin(t) + y;
-		return {x:x, y:y, rotation:(t:Degree)};
+		return {x:_x, y:_y, rotation:(t:Degree)};
 
 	}
 
