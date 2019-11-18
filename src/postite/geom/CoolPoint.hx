@@ -13,6 +13,10 @@ typedef PressPoint={
 	>_Point,
 	?press:Float
 }
+typedef RPoint=
+	_Point&{
+	?rotation:Float
+}
 
 typedef Rect={
 	x:Float,

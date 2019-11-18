@@ -92,6 +92,35 @@ class Matools {
 		return false;
 	}
 
+	//from heaps.hxd.Math
+	//A function to calculate the square of the distance between two points.
+	public static inline function distanceSq( dx : Float, dy : Float, dz = 0. ) {
+		return dx * dx + dy * dy + dz * dz;
+	}
+
+	public static inline function distance( dx : Float, dy : Float, dz = 0. ) {
+		return Math.sqrt(distanceSq(dx,dy,dz));
+	}
+
+	// round to 4 significant digits, eliminates < 1e-10
+	public static function fmt( v : Float ) {
+		var neg;
+		if( v < 0 ) {
+			neg = -1.0;
+			v = -v;
+		} else
+			neg = 1.0;
+		if( Math.isNaN(v) || !Math.isFinite(v) )
+			return v;
+		var digits = Std.int(4 - Math.log(v) / Math.log(10));
+		if( digits < 1 )
+			digits = 1;
+		else if( digits >= 10 )
+			return 0.;
+		var exp = Math.pow(10,digits);
+		return Math.ffloor(v * exp + .49999) * neg / exp;
+}
+
 	/**
 		`sign` returns `-1` if `value` is a negative number, `1` otherwise.
 	 */

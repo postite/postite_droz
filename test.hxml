@@ -9,7 +9,7 @@
 -lib hx-vector2d
 -debug
 
--D dump-dependencies
+#-D dump-dependencies
 #-lib hxDelaunay
 -lib tink_core
 #-js www/test.js

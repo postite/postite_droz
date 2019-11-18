@@ -60,6 +60,7 @@
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Runner.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Assert.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/uz/Debug.hx
+	/Users/ut/Documents/LAB/postite_droz/src/postite/math/Matools.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Geste.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/GeomFilters.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/dro/Couleur.hx
@@ -105,6 +106,7 @@
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeomFilters.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestCouleur.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestCircle.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestAll.hx
 /Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/iterators/MapKeyValueIterator.hx:
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/StringMap.hx
@@ -156,6 +158,7 @@
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeomFilters.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestCouleur.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestCircle.hx
 /Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/Timer.hx:
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/ui/text/PlainTextReport.hx
 	/Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/TestHandler.hx
@@ -279,6 +282,7 @@
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeomFilters.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestCouleur.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestCircle.hx
 /Users/ut/Documents/LAB/postite_droz/src/postite/uz/StepIterator.hx:
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/Geste.hx
 /Users/ut/haxe/haxe_libraries/utest/1.9.6/github/29d39ad7733ab852cc7a4e1f4e44b2ab0294b15c/src/utest/Dispatcher.hx:
@@ -363,6 +367,7 @@
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeomFilters.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestCouleur.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestCircle.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestAll.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/eval/_std/sys/thread/Thread.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/sys/thread/Mutex.hx
@@ -455,6 +460,7 @@
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeomFilters.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestCouleur.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestCircle.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestAll.hx
 /Users/ut/haxe/versions/4.0.0-rc.5/std/eval/_std/sys/io/FileOutput.hx:
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/eval/_std/Sys.hx
@@ -496,6 +502,7 @@
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeomFilters.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestCouleur.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestCircle.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestAll.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/eval/_std/sys/thread/Thread.hx
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/sys/thread/Mutex.hx
@@ -672,6 +679,8 @@
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/GeomFilters.hx
 /Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/ObjectMap.hx:
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/Map.hx
+/Users/ut/Documents/LAB/postite_droz/tests/TestCircle.hx:
+	/Users/ut/Documents/LAB/postite_droz/tests/TestAll.hx
 /Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/EntryPoint.hx:
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/MainLoop.hx
 /Users/ut/haxe/versions/4.0.0-rc.5/std/StringTools.hx:
@@ -685,6 +694,7 @@
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeomFilters.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestCouleur.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestCircle.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestAll.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/uz/Debug.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/dro/Couleur.hx
@@ -714,6 +724,7 @@
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeomFilters.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestCouleur.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestCircle.hx
 /Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/BalancedTree.hx:
 	/Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/ds/EnumValueMap.hx
 /Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/Input.hx:
@@ -771,6 +782,7 @@
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeomFilters.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestCouleur.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestCircle.hx
 /Users/ut/Documents/LAB/postite_droz/src/postite/geom/units/Radian.hx:
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/units/Degree.hx
 	/Users/ut/Documents/LAB/postite_droz/src/postite/geom/GeomFilters.hx
@@ -786,6 +798,7 @@
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeste.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestGeomFilters.hx
 	/Users/ut/Documents/LAB/postite_droz/tests/TestCouleur.hx
+	/Users/ut/Documents/LAB/postite_droz/tests/TestCircle.hx
 /Users/ut/Documents/LAB/postite_droz/tests/TestVector2d.hx:
 	/Users/ut/Documents/LAB/postite_droz/tests/TestAll.hx
 /Users/ut/haxe/versions/4.0.0-rc.5/std/haxe/io/FPHelper.hx:

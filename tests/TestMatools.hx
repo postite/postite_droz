@@ -37,6 +37,11 @@ class TestMatools extends utest.Test {
     public function testMax(){
         Assert.equals(2,Matools.max(1,2));
     }
+
+    public function testFmt(){
+       var f=1.34435678;
+        Assert.equals(1.344,Matools.fmt(f));
+    }
      public function nearequals()
     {
        
