@@ -25,6 +25,7 @@ class TestAll {
     runner.addCase(new TestMatools());
     runner.addCase(new TestGeomFilters());
     runner.addCase(new TestCircle());
+    runner.addCase(new TestBounding());
     //runner.addCase(new TestCase2());
     Report.create(runner);
     

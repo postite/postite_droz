@@ -3,11 +3,11 @@ import haxe.ds.Option;
 import hxClipper.Clipper;
 import postite.geom.CoolPoint;
 import postite.geom.Segment;
-
+using Lambda;
 class GeomFilters {
 	public function new() {}
 
-	
+
 
     public static function rectToArray(rect:Rect):Array<Point>{
         var a:Array<Point>=[];
@@ -15,9 +15,16 @@ class GeomFilters {
         a.push({x:rect.x+rect.width,y:rect.y});
         a.push({x:rect.x+rect.width,y:rect.y+rect.height});
         a.push({x:rect.x,y:rect.y+rect.height});
-		a.push({x:rect.x,y:rect.y});
+			a.push({x:rect.x,y:rect.y});
         return a;
     }
+public static function growRect(r:Rect,offset:Float){
+		var _x= r.x-offset;
+		var _y= r.y-offset;
+		var _width= r.width+offset*2;
+		var _height=r.height+offset*2;
+		return {x:_x,y:_y,width:_width,height:_height};
+}
 
 public static function boundingBox(points:Array<Point>):Rect
 {
@@ -68,6 +75,61 @@ public static function boundingBox(points:Array<Point>):Rect
 		co.executePaths(solution, dist * scale);
 		// trace("solution="+ solution.length);
 		return cast solution;
+	}
+
+	public static function unionTab(tab:Array<Points>):Array<Points>{
+			var pft=PolyFillType.PFT_EVEN_ODD;
+			var paths=[];
+			for ( pol in tab){
+					var polyint=[];
+				pol.iter(function(seg){
+					polyint.push(cast Std.int(seg.x));
+					polyint.push(cast Std.int(seg.y));
+				});
+				paths.push(MakePolygonFromInts(polyint));
+			}
+			var c = new Clipper();
+
+		c.addPaths(paths, PolyType.PT_SUBJECT, true);
+		var solution = [];
+		var res = c.executePaths(ClipType.CT_UNION, solution, pft, pft);
+		return cast solution;
+
+	}
+
+	public static function union(PolyA:Points,PolyB:Points):Array<Points>{
+		var tab=[PolyA,PolyB];
+		return unionTab(tab);
+	// 		 var pft=PolyFillType.PFT_EVEN_ODD;
+	// 		 var PolyAInts = [];
+	// 	PolyA.map(function(seg) {
+			
+	// 		return seg;
+	// 	});
+
+	// 		 var PolyBInts = [];
+	// 	PolyB.map(function(seg) {
+	// 		PolyBInts.push(cast Std.int(seg.x));
+	// 		PolyBInts.push(cast Std.int(seg.y));
+	// 		return seg;
+	// 	});
+
+	// 	var paths=[];
+	// 	var path1= MakePolygonFromInts(PolyAInts);
+	// 	var path2= MakePolygonFromInts(PolyBInts);
+	// paths.push(path1);
+	// paths.push(path2);
+	// 	var c = new Clipper();
+
+
+	// 	//c.addPaths(path1,path2.PT_SUBJECT,true);
+	// 	c.addPaths(paths, PolyType.PT_SUBJECT, true);
+	// 	//c.addPaths(path2, PolyType.PT_SUBJECT, true);
+
+	// 	var solution = [];
+	// 	trace( "solution");
+	// 	var res = c.executePaths(ClipType.CT_UNION, solution, pft, pft);
+	// 	return solution;
 	}
 
 	static private function MakePolygonFromInts(ints:Array<Int>, scale:Float = 1.0):Path {

@@ -37,7 +37,7 @@ class Dro{
   public static function drawPoly(ctx:js.html.CanvasRenderingContext2D,poly:Array<Point>,?col:String="#000"):Void
 	{
         var scale=1;
-		var p0 = poly[0];
+			var p0 = poly[0];
         ctx.strokeStyle=col;
 		
 		ctx.moveTo(p0.x / scale, p0.y / scale);

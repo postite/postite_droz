@@ -22,8 +22,8 @@ class TestVrac implements postite.display.canvas.CanvasDisplay.IRenderCan{
 	public var enabled=true;
 	public function new(dims, can){
 		this.can = can;
-
 	}
+	
 
 	public function render(r:CanvasRender){
 		var seg=new Segment({x:20.0,y:10.0},{x:210.0,y:220.0});

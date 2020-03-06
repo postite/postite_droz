@@ -15,6 +15,7 @@ static var  AnglePrecision = Deg2Rad(2.0);
 static var  Phi = 0.5 * (-1.0 + Math.sqrt(5.0)); // Golden Ratio
 //
 
+
 var Unistrokes:Array<UniStroke>;
 public function new(){
     Unistrokes= new Array();

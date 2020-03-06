@@ -1,4 +1,5 @@
 package tests;
+import hxClipper.Clipper.IntRect;
 import utest.Test;
 import postite.dro.Coords;
 import postite.geom.PolyGon;
@@ -48,6 +49,28 @@ class TestGeomFilters extends Test{
       Assert.isTrue(GeomFilters.pointIsInCircle(15,{x:15,y:15},{x:15,y:15}) );
       Assert.isTrue(GeomFilters.pointIsInCircle(15,{x:15,y:15},{x:16,y:17}) );
       Assert.isFalse(GeomFilters.pointIsInCircle(15,{x:15,y:15},{x:40,y:40}) );
+   }
+
+   function testUnion(){
+      var left:Rect={x:0,y:0,width:100,height:100}; 
+      var right:Rect={x:100,y:0,width:100,height:100}; 
+
+      var union= GeomFilters.union(left.rectToArray().log(), right.rectToArray().log());
+      GeomFilters.boundingBox(cast union[0].log());
+      Assert.same(GeomFilters.boundingBox(cast union[0]),{x:0,y:0,width:200,height:100});
+   }
+   function testUnionTab(){
+      var left:Rect={x:0,y:0,width:100,height:100}; 
+      var right:Rect={x:100,y:0,width:100,height:100};
+      var bottom:Rect={x:100,y:100,width:100,height:100};
+
+      var tab=[left,right,bottom];
+
+      var tib=tab.map(z->
+           z.rectToArray()
+      );
+      var union = GeomFilters.unionTab(tib);
+      Assert.equals(GeomFilters.boundingBox(cast union[0]),{x:0,y:0,width:200,height:200});
    }
 
 }
