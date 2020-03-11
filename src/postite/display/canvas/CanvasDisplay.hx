@@ -15,7 +15,7 @@ class CanvasDisplay {
 	public var onFrame:Int->Void;
 	public var canvas(get, never):CanvasElement;
 
-	
+
 
 	public function get_canvas():CanvasElement {
 		if (_can == null)
@@ -93,7 +93,7 @@ class CanvasDisplay {
 		display.render();
 	}
 
-	function createCanvas(dims):CanvasElement {
+	function createCanvas(?dims):CanvasElement {
 		trace("create canvas");
 		_can = doc.createCanvasElement();
 		
