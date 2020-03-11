@@ -7,12 +7,15 @@ import postite.display.*;
 typedef IRenderCan = IRenderable<CanvasRender>;
 
 class CanvasDisplay {
+
 	var _can:CanvasElement;
 	var raf:(Float->Void)->Void;
 	var paused:Bool=false;
 	var fps:Int;
 	public var onFrame:Int->Void;
 	public var canvas(get, never):CanvasElement;
+
+	
 
 	public function get_canvas():CanvasElement {
 		if (_can == null)
@@ -22,8 +25,8 @@ class CanvasDisplay {
 
 	public var display:Display<CanvasRender>;
 
-	public function new() {
-		display = new Display(new CanvasRender(createCanvas()));
+	public function new(?dims:{width:Int,height:Int}){
+		display = new Display(new CanvasRender(createCanvas(dims)));
 	}
 
 	// animating stuff
@@ -90,11 +93,12 @@ class CanvasDisplay {
 		display.render();
 	}
 
-	function createCanvas():CanvasElement {
+	function createCanvas(dims):CanvasElement {
 		trace("create canvas");
 		_can = doc.createCanvasElement();
-		_can.width = js.Browser.window.innerWidth;
-		_can.height = js.Browser.window.innerHeight;
+		
+		_can.width = (dims!=null)? dims.width : js.Browser.window.innerWidth;
+		_can.height = (dims!=null)? dims.height : js.Browser.window.innerHeight;
 		doc.body.appendChild(_can);
 		return _can;
 	}
