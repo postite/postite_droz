@@ -90,6 +90,7 @@ class CanvasDisplay {
 		display.removeRenderable(renderable);
 
 	public function render(){
+		
 		display.render();
 	}
 
